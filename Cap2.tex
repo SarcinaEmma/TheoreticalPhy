@@ -454,4 +454,62 @@ With a procedure identical to the one used for $1 \to 2$ decay ($M \leftrightarr
 \bigl( \de \Phi''_{(2)} \bigr)_{CM} = \frac{1}{16 \pi^2} \frac{\abs{\widehat{p'_1}}_{CM}}{\sqrt{s}} \ \de \Omega'_1 \notag \\
 \abs{\widehat{p'_1}}_{CM} = \frac{1}{2 \sqrt{s}} \biggl[ s^2 + (m^{\prime 2}_1 + m^{\prime 2}_2)^2 - 2s (m^{\prime 2}_1 + m^{\prime 2}_2) \biggr]^{1/2} \notag
 \end{gather}
+The covariant flux factor in CM frame reads
+\[
+(I_{12})_{CM} = \bigl[ \vec{p}^2 (\omega_1 + \omega_2 )^2 \bigr]^{1/2} = \abs{\vec{p}} \sqrt{s}
+\]
+So we obtain the final result
+\[
+\begin{split}
+\biggl( \frac{\de \sigma}{\de \Omega'_1} \biggr)_{CM} 	
+	& = \frac{1}{64 \pi^2 s} \frac{\abs{\widehat{p'_1}}_{CM}}{\abs{\vec{p}}} \ \abs{\mathM_{fi}}^2_{CM} \\
+	& = \frac{1}{128 \pi^2 s^{3/2}} \frac{1}{\abs{\vec{p}}}
+		\bigl[s^2 + (m_1^{\prime 2} - m_2^{\prime 2})^2 - 2s(m_1^{\prime 2} + m_2^{\prime 2}) \bigr]^{1/2}
+		\abs{\mathM_{fi}}^2_{CM}
+\end{split}
+\]
+We have two important limit cases
+\begin{enumerate}[label=(\Alph*)]
+\item If $m_1 = m'_1, m_2 = m'_2$, i. e. elastic scattering (for example $e^- \mu^{\dagger} \to e^-\mu^{\dagger}$)
+	\begin{equation*}
+	\left. \begin{aligned}
+	\abs{\vec{p_1}} = \abs{\vec{p'_1}}, \omega_1 = \omega'_1 \\
+	\abs{\vec{p_2}} = \abs{\vec{p'_2}}, \omega_2 = \omega'_2
+	\end{aligned}
+	\right \}
+	\quad \abs{\hat{p'_1}}_{CM} = \abs{\vec{p}}
+	\end{equation*}
+	\[
+	\Biggl( \frac{\de \sigma}{\de \Omega'_1} \Biggr)_{CM} = \ \frac{1}{64 \pi^2} \frac{\abs{\mathM_{fi}}^2}{s}
+	\]
+\item If $m_1 = m_2 \simeq 0, m'_1 = m'_2 = M$ (for example $e^-e^+ \to \mu^- \mu^+$)
+	\begin{gather}
+	\abs{\vec{p_1}} = \abs{\vec{p}}, \omega_1 = \frac{\sqrt{s}}{2} \notag \\
+	\abs{\hat{p'_1}} = \frac{\sqrt{s}}{2} \Biggl( 1 - \frac{1}{4M^2}{s} \Biggr)^{1/2} 
+	\end{gather}
+$4M^2/s$ processes with $s < 4M^2$ are unphysical
+	\[
+	\Biggl( \frac{\de \sigma}{\de \Omega'_1} \Biggr)_{CM} = \ \frac{1}{64 \pi^2} 
+	\Biggl( 1 - \frac{4M^2}{s} \Biggr)
+	\frac{\abs{\mathM_{fi}}^2}{s}
+	\]
+\end{enumerate}
 \end{example}
+
+The previous formulas are valid also for particles with spin, if the initial and final spin states are known; in this case the initial state has the form $\Ket{i} = \Ket{\vec{p_1}, \vec{s_1}; \dots; \vec{p_n}, \vec{s_n}}$, and similarly for the final state.\\
+However, experimentally is more common that we do not know the initial spin configuration and we accept in the detector all final spin configurations; in this case, to compare with experiment, we must
+\begin{enumerate}
+\item Considering all (equally present) polarization of initial state, i.e. \textit{average} over the initial spin configuration
+\item Considering all final polarizations, i.e. \textit{sum} over all possible final configurations
+\end{enumerate}
+Defining the \textbf{unpolarized Feynman amplitude $\overline{\abs{\mathM_{fi}}}$} as
+\[
+\overline{\abs{\mathM_{fi}}^2} = \frac{1}{\text{n initial polarizations}} \
+	=\sum _{\text{initial spins}} \ \sum _{\text{final spins}} \ \abs{\mathcal{M}_{fi}}^{2}
+\]
+we just hace to substitute $\abs{\mathM_{fi}}^2 \to \abs{\mathM_{fi}}^2$ in all previous formulas\\
+For example, in $2 \to 2$ scattering
+\[
+\frac{1}{\text{n init pol}} = \frac{1}{(2 s_a + 1)(2 s_b + 1)}
+\qquad \text{where } s_a = \text{spin of particle 1; and } s_b = \text{spin of particle 2}
+\]
