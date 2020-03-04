@@ -334,4 +334,124 @@ with:
 \item $N_2$: particles per unit volume in the detector $N_2 = n_2^{(0)}V$
 \item $\sigma$: proportionality constant
 \end{enumerate}
-Dimensional analysis shows $[\sigma] = [L]^2$ and then $\sigma$, called cross section, can be interpreted as an ``effective area''.
+Dimensional analysis shows $[\sigma] = [L]^2$ and then $\sigma$, called cross section, can be interpreted as an ``effective area''\\
+Consider the case where just one particle collides with another particle (2 particles scattering). We can obtain this condition imposing $n_{1,2}^{(0)} = 1/V$, in this way the scattering per unit of volume is the same as two particles scattering\\
+Notice that this situation is the more physical. The probability of 3 particles collision in the same $\de^3 x$ and $\de t$ is almost 0\\ \\
+If $\de \omega$ is, again, the probability for a process in which in the final state the i-th particle has momentum between $p_i$ and $p_i + \de p_i$
+\[
+\de \omega = (2 \pi)^4 \delta^4 (p_i - p_f) VT \biggl( \frac{1}{2 \omega_1 V} \biggl) \biggl( \frac{1}{2 \omega_2 V} \biggr) \
+	\prod_{l=1}^{n_f} \biggl( \frac{\de^3 pl}{(2 \pi)^3 2 \omega_l} \biggr) \abs{\mathM_{fi}}^2
+\]
+we can define the \textbf{differential cross section} (in the lab frame) \textbf{$\de \sigma$} as
+\[
+\begin{split}
+(\de \sigma)_{\textup{LAB}}	& = \frac{\de \omega}{n_1^{(0)} n_2^{(0)} v_1 VT}	\\
+						& =\frac{V}{T v_1} \de \omega \\
+						& = (2 \pi)^4 \delta^4 (p_i - p_f) \
+						\prod_{l_1}^{n_f} \biggl( \frac{\de^3 p_l}{(2 pi)^3 2 \omega_l} \biggr)
+						\frac{\abs{\mathM_{fi}}^2}{4 \omega_1 \omega_2 v_1}
+						\qquad \textup{with } \omega_2 = m_2
+\end{split}
+\]
+The result is then
+\[
+(\de \sigma)_{\textup{LAB}} = \frac{1}{4 \omega_1 v_1 m_2} \abs{\mathM_{fi}}^2 \ \de \Phi_{(nf)}
+\]
+All quantities refers to the rest frame for particle 2 ($\omega_1 = \omega_1^{(0)}, v_1 = v_1^{(0)}$)\\
+In order to obtain a covariant relation for $\de \sigma$, we notice that the only non-covariant factor in the latter relation is $(I_{12})_{\textup{LAB}} = \omega_1^{(0)} m_2$. This factor can be substituted with a covariant one
+\[
+I_{12} = \bigl[ (p_1 p_2)^2 - m_1^2 m_2^2 \bigr]^{1/2}
+\]
+called \textbf{covariant flux factor}. This factor is obviously covariant, we just have to prove that in the lab frame it coincides with $(I_{12})_{\textup{LAB}}$.
+In the lab frame we have $p_1 = (\omega_1, \vec{p_1}^{(0)})$ and $p_2 = (m_2, \vec{0})$, so the previous formula becomes
+\[
+\bigl[ m_2^2 (\omega_1^{(0)})^2 - m_1 m_2 \bigr]^{1/2} = m_2 \bigl( (\omega_1^{(0)})^2 - p_1^2 \bigr)^{1/2} = m_2 \abs{\vec{p_1^{(0)}}}
+	= m_2 \omega_1^{(0)} v_1^{(0)}
+\]
+So the final result is
+\[
+\de \sigma = \frac{\abs{\mathM_{fi}^2}}{4 I_{12}} \de \ \Phi_{(nf)}
+\]
+
+\newpage
+\begin{example}[$2 \to 2$ scattering]
+Consider a scattering process $2 \to 2$. We consider an initial state with two particles with masses $m_1, m_2$ and four momenta $p_1, p_2$ and a final state with masses $m'_1, m'_2$ and four momenta $p'_1, p'_2$
+
+\begin{center}
+% Pattern Info
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_hj3mih7tf}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_hj3mih7tf}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+%Shape: Ellipse [id:dp21530724204661533] 
+\draw  [pattern=_hj3mih7tf,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}] (325.39,126.56) .. controls (325.39,118.14) and (332.22,111.32) .. (340.63,111.32) .. controls (349.05,111.32) and (355.87,118.14) .. (355.87,126.56) .. controls (355.87,134.97) and (349.05,141.79) .. (340.63,141.79) .. controls (332.22,141.79) and (325.39,134.97) .. (325.39,126.56) -- cycle ;
+%Straight Lines [id:da9191843337533081] 
+\draw    (255.3,95.8) -- (326.45,121.53) ;
+%Straight Lines [id:da8608860797521036] 
+\draw    (355.44,130.25) -- (424.89,156.58) ;
+%Straight Lines [id:da7041811863832155] 
+\draw    (255.3,157.8) -- (326.19,131.02) ;
+%Straight Lines [id:da585605593647289] 
+\draw    (355.18,122.04) -- (425.5,96.41) ;
+% Text Node
+\draw (240,87) node  [font=\footnotesize]  {$p_{1}$};
+% Text Node
+\draw (239,162) node  [font=\footnotesize]  {$p_{2}$};
+% Text Node
+\draw (436,93) node  [font=\footnotesize]  {$p'_{1}$};
+% Text Node
+\draw (436,157) node  [font=\footnotesize]  {$p'_{2}$};
+\end{tikzpicture}
+\end{center}
+With
+\[
+p_1 = (\omega_1, \vec{p_1}) \qquad
+p_2 = (\omega_2, \vec{p_2}) \qquad
+p'_1 = (\omega'_1, \vec{p'_1}) \qquad
+p'_2 = (\omega'_2, \vec{p'_2})
+\]
+With a procedure identical to $1 \to 1$ decay (imposing also $\vec{p'_2} = \vec{p_1} + \vec{p_2} - \vec{p'_1}$ when we calculate $\de \sigma$), we obtain 
+\[
+\de \Phi'_{(2)} = \frac{1}{(2 \pi)^2} \frac{1}{4 \omega'_1 \omega'_2} \delta (\omega_1 + \omega_2 - \omega'_1 - \omega'_2) \ \de^3p'_1
+\]
+In order to integrate over $\de \abs{\vec{p'_1}}$ it is useful to introduce Mandelstam variables s, t and u
+\[
+s = (p1 + p2)^2 \qquad
+t = (p1 - p'_1)^2 \qquad
+u = (p_1 - p'_2)^2
+\]
+These variables are clearly Lorentz invariants, and satisfy (using $p_1 + p_2 = p'_1 + p'_2$) the relation
+\[
+s + t + u = m_1^2 + m_2^2 + (m'_1)^2 + (m'_2)^2
+\]
+It is useful to work in the center of mass frame, where the incoming particles have $p_1 = (\omega_1, \vec{p})$ and $p_2 = (\omega_2, -\vec{p})$. Computing s in the CM frame we obtain $s = (\omega_1 + \omega_2)^2 = (\omega'_1 + \omega'_2)^2$ and then
+\begin{gather}
+p_1 + p_2 = (\sqrt{s}, 0) \notag \\
+\delta(\omega_1 + \omega_2 - \omega'_1 -\omega'_2) = \delta (\sqrt{s} - \omega'_1 - \omega'_2) \notag
+\end{gather}
+With a procedure identical to the one used for $1 \to 2$ decay ($M \leftrightarrow \sqrt{s}$) we obtain
+\begin{gather}
+\bigl( \de \Phi''_{(2)} \bigr)_{CM} = \frac{1}{16 \pi^2} \frac{\abs{\widehat{p'_1}}_{CM}}{\sqrt{s}} \ \de \Omega'_1 \notag \\
+\abs{\widehat{p'_1}}_{CM} = \frac{1}{2 \sqrt{s}} \biggl[ s^2 + (m^{\prime 2}_1 + m^{\prime 2}_2)^2 - 2s (m^{\prime 2}_1 + m^{\prime 2}_2) \biggr]^{1/2} \notag
+\end{gather}
+\end{example}
