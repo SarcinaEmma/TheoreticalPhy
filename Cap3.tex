@@ -8,6 +8,7 @@
 
 
 \section{$e^-\gamma\rightarrow e^-\gamma$ (Compton)}
+\textsf{See Peskin, sec 5.5}\\
 Let's examinate a process with external bosons: \emph{Compton scattering}, or $e^-\gamma\rightarrow e^-\gamma$. This process is described by two independent diagrams, since they are topologically different:
 
 \begin{equation*}\mathcal M_A=%
@@ -66,7 +67,28 @@ Let's examinate a process with external bosons: \emph{Compton scattering}, or $e
 \end{tikzpicture}
 \end{equation*}
 
-We wrote the diagram of $\mathcal M_B$ in two topologically equivalent forms: in the first one is clear the topological relation with diagram of $\mathcal B$ (this is useful to find the relative sign between diagrams $A$ and $B$), while in the second one is clear that it describes a $u$-channel.
+{\small We wrote the diagram of $\mathcal M_B$ in two topologically equivalent forms: in the first one is clear the topological relation with diagram of $\mathcal M_A$ (this is useful to find the relative sign between diagrams $A$ and $B$: it's clear that diagrams differs for the permutation of two bosons), while in the second one is clear that it describes a $u$-channel.}
+
+\skipline
+Amplitudes reads, using Feynman rules
+
+\begin{align*}
+\mathcal M_A&=\bar u_{r'}(p')(-iq\gamma^\mu)\epsilon_\mu^{\lambda'*}(k')\tilde S_F(p+k)(-iq\gamma^\nu)\epsilon_\nu^\lambda(k)u_r(p)\\
+&=-q^2\epsilon_\mu^{\lambda'*}(k')\epsilon_\nu^\lambda(k)\left[\bar u_{r'}(p')\gamma^\mu\tilde S_F(p+k)\gamma^\nu u_r(p)\right]\\
+&\,\\
+\mathcal M_B&=-q^2\epsilon_\mu^{\lambda'*}(k')\epsilon_\nu^\lambda(k)\left[\bar u_{r'}(p')\gamma^\nu\tilde S_F(p-k')\gamma^\mu u_r(p)\right]
+\end{align*}
+
+{\small (Recall that $\tilde S_F$ is a matrix, so elements in the squared braket  must be written in this order)}\\
+Because of anticommuting relations for bosons, these amplitudes must be summed up in the total amplitude.
+The explicit form of Feynman propagator for the Dirac field reads
+
+\[\tilde S_F(p)=\frac{i(\slashed p+m)}{p^2-m^2+i\epsilon}=\frac i{\slashed p-m+i\epsilon}\]
+so total amplitude is
+
+\[\mathcal M=-iq^2\epsilon_\mu^{\lambda'*}(k')\epsilon_\nu^\lambda(k)\bar u_{r'}(p')\left[\frac{\gamma^\mu(\slashed p+\slashed k+m)\gamma^\nu}{(p+k)^2-m^2}+\frac{\gamma^\nu(\slashed p-\slashed k'+m)\gamma^\mu}{(p-k')^2-m^2}\right]u_r(p)\]
+
+
 
 \onlyinmainfile{\begin{comment}} %Lascio il codice qui per vedere come hai fatto te le cose 
 
