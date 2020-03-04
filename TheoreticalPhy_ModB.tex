@@ -14,8 +14,7 @@
 \usepackage{mathrsfs}
 \usepackage[framemethod=TikZ, nobreak=true]{mdframed}
 	\usepackage{amsthm}
-\usepackage{tikz-feynman}
-	\tikzfeynmanset{compat=1.0.0}
+\usepackage[compat=1.0.0]{tikz-feynman}
 \usepackage{enumitem}
 	\setlist{itemsep = 0pt}
 	\setlist{label=(\roman*)}
@@ -34,6 +33,15 @@
 \newcommand{\so}{\Rightarrow}
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\norma}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\id}{\mathbb 1} %Identità con il doppio 1
+\newcommand{\varid}{\textup {id}} %Identità con "id"
+
+\newcommand{\skipline}{\vspace{\baselineskip}} %Salta una riga
+
+%Struttura modulare
+\usepackage{subfiles}
+\newcommand{\onlyinsubfile}[1]{#1}
+\newcommand{\onlyinmainfile}[1]{}
 
 %Example
 \mdfdefinestyle{theoremstyle}{%
@@ -46,11 +54,17 @@ innertopmargin=\topskip,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+
+%struttura modulare
+\renewcommand{\onlyinsubfile}[1]{}
+\renewcommand{\onlyinmainfile}[1]{#1}
+
 \tableofcontents
 
 \input{introduction}
 
 %%The S-matrix and physical observables
 \input{Cap2}
+\subfile{Cap3}
 
 \end{document}
