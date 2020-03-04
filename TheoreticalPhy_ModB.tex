@@ -1,0 +1,55 @@
+\documentclass[a4paper]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+	\geometry{a4paper, top=3cm, bottom=3cm, left=2.5cm, right=2.5cm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{cases}
+\usepackage{mathtools}
+\usepackage{slashed}
+\usepackage{braket}
+\usepackage{mathrsfs}
+\usepackage[framemethod=TikZ, nobreak=true]{mdframed}
+	\usepackage{amsthm}
+\usepackage{tikz-feynman}
+\usepackage{enumitem}
+	\setlist{itemsep = 0pt}
+	\setlist{label=(\roman*)}
+\usepackage[framemethod=TikZ]{mdframed}
+	\usepackage{amsthm}
+
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\vec}{\mathbf}
+
+\newcommand{\mathL}{\mathscr{L}}
+\newcommand{\mathH}{\mathcal{H}}
+\newcommand{\mathM}{\mathcal{M}}
+\newcommand{\mathZ}{\mathbb{Z}}
+\newcommand{\de}{\textup{d}}
+\newcommand{\so}{\Rightarrow}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norma}[1]{\left\lVert #1 \right\rVert}
+
+%Example
+\mdfdefinestyle{theoremstyle}{%
+linecolor=gray,linewidth=2pt,%
+frametitlerule=true,%
+frametitlebackgroundcolor=gray!20,
+innertopmargin=\topskip,
+}
+\mdtheorem[style=theoremstyle, nobreak=false]{example}{Example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\tableofcontents
+
+\input{introduction}
+
+%%The S-matrix and physical observables
+\input{Cap2}
+
+\end{document}

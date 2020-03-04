@@ -1,0 +1,199 @@
+\chapter{Introduction}
+
+\section{Free Theories Lagrangians}
+
+\subsection{Complex Scalar Field}
+$(\Box + m^2) \phi = 0$
+\begin{gather}
+\phi(x) = \frac{1}{(2 \pi)^{3/2}} \int \frac{d^3 k}{\sqrt{2 \omega_k}} \bigl( e^{-ikx} a(k) + e^{ikx} b^{\dagger}(k) \bigr)_{k_0 = \omega_k} \notag \\
+\omega_k = \sqrt{m^2 + \vec{k}^2} \notag
+\end{gather}
+In the real case $\phi^{\dagger}(x) = \phi(x) \so a(k) = b(k)$
+
+\subsection{Dirac Spinorial Field}
+$(i \slashed{\partial} - m) \psi = 0$
+\[
+\psi(x) = \frac{1}{(2 \pi)^{2/3}} \int \frac{d^3 k}{\sqrt{2 \omega_k}} \sum_{r=1,2} \bigl( e^{-ikx} u_r (k) c_r(k) + e^{ikx} v_r(k) d^{\dagger}_r(k) \bigr) 
+\]
+where $u_r(k)/v_r(k)$ are the $\epsilon > 0/\epsilon <0$ spinors\\
+Spinors are normalized according to
+\[
+\begin{cases}
+\bar{u_r}(k) u_s(k) = 2m \delta_{rs}	& \bar{u_r}(k) v_s(k) = 0 \\
+\bar{v_r}(k) v_r(k) = -2m \delta_{rs} 	& \bar{v_r}(k)u_s(k) = 0
+\end{cases}
+\]
+
+\subsection{E-M Vector Field}
+$\partial_{\mu} F^{\mu \nu} = \Box A^{\nu} - \partial^{\nu}(\partial_{\mu} A^{\mu}) = 0$, where $F^{\mu \nu} = \partial^{\mu} A^{\nu} - \partial^{\nu} A^{\mu}$
+\begin{gather}
+A^{\mu}(x) = \frac{1}{(2 \pi)^{2/3}} \int \frac{d^3 k}{\sqrt{2 \omega_k}} \sum_{\lambda} \bigl( e^{-ikx} \epsilon_{(\lambda)}^{\mu} a_{\lambda}(k) + e^{ikx} \epsilon_{(\lambda)}^{\mu \dagger}(k) a^{\dagger}_{\lambda}(k) \bigr)_{k_0 = \omega_k = \abs{\vec{k}}} \notag \\
+\epsilon_{(1)}^{\mu} = (0, 1, 0, 0) \qquad \epsilon_{(2)}^{\mu} = (0, 0, 1, 0) \notag
+\end{gather}
+I can complexify the field substituting $a_{\lambda}^{\dagger}$ with another operator $b_{\lambda}$ (analogously to the scalar field)\\
+Notice that real fields are never free because we have interactions, but using interaction picture e reconduct the problem in a simper one, where filed are described by free fields. This can be able with a proper choice.
+\[
+\Phi_I (x) \equiv \Phi_{\textup{free}}(x) \qquad \Phi_I \text{ = interacting}
+\]
+
+\section{Fock Space of Free Fields}
+\textsf{See Maggiore. See 6.1}\\
+We impose the existence of vacuum state $\Ket{0}$, and using creation operators we obtain other states $(a^{\dagger})^n \Ket{0}$, which are n-particles states.\\
+In QFT we normalized states in a covariant way, instead of QM normalization $\int \psi^* \psi = 1$
+\begin{gather}
+\Ket{1(p)} \equiv (2 \pi)^{3/2} \sqrt{2 \omega_k}\ o^{\dagger}(p) \Ket{0} \notag \\
+\Braket{1(p) | 1(p')} = (2 \pi)^3 (2 \omega p)\delta^3(p - p') \footnote{dimostrare che è covariante} \notag
+\end{gather}
+$(2 \omega p)\delta^3(p - p')$: Covariant under Lorentz tfm
+
+\section{Contraction of Fields with States}
+If we have a state $\Ket{e^-_s(p)}$ that describes an electron with momentum p and Dirac index s, then
+\[
+\Ket{e^-_s(p)} = (2 \pi)^{2/3} \sqrt{2 \omega p}\ c^{\dagger}_s (p) \Ket{0}
+\]
+given a field $\psi$ that describes a particle annihilation (or antiparticle creation) in x we have
+\[
+\begin{split}
+\Braket{0 | \psi(x) | e^-_s(p)}	& = \Braket{0 | (\psi_+(x) + \psi_-(x)) | e^-_s(p)} \\
+						& = \frac{(2 \pi)^{3/2}}{(2 \pi)^{3/2}} 
+	\int \frac{\de^3 k}{\sqrt{2\omega_k}} e^{-ikx} \sqrt{2\omega_p} \
+	\sum_{r} \Braket{0 | c_r(k) c_s^{\dagger}(p) | 0} u_r(k) \\
+						& = \int \de^3 k \Bigl( \frac{2 \omega_p}{2 \omega_k} \Bigr)^{1/2} \
+	\sum_r \delta_{rs} \delta^{(3)} (\bar{p} - \bar{k}) u_r(k) \Braket{0 | 0} e^{-ikx} \\
+						& = e^{-ikx}u_s(p) 
+\end{split}
+\]
+$c_r(k) c_s^{\dagger}(p) = \{ c_r(k), c_s^{\dagger}(p) \} = \delta_{rs} \ \delta^3 (\bar{p} - \bar{k})$ \\
+The factor $e^{-ikx}$ is required for the $\delta^{(4)}$ conservation, and we see that the relativistic normalization leads to the relation ($\to$ Feyman rule) \\
+\begin{equation}
+\feynmandiagram [baseline=(a.base), horizontal=a to b] {
+	a -- [fermion, momentum'=\(p\)] b,
+};
+= e^{-ipx}u_s(p)
+\notag
+\end{equation}
+In this case there is no normalization factors in the Feynman rule
+
+\section{S-matrix and State Evolution}
+In the interaction picture, with $H = H_0 + H_{\textup{int}}$, with $H_{\textup{int}}$= interaction hamiltonian\\
+\begin{enumerate}
+\item{Fields }$\Phi_I$ evolves like in the free theory (respect to $H_0$)
+\item{State evolves with the following evolution operator}
+	\begin{gather}
+	U_I(t, t_0) \equiv e^{iH_0t} e^{-iH(t-t_0)} e^{-iH_0t_0} \notag \\
+	\Ket{\alpha, t} = U_I (t - t_0) \Ket{\alpha, t_0}
+	\qquad
+	i \partial_t U_I (t-t_0) = H_I^{\textup{int}}(t) U_I(t, t_0) \notag
+	\end{gather}
+	Notice that, in general
+	\[
+	[H_I(t), H_0] \ne 0 \ne [H_I^{\textup{int}}, H_0]
+	\]
+	and if $t \ne t'$ we also have
+	\[
+	[H_I^{\textup{int}}(t), H_I^{\textup{int}}(t') \ne 0
+	\qquad
+	\text{with } O_I(t) = e^{iH_0t}e^{-iHt} \ O_H e^{iHt} e^{-iH_0t}
+	\]
+\end{enumerate}
+The S-matrix is a well defined operator defined as
+\[
+S = \lim_{\substack{t_0 \to -\infty \\ t \to +\infty}} U_I(t, t_0)
+\]
+We compute S by perturbation obtaining
+\[
+\begin{split}
+S 	& = T \Biggl( \exp \biggl( -i \int \de^4 x \mathH_I^{\textup{int}}(x) \biggr) \Biggr) \\
+	& = \sum_{n=0}^{+\infty} \frac{(-i)^n}{n!} \ \int \de^4 x_1 \dots \de^4 x_n \, T(\mathH_I^{\textup{int}}(x_1) \dots \mathH_I^{\textup{int}}(x_n)
+\end{split}
+\]
+S has some relevant properties
+\begin{enumerate}
+\item{Unitary (since hamiltonian is hermitian)}
+\item{Behaves as a scalar under Lorentz tfms, and then is an invariant quantity (notice that in general }$\mathH_I^{\textup{int}}$ is not invariant\\
+	In the case of $\mathH_I^{\textup{int}}$ is invariant (for example if $\mathH_{\textup{int}} = -\mathL_{\textup{int}}$, as in many theories, one of them id QED) is easy to prove that S in invariant, since all n-th derivatives of $\exp{\bigl( \int \mathH \bigr)}$ are invariant, and so also S is invariant
+\end{enumerate}
+
+\section{S-matrix and transition probabilities}
+We suppose that there's no interactions for $x, t \to +\infty$
+
+\section{S-matrix and transition probabilities}
+we suppose that there's no interaction for $x, t \to +\infty$\\
+Consider a canonically normalized (CN) state $\abs{\psi} = 1$:
+\[
+\Ket{\psi_i}_{CN} \equiv \Ket{\psi(-\infty)}_{CN}
+\qquad
+\Ket{\psi(+\infty)}_{CN} \equiv S \Ket{\psi_i}_{CN}
+\quad \to \textup{both are free particle states}
+\]
+Elements of S are in the form
+\[
+S_{fi}^{CN} = \Braket{\psi_f | S | \psi_i}_{CN}
+\]
+This leads to a probabilistic interpretation of S-matrix elements.\\
+$\abs{S_{fi}^{CN}}^2$ = propability of evolution of $\Ket{\psi_i}_{CN}$ into $\Ket{\psi_f}_{CN}$, since the condition $\sum_f \ \abs{S_{fi}^{CN}} = 1$ is satisfied automatically\\
+In the case of covariant normalization
+\[
+\Braket{1(p) | 1(p')} = (2 \pi)^3 (2 \omega p)\delta^3 (\vec{p} - \vec{p}')
+\]
+we have the following relation between matrix elements
+\[
+S_{fi}^{CN} = \Braket{\psi_f | S |\psi_i}_{CN} = \frac{\Braket{\psi_f | S | \psi_i}}{\norma{\psi_i} \norma{\psi_f}} = \frac{S_{fi}}{\norma{\psi_i} \norma{\psi_f}}
+\]
+We can define the \textbf{Feynman Amplitude $\mathM_{fi}$} as
+\[
+S_{fi} = (2 \pi)^4 \delta^4 (p_i - p_f) \mathM_{fi}
+\]
+and it can be obtained directly starting from Feynman rules (calculated with the covariant normalization)
+
+\section{Discrete space normalization}
+Usually, in order to make arguments cleaner, or to avoid problems with divergent terms, we first consider a system in a cubic box with spatial valume $V = L^3$.\\
+At the end of computations V will be sent to infinity. Sometimes we will do something similar also for time.\\
+For a discrete space we must use a different normalization.\\
+In a box, momentum of a particle is quantized (1-dim case)
+\[
+p_i = \biggl( \frac{2 \pi}{L} \biggr) n_i \qquad n_i \in \mathZ
+\]
+and we must adopt the following rule for integrals
+\[
+\int \de^3 p \, f(\vec{p}) \quad \to \quad \sum_{\vec{n}} \biggr( \frac{2 \pi}{L} \biggl) f_{\vec{n}}
+\qquad \vec{n} = (n_1, n_2, n_3)
+\]
+We must adopt also the following
+\[
+\delta^3 (\vec{p} - \vec{p}')
+\quad \to \quad
+\biggl( \frac{L}{2 \pi} \biggr)^3 \delta_{\vec{n}\vec{n}'}
+\]
+in this way
+\[
+\int \de^3p \, \delta^3 (\vec{p} - \vec{p}') = 1
+\quad \to \quad
+\sum_{\vec{n}} \biggl( \frac{2 \pi}{L} \biggr)^3 \biggl( \frac{L}{2 \pi} \biggr)^3 \delta_{\vec{n}\vec{n}'} = 1
+\]
+Some useful relations are
+\begin{gather}
+\delta^3(0) \to \biggl( \frac{L}{2 \pi} \biggr)^3 \notag \\
+\delta^4 (0) \to \biggl( \frac{L}{2 \pi} \biggr) \biggl( \frac{T}{2 \pi} \biggr)
+\to \textup{Only if we consider a finite amount of time} \notag
+\end{gather}
+Normalization of state becomes 
+\begin{gather}
+\Ket{1(p)} = (2 \pi)^{2/3} \sqrt{2 \omega_p V} o^{\dagger}(p) \Ket{0}
+= (2 \pi)^{2/3} \sqrt{2 \omega_p V} \Ket{1(p)}_{CN} \notag \\
+\Braket{1(p) | 1(p)} = (2 \pi)^3 2 \omega_p V \delta^3(0) = 2 \omega_p V \notag
+\end{gather}
+Using the latter equation, $S_{fi}^{CN}$ reads
+\[
+\begin{split}
+S_{fi}^{CN}	& = \prod_{j=1}^{n_i} \biggl( \frac{1}{2 \omega_j V} \biggr)^{1/2} \prod_{l=1}^{n_f} \biggl( \frac{1}{2\omega_l V} \biggr)^{1/2} S_{fi}\\
+			& = (2 \pi)^4 \delta^4 (p_i - p_f)
+				\Biggl\{ \prod_{j=1}^{n_i} \biggl( \frac{1}{2 \omega_j V} \biggr)^{1/2}
+					    \prod_{l=1}^{n_f} \biggl( \frac{1}{2 \omega_l V} \biggr)^{1/2}
+				\mathM_{fi} \Biggr\} \\
+			& = (2 \pi)^4 \delta^4 (p_i - p_f) M_{fi}^{CN}
+\end{split}
+\]
+In the first passage $(2 \pi)^{2/3}$ factors vanish because of $\delta^3$ factors inside $S_{fi}$ related to the sandwich $\Braket{\psi_f | S | \psi_i}$\\
+In the second passage we use $d f_n$ of $\mathM_{fi}$, omitting the quantization of $\delta^4$\\
+$M_{fi}^{CN}$ is the \textbf{canonically normalized Feynman amplitude}
