@@ -134,7 +134,7 @@ Let's examinate a process with external bosons: \emph{Compton scattering}, or $e
 \begin{tikzpicture}[baseline=(nu)]
   \begin{feynman}[large]
     \vertex (f1) {\(e^-_{(r)}\)};
-    \vertex [below right=of f1, label={[label distance=0.1cm]180:$\nu$}] (nu);
+    \vertex [label={[label distance=0.1cm]180:$\nu$}] at ([shift={(315:2.5)}]f1) (nu);
     \vertex [below left=of nu] (b1) {\(\gamma_{(\lambda)}\)};
     \vertex [label={[label distance=0.12cm]2:$\mu$}] at ([shift={(0:3.2)}]nu) (mu);
     \vertex [above right=of mu] (f2) {\(e^-_{(r')}\)};
@@ -153,7 +153,7 @@ Let's examinate a process with external bosons: \emph{Compton scattering}, or $e
 \begin{tikzpicture}[baseline=(mu)]
   \begin{feynman}[large]
     \vertex (f1) {\(e^-_{(r)}\)};
-    \vertex [below right=of f1, label={[label distance=0.1cm]180:$\mu$}] (mu);
+    \vertex [label={[label distance=0.1cm]180:$\mu$}] at ([shift={(315:2.5)}]f1) (mu);
     \vertex [label={[label distance=0.1cm]0:$\nu$}] at ([shift={(0:3.4)}]mu) (nu);
     \vertex [above right=of nu] (f2) {\(e^-_{(r')}\)};
     \vertex at ([shift={(270:3.2)}]f1) (b1){\(\gamma_{(\lambda)}\)};
@@ -170,15 +170,15 @@ Let's examinate a process with external bosons: \emph{Compton scattering}, or $e
 \begin{tikzpicture}[baseline=(i)]
   \begin{feynman}[large]
     \vertex (f1) {\(e^-_{(r)}\)};
-    \vertex [below right=of f1, label={[label distance=0.1cm]180:$\mu$}] (mu);
-    \vertex [label={[label distance=0.1cm]0:$\nu$}] at ([shift={(270:2)}]mu) (nu);
+    \vertex [label={[label distance=0cm]182:$\mu$}] at ([shift={(315:2.5)}]f1)  (mu);
+    \vertex [label={[label distance=0.1cm]270:$\nu$}] at ([shift={(270:2)}]mu) (nu);
     \vertex [below right=of nu] (f2) {\(e^-_{(r')}\)};
     \vertex [below left=of nu] (b1){\(\gamma_{(\lambda)}\)};
     \vertex [above right=of mu] (b2){\(\gamma_{(\lambda')}\)};
     \vertex at ([shift={(270:1)}]mu)(i);
     
     \diagram*{
-      (f1) -- [fermion, momentum={[arrow shorten=0.2]\(p\)}] (mu) -- [fermion, momentum={[arrow shorten=0.3]\(q=p-k'=\sqrt{u}\)}] (nu) -- [fermion, momentum={[arrow shorten=0.2]\(p'\)}](f2),
+      (f1) -- [fermion, momentum={[arrow shorten=0.25]\(p\)}] (mu) -- [fermion, momentum={[arrow shorten=0.3]\(q=p-k'=\sqrt{u}\)}] (nu) -- [fermion, momentum={[arrow shorten=0.2]\(p'\)}](f2),
       (mu) -- [boson, momentum={[arrow shorten=0.3]\(k'\)}] (b2),
       (b1) -- [boson, momentum={[arrow shorten=0.2]\(k\)}] (nu),
       };
@@ -206,6 +206,175 @@ The explicit form of Feynman propagator for the Dirac field reads
 so total amplitude is
 
 \[\mathcal M=-iq^2\epsilon_\mu^{\lambda'*}(k')\epsilon_\nu^\lambda(k)\bar u_{r'}(p')\left[\frac{\gamma^\mu(\slashed p+\slashed k+m)\gamma^\nu}{(p+k)^2-m^2}+\frac{\gamma^\nu(\slashed p-\slashed k'+m)\gamma^\mu}{(p-k')^2-m^2}\right]u_r(p)\]
+
+We make some simplifications before squaring  this expression. Since $p^2=m^2$ and $k^2=0$:
+\[(p+k)^2-m^2=2p\cdot k\qquad(p-k')^2-m^2=-2p\cdot k'\]
+
+To simplify numerators, I can use Dirac algebra:
+\begin{align*} 
+(\slashed p+m)\gamma^\nu u(p)&=(p_\mu\gamma^\mu\gamma^\nu+m\gamma^\nu)u(p)=(2g^{\mu\nu}p_\mu-p_\mu\gamma^\nu\gamma^\mu+m\gamma^\nu)u(p)\\
+&=2p^\nu u(p)-\gamma^\nu\underbrace{(\slashed p-m)}_{2m\,\Lambda_-(p)}u(p)=2p^\nu u(p)
+\end{align*}
+
+Using these tricks we obtain
+
+\[\mathcal M = -iq^2\epsilon_\mu^{\lambda'*}(k')\epsilon_\nu^\lambda(k)\bar u_{r'}(p')\left[\frac{\gamma^\mu\slashed k\gamma^\nu+2\gamma^\mu p^\nu}{2p\cdot k}+\frac{-\gamma^\nu\slashed k'\gamma^\mu+2\gamma^\nu p^\mu}{-2p\cdot k'}\right]u_r(p)\]
+
+\subsection{The Ward Identities and sum over the photon polarizations}
+\textsf{See Mandl, sec 8.3}\\
+The next step in the calculation will be to square this expression for $\mathcal M$ and sum or average over electron and photon polarization states. The sum over electron polarizations can be performed as before, using $\sum u(p)\bar u(p)=\slashed p+m$. Fortunately, there is a similar trick for summing over photons polarization vectors.\\
+Gauge invariance of the theory implies the gauge invariance of the matrix elements, i.e. of the Feynman amplitudes. It is, of course, only the matrix element itself, corresponding to the sum of all possible Feynman graphs in a given order of perturbation theory, which must be gauge invariant. For example, for the Compton scattering, the individual amplitudes $\mathcal A$ and $\mathcal B$ are not gauge invariants, but their sum $\mathcal M$ is.\\
+For any process involving external photons, the Feynman amplitude $\mathcal M$ is of the form
+\begin{equation}\label{eqn:Ward-form}
+\mathcal M=\epsilon_\alpha^{\lambda_1}(k_1)\epsilon_\beta^{\lambda_2}(k_2)\dots L^{\alpha\beta\dots}(k_1,k_2,\dots)
+\end{equation}
+with one polarization vector $\epsilon^{\lambda_i}(k_i)$ for each external photon, and the tensor amplitude $L^{\alpha\beta\dots}(k_1,k_2,\dots)$ independent of these polarization vectors.\\
+The polarization vectors are of course gauge dependent. For example, for a free photon described in the Lorentz gauge by the plane wave
+\[A^\mu(x)=\textup{const}\,\cdot\epsilon_\lambda^\mu(k)e^{\pm ikx}\]
+the gauge transformation
+\[A^\mu\rightarrow A'^\mu(x)=A^\mu(x)+\partial^\mu\alpha(x)\qquad\textup{with}\quad \alpha(x)=\tilde\alpha(k)e^{\pm ikx}\]
+implies
+\[\epsilon_\lambda^\mu(k)\rightarrow{\epsilon'}_\lambda^{\mu}(k)=\epsilon_\lambda^\mu(k)\pm ik^\mu\tilde\alpha(k)\]
+Invariance of the amplitude Eq.\eqref{eqn:Ward-form} under this transformation requires
+\[k^\alpha_1L_{\alpha,\beta,\dots}(k_1,k_2,\dots)=k^\beta_1L_{\alpha,\beta,\dots}(k_1,k_2,\dots)=\dots=0\]
+i.e. when any external photon polarization vector is replaced by the corresponding four momentum, the amplitude must vanish. This is the statement of the \emph{Ward Identity}:
+
+\todo{Sistemare grafica}%%%%%%%%%%%
+
+\begin{quoting}
+If $\mathcal M(k)=\epsilon_\mu(k)L^\mu(k)$ is the amplitude for some QED process involving an external photon with momentum $k$, then this amplitude vanishes if we replace $\epsilon_\mu$ with $k_\mu$:
+\[k_\mu L^\mu(k)=0\]
+\end{quoting}
+
+\todo{Creare ambiente exercize, questo è un esercizio}
+\begin{example}
+Verify explicitly the Ward Identity for the Feynman amplitude of Compton scattering
+\end{example}
+
+\textsf{See Peskin, sec 5.5}\\
+Returning to our derivation of the polarization sum formula for squared scattering amplitude. Writing in general
+\[\mathcal M=\epsilon_\mu^{(\lambda)}(k)L^\mu(k)\]
+then the sum over polarizations of the photon with momentum $k$ reads
+\[\sum_{\lambda=1,2}|\mathcal M|^2=\sum_{\lambda=1,2}\epsilon_\mu^{(\lambda)}(k)\epsilon_\nu^{(\lambda)*}(k)L^\mu(k)L^{\nu\dagger}(k)\]
+Because of the covariance of the theory we can do the calculation in a specific frame. In order to simplify the analysis we choose the frame where the photon moves along the $\hat z$ axis:
+\[k^\mu=(|k|,0,0,|k|)\]
+In this case the Ward Identity reads
+\[0=k_\mu L^\mu=|k|\left(L^0-L^3\right)\qquad\longrightarrow\qquad L^0=L^3\]
+Recall that in this frame
+\[\epsilon_\mu^{(1)}(k)=(0,1,0,0)\qquad\epsilon_\mu^{(2)}(k)=(0,0,1,0)\]
+
+So we have
+\begin{align*}\sum_{\lambda=1,2}\epsilon_\mu^{(\lambda)}(k)\epsilon_\nu^{(\lambda)*}(k)L^\mu(k)L^{\nu\dagger}(k)&=\abs{L^1}^2+\abs{L^2}^2=\abs{L^1}^2+\abs{L^2}^2+\abs{L^3}^2-\abs{L^0}^2=-g_{\mu\nu}L^\mu L^\nu
+\end{align*}
+So we obtained the general rule to simplify photons polarization sum\footnote{Notice that we could prove (see Peskin) that even if we took $\lambda=0,1,2,3$, we could have obtained that the unphysical time-like and longitudinal photons can be consistently omitted from QED calculations, since in any event the squared amplitudes for producing these states cancel to give zero total probability. }
+\todo{Creare ambiente per riquadrare le formule}
+\[\sum_{\lambda=1,2}\epsilon_\mu^{(\lambda)}(k)\epsilon_\nu^{(\lambda)*}(k)L^\mu(k)L^{\nu\dagger}(k)\quad\longrightarrow\quad-g_{\mu\nu}\]
+
+
+
+
+\subsection{The Klein-Nishima formula and the Thomson scattering}
+\textsf{See Peskin, sec. 5.5}\\
+
+To obtain the unpolarized cross section for Compton scattering, we use the covariant method described in the previous section. Writing
+\[\mathcal M=\epsilon_\mu^{\lambda'*}(k')\epsilon_\nu^\lambda(k)\left(L^{\mu\nu}(k,k')\right)_{r,r'}\]
+with 
+\[\left(L^{\mu\nu}(k,k')\right)_{r,r'}=-iq^2\bar u_{r'}(p')\left[\frac{\gamma^\mu\slashed k\gamma^\nu+2\gamma^\mu p^\nu}{2p\cdot k}+\frac{-\gamma^\nu\slashed k'\gamma^\mu+2\gamma^\nu p^\mu}{-2p\cdot k'}\right]u_r(p)\]
+we obtain
+\begin{align*}
+|\bar{\mathcal M}|^2&=\frac14\left(\sum_{\lambda'}\epsilon_\mu^{(\lambda')*}(k')\epsilon_\rho^{(\lambda')}(k')\right)\left(\sum_{\lambda}\epsilon_\nu^{(\lambda)*}(k)\epsilon_\sigma^{(\lambda)}(k')\right)\sum_{r,r'}\left(L^{\mu\nu}\right)_{r,r'}\left(L^{\rho\sigma}\right)^\dagger_{r,r'}\\
+&=\frac14g_{\mu\rho}g_{\nu\sigma}\sum_{r,r'}\left(L^{\mu\nu}\right)_{r,r'}\left(L^{\rho\sigma}\right)^\dagger_{r,r'}
+=\frac14\left(L^{\mu\nu}\right)_{r,r'}\left(L_{\mu\nu}\right)^\dagger_{r,r'}\\
+&=\frac{q^4}4\Tr\Bigg[(\slashed p'+m)\left(\frac{\gamma^\mu\slashed k\gamma^\nu+2\gamma^\mu p^\nu}{2p\cdot k}+\frac{\gamma^\nu\slashed k'\gamma^\mu-2\gamma^\nu p^\mu}{2p\cdot k'}\right)\times\\
+&\qquad\qquad\times(\slashed p+m)\left(\frac{\gamma_\nu\slashed k\gamma_\mu+2\gamma_\mu p_\nu}{2p\cdot k}+\frac{\gamma_\mu\slashed k'\gamma_\nu-2\gamma_\nu p_\mu}{2p\cdot k'}\right)\Bigg]\\
+&=\frac{q^4}4\left\{\frac{T_{AA}}{(2p\cdot k)^2}+\frac{T_{BB}}{(2p\cdot k')^2}+\frac{T_{AB}+T_{BA}}{(2p\cdot k)(2p\cdot k')}\right\}
+\end{align*}
+where
+\begin{align*}
+T_{AA}&=\Tr\left[(\slashed p'+m)(\gamma^\mu\slashed k\gamma^\nu+2\gamma^\mu p^\nu)(\slashed p+m)(\gamma_\nu\slashed k\gamma_\mu+2\gamma_\mu p_\nu)\right]\\
+T_{BB}&=\Tr\left[(\slashed p'+m)(\gamma^\nu\slashed k'\gamma^\mu-2\gamma^\nu p^\mu)(\slashed p+m)(\gamma_\mu\slashed k'\gamma_\nu-2\gamma_\nu p_\mu)\right]\\
+T_{AB}&=\Tr\left[(\slashed p'+m)(\gamma^\mu\slashed k\gamma^\nu+2\gamma^\mu p^\nu)(\slashed p+m)(\gamma_\mu\slashed k'\gamma_\nu-2\gamma_\nu p_\mu)\right]\\
+T_{BA}&=\Tr\left[(\slashed p'+m)(\gamma^\nu\slashed k'\gamma^\mu-2\gamma^\nu p^\mu)(\slashed p+m)(\gamma_\nu\slashed k\gamma_\mu+2\gamma_\mu p_\nu)\right]
+\end{align*}
+
+Notice that $T_{BB}=T_{AA}(k\leftrightarrow -k')$ and $T_{BA}=T_{AB}(k\leftrightarrow -k')$, we need therefore only calculate $T_{AA}$ and $T_{AB}$.\\
+Considering $T_{AA}$, there are 16 terms inside the trace, but half contains an odd number of $\gamma$ matrices and therefore vanishes. Other terms are
+\begin{align*}
+\circled 1&=\Tr[\slashed p'\gamma^\mu\slashed k\gamma^\nu\slashed p\gamma_\nu\slashed k\gamma_\mu]\\
+\circled 2&=2\Tr[\slashed p'\gamma^\mu\slashed k\gamma^\nu\slashed p\gamma_\mu p_\nu]
+=2\Tr[\slashed p'\gamma^\mu\slashed k\slashed p\slashed p\gamma_\mu]\\
+\circled 3&=2\Tr[\slashed p'\gamma^\mu p^\nu\slashed p\gamma_\nu\slashed k\gamma_\mu]
+=2\Tr[\slashed p'\gamma^\mu \slashed p\slashed p\slashed k\gamma_\mu]\\
+\circled 4&=4\Tr[\slashed p'\gamma^\mu p^\nu\slashed p\gamma_\mu p_\nu]
+=4p^2\Tr[\slashed p'\gamma^\mu \slashed p\gamma_\mu]\\
+\circled 5&=m^2\Tr[\gamma^\mu\slashed k\gamma^\nu\gamma_\nu\slashed k\gamma_\mu]\\
+\circled 6&=2m^2\Tr[\gamma^\mu\slashed k\gamma^\nu\gamma_\mu p_\nu]
+=2m^2\Tr[\gamma^\mu\slashed k\slashed p\gamma_\mu]\\
+\circled 7&=2m^2\Tr[\gamma^\mu p^\nu\gamma_\nu\slashed k\gamma_\mu]
+=2m^2\Tr[\gamma^\mu \slashed p\slashed k\gamma_\mu]\\
+\circled 8&=4m^2\Tr[\gamma^\mu p^\nu\gamma_\mu p_\nu]
+=4m^2p^2\Tr[\gamma^\mu \gamma_\mu ]\\
+\end{align*}
+
+In order to simplify above formulas we recall the proprieties of contractions of $\gamma$ matrices, i.e. products in the form $\gamma^\mu A\gamma^\mu$ where $A$ is a matrix:
+
+\begin{enumerate}
+\item $\gamma^\mu\gamma_\mu=4\id$
+\item $\gamma^\mu\slashed p\gamma_\mu=-2\slashed p$
+\item $\gamma^\mu\slashed p\slashed q\gamma_\mu=4p\cdot q$
+\item $\gamma^\mu\slashed p\slashed q\slashed k\gamma_\mu=-2\slashed k\slashed q\slashed p$
+\end{enumerate}
+
+Using these proprieties, cyclicity of the trace and anticommuting proprieties of gamma matrices\footnote{$\slashed A\slashed B=A_\mu B_\nu\gamma^\mu\gamma^\nu=A_\mu B_\nu(2g^{\mu\nu}\id-\gamma^\nu\gamma^\mu)=2(A\cdot B)\,\id-\slashed B\slashed A\qquad\rightarrow\qquad\slashed A\slashed A=A^2\,\id$
+
+$\Tr[\slashed A\slashed B]=2(A\cdot B)\,\Tr[\id]-\Tr[\slashed B\slashed A]=8(A\cdot B)-\Tr[\slashed A\slashed B]\qquad\rightarrow\qquad\Tr[\slashed A\slashed B]=4(A\cdot B)\id$}, we obtain (remember that $p^2=m^2$ and $k^2=0$):
+
+\begin{align*}
+\circled 1&=\Tr[\slashed p'\gamma^\mu\slashed k\gamma^\nu\slashed p\gamma_\nu\slashed k\gamma_\mu]
+=-2\Tr[\slashed p'\gamma^\mu\slashed k\slashed p\slashed k\gamma_\mu]
+=4\Tr[\slashed p'\slashed k\slashed p\slashed k]
+=-4\Tr[\slashed p'\slashed k^2\slashed p]+8(p\cdot k)\Tr[\slashed p'\slashed k]
+=32(p\cdot k)(p'\cdot k)\\
+\circled 2&=2\Tr[\slashed p'\gamma^\mu\slashed k\slashed p\slashed p\gamma_\mu]
+=-4\Tr[\slashed p'\slashed p\slashed p\slashed k]
+=-4m^2\Tr[\slashed p'\slashed k]
+=-16m^2(p'\cdot k)\\
+\circled 3&=2\Tr[\slashed p'\gamma^\mu \slashed p\slashed p\slashed k\gamma_\mu]
+=2m^2\Tr[\slashed p'\gamma^\mu \slashed k\gamma_\mu]
+=-4m^2\Tr[\slashed p'\slashed k]
+=-16m^2(p'\cdot k)\\
+\circled 4&=4p^2\Tr[\slashed p'\gamma^\mu \slashed p\gamma_\mu]
+=-8m^2\Tr[\slashed p'\slashed p]=-32m^2(p'\cdot p)\\
+\circled 5&=m^2\Tr[\gamma^\mu\slashed k\gamma^\nu\gamma_\nu\slashed k\gamma_\mu]
+=4m^2\Tr[\gamma^\mu\slashed k\slashed k\gamma_\mu]
+=0\\
+\circled 6&=2m^2\Tr[\gamma^\mu\slashed k\slashed p\gamma_\mu]
+=8m^2(k\cdot p)\Tr[ \id]=32m^2(k\cdot p)\\
+\circled 7&=2m^2\Tr[\gamma^\mu \slashed p\slashed k\gamma_\mu]
+=8m^2(p\cdot k)\Tr[\id]=32m^2(p\cdot k)\\
+\circled 8&=4m^2p^2\Tr[\gamma^\mu \gamma_\mu ]
+=16m^4\Tr[\id]=64m^4\\
+\end{align*}
+
+At the end we find
+\begin{align*}
+T_{AA}&=16\left(4m^4-2m^2p\cdot p'+4m^2p\cdot k-2m^2p'\cdot k+2(p\cdot k)(p'\cdot k)\right)\\
+&=16\left(2m^4+m^2(s-m^2)-\frac12(s-m^2)(u-m^2)\right)
+\end{align*}
+
+where we introduced Mandelstam variables:
+\begin{align*}
+s&=(p+k)^2=2p\cdot k+m^2=2p'\cdot k'+m^2\\
+t&=(p'-p)^2=-2p\cdot p'+2m^2=-2k\cdot k'\\
+u&=(k'-p)^2=-2k'\cdot p+m^2=-2k\cdot p'+m^2
+\end{align*}
+
+Sending $k\leftrightarrow-k'$ ($s\leftrightarrow u$) we can immediately write
+\begin{align*}
+T_{BB}&=16\left(4m^4-2m^2p\cdot p'-4m^2p\cdot k'+2m^2p'\cdot k'+2(p\cdot k')(p'\cdot k')\right)\\
+&=16\left(2m^4+m^2(u-m^2)-\frac12(u-m^2)(s-m^2)\right)
+\end{align*}
+
 
 
 
