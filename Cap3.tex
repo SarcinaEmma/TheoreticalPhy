@@ -2,9 +2,60 @@
 \begin{document}
 
 
-\chapter{QED Processes at Lowest order} %Mi pare si chiami così, boh
+\chapter{QED Processes at Lowest order} %Sei stato bravissimo, si chiamava proprio così
 
-\section{Fogli di Emma <3}
+\section{The QED Lagrangian and its Symmetries}
+\textsf{Mandl, sec 11.1 - Maggiore, sec 7.1}\\
+Quantum electrodynamic (QED) describes the interactions between (or any other charged spin 1/2 particle) and photons. QED is described by the lagrangian
+\[
+\mathL_{\text{QED}} =\underbrace{\overline{\psi }( i\slashed \partial -m) \psi }_{\mathcal{L}^{( 0)}_{D}} \ -\underbrace{\frac{1}{4} F_{\mu \nu } F^{\mu \nu }}_{\mathcal{L}_{EM}} -\underbrace{qA_{n}\overline{\psi } \gamma ^{\mu } \psi }_{\mathcal{L}_{int}} -\underbrace{\frac{1}{2\xi }\left( \partial _{\mu } A^{\mu }\right)^{2}}_{\mathcal{L}_{GF}}
+%Vengono un po' una merda le graffe sotto quindi vedi tu se vuoi tenerele o fare in un altro modo
+\]
+\begin{enumerate}
+\item $\mathL_D^{(0)}$ is the langrangian for the free Dirac field
+\item $\mathL_{EM}$ is the lagrangian for the free EM field. In order to quatize the E-n field we have to add the term $\mathL_{GF}$ (gauge fixing). For other purposes this term can be omitted. Usually the choice $\xi = 1$, called Feynman gauge, is the simplest choice for quantization
+\item $\mathL_{int}$ describes the interaction between Dirac field and EM-field. Notice that the term $\mathL_D = \mathL_D^{(0)} + \mathL_{int}$ can be obtained from $\mathL_D^{(0)}$ with the ``minimal substitution'' $\partial_{\mu} \to \partial_{\mu} + iqA_{\mu} = D_{\mu}$, i.e. using covariant derivative $D_{\mu}$ instead of $\partial_{\mu}$ in the dirac lagrangian.\\
+Notice that $\mathL_D$ exhibits local symmetry, while $\mathL_D^{(0)}$ doesn't
+\end{enumerate}
+Besides Lorentz invariance, the QED exhibits following symmetries:
+\begin{enumerate}[label=(\Roman*)]
+\item \textbf{Global U(1) symmetry}
+\[
+\begin{cases}
+\psi(x) \to \psi'(x) = e^{i \alpha}\psi(x) \qquad \alpha \in \mathR \\
+A^{\mu}(x) \to A^{\prime \mu}(x) = A^{\mu}(x)
+\end{cases}
+\]
+There is therefore an associated conserved Noether current
+\[
+j^{\mu} = q \overline{\psi} \gamma^{\mu} \psi
+\quad \to \quad
+\partial_{\mu}j^{\mu} = 0 
+\]
+and a U(1) charge which is conserved by the EM interaction
+\[
+Q = q \int \de^3 x \ \psi^{\dagger} \psi
+\qquad
+\frac{\de Q}{\de t} = 0
+\]
+\item \textbf{Local U(1) symmetry} (gauge symmetry)
+\[
+\begin{cases}
+\psi(x) \to \psi'(x) = e^{iq\alpha(x)} \psi(x) \\
+A^{\mu} \to A^{\prime \mu}(x) = A^{\mu}(x) - iq\partial^{\mu}\alpha(x)
+\end{cases}
+\]
+notice that the global U(1) symmetry is a sequence of the local U(1) symmetry, taking $\alpha(x)$ constant)\\ \\
+The covariant derivative of $\psi$ $D_{\mu}\psi$ behaves as a spinor (remember that $D_{\mu}$ transforms as a vector):
+\[
+\begin{split}
+D_{\mu}\psi \to (D_{\mu}\psi)' = D'_{\mu}\psi'	& = (D_{\mu} - iq\partial_{\mu} \alpha)(e^{iq\alpha(x)} \psi(x)) \\
+	& = (\partial_{\mu} + iqA_{\mu} - iq\partial_{\mu}\alpha)(e^{iq\alpha} \psi) \\
+	& = e^{iq\alpha}(\partial_{\mu} + iqA_{\mu})\psi \\
+	& = e^{iq\alpha(x)}(D_{\mu}\psi)
+\end{split}
+\]
+\end{enumerate}
 
 
 \section{$e^-\gamma\rightarrow e^-\gamma$ (Compton)}
@@ -15,7 +66,6 @@ Let's examinate a process with external bosons: \emph{Compton scattering}, or $e
 \begin{tikzpicture}[baseline=(nu)]
   \begin{feynman}[large]
     \vertex (f1) {\(e^-_{(r)}\)};
-    \vertex [label={[label distance=0.1cm]180:$\nu$}] at ([shift={(315:2.5)}]f1) (nu);
     \vertex [below left=of nu] (b1) {\(\gamma_{(\lambda)}\)};
     \vertex [label={[label distance=0.12cm]2:$\mu$}] at ([shift={(0:3.2)}]nu) (mu);
     \vertex [above right=of mu] (f2) {\(e^-_{(r')}\)};
@@ -34,7 +84,6 @@ Let's examinate a process with external bosons: \emph{Compton scattering}, or $e
 \begin{tikzpicture}[baseline=(mu)]
   \begin{feynman}[large]
     \vertex (f1) {\(e^-_{(r)}\)};
-    \vertex [label={[label distance=0.1cm]180:$\mu$}] at ([shift={(315:2.6)}]f1)(mu);
     \vertex [label={[label distance=0.1cm]0:$\nu$}] at ([shift={(0:3.4)}]mu) (nu);
     \vertex [above right=of nu] (f2) {\(e^-_{(r')}\)};
     \vertex at ([shift={(270:3.2)}]f1) (b1){\(\gamma_{(\lambda)}\)};
@@ -51,15 +100,12 @@ Let's examinate a process with external bosons: \emph{Compton scattering}, or $e
 \begin{tikzpicture}[baseline=(i)]
   \begin{feynman}[large]
     \vertex (f1) {\(e^-_{(r)}\)};
-    \vertex [label={[label distance=0cm]182:$\mu$}] at ([shift={(315:2.5)}]f1)  (mu);
-    \vertex [label={[label distance=0.1cm]270:$\nu$}] at ([shift={(270:2)}]mu) (nu);
     \vertex [below right=of nu] (f2) {\(e^-_{(r')}\)};
     \vertex [below left=of nu] (b1){\(\gamma_{(\lambda)}\)};
     \vertex [above right=of mu] (b2){\(\gamma_{(\lambda')}\)};
     \vertex at ([shift={(270:1)}]mu)(i);
     
     \diagram*{
-      (f1) -- [fermion, momentum={[arrow shorten=0.25]\(p\)}] (mu) -- [fermion, momentum={[arrow shorten=0.3]\(q=p-k'=\sqrt{u}\)}] (nu) -- [fermion, momentum={[arrow shorten=0.2]\(p'\)}](f2),
       (mu) -- [boson, momentum={[arrow shorten=0.3]\(k'\)}] (b2),
       (b1) -- [boson, momentum={[arrow shorten=0.2]\(k\)}] (nu),
       };
@@ -255,9 +301,6 @@ Sending $k\leftrightarrow-k'$ ($s\leftrightarrow u$) we can immediately write
 T_{BB}&=16\left(4m^4-2m^2p\cdot p'-4m^2p\cdot k'+2m^2p'\cdot k'+2(p\cdot k')(p'\cdot k')\right)\\
 &=16\left(2m^4+m^2(u-m^2)-\frac12(u-m^2)(s-m^2)\right)
 \end{align*}
-
-
-
 
 
 

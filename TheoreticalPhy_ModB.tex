@@ -22,7 +22,6 @@
 	\setlist{label=(\roman*)}
 \usepackage[framemethod=TikZ]{mdframed}
 	\usepackage{amsthm}
-\usepackage[colorinlistoftodos,textsize=tiny]{todonotes}% TO DO points
 
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\phi}{\varphi}
@@ -31,7 +30,8 @@
 \newcommand{\mathL}{\mathcal{L}}
 \newcommand{\mathH}{\mathcal{H}}
 \newcommand{\mathM}{\mathcal{M}}
-\newcommand{\mathZ}{\mathbb{Z}}
+\newcommand{\mathR}{\mathbb{R}} %Reali
+\newcommand{\mathZ}{\mathbb{Z}} %Interi
 \newcommand{\de}{\textup{d}}
 \newcommand{\so}{\Rightarrow}
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
@@ -71,8 +71,6 @@ innertopmargin=\topskip,
 
 %%The S-matrix and physical observables
 \input{Cap2}
-
-%%QED Processes at Lowest order
 \subfile{Cap3}
 
 \end{document}
