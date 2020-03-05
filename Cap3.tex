@@ -474,11 +474,34 @@ In the low energy limit $\omega_k\ll m$, from \eqref{eqn:QED-compton-energies-la
 We have calculated the full relativistic corrections for the Thomson formula.
 
 \subsection{C.o.M. frame - High energy photon}
+To analyze the high-energy behaviour of the Compton scattering cross section, it is easiest to work in the center-of-mass frame.
 
+\begin{figure}[H]
+\centering
+\input{img/Compton_com_frame.tex}
+\end{figure}
 
-
-
-
+The kinematics of the reaction in the high energy limit ($m\approx0$) looks like
+\begin{align*}
+E&=\sqrt{\vec k^2+m^2}\approx|\vec k|=\omega_k\\
+E'&=\sqrt{\vec k'^2+m^2}\approx|\vec k'|=\omega_{k'}
+\end{align*}
+\begin{align*}
+p\cdot k&=\omega_k^2+|\vec k|^2=2\omega_k^2\\
+p\cdot p'&=\omega_k\omega_{k'}-\vec k\vec k'=\omega_k\omega_{k'}-|\vec k||\vec k'|\cos\theta=\omega_k\omega_{k'}(1-\cos\theta)\\
+k'\cdot p&=\omega_k\omega_{k'}+\vec k\vec k'=\omega_k\omega_{k'}+|\vec k||\vec k'|\cos\theta=\omega_k\omega_{k'}(1+\cos\theta)
+\end{align*}
+We also have
+\begin{align*}
+s&=(p+k)^2=(E+\omega_k)^2=4\omega_k^2 \quad\rightarrow\quad \omega_k=\frac{\sqrt s}{2}\\
+&=(p'+k')^2=(E'+\omega_{k'})^2=4\omega_{k'}^2 \quad\rightarrow\quad \omega_{k'}=\frac{\sqrt s}{2}
+\end{align*}
+So Mandelstam variables in high energy limit ($m=0$) take the form
+\begin{align*}
+s&=(p+k)^2=(p'+k')^2\approx2p\cdot k=4\omega_k^2\\
+t&=(p'-p)^2=(k'-k)^2\approx -2p\cdot p'=-2\omega_k^2(1-\cos\theta)\\
+u&=(k'-p)^2=(p'-k)^2\approx-2k'\cdot p=-2\omega_k^2(1+\cos\theta)
+\end{align*}
 
 
 
