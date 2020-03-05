@@ -66,6 +66,7 @@ Let's examinate a process with external bosons: \emph{Compton scattering}, or $e
 \begin{tikzpicture}[baseline=(nu)]
   \begin{feynman}[large]
     \vertex (f1) {\(e^-_{(r)}\)};
+    \vertex [label={[label distance=0.1cm]180:$\nu$}] at ([shift={(315:2.5)}]f1) (nu);
     \vertex [below left=of nu] (b1) {\(\gamma_{(\lambda)}\)};
     \vertex [label={[label distance=0.12cm]2:$\mu$}] at ([shift={(0:3.2)}]nu) (mu);
     \vertex [above right=of mu] (f2) {\(e^-_{(r')}\)};
@@ -84,6 +85,7 @@ Let's examinate a process with external bosons: \emph{Compton scattering}, or $e
 \begin{tikzpicture}[baseline=(mu)]
   \begin{feynman}[large]
     \vertex (f1) {\(e^-_{(r)}\)};
+    \vertex [label={[label distance=0.1cm]180:$\mu$}] at ([shift={(315:2.5)}]f1) (mu);
     \vertex [label={[label distance=0.1cm]0:$\nu$}] at ([shift={(0:3.4)}]mu) (nu);
     \vertex [above right=of nu] (f2) {\(e^-_{(r')}\)};
     \vertex at ([shift={(270:3.2)}]f1) (b1){\(\gamma_{(\lambda)}\)};
@@ -100,12 +102,15 @@ Let's examinate a process with external bosons: \emph{Compton scattering}, or $e
 \begin{tikzpicture}[baseline=(i)]
   \begin{feynman}[large]
     \vertex (f1) {\(e^-_{(r)}\)};
+    \vertex [label={[label distance=0cm]182:$\mu$}] at ([shift={(315:2.5)}]f1)  (mu);
+    \vertex [label={[label distance=0.1cm]270:$\nu$}] at ([shift={(270:2)}]mu) (nu);
     \vertex [below right=of nu] (f2) {\(e^-_{(r')}\)};
     \vertex [below left=of nu] (b1){\(\gamma_{(\lambda)}\)};
     \vertex [above right=of mu] (b2){\(\gamma_{(\lambda')}\)};
     \vertex at ([shift={(270:1)}]mu)(i);
     
     \diagram*{
+      (f1) -- [fermion, momentum={[arrow shorten=0.25]\(p\)}] (mu) -- [fermion, momentum={[arrow shorten=0.3]\(q=p-k'=\sqrt{u}\)}] (nu) -- [fermion, momentum={[arrow shorten=0.2]\(p'\)}](f2),
       (mu) -- [boson, momentum={[arrow shorten=0.3]\(k'\)}] (b2),
       (b1) -- [boson, momentum={[arrow shorten=0.2]\(k\)}] (nu),
       };
