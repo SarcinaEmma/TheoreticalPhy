@@ -12,6 +12,7 @@
 \usepackage{slashed}
 \usepackage{braket}
 \usepackage{mathrsfs}
+\usepackage{quoting}
 \usepackage[framemethod=TikZ, nobreak=true]{mdframed}
 	\usepackage{amsthm}
 \usepackage[compat=1.0.0]{tikz-feynman}
@@ -20,6 +21,7 @@
 	\setlist{label=(\roman*)}
 \usepackage[framemethod=TikZ]{mdframed}
 	\usepackage{amsthm}
+\usepackage[colorinlistoftodos,textsize=tiny]{todonotes}% TO DO points
 
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\phi}{\varphi}
@@ -65,6 +67,8 @@ innertopmargin=\topskip,
 
 %%The S-matrix and physical observables
 \input{Cap2}
+
+%%QED Processes at Lowest order
 \subfile{Cap3}
 
 \end{document}
