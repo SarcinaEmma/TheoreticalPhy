@@ -569,6 +569,144 @@ T_{BB}&=16\left(4m^4-2m^2p\cdot p'-4m^2p\cdot k'+2m^2p'\cdot k'+2(p\cdot k')(p'\
 &=16\left(2m^4+m^2(u-m^2)-\frac12(u-m^2)(s-m^2)\right)
 \end{align*}
 
+\todo{anche questo dovrebbe esser un esercizio}
+\begin{example}
+Compute the elements $T_{AB}$ and $T_{BA}$
+\end{example}
+
+Evaluating the traces in $T_{AB}$ and $T_{BA}$ requires about the same amount of work as we have just done. The answer is 
+\begin{align*}
+T_{AB}=T_{BA}&=-16\left(4m^4+m^2(p\cdot k-p\cdot k')\right)\\
+&=-16\left(2m^4+\frac{m^2}2((s-m^2)-(u-m^2))\right)
+\end{align*}
+
+Putting together the pieces of the unpolarized Feynamn amplitude for Compton scattering we obtain
+
+\begin{align*}
+|\bar{\mathcal M}|^2&=2q^4\left[\frac{p\cdot k'}{p\cdot k}+\frac{p\cdot k}{p\cdot k'}+2m^2\left(\frac1{p\cdot k}-\frac1{p\cdot k'}\right)+m^4\left(\frac1{p\cdot k}-\frac1{p\cdot k'}\right)^2\right]\\
+&=2q^4\left[-\left(\frac{u-m^2}{s-m^2}+\frac{s-m^2}{u-m^2}\right)+4m^2\left(\frac1{s-m^2}+\frac1{u-m^2}\right)+4m^4\left(\frac1{s-m^2}+\frac1{u-m^2}\right)^2\right]
+\end{align*}
+
+To turn this expression into a cross section we must decide a frame of reference and draw a piture of the kinematics. We will analyze two different frames
+\begin{enumerate}
+\item \emph{"Lab" frame}, in which the electron is initially at rest, this frame is useful for low energy incoming photons: $\omega_\gamma\ll m_e$;
+\item \emph{c.o.m. frame}, in which the center of mass is at rest, this frame is useful for high energy incoming photons: $\omega_\gamma\gg m_e$, where we can set $m_e=0$
+\end{enumerate}
+
+\subsection{Lab frame - Low energy photon}
+\textsf{See also Mandl sec. 8.6}
+
+In the low energy case, I can verify if QED prediction agrees with Thomason law for low energies scattering.
+
+\begin{figure}[H]
+\centering
+\input{img/Compton_lab_frame.tex}
+\end{figure}
+
+We will express the cross section in terms of $\omega$ and $\theta$. We can find $\omega'$, the energy of the final photon, using the following trick:
+\begin{align*}
+m^2&=(p')^2=(p+k-k')^2=p^2+2p\cdot(k-k')-2k\cdot k'\\
+&=m^2+2m(\omega_k-\omega_{k'})-2\omega_k\omega_{k'}(1-\cos\theta)
+\end{align*}
+hence, we obtain Compton's formula for the shift in the photon wavelength:
+\[\Delta\lambda=\left(\frac1{\omega_{k'}}-\frac1{\omega_{k}}\right)=\frac{1-\cos\theta}{m}\]
+For our purposes, however, is more useful to solve for $\omega_{k'}$:
+\begin{equation}\label{eqn:QED-compton-energies-lab}
+\omega_{k'}=\frac{\omega_k}{1+\frac{\omega_{k}}m(1-\cos\theta)}
+\end{equation}
+
+The unpolarized amplitude in the Lab frame is
+\begin{align*}
+|\bar{\mathcal M}|_{\textup{LAB}}^2&=2q^4\left[\left(\frac{\omega_{k'}}{\omega_k}+\frac{\omega_k}{\omega_{k'}}\right)+2m\left(\frac1{\omega_k}-\frac1{\omega_{k'}}\right)+m^2\left(\frac1{\omega_k}-\frac1{\omega_{k'}}\right)^2\right]\\
+&=2q^4\left[\left(\frac{\omega_{k'}}{\omega_k}+\frac{\omega_k}{\omega_{k'}}\right)-\sin^2\theta\right]
+\end{align*}
+
+The covariant flux factor reads
+\[I_{\textup{LAB}}=[(p\cdot k)^2-m_e^2m_\gamma^2]^{1/2}=|p\cdot k|=m_e\omega_k\]
+The 2-body phase space
+\begin{align*}
+\int\de\Phi_{(2)}&=\int \frac{\de^3k'}{(2\pi)^32\omega_{k'}}\frac{\de^3p'}{(2\pi)^32E'}(2\pi)^4\delta^4(k'+p'-k-p)
+=\int\frac{\omega^2_{k'}\de\omega_{k'}\de\Omega}{(2\pi)^2}\frac{1}{4\omega_{k'}E'}\delta(\omega_{k'}+E'-\omega_k-m)\\
+&=\int\frac{\omega^2_{k'}\de\omega_{k'}\de\Omega}{(2\pi)^2}\frac{1}{4\omega_{k'}E'}\frac{\delta(\omega_{k'}-|\vec k'|)}{\left|\frac{\partial(\omega_{k'}+E'-\omega_k-m)}{\partial|k'|}\right|}_{\omega_{k'}=|\vec k'|}
+=\int\de\Omega\frac{|\vec k'|^2}{16\pi^2\omega_{k'}E'}\left|\frac{\partial(\omega_{k'}+E')}{\partial|k'|}\right|^{-1}_{\omega_{k'}=|\vec k'|}
+\end{align*}
+where 
+\[E'=\left(m^2+(\vec k-\vec k')^2\right)^{1/2}
+=\left[m^2+\omega_k^2+\omega_{k'}^2-2\omega_{k'}\omega_k\cos\theta\right]^{1/2}\]
+\[\frac{\partial E'}{\partial|k'|}=\frac{\omega_{k'}-\omega_k\cos\theta}{E'}\]
+and
+\todo{Controlla l'ultimo passaggio}
+
+\[\left|\frac{\partial(\omega_{k'}+E')}{\partial|k'|}\right|_{\omega_{k'}=|\vec k'|}
+=\left|1+\frac{\omega_{k'}-\omega_k\cos\theta}{E'}\right|
+=\frac{m\omega_k}{E'\omega_{k'}}
+\]
+So the unpolarized cross section is 
+\begin{align*}
+\left(\frac{\de\bar\sigma}{\de\Omega}\right)_{\textup{LAB}}&=
+\frac{\overline{|\mathcal M|}_{\textup{LAB}}^2}{4I_{\textup{LAB}}}\frac{\de\Phi_{(2)}}{\de\Omega}
+=\frac1{64\pi^2}\frac{|\vec k'|^2}{I_{\textup{LAB}}\omega_{k'}E'}\left|\frac{\partial(\omega_{k'}+E')}{\partial|k'|}\right|^{-1}\overline{|\mathcal M|}_{\textup{LAB}}^2\\
+&=\frac{q^4}{32\pi^2}\frac1{m^2}\left(\frac{\omega_{k'}}{\omega_k}\right)^2\left(\frac{\omega_{k'}}{\omega_k}+\frac{\omega_k}{\omega_{k'}}-\sin^2\theta\right)\\
+&=\frac{\alpha^2}{2}\frac1{m^2}\left(\frac{\omega_{k'}}{\omega_k}\right)^2\left(\frac{\omega_{k'}}{\omega_k}+\frac{\omega_k}{\omega_{k'}}-\sin^2\theta\right)
+\end{align*}
+where $\omega_{k'}/\omega_{k}$ is given by \eqref{eqn:QED-compton-energies-lab} and in the last step we used $\alpha=e^2/(4\pi)$. Writing $\de\Omega=(2\pi)\de\cos\theta$ we obtain
+\begin{align}\label{eqn:Klein-Nishina}
+\left(\frac{\de\bar\sigma}{\de\cos\theta}\right)_{\textup{LAB}}&=
+\frac{\pi\alpha^2}{m^2}\left(\frac{\omega_{k'}}{\omega_k}\right)^2\left(\frac{\omega_{k'}}{\omega_k}+\frac{\omega_k}{\omega_{k'}}-\sin^2\theta\right)
+\end{align}
+
+This is the (spin-averaged) \emph{Klein-Nishina formula}.
+In the low energy limit $\omega_k\ll m$, from \eqref{eqn:QED-compton-energies-lab} we have $\omega_{k'}\approx\omega_{k}$, i.e. the kinetic energy of the recoil electron is negligible, and Eq.\eqref{eqn:Klein-Nishina} reduces to the familiar Thomson cross-section for scattering of classical electromagnetic radiation by a free electron:
+
+\begin{align*}
+\left(\frac{\de\bar\sigma}{\de\cos\theta}\right)_{\textup{LAB}}&\overset{\omega_k\ll m}{=}
+\frac{\pi\alpha^2}{m^2}\left(1+\cos^2\theta\right)
+\quad\rightarrow\quad
+(\bar\sigma)_{\textup{LAB}}=\frac{8\pi\alpha^2}{3m^2}\equiv\frac83\pi r_e^2
+\end{align*}
+
+We have calculated the full relativistic corrections for the Thomson formula.
+
+\subsection{C.o.M. frame - High energy photon}
+To analyze the high-energy behaviour of the Compton scattering cross section, it is easiest to work in the center-of-mass frame.
+
+\begin{figure}[H]
+\centering
+\input{img/Compton_com_frame.tex}
+\end{figure}
+
+The kinematics of the reaction in the high energy limit ($m\approx0$) looks like
+\begin{align*}
+E&=\sqrt{\vec k^2+m^2}\approx|\vec k|=\omega_k\\
+E'&=\sqrt{\vec k'^2+m^2}\approx|\vec k'|=\omega_{k'}
+\end{align*}
+\begin{align*}
+p\cdot k&=\omega_k^2+|\vec k|^2=2\omega_k^2\\
+p\cdot p'&=\omega_k\omega_{k'}-\vec k\vec k'=\omega_k\omega_{k'}-|\vec k||\vec k'|\cos\theta=\omega_k\omega_{k'}(1-\cos\theta)\\
+k'\cdot p&=\omega_k\omega_{k'}+\vec k\vec k'=\omega_k\omega_{k'}+|\vec k||\vec k'|\cos\theta=\omega_k\omega_{k'}(1+\cos\theta)
+\end{align*}
+We also have
+\begin{align*}
+s&=(p+k)^2=(E+\omega_k)^2=4\omega_k^2 \quad\rightarrow\quad \omega_k=\frac{\sqrt s}{2}\\
+&=(p'+k')^2=(E'+\omega_{k'})^2=4\omega_{k'}^2 \quad\rightarrow\quad \omega_{k'}=\frac{\sqrt s}{2}
+\end{align*}
+So Mandelstam variables in high energy limit ($m=0$) take the form
+\begin{align*}
+s&=(p+k)^2=(p'+k')^2\approx2p\cdot k=4\omega_k^2\\
+t&=(p'-p)^2=(k'-k)^2\approx -2p\cdot p'=-2\omega_k^2(1-\cos\theta)\\
+u&=(k'-p)^2=(p'-k)^2\approx-2k'\cdot p=-2\omega_k^2(1+\cos\theta)
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
