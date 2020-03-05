@@ -55,8 +55,76 @@ D_{\mu}\psi \to (D_{\mu}\psi)' = D'_{\mu}\psi'	& = (D_{\mu} - iq\partial_{\mu} \
 	& = e^{iq\alpha(x)}(D_{\mu}\psi)
 \end{split}
 \]
+This implies that $\mathL_D$ is invariant. Since $\mathL_{EM}$ is invariant, the full lagrangian is invariant
 \end{enumerate}
 
+\section{Flavors in QED and the SU(3) Flavor Global Symmetry}
+QED describes interactions of the photon field with several kind of leptons, not only electron and positrons. Particles that differs only by their mass are called \textbf{flavours}.
+\skipline
+The next table describes leptons in QED. There are two families of leptons that differs by their charge. We indicate with (-) (minus) particles with negative charge, and with (+) (plus) particles with positive charge (antiparticles)\\
+\skipline
+Flavours in QED
+\[
+\begin{array}{l | cccccc}
+\toprule
+Leptons \footnotemark	& e 		& \mu 	& \tau 	& \nu_e 		& \nu_{\mu} 	& \nu_{\tau} \\
+\midrule
+q					& -1		& -1		& -1		& 0			& 0			& 0 \\
+m [MeV]				& 0.5		& 105	& 1777	& \simeq 0		& \simeq 0		& \simeq 0 \\
+\bottomrule
+\end{array}
+\]
+\footnotetext{Neutrinos admit anly global U(l) symmetry \\
+Neutrino masses are in the order $m_{\nu} \approx 10^{-6} me \le 1 eV$}
+\skipline
+The dirac lagrangian $\mathL_D$ can be modified in order to consider all possible leptons
+\[
+\mathL_D = \sum_{i=1}^n \bar{\psi_i} (i \slashed D - m_i) \psi_i
+	\simeq \sum_{i=1}^{n_l} \bar{\psi_i} (i \slashed D - m_i) \psi_i
+	+ \sum_{j=1}^{n_n} \bar{\psi_i} (i \slashed \partial) \psi_i
+\]
+with $n$: number of leptons, $n_l$: number of electrically charged particles, $n_n$: number of neutrinos.\\
+In the last term the interaction term vanishes because of q=0\\
+If we adopt a matrix notation
+\begin{align}
+\Psi_C & =
+\begin{pmatrix}
+\psi_e \\
+\psi_{\mu} \\
+\psi_{\tau}
+\end{pmatrix}
+&
+\Psi_N & =
+\begin{pmatrix}
+\psi_{\nu_e} \\
+\psi_{\nu_{\mu}} \\
+\psi_{\nu_{\tau}}
+\end{pmatrix}
+\notag \\
+\bar{\Psi}_C & = (\bar{\psi_e}, \bar{\psi_{\mu}}, \bar{\psi_{\tau}})
+&
+\bar{\Psi}_N & = (\bar{\psi}_{\nu_e}, \bar{\psi}_{\nu_{\mu}}, \bar{\psi}_{\nu_{\tau}})
+\notag 
+\end{align}
+The subscript C stands for ``charged'', and N for ``neutral''\\
+We can define following matrices
+\[
+M_C =
+\begin{pmatrix}
+m_e 	& 0 			& 0 \\
+0	& m_{\mu}	& 0 \\
+0	& 0			& m_{\tau}
+\end{pmatrix}
+\qquad
+Q_C = (-1) \mathds{1}_{3 \times 3}
+\qquad
+M_N \simeq Q_N = \emptyset_{3 \times 3}
+\]
+and the generalization of the covariant derivative $D_{\mu} = \partial_{\mu} \cdot \mathds{1}_{3 \times 3} + iA_{\mu}Q_C$ we obtain
+\[
+\mathL_D = \underbrace{\bar{\Psi}_C (i \slashed D - M_C)\Psi_C}_{\mathL_C} +
+	\underbrace{\bar{\Psi}_N(i \slashed \partial \mathds{1}_{3 \times 3})\Psi_N}_{\mathL_N}
+\]
 
 \section{$e^-\gamma\rightarrow e^-\gamma$ (Compton)}
 \textsf{See Peskin, sec 5.5}\\
