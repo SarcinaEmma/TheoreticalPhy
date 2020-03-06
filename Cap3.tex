@@ -1039,28 +1039,119 @@ which is the Rutherford formula. We can consider a generic nucleous with atomic 
 \textsf{See Mandl sec. 8.7}\\
 We can use a more general approach, where instead of considering the proton as a fundamental particle, we consider it as a source of E.M. field, considered as an external field in our theory. 
 
-So far, the electromagnetic field has been described by a quantized field, involving photon creation and annihilation operators. In some problem, where the quantum fluctuations are unimportant, it may be adequate to describe the field as a purely classical function of the space-time coordinates. In cases such as Rutherford scattering, we consider an applied external electromagnetic field $A^\textup{ext}(x)$, such as the Coulomb field of a heavy nucleus. More generally, one may have to consider both types of field, replacing $A$ by the sumof the quantized and the classical fields, $A(x)+A^{\textup{ext}}(x)$.
+So far, the electromagnetic field has been described by a quantized field, involving photon creation and annihilation operators. In some problem, where the quantum fluctuations are unimportant, it may be adequate to describe the field as a purely classical function of the space-time coordinates. In cases such as Rutherford scattering, we consider an applied external electromagnetic field $A^\textup{ext}(x)$, such as the Coulomb field of a heavy nucleus. More generally, one may have to consider both types of field, replacing $A$ by the sum of the quantized and the classical fields, $A(x)+A^{\textup{ext}}(x)$.
+
+Without the external EM field, the matrix element of the scattering amplitude reads
+\begin{align*}
+S_{fi}&=\bra f S_{(2)}\ket i=\bra{e_{r'}^-(p_e')p_{(s')}(M)}S_{(2)}\ket{e_{r}^-(p_e)p_{(s)}(M)}\\
+&=\int\de^4x\bra{e_{r'}^-(p_e')}(-iq_e)\left[\bar\psi_e\gamma^\mu\psi_e\right]_x\ket{e_{r}^-(p_e)}
+\int\de^4y\bra{p_{(s')}(M)}(-iq_p)\left[\bar\psi_p\gamma^\nu\psi_p\right]_y\ket{p_{(s)}(M)}
+iD_{\mu\nu}^F(x-y)\\
+&=-iq_e\int\de^4x\bra{e_{r'}^-(p_e')}\left[\bar\psi_e\gamma^\mu\psi_e\right]_x\ket{e_{r}^-(p_e)}
+\int\de^4yD_{\mu\nu}^F(x-y)\underbrace{q_p\bra{p_{(s')}(M)}\left[\bar\psi_p\gamma^\mu\psi_p\right]_y\ket{p_{(s)}(M)}}_{J^\nu_p(y)}
+\end{align*}
+where $J^\nu_p(y)$ is the 4-current density associated to the proton field. We can therefore define the field
+\[A_{\textup{ext}}^\mu(x)=\int\de^4yD_{\mu\nu}^F(x-y)J^\nu_p(y)
+\]
+which Maxwell equation reads\footnote{Here we used proprieties of Green functions}
+\todo{Metti qualche commento sulle funzioni di green}
+\[ \square A_{\textup{ext}}^\mu(x)=\int\de^4y\left(\square D_{\mu\nu}^F(x-y)\right)J^\nu_p(y)=J^\nu_p(x)\]
+i.e. $A_{\textup{ext}}^\mu(x)$ is a Maxwell (classic) field with external source $J^\nu_p(x)$.
+With this notation we obtain
+\[S_{fi}=-iq_e\int\de^4x\bra{e_{r'}^-(p_e')}\left[\bar\psi_e\slashed A_{\textup{ext}}\psi_e\right]_x\ket{e_{r}^-(p_e)}\]
+We obtained the same result if we would have defined the QED interaction lagrangian as
+\[\mathcal L_{\textup{int}}=-q_e\bar\psi\gamma^\mu\psi(A_\mu+A^{\textup{ext}}_\mu)\]
+and we considered its expantion at the first order (the field $A_\mu$ vanishes in the matrix element because of the form of initial and final states). Notice that $A_\mu$ is a quantum field (i.e. an operator) while $A^{\textup{ext}}_\mu$ is a classic field (i.e. a function).
+
+The Feynman diagram for this process is
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[baseline=(e1)]
+  \begin{feynman}[large]
+    \vertex (e1) {\(e^-\)};
+    \vertex [right=of e1] (i);
+    \vertex [right=of i] (e2){\(e^-\)};
+    \vertex [below=of i, crossed dot, minimum width=2pt](s){\hspace{0.5pt}};
+    \vertex [below right=5mm of s](s1){\(A_{\textup{ext}}^\mu\)};
+    
+    \diagram*{
+      (e1) -- [fermion, momentum={[arrow shorten=0.25]\(p_e\)}] (i) -- [fermion, momentum={[arrow shorten=0.2]\(p_e'\)}](e2),
+      (i) -- [boson, momentum={[arrow shorten=0.3]\(k=(p_e-p_e')\)}] (s),
+      };
+  \end{feynman}
+\end{tikzpicture}
+\end{figure}
+
+Let's assume that $A_{\textup{ext}}^\mu$ is a static potential. In this case we obtain same result as classic Rutherford scattering. First we express the external field in momentum space\footnote{Notice that $\epsilon_{\textup{ext}}^\mu(\vec k)=\tilde A_{\textup{ext}}^\mu(\vec k)$, but we use this notiation in analogy with the quantum Maxwell field expantion.}
+\[A_{\textup{ext}}^\mu(x)=\frac1{(2\pi)^3}\int\de^3k\,e^{i\vec k\cdot\vec x}\epsilon_{\textup{ext}}^\mu(\vec k)\]
+
+Then the $S$ matrix element at first order reads
+\begin{align*}
+S_{fi}&=
+-iq_e\int\de^4x\bra{e_{r'}^-(p_e')}\bar\psi_e\slashed A_{\textup{ext}}\psi_e\ket{e_{r}^-(p_e)}\\
+&=-iq_e\int\de^4x\bra{e_{r'}^-(p_e')}\bar\psi_e\gamma^\mu\psi_e\ket{e_{r}^-(p_e)}
+\frac1{(2\pi)^3}\int\de^3k\,e^{i\vec k\cdot\vec x}\epsilon_\mu^{\textup{ext}}(\vec k)\\
+&=-iq_e\frac{1}{(2\pi)^3}\int\de^4x\,\de^3k\,\bar u(p_e')\gamma^\mu u(p_e)
+\,\epsilon_\mu^{\textup{ext}}(\vec k)\,e^{-ip\cdot x+ip'\cdot x +i\vec k\cdot\vec x}\\
+&=-iq_e\int\de x\,\de^3k\,\delta^3(\vec k+\vec p-\vec p')\bar u(p_e')\gamma^\mu u(p_e)
+\,\epsilon_\mu^{\textup{ext}}(\vec k)\,e^{-i(\omega_e-\omega_e')x}\\
+&=-iq_e(2\pi)\delta(\omega_e-\omega_e')\bar u(p_e')\gamma^\mu u(p_e)
+\,\epsilon_\mu^{\textup{ext}}(\vec p'-\vec p)
+\end{align*}
+and
+\[\mathcal M_{fi}^{\textup{ext}}=-iq_e\bar u(p_e')\gamma^\mu u(p_e)
+\,\epsilon_\mu^{\textup{ext}}(k)\]
+
+Notice that the Feynman rules for QED with external field are the same as in the free case, using terms $\tilde A_{\textup{ext}}^\mu(k)$ instead of polarization vector for the Maxwell field. Set $\epsilon_\mu^{\textup{ext}}(k)=\tilde A^{\textup{ext}}_\mu(k)$ we have
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{align*}
+\epsilon_\mu^{\textup{ext}}(k)&=\quad
+\begin{tikzpicture}[baseline=(s2)]
+  \begin{feynman}[large]
+    \vertex [crossed dot, minimum width=2pt](s1){\hspace{0.5pt}};
+    \vertex [right=of s1](s2){\(\mu\)};
+    \vertex [below left=5mm of s1](a){\(A_{\textup{ext}}\)};
+    %
+    \diagram*{
+      (s1) -- [boson, momentum={[arrow shorten=0.3]\(k\)}] (s2),
+      };
+  \end{feynman}
+\end{tikzpicture}\\
+%
+\epsilon_\mu^{\textup{ext}\,*}(k)&=\quad
+\begin{tikzpicture}[baseline=(s2)]
+  \begin{feynman}[large]
+    \vertex [crossed dot, minimum width=2pt](s1){\hspace{0.5pt}};
+    \vertex [left=of s1](s2){\(\mu\)};
+    \vertex [below right=5mm of s1](a){\(A_{\textup{ext}}\)};
+%    
+    \diagram*{
+      (s2) -- [boson, momentum={[arrow shorten=0.3]\(k\)}] (s1),
+      };
+  \end{feynman}
+\end{tikzpicture}\\
+%
+-iq_e\gamma^\mu&=\quad
+\begin{tikzpicture}[baseline=(j)]
+  \begin{feynman}[large]
+    \vertex (e1);
+    \vertex [right=of e1] (i);
+    \vertex [right=of i] (e2);
+    \vertex [below=of i, crossed dot, minimum width=2pt](s){\hspace{0.5pt}};
+    \vertex [below right=5mm of s](s1){\(A_{\textup{ext}}\)};
+    \vertex [above=0mm of i](mu){\(\mu\)};
+    \vertex [below=14mm of i](j);
+    %
+    \diagram*{
+      (e1) -- [fermion] (i) -- [fermion](e2),
+      (i) -- [boson] (s),
+      };
+  \end{feynman}
+\end{tikzpicture}
+\end{align*}
+Other rules are unchanged.
 
 
 
