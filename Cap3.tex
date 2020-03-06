@@ -18,7 +18,7 @@ Quantum electrodynamic (QED) describes the interactions between (or any other ch
 Notice that $\mathL_D$ exhibits local symmetry, while $\mathL_D^{(0)}$ doesn't
 \end{enumerate}
 Besides Lorentz invariance, the QED exhibits following symmetries:
-\begin{enumerate}[label=(\Roman*)]
+\begin{enumerate}[label=$\bullet$]
 \item \textbf{Global U(1) symmetry}
 \[
 \begin{cases}
@@ -375,7 +375,7 @@ Now we prove some properties of $\gamma-$matrices traces (\textsf{other properti
 
 From previous calculation, using induction, can be easily proved that $\Tr[\underbrace{\gamma^{\mu} \dots \gamma^{\sigma}}_{\textup{odd \# of} \atop \gamma \textup{ matrices}}] = 0$\\
 With these relations we obtain
-\begin{enumerate}[label=(\Roman*)]
+\begin{enumerate}[label=$\bullet$]
 \item
 	\begin{align*}
 	\Tr[(\slashed p + m) \gamma^{\nu}(\slashed q - m) \gamma^{\sigma}]
@@ -384,7 +384,112 @@ With these relations we obtain
 	& = 4 \bigl(p^{\nu}q^{\sigma} + p^{\sigma}q^{\nu} - g^{\nu\sigma}(p \cdot q + m^2) \bigr) \\
 	& \textup{with m = mass of }e^I
 	\end{align*}
+\item
+	\[
+	\Tr [(\slashed p' + m) \gamma_{\mu} (\slashed q' - m) \gamma_{\nu}]
+		= 4 \bigl( p'_{\mu} \, q'_{\nu} + p'_{\nu}\, q'_{\mu} \, g_{\mu\nu}(p' \cdot q' + M^2) \bigr)
+	\qquad \text{with M = mass of } f^I
+	\]
+\item
+	\begin{align*}
+	\overline{\abs{\mathM_{fi}}^2} 
+	& = \frac{4q^4}{s^2} \, \bigl( p^{\mu}q^{\nu} + p^{\nu}q^{\mu} - g^{\mu\nu}(p \cdot q + m^2) \bigr)
+		\bigl( p'_{\mu}\, q'_{\nu} + p'_{\nu}\, q_{\mu} - g_{\mu\nu} (p' \cdot q' + M^2) \bigr) \\
+	& \approx \frac{8q^4}{s^2} \bigl( (p \cdot p')(q \cdot q') + (p \cdot q')(p' \cdot q) + M^2(p \cdot q) \bigr)
+		\qquad \textup{if } m \ll M
+	\end{align*}
 \end{enumerate}
+To obtain a more explicit formula we must specialize to a particular frame of reference and express the vectors $p, q, p', q', k$ in terms of the basis kinematic variables (energies and angles) in that frame. In practice, the choice of frame will be dictated by the experimental conditions.\\
+We want to calculate cross section in the center of mass frame.
+\todo{Diagramma di Feynman}
+
+In the CM frame we have following kinematics relations
+\[
+\left.
+\begin{aligned}
+(p + q)	& = (\omega_p + \omega_q, \vec{p} + \vec{q}) = (\omega_p + \omega_q, 0) \\
+s 		& = (p + q)^2 = (\omega_p + \omega_q)^2
+\end{aligned}
+\right \} = (p + q) = (\sqrt{s}, 0)
+\]
+and
+\[
+\omega_p = (p + q)^2 = (\omega_p + \omega_q)^2
+\]
+Same for final momenta
+\begin{gather*}
+(p' + q') = (\sqrt{s}, 0) \\
+\omega_{p'} = \omega_{q'} = \frac{\sqrt{s}}{2}
+\end{gather*}
+For product momenta
+\begin{align*}
+(p \cdot q) 		& = \omega^2 - \vec{p}\vec{q} = \omega^2 \abs{\vec{p}}^2 = 2 \omega^2 - m^2 
+	\overset{m=0}{\simeq} 2\omega^2 \\
+(p' \cdot q') 		& = \omega^2 - \vec{p}\vec{q} = \omega^2 \abs{\vec{p}}^2 = 2 \omega^2 - M^2 \notag \\
+(p \cdot p') 		& = \omega^2 - \vec{p}\vec{p'} = \omega^2 - \abs{\vec{p}}\abs{\vec{p'}}\cos \theta 
+	\overset{m = 0}{\simeq} \omega(\omega - \abs{\vec{p'}} \cos \theta)
+	\overset{m = 0}{\simeq} (q \cdot q') \\
+(p \cdot q')		& = \omega^2 + \vec{p}\, \vec{p'} = \omega^2 + \abs{\vec{p}}\abs{\vec{p'}}\cos \theta 
+	\simeq \omega(\omega + \abs{\vec{p'}}\cos \theta) \simeq (q \cdot p') \\
+\abs{\vec{p'}}^2 	& = \omega^2 - M^2 = \omega^2 \biggl( 1 - \frac{M^2}{\omega^2} \biggr)
+	= \frac{s}{4} \biggl( 1 - \frac{4M^2}{s} \biggr) \\
+\abs{\vec{p}}^2 	& = \omega^2 + m^2 \overset{m = 0}{\simeq} \omega^2 = \frac{s}{4}
+\end{align*}
+Now we can rewrite $\overline{\abs{\mathM_{fi}}^2}$ in terms of $\omega$ and $\theta$. If $m=0$ is valid (e.g. $m_e/m_{\mu} = 1/200$)
+\begin{align*}
+\overline{\abs{\mathM_{fi}}^2}
+	& \simeq \frac{8q^4}{s^2} \bigl[ (\omega^4 - 2 \omega^3 \abs{p'} \cos \theta + \omega^2 \abs{p'}^2 \cos^2 \theta) 
+		+ (\omega^4 + 2 \omega^3 \abs{p'} \cos \theta + \omega^2 \abs{p'}^2 \cos^2 \theta) + 2M^2\omega^2 \bigr] \\
+	& = \frac{8q^4}{s^2} \biggl[ \frac{2s}{4} \biggl( \frac{s}{4} + \frac{s}{4} \biggl( 1 - \frac{4M^2}{s} \biggr) \cos^2 \theta \biggr)
+		+ 2M^2 \frac{s}{4} \biggr]	\\
+	& = q^4 \biggl[ \biggl( 1 + \frac{4M^2}{s} \biggr) + \biggl( 1 - \frac{4M^2}{s} \biggr) \cos^2 \theta \biggr] 				 
+\end{align*}
+Cross section formula in the CM frame reads
+\begin{align}
+\biggl( \frac{\de \bar{\sigma}}{\de \Omega} \biggr)_{CM}
+	& = \frac{1}{64\pi^4} \ \frac{1}{s} \ \frac{\abs{p'}}{\abs{q'}} \ \abs{\overline{\mathM}}^2_{CM} \notag \\
+	& = \frac{q^4}{64 \pi^2} \ \frac{1}{s} \ \biggl( 1 - \frac{4M^2}{s} \biggr)^{1/2} \, 
+		\biggl[ \biggl( 1 + \frac{4M^2}{s} \biggr) + \biggl( 1 - \frac{4M^2}{s} \biggr) \cos^2 \theta \biggr] \notag \\
+	& = \frac{\alpha^2}{4s} \biggl( 1 - \frac{4M^2}{s} \biggr)^{1/2} \,
+		\biggl[ \biggl( 1 + \frac{4M^2}{s} \biggr) + \biggl( 1 - \frac{4M^2}{s} \biggr) \cos^2 \theta \biggr]
+		\quad \textup{with } \alpha = \frac{e^2}{4 \pi} \approx \frac{1}{137}	
+		\label{eq:2}&
+\end{align}
+Integrating over $\de \Omega$ we find the total unpolarized cross section
+\begin{equation}
+(\bar{\sigma})_{TOT} = \int \de \Omega \biggl( \frac{\de \bar{\sigma}}{\de \Omega} \biggr)_{CM}
+= \frac{4 \pi \alpha^2}{3s} \biggl( 1 - \frac{4M^2}{s} \biggr)^{1/2} \ \biggl( 1 + \frac{2M^2}{s} \biggr) + \sigma(\alpha^3)
+\label{eq:3}
+\end{equation}
+\textbf{Notes: } $\bigl( 1 - (4M^2)/s \bigr)$ in the equation \ref{eq:2} impose a physical constraint for the scattering process: $s = 4\omega^2 > 4M^2$.
+Energy of initial particles must be grater than the mass of final particles $\omega > M$ (we changed the case $m \approx 0$)\\
+In equation \ref{eq:3}, \emph{the same term}, shows that for $m \approx M$ the cross section vanish and (see previous formulas) there is almost no dependence on the angle, moreover the term $\sigma(\alpha^3)$ is trabscured since we considering only first order of perturbative expansion.\\ \\
+We used approximation $m \approx 0$ because usually in experiments $\omega \approx 1 GeV$ and $m_{\mu} \approx 200 me \ m_{\mu} = 105 MeV$. For very high experiments, $\omega \approx TeV$, we can omit also f mass, approximating $M \approx 0$. This is called \textbf{ultra relativistic regime} (only energies are taken into account)
+\[
+\biggl( \frac{\de \bar{\sigma}}{\de \Omega} \biggr)_{CM}^{UR} =
+	\frac{\alpha^2}{4s} \underbrace{(1 + \cos \theta)}_{\text{scattering amplitude} \atop \text{is higher at small angles}}
+\qquad
+\bigl( \bar{\sigma} \bigr)^{UR}_{TOT} = \frac{4 \pi \alpha^2}{3s} + o \biggl( \frac{M^2}{s} \biggr)
+\]
+
+\skipline
+Let's summarize how we obtained these results. The method extends in a straightforward way to the calculation of unpolarized cross section for other QED processes at lowest order. The general procedure is as follows:
+\begin{enumerate}[label=(\arabic*)]
+\item Draw the diagram(s) for the desired process
+\item Use Feynman rules to write down the amplitude $\mathM_{fi}$
+\item Square the amplitude and average or sum over spins, using completeness relations (for processing involving photons in the final state there is an analogous completeness relation, we will derive it in Compton scattering)
+\item Evaluate traces using $\gamma$-matrices proprieties; collect terms and simplify the answer as much as possible
+\item Specialize to a particular frame of reference, and draw a picture of the kinematic variable in that frame. Express all 4-momentum vectors in terms of suitably chosen set of variables such as E and $\theta$
+\item Plug the resulting expression for $\abs{\overline{\mathM_{fi}}}^2$ into the cross-section formula and integrate over phase space variables that are not measured to obtain a differential cross section in the desired form
+\end{enumerate}
+
+\begin{exercise}
+Calculate cross sections of following precesses ($f \ne e$) (unpolarized)
+\begin{itemize}[label = $\bullet$]
+\item $e^- \, f^- \to e^- \, f^-$ \quad (t-channel)
+\item $e^- \, f^+ \to e^- \, f^+$ \quad (u-channel) 
+\end{itemize}
+\end{exercise}
 
 
 \section{$e^-\gamma\rightarrow e^-\gamma$ (Compton)}
@@ -507,10 +612,9 @@ If $\mathcal M(k)=\epsilon_\mu(k)L^\mu(k)$ is the amplitude for some QED process
 \[k_\mu L^\mu(k)=0\]
 \end{quoting}
 
-\todo{Creare ambiente exercize, questo è un esercizio}
-\begin{example}
+\begin{exercise}
 Verify explicitly the Ward Identity for the Feynman amplitude of Compton scattering
-\end{example}
+\end{exercise}
 
 \textsf{See Peskin, sec 5.5}\\
 Returning to our derivation of the polarization sum formula for squared scattering amplitude. Writing in general
@@ -636,10 +740,9 @@ T_{BB}&=16\left(4m^4-2m^2p\cdot p'-4m^2p\cdot k'+2m^2p'\cdot k'+2(p\cdot k')(p'\
 &=16\left(2m^4+m^2(u-m^2)-\frac12(u-m^2)(s-m^2)\right)
 \end{align*}
 
-\todo{anche questo dovrebbe esser un esercizio}
-\begin{example}
+\begin{exercise}
 Compute the elements $T_{AB}$ and $T_{BA}$
-\end{example}
+\end{exercise}
 
 Evaluating the traces in $T_{AB}$ and $T_{BA}$ requires about the same amount of work as we have just done. The answer is 
 \begin{align*}
@@ -810,11 +913,10 @@ The total Compton scattering cross section reads:
 \end{align*}
 The main dependence $\alpha^2/s$ follows from dimensional analysis. But the singularity associated to backward scattering of photons leads to an enhancement by an extra logarithm of the energy, called \emph{Sudakov logarithm}.
 
-\todo{Questo è un esercizio, sistemare}
 \todo{Inserire diagrammi di Feynman pag 168 Peskin (ruotati appropriatamente)}
-\begin{example}[Pair Annihilation into Photons]
+\begin{exercise}[Pair Annihilation into Photons]
 Find the total cross section of the annihilation process $e^+e^-\rightarrow2\gamma$
-\end{example}
+\end{exercise}
 
 
 \section{Scattering by an external E.M. field and the Rutherford formula}
