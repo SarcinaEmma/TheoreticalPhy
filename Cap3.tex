@@ -593,9 +593,113 @@ Going back to the Feynman amplitude
 	& \times 	\bigl( \bar{u}(p') \, \gamma^{\mu}_R \, v(q') \bigr) \bigl( \bar{v}(q) \, \gamma_{\mu}^R \, u(p) \bigr)  \quad \to \mathM_{RR}
 \end{align*}
 If I did not used the UK limit, I would have obtained 16 independent terms, instead of 4.\\
-Each factor in the latter, corresponds to a different Feynman diagram with different left- and right-handed, initial and final particles, for example
+Each factor in the latter, corresponds to a different Feynman diagram with different left- and right-handed, initial and final particles, for example\\
 \todo{diagramma di Feynman}
-FOGLIO 37
+Having inserted these projection operators, we are now free to sum over the electron and positron spins in the squared amplitude. As a cosequence of projector operators, we saw that the amplitude vanishes (in UR limit) unless the eletron and positron have opposite helicity, or equivalently, unless their spinors have the same helicity.\\
+Let's calculate squared Feynman amplitude of $\mathM_{LL}$, summing over spins
+\[
+\abs{\mathM_{LL}}^2 = \sum_{\text{spins}} \,
+	\underbrace{\abs{ \bar{u}_r(p') \, \gamma^{\mu}_L \, v_{s'}(q') }^2}_{\textbf{B}}
+	\underbrace{\abs{ \bar{v}_s(q) \, \gamma^L_{\mu} \, u_r(p) }^2}_{\textbf{A}}
+\]
+with
+\[
+\begin{split}
+\textbf{A}	& = \sum_{r s} \bigl( \bar{v}_s(q) \, \gamma^L_{\mu} \, u_r(p) \bigr) \bigl(	\bar{u}_r(p) \, \gamma^l_{\nu} \, v_s(q) \bigr) \\
+		& = \Tr \bigl[ \slashed q \, \gamma_{\mu}^L \, \slashed p \, \gamma_{\nu}^L \bigr]
+			= \Tr \bigl[ q^{\rho} \, \gamma_{\rho} \, \gamma_{\mu} \, P_L \, p^{\sigma} \, \gamma_{\sigma} \, \gamma_{\nu} \, P_L \bigr] \\
+		& = \Tr \bigl[ q^{\rho} \, \gamma_{\rho} \, \gamma_{\mu} \, p^{\sigma} \, \gamma_{\sigma} \, P_R \gamma_{\nu} \, P_L \bigr]
+			= \Tr \biggl[ \slashed q \, \gamma_{\mu} \, \slashed p \, \gamma_{\nu} \biggl( \frac{1-\gamma^5}{2} \biggr) \biggr] \\
+		& = \frac{1}{2} \Tr \bigl[ \slashed q \, \gamma_{\mu} \, \slashed p \, \gamma_{\nu} \bigr]
+			- \frac{1}{2} \Tr \bigl[ \slashed q \, \gamma_{\mu} \, \slashed p \, \gamma_{\nu} \, \gamma_5 \bigr]
+\end{split}
+\]
+\textbf{Recall:}
+\begin{gather*}
+\Tr \bigl[ \gamma^{\mu} \, \gamma^{\nu} \, \gamma^{\rho} \, \gamma^{\sigma} \bigr] 
+	= 4 \bigl( g^{\mu\nu} \, g^{\rho\sigma} - g^{\mu\rho} \, g^{\nu\sigma} + g^{\mu\sigma} \, g^{\nu\rho} \bigr) \\
+\Tr \bigl[ \gamma^{\mu} \, \gamma^{\nu} \, \gamma^{\rho} \, \gamma^{\sigma} \, \gamma^5 \bigr] = -4i\epsilon^{\mu\nu\rho\sigma} 
+\end{gather*}
+
+\begin{align*}
+\textbf{A}	& = 2 \bigl( q_{\mu}p_{\nu} - q \cdot p g_{\mu\nu} + q_{\nu}p_{\mu} - i \epsilon_{\alpha\mu\beta\nu} \, q^{\alpha}p^{\beta} \bigr) \\
+\textbf{B}	& = 2 \bigl( p^{\prime \mu} q^{\prime \nu} - q' \cdot p' g^{\mu\nu} + p^{\prime \nu} q^{\prime \mu} 
+	- i \epsilon^{\rho\mu\sigma\nu} p'_{\rho} q'_{\sigma} \bigr)
+\end{align*}
+And we finally obtain
+\begin{align*}
+\abs{\mathM_{LL}}^2 
+	& = \frac{4q^2}{s^2} \bigl[ 2(p \cdot p')(q \cdot q') + 2(p \cdot q')(p' \cdot q) - \epsilon^{\rho\mu\sigma\nu} \, \epsilon_{\alpha\mu\beta\nu} \,
+		q^{\alpha} p^{\beta} p'_{\rho} q'_{\sigma} \bigr] \\
+	& = \frac{8q^2}{s^2} \bigl[ (p \cdot p') (q \cdot q') + (p \cdot q')(p' \cdot q) - (p \cdot p')(q \cdot q') + (p \cdot q')(q \cdot p') \bigr] \\
+	& =  \frac{16q^2}{s^2} (p \cdot q')(p' \cdot q)
+\end{align*}
+In general frame
+\[
+u = (p - q')^2 = (q - p')^2 = 2m^2 - 2pq' \simeq -2pq' = -2qp'
+\]
+and in the center of mass frame
+\[
+(p \cdot q') = (q \cdot p') = \omega^2(1 + \cos \theta)
+\]
+so the squared amplitude in the center of mass frame reads
+\[
+\abs{\mathM_{LL}}^2 = \frac{16q^4}{s^2} \omega^4 (1 + \cos \theta)^2 = q^4(1 + \cos \theta)^2 = q^4 \frac{u^2}{s^2}
+\]
+Notice that this amplitude vanished for $\theta = \pm \pi$\\
+In particular
+\begin{enumerate}
+\item $\abs{\mathM_{LL}}^2$ is max when $\theta = 0$
+	\todo{disegno foglio 38}
+\item $\abs{\mathM_{LL}}^2$ is zero when $\theta = \pi$\\
+	\todo{disegno foglio 38}
+	Amplitude vanished when helicity states are orthogonal. This  is what we would expect, since for $\theta = \pi$ the total angular momentum of the final state is opposite to that of the initial state 
+\end{enumerate}
+
+\begin{exercise}
+Compute $\abs{\mathM_{RR}}^2, \abs{\mathM_{LR}}^2, \abs{\mathM_{RL}}^2$\\
+Solution:
+\[
+\begin{split}
+\abs{\mathM_{RR}}^2 	& = q^4 (1 + \cos \theta)^2 = q^4 \frac{u^2}{s^2} \\
+\abs{\mathM_{LR}}^2	& = \abs{\mathM_{RL}}^2 = q^4(1 - \cos \theta)^2 = q^4 \frac{t^2}{s^2}
+\end{split}
+\]
+Actually $\abs{\mathM_{LL}}^2 = \abs{\mathM_{RR}}^2$ and $\abs{\mathM_{LR}}^2 = \abs{\mathM_{RL}}^2$ are consequences of parity invariance
+\end{exercise}
+Adding up all four contributions, and dividing by 4 to average over the electron and positron states, we recover the unpolarized cross section dirived previously
+\[
+\begin{split}
+\abs{\mathM}^2 	& = \frac{1}{4} \bigl( \abs{\mathM_{LL}}^2 + \abs{\mathM_{RR}}^2 
+	+ \abs{\mathM_{RL}}^2 + \abs{\mathM_{LR}}^2 \bigr) \\
+				& = q^4(1 + \cos^2 \theta)
+\end{split}
+\]
+
+\subsection{Mandelstam variables and crossing symmetries}
+\textsf{Peskin, sec 5.4}\\
+Let's consider a different but closely related QED process: $e^- \, f^- \to e^- \, f^-$
+\begin{equation*}
+\begin{tikzpicture}[baseline=(i)]
+  \begin{feynman}[large]
+    \vertex (f1) {\(e^-\)};
+    \vertex [label={[label distance=0cm]}] at ([shift={(315:2.5)}]f1)  (u);
+    \vertex [label={[label distance=0.1cm]}] at ([shift={(270:2)}]u) (d);
+    \vertex [below right=of d] (f2) {\(f^-\)};
+    \vertex [below left=of d] (b1){\(f^-\)};
+    \vertex [above right=of u] (b2){\(e^-\)};
+    \vertex at ([shift={(270:1)}]u)(i);
+    
+    \diagram*{
+      (f1) -- [fermion, momentum={[arrow shorten=0.25]\(p\)}] (u) -- [boson, momentum={[arrow shorten=0.3]\(k=(p-p')=(q'-q)=\sqrt{t}\)}] (d) -- [fermion, momentum={[arrow shorten=0.2]\(q'\)}](f2),
+      (u) -- [fermion, momentum={[arrow shorten=0.3]\(p'\)}] (b2),
+      (b1) -- [fermion, momentum={[arrow shorten=0.2]\(q\)}] (d),
+      };
+  \end{feynman}
+\end{tikzpicture}
+\end{equation*}
+
+
 
 \section{$e^-\gamma\rightarrow e^-\gamma$ (Compton)}
 \textsf{See Peskin, sec 5.5}\\
@@ -859,7 +963,7 @@ T_{AB}=T_{BA}&=-16\left(4m^4+m^2(p\cdot k-p\cdot k')\right)\\
 &=-16\left(2m^4+\frac{m^2}2((s-m^2)-(u-m^2))\right)
 \end{align*}
 
-Putting together the pieces of the unpolarized Feynamn amplitude for Compton scattering we obtain
+Putting together the pieces of the unpolarized Feynman amplitude for Compton scattering we obtain
 
 \begin{equation}\label{eqn:Compton-unpolarized-squared}\begin{split}
 |\bar{\mathcal M}|^2&=2q^4\left[\frac{p\cdot k'}{p\cdot k}+\frac{p\cdot k}{p\cdot k'}+2m^2\left(\frac1{p\cdot k}-\frac1{p\cdot k'}\right)+m^4\left(\frac1{p\cdot k}-\frac1{p\cdot k'}\right)^2\right]\\
