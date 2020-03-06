@@ -318,11 +318,78 @@ The spinors u and v have disappeared, leaving us with a much cleaner expression 
 
 \skipline
 There is a trick to obtain previous formula using only Feynman rules. If we set $\mathM_{fi}=\mathM_e\mathM_f$ (we divide $\mathM_{fi}$ in 2 factors related to e and f), then $\abs{\mathM_{fi}}^2 = \mathM_e^* \mathM_e \, \mathM_f^* \mathM_f$. We have
-\todo{Feynman diagram}
+\todo{Da completare}
+\begin{equation*}\sum_{rs} \mathM^*_e \, \mathM_e=%
+\begin{tikzpicture}[baseline=(nu)]
+  \begin{feynman}[large]
+    \vertex [label={[label distance=0.1cm]2:$\nu$}] at ([shift={(315:2.5)}]f1) (nu);
+    \vertex [left=of nu] (f1) {};
+    \vertex [label={[label distance=0.12cm]180:$\mu$}] at ([shift={(0:3.2)}]nu) (mu);
+    \vertex [right=of mu] (f2) {};
+
+    \diagram*{
+      (f1) -- [photon, momentum'={[arrow shorten=0.2]\(k\)}] (nu),
+      (nu) -- [fermion, half left, momentum'={[arrow shorten=0.25]\(p\)}] (mu),
+      (mu) -- [fermion, half left, momentum'={[arrow shorten=0.25]\(q\)}] (nu),
+      (mu) -- [photon, momentum'={[arrow shorten=0.25]\(k\)}] (f2),
+    };
+  \end{feynman}
+\end{tikzpicture}
+\end{equation*}
+The closed fermion line contributes in the final amplitude with a factor
+\[
+\frac{q^2}{2s} \Tr \bigl[ \underbrace{(\slashed p + m)}_{\textup{Fermion}} \gamma^{\nu} \underbrace{(\slashed q - m)}_{\textup{Antifermion}} \gamma^{\mu} \bigr]
+\]
+The factor $-q^2/(2s)$ is obtained using full diagram (s is given by photon propagator)
+\todo{Fare diagramma di Feynman}
+Going back to the expression of $\abs{\mathM_{fi}}^2$ that we obtain, now we need to calculate explicitly $\gamma$ matrices traces
+\[
+\Tr \bigl[ (\slashed p + m) \gamma^{\nu} (\slashed q - m) \gamma^{\mu} \bigr] =
+\Tr \bigl[ \slashed p \ \gamma^{\nu} \slashed q \ \gamma^{\mu} \bigr] - m^2 \Tr [\gamma^{\nu} \ \gamma^{\mu} ] +
+m \bigl( \Tr [\gamma^{\nu} \slashed q \ \gamma^{\mu} ] - \Tr [ \slashed p \ \gamma^{\nu} \gamma^{\mu}] \bigr)
+\]
+Now we prove some properties of $\gamma-$matrices traces (\textsf{other properties in Peskin pg 133-135})
+\begin{enumerate}[label=(\Roman*)]
+\item 
+	\begin{alignat*}{2}
+	\Tr [\gamma^{\mu}] 	& = \Tr[\gamma^5 \, \gamma^5 \, \gamma^{\mu} ]		&\quad & \to (\gamma^5)^2 = \id \\
+						& = - \Tr [ \gamma^5 \, \gamma^{\mu} \, \gamma^5 ]	&& \to \{ \gamma^5, \gamma^{\mu} \} = 0 \\
+						& = - \Tr [ \gamma^5 \, \gamma^5 \, \gamma^{\mu} ] 	&& \to \textup{cyclicity} \\
+						& = -\Tr[\gamma^{\mu}] 							&& \\
+						& \so \Tr [\gamma^{\mu}] = 0						&&						
+	\end{alignat*}
+\item
+	\begin{align*}
+	\Tr [\gamma^{\mu} \, \gamma^{\nu} \, \gamma^{\rho} \, \gamma^{\sigma}]
+	&= \Tr [2g^{\mu\nu} \, \gamma^{\rho}\, \gamma^{\sigma} - \gamma^{\nu}\, \gamma^{\mu}\, \gamma^{\rho}\, \gamma^{\sigma} ] \\
+	& = 2g^{\mu\nu} \Tr[ \gamma^{\rho}\, \gamma^{\sigma}] - \Tr[\gamma^{\nu}2g^{\mu\rho}\gamma^{\sigma}
+		- \gamma^{\nu}\, \gamma^{\rho}\, \gamma^{\mu}\, \gamma^{\sigma}] \\
+	& = 8g^{\mu\nu}g^{\rho\sigma} - 8g^{\mu\rho}g^{\nu\sigma} +
+		\Tr[\gamma^{\nu}\, \gamma^{\rho}\, 2g^{\mu\sigma} - \gamma^{\nu}\, \gamma^{\rho}\, \gamma^{\sigma}\, \gamma^{\mu}] \\
+	& = 8 \bigl( g^{\mu\nu}g^{\rho\sigma} - g^{\mu\rho}g^{\nu\sigma} + g^{\mu\sigma}g^{\nu\rho} \bigr)
+		-\Tr[\gamma^{\mu}\, \gamma^{\nu}\, \gamma^{\rho}\, \gamma^{\sigma}] \\
+	& \so \Tr[\gamma^{\mu}\, \gamma^{\nu}\, \gamma^{\rho}\, \gamma^{\sigma}] =
+		4\bigl( g^{\mu\nu}g^{\rho\sigma} - g^{\mu\rho}g^{\nu\sigma} + g^{\mu\sigma}g^{\nu\rho} \bigr)
+	\end{align*}
+\end{enumerate}
+
+From previous calculation, using induction, can be easily proved that $\Tr[\underbrace{\gamma^{\mu} \dots \gamma^{\sigma}}_{\textup{odd \# of} \atop \gamma \textup{ matrices}}] = 0$\\
+With these relations we obtain
+\begin{enumerate}[label=(\Roman*)]
+\item
+	\begin{align*}
+	\Tr[(\slashed p + m) \gamma^{\nu}(\slashed q - m) \gamma^{\sigma}]
+	& = 4(g^{\mu\nu}g^{\rho\sigma} - g^{\mu\rho}g^{\nu\sigma} + g^{\mu\sigma}g^{\nu\rho}) p_{\mu}q_{\rho} - m^2 4g^{\nu\sigma} \\
+	& = 4 (p^{\nu}q^{\sigma} - g^{\nu\sigma}p \cdot q + p^{\sigma}q^{\nu} - g^{\nu\sigma}m^2) \\
+	& = 4 \bigl(p^{\nu}q^{\sigma} + p^{\sigma}q^{\nu} - g^{\nu\sigma}(p \cdot q + m^2) \bigr) \\
+	& \textup{with m = mass of }e^I
+	\end{align*}
+\end{enumerate}
+
 
 \section{$e^-\gamma\rightarrow e^-\gamma$ (Compton)}
 \textsf{See Peskin, sec 5.5}\\
-Let's examinate a process with external bosons: \emph{Compton scattering}, or $e^-\gamma\rightarrow e^-\gamma$. This process is described by two independent diagrams, since they are topologically different:
+Let's examine a process with external bosons: \emph{Compton scattering}, or $e^-\gamma\rightarrow e^-\gamma$. This process is described by two independent diagrams, since they are topologically different:
 
 \begin{equation*}\mathcal M_A=%
 \begin{tikzpicture}[baseline=(nu)]
@@ -392,7 +459,7 @@ Amplitudes reads, using Feynman rules
 \mathcal M_B&=-q^2\epsilon_\mu^{\lambda'*}(k')\epsilon_\nu^\lambda(k)\left[\bar u_{r'}(p')\gamma^\nu\tilde S_F(p-k')\gamma^\mu u_r(p)\right]
 \end{align*}
 
-{\small (Recall that $\tilde S_F$ is a matrix, so elements in the squared braket  must be written in this order)}\\
+{\small (Recall that $\tilde S_F$ is a matrix, so elements in the squared bracket  must be written in this order)}\\
 Because of anticommuting relations for bosons, these amplitudes must be summed up in the total amplitude.
 The explicit form of Feynman propagator for the Dirac field reads
 
