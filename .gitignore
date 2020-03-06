@@ -4,3 +4,4 @@
 *.gz
 *.toc
 *.synctex(busy)
+.DS_Store
