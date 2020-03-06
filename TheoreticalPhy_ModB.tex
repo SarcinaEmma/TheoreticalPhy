@@ -18,7 +18,7 @@
 	\usepackage{amsthm}
 \usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{enumitem}
-	\setlist{itemsep = 0pt}
+	\setlist{nosep}
 	\setlist{label=(\roman*)}
 \usepackage[framemethod=TikZ]{mdframed}
 	\usepackage{amsthm}
@@ -61,15 +61,29 @@
 \newcommand{\onlyinmainfile}[1]{}
 
 %Example
-\mdfdefinestyle{theoremstyle}{%
+\mdfdefinestyle{example}{%
 linecolor=gray,linewidth=2pt,%
 frametitlerule=true,%
 frametitlebackgroundcolor=gray!20,
 innertopmargin=\topskip,
 }
-\mdtheorem[style=theoremstyle, nobreak=false]{example}{Example}
+\mdtheorem[style=example, nobreak=false]{example}{Example}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%Exercise
+% metti il colore che preferisci su linecolor e frametitlebackgroundcolor
+% nel file .tex: \begin{exercise}[TITOLO ESERICZIO], se non vuoi dare un titolo all'esercizio non mettere le parentesi quadre (lo stesso vale per example)
+
+\definecolor{blue}{RGB}{0, 114, 178} % modifica qui se vuoi creare un colore personalizzato con codice RGB
+
+\mdfdefinestyle{exercise}{%
+linecolor=blue,linewidth=2pt,%	
+frametitlerule=true,%
+frametitlebackgroundcolor=blue!20,	% !20 = saturazione del colore
+innertopmargin=\topskip,
+}
+\mdtheorem[style=exercise, nobreak=false]{exercise}{Exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 %struttura modulare
