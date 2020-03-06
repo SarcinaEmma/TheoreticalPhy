@@ -276,9 +276,10 @@ with Feynman amplitude
 In the second passage $\xi =1$. We can prove that this choice has no importance, \textsf{see Maggiore pg 187}\\ \\
 Using the identity $(\bar{u} \gamma^{\mu} v)^* = \bar{v} \gamma^{\mu} u$ (that can be proved by direct calculation using
 $(\gamma^{\mu})^{\dagger} = \gamma^0 \gamma^{\mu} \gamma^0$) we obtain (we omit polarization indexes)
+\todo{gurda foglio 27}
 \[
 \begin{split}
-\abs{\mathM_{fi}}^2 = \mathM_{fi} \mathM*_{fi}	& = \frac{q^4}{s^2} \bigl( \bar{u}(p')\gamma_{\mu} v(q') \bigr) \
+\abs{\mathM_{fi}}^2 = \mathM_{fi} \mathM^*_{fi}	& = \frac{q^4}{s^2} \bigl( \bar{u}(p')\gamma_{\mu} v(q') \bigr) \
 											\bigl( \bar{v}(q) \gamma^{\mu}u(p) \bigr) \\
 										& = ??
 \end{split}
@@ -288,7 +289,7 @@ At this point, we are still free to specify any particular spinors $u_r(p)$, $\b
 \subsection{Sum Over Fermion Spins. Squared Averaged Feynman Amplitude}
 The Feynman amplitude simplifies considerably when we throw away the spin information. We want to compute
 \[
-\overline{\abs{\mathM_{fi}}^2} = \underbrace{\frac{1}{2} \sum_s \ \frac{1}{2} \sum_r}_{\textup{average over} \atop \text{the initial states}} \ 
+\abs{\overline{\mathM_{fi}}}^2 = \underbrace{\frac{1}{2} \sum_s \ \frac{1}{2} \sum_r}_{\textup{average over} \atop \text{the initial states}} \ 
 	\underbrace{\sum_{s'} \ \sum_{r'}}_{\textup{sum over} \atop \text{final states}} \abs{\mathM(r,s \to r',s')}^2
 \]
 This sum can be performed using completeness relations for dirac spinors
@@ -342,6 +343,8 @@ The closed fermion line contributes in the final amplitude with a factor
 \]
 The factor $-q^2/(2s)$ is obtained using full diagram (s is given by photon propagator)
 \todo{Fare diagramma di Feynman}
+
+\skipline
 Going back to the expression of $\abs{\mathM_{fi}}^2$ that we obtain, now we need to calculate explicitly $\gamma$ matrices traces
 \[
 \Tr \bigl[ (\slashed p + m) \gamma^{\nu} (\slashed q - m) \gamma^{\mu} \bigr] =
@@ -401,7 +404,13 @@ With these relations we obtain
 \end{enumerate}
 To obtain a more explicit formula we must specialize to a particular frame of reference and express the vectors $p, q, p', q', k$ in terms of the basis kinematic variables (energies and angles) in that frame. In practice, the choice of frame will be dictated by the experimental conditions.\\
 We want to calculate cross section in the center of mass frame.
-\todo{Diagramma di Feynman}
+
+\todo{Cambia il nome del file}
+\todo{Da sistemare}
+\begin{figure}[H]
+\centering
+\input{img/Chiamalo_come_meglio_credi.tex}
+\end{figure}
 
 In the CM frame we have following kinematics relations
 \[
@@ -491,6 +500,102 @@ Calculate cross sections of following precesses ($f \ne e$) (unpolarized)
 \end{itemize}
 \end{exercise}
 
+\subsection{Polarized Scattering Relations between helicity and chiarality.}
+\textsf{Perkin, sec 5.2 - Schwartz, sec 13.3 - Mandl, sec 8.4}
+\textbf{The ultra relativistic limit and helicity amplitudes}\\
+In the previous calculation we obtained the amplitude polarized
+\[
+\mathM_{fi} = \frac{iq^2}{s} \bigl( \bar{u}_{r'} (p') \gamma^{\mu} v_{s'} (q') \bigr) \bigl( \bar{v}_s \gamma_{\mu} u_r(p) \bigr)
+\]
+Calculation of the polarized cross section allows us to understand better the unpolarized cross section, for example show us where the factor $(1 + \cos^2 \theta)$ comes from.\\
+We must choose a basis of polarization states. The best choice is to quantize each spin along the direction of particle's motion, that is, to use states of definite helicity.\\
+In general, helicity projectors are hard to be used for lower energies, so we work in the ultra relativistic limit. Recall that in the massless limit, the left- and right-handed helicity states of a Dirac particle live in different representations of the Lorentz group. We might expect them to behave independently, and in fact they do.\\
+We would like to use the spin sum identities to write the squared amplitude in term of traces as before, ever though we now want to consider only one set of polarizations at a time. We note that in the ultra-relativistic limit, helicity is related to chiarality, so we can use chirality projectors, that are much simpler. In particular, let $\Lambda_{\pm}$ be energy projectors, $\Pi_{\pm}$ be helicity projectors, and $P_{L, R}$ be chirality projectors, then following relations holds:
+\[
+\Pi_{\pm}\Lambda_+ = P_{R, L}\Lambda_+
+\qquad
+\Pi_{\pm}\Lambda_- = P_{L, R}\Lambda_-
+\]
+where
+\[
+P_R = \frac{1 + \gamma_5}{2}
+\qquad
+P_L = \frac{1 - \gamma_5}{2}
+\]
+And for spinors in UR limit:
+\begin{align*}
+u_+ 	& = \Pi_+ \, u = u_1 = u_R & &\to \text{right handed spinor}	& & h = \frac{1}{2} \\
+u_- 	& = \Pi_- \, u = u_2 = u_L 	& &\to \text{left handed spinor}		& & h = -\frac{1}{2} \\
+\text{with h = helicity eigenvalue}
+\end{align*}
+\todo{disegni foglio 35}
+\begin{align*}
+v_+ 	& = \Pi_+ \, v = v_2 = v_L 	& &\to \text{left handed spinor}		& & h = \frac{1}{2} \\
+v_- 	& = \Pi_- \, v = v_1 = v_R	& &\to \text{right handed spinor}		& & h = -\frac{1}{2} \\
+\end{align*}
+\todo{disegni foglio 35}
+We notice that for antiparticles the relations between chirality and helicity is inverted. This can be easily interpretated using Dirac's Holes Theory, for example an antiparticle with positive helicity is the hole left by a particle with posotive helicity (since both momenta and spin change sign), and so particles and antiparticles with same helicity must have inverse chirality.\\ \\
+Using chirality projectors properties we can write Dirac currents as
+\[
+\begin{split}
+\bar{v}\gamma^{\mu}u 	& = \bar{v}(P_L + P_R) \gamma^{\mu} \, (P_L +P_R) u \\
+					& = \bar{v} P_L \, \gamma^{\mu} \, P_L \, u + \bar{v} P_R \, \gamma^{\mu} \, P_R \, u
+					+ \bar{v} P_L \, \gamma^{\mu} \, P_R \, u + \bar{v} P_R \, \gamma^{\mu} \, P_L \, u
+\end{split}
+\]
+Using $\gamma$ matrices properties
+\[
+P_{R,L} \, \gamma^{\mu} 
+	= \frac{\gamma^{\mu} \pm \gamma^5 \, \gamma^{\mu}}{2} 
+	= \frac{ \gamma^{\mu} \pm \overbrace{\{ \gamma^5, \gamma^{\mu} \}}^{=0} \mp \gamma^{\mu} \, \gamma^5}{2}
+	= \gamma^{\mu} \, \frac{1 \mp \gamma^5}{2} = \gamma^{\mu} \, P_{L, R}
+\]
+we obtain
+\[
+\begin{split}
+\bar{v}\gamma^{\mu} \, u 
+	& = \bar{v} \gamma^{\mu} \, P_R \, P_L \, u + \bar{v} \gamma^{\mu} \, P_L \, P_R \, u
+	+ \bar{v} \gamma^{\mu} \, P_R \, P_R \, u + \bar{v} \gamma^{\mu} \, P_L \, P_L \, u \\
+	& = \bar{v} \gamma^{\mu} \, P_R \, u + \bar{v} \gamma^{\mu} \, P_L \, u
+	= \bar{v} \gamma^{\mu}_R \, u + \bar{v} \gamma^{\mu}_L \, u = J^{\mu}_R + J^{\mu}_L
+\end{split}
+\]
+where we are defined $\gamma^{\mu}_{R, L} = \gamma^{\mu} \, P_{RL}$ and the left- and right-currents:
+\[
+J_L^{\mu} = \bar{v} \, \gamma^{\mu}_L \, u
+\qquad
+J_R^{\mu} = \bar{v} \, \gamma_R^{\mu} \, u
+\]
+We define right- and left-handed spinors as follows:
+\begin{align*}
+u_L 	& = P_L \, u 	\quad	u_R = P_R \, u \\
+v_L 	& = P_L \, v	\quad	v_R = P_R \, u
+\end{align*}
+and them conjugated as (let $\psi$ be a generic spinors)
+\begin{align*}
+\psi_L 	& = P_L \, \psi \quad \to \quad \bar{\psi}_L = \bar{\psi} \, P_R \\
+\psi_R 	& = P_R \, \psi \quad \to \quad \bar{\psi}_R = \bar{\psi} \, P_L
+\end{align*}
+With this notation I can rewrite left- and right-handed currents as
+\begin{align*}
+\bar{v} \, \gamma^{\mu} \, u 	& = \bar{v} \, \gamma^{\mu}_R \ u + \bar{v} \, \gamma_L^{\mu} \, u 	
+	= \bar{v}_R \gamma^{\mu} \, u_R + \bar{v}_L \gamma^{\mu} \,  u_L \\
+\bar{u} \, \gamma^{\mu} \, v 	& = \bar{u} \, \gamma^{\mu}_R \ v + \bar{u} \, \gamma^{\mu} \, v
+	= \bar{u}_R \, \gamma^{\mu} \, v_R + \bar{u}_L \, \gamma^{\mu} \, v_L
+\end{align*}
+Here is evident that a deric current can be divided in its left handed and right handed components\\ \\
+Going back to the Feynman amplitude
+\begin{align*}
+\mathM_{fi} = \frac{iq^2}{s}	
+	& 		\bigl( \bar{u}(p') \, \gamma^{\mu}_L \, v(q') \bigr) \bigl( \bar{v}(q) \, \gamma_{\mu}^L \, u(p) \bigr) \times \quad \to \mathM_{LL}\\
+	& \times 	\bigl( \bar{u}(p') \, \gamma^{\mu}_L \, v(q') \bigr) \bigl( \bar{v}(q) \, \gamma_{\mu}^R \, u(p) \bigl) \times \quad \to \mathM_{LR}\\
+	& \times 	\bigl( \bar{u}(p') \, \gamma^{\mu}_R \, v(q') \bigr) \bigl( \bar{v}(q) \, \gamma_{\mu}^L \, u(p) \bigr) \times \quad \to \mathM_{RL}\\
+	& \times 	\bigl( \bar{u}(p') \, \gamma^{\mu}_R \, v(q') \bigr) \bigl( \bar{v}(q) \, \gamma_{\mu}^R \, u(p) \bigr)  \quad \to \mathM_{RR}
+\end{align*}
+If I did not used the UK limit, I would have obtained 16 independent terms, instead of 4.\\
+Each factor in the latter, corresponds to a different Feynman diagram with different left- and right-handed, initial and final particles, for example
+\todo{diagramma di Feynman}
+FOGLIO 37
 
 \section{$e^-\gamma\rightarrow e^-\gamma$ (Compton)}
 \textsf{See Peskin, sec 5.5}\\
@@ -633,7 +738,11 @@ So we have
 \end{align*}
 So we obtained the general rule to simplify photons polarization sum\footnote{Notice that we could prove (see Peskin) that even if we took $\lambda=0,1,2,3$, we could have obtained that the unphysical time-like and longitudinal photons can be consistently omitted from QED calculations, since in any event the squared amplitudes for producing these states cancel to give zero total probability. }
 \todo{Creare ambiente per riquadrare le formule}
-\[\sum_{\lambda=1,2}\epsilon_\mu^{(\lambda)}(k)\epsilon_\nu^{(\lambda)*}(k)L^\mu(k)L^{\nu\dagger}(k)\quad\longrightarrow\quad-g_{\mu\nu}\]
+\[
+\boxed{
+	\sum_{\lambda=1,2}\epsilon_\mu^{(\lambda)}(k)\epsilon_\nu^{(\lambda)*}(k)L^\mu(k)L^{\nu\dagger}(k)\quad\longrightarrow\quad-g_{\mu\nu}
+}
+\]
 
 
 
