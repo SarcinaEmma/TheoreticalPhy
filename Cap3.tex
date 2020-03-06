@@ -582,10 +582,10 @@ T_{AB}=T_{BA}&=-16\left(4m^4+m^2(p\cdot k-p\cdot k')\right)\\
 
 Putting together the pieces of the unpolarized Feynamn amplitude for Compton scattering we obtain
 
-\begin{align*}
+\begin{equation}\label{eqn:Compton-unpolarized-squared}\begin{split}
 |\bar{\mathcal M}|^2&=2q^4\left[\frac{p\cdot k'}{p\cdot k}+\frac{p\cdot k}{p\cdot k'}+2m^2\left(\frac1{p\cdot k}-\frac1{p\cdot k'}\right)+m^4\left(\frac1{p\cdot k}-\frac1{p\cdot k'}\right)^2\right]\\
 &=2q^4\left[-\left(\frac{u-m^2}{s-m^2}+\frac{s-m^2}{u-m^2}\right)+4m^2\left(\frac1{s-m^2}+\frac1{u-m^2}\right)+4m^4\left(\frac1{s-m^2}+\frac1{u-m^2}\right)^2\right]
-\end{align*}
+\end{split}\end{equation}
 
 To turn this expression into a cross section we must decide a frame of reference and draw a piture of the kinematics. We will analyze two different frames
 \begin{enumerate}
@@ -668,6 +668,7 @@ In the low energy limit $\omega_k\ll m$, from \eqref{eqn:QED-compton-energies-la
 We have calculated the full relativistic corrections for the Thomson formula.
 
 \subsection{C.o.M. frame - High energy photon}
+\textsf{See Peskin sec. 5.5, and Schwartz sec. 13.5.4}
 To analyze the high-energy behaviour of the Compton scattering cross section, it is easiest to work in the center-of-mass frame.
 
 \begin{figure}[H]
@@ -677,31 +678,79 @@ To analyze the high-energy behaviour of the Compton scattering cross section, it
 
 The kinematics of the reaction in the high energy limit ($m\approx0$) looks like
 \begin{align*}
-E&=\sqrt{\vec k^2+m^2}\approx|\vec k|=\omega_k\\
-E'&=\sqrt{\vec k'^2+m^2}\approx|\vec k'|=\omega_{k'}
+E&=\sqrt{\vec k^2+m^2}\overset{m=0}{\approx}|\vec k|=\omega_k\\
+E'&=\sqrt{\vec k'^2+m^2}\overset{m=0}{\approx}|\vec k'|=\omega_{k'}
 \end{align*}
 \begin{align*}
-p\cdot k&=\omega_k^2+|\vec k|^2=2\omega_k^2\\
-p\cdot p'&=\omega_k\omega_{k'}-\vec k\vec k'=\omega_k\omega_{k'}-|\vec k||\vec k'|\cos\theta=\omega_k\omega_{k'}(1-\cos\theta)\\
-k'\cdot p&=\omega_k\omega_{k'}+\vec k\vec k'=\omega_k\omega_{k'}+|\vec k||\vec k'|\cos\theta=\omega_k\omega_{k'}(1+\cos\theta)
+p\cdot k\,&=E\omega_k+|\vec k|^2=\omega_k(E+\omega_k)\overset{m=0}{\approx}2\omega_k^2\\
+p\cdot p'&=E\,E'-\vec k\vec k'=E\,E'-|\vec k||\vec k'|\cos\theta=E\,E'-\omega_k\omega_{k'}\cos\theta\overset{m=0}{\approx}\omega_k\omega_{k'}(1-\cos\theta)\\
+p\cdot k'&=E\,\omega_{k'}+\vec k\vec k'=E\,\omega_{k'}+|\vec k||\vec k'|\cos\theta=\omega_{k'}(E+\omega_k\cos\theta)\overset{m=0}{\approx}\omega_k\omega_{k'}(1+\cos\theta)
 \end{align*}
 We also have
 \begin{align*}
-s&=(p+k)^2=(E+\omega_k)^2=4\omega_k^2 \quad\rightarrow\quad \omega_k=\frac{\sqrt s}{2}\\
-&=(p'+k')^2=(E'+\omega_{k'})^2=4\omega_{k'}^2 \quad\rightarrow\quad \omega_{k'}=\frac{\sqrt s}{2}
+s&=(p+k)^2=m^2+2p\cdot k=m^2+2\omega_k(E+\omega_k)\overset{m=0}{\approx}4\omega_k^2 \quad\rightarrow\quad \omega_k\overset{m=0}{\approx}\frac{\sqrt s}{2}\\
+s&=(p'+k')^2=m^2+2p'\cdot k'=m^2+2\omega_{k'}(E'+\omega_k')\overset{m=0}{\approx}4\omega_{k'}^2 \quad\rightarrow\quad \omega_{k'}\overset{m=0}{\approx}\frac{\sqrt s}{2}
 \end{align*}
-So Mandelstam variables in high energy limit ($m=0$) take the form
+
+Plugging these values into Eq.\eqref{eqn:Compton-unpolarized-squared}
+
 \begin{align*}
-s&=(p+k)^2=(p'+k')^2\approx2p\cdot k=4\omega_k^2\\
-t&=(p'-p)^2=(k'-k)^2\approx -2p\cdot p'=-2\omega_k^2(1-\cos\theta)\\
-u&=(k'-p)^2=(p'-k)^2\approx-2k'\cdot p=-2\omega_k^2(1+\cos\theta)
+\overline{|\mathcal M|}^2
+&=2q^4\left[\frac{p\cdot k'}{p\cdot k}+\frac{p\cdot k}{p\cdot k'}+2m^2\left(\frac1{p\cdot k}-\frac1{p\cdot k'}\right)+m^4\left(\frac1{p\cdot k}-\frac1{p\cdot k'}\right)^2\right]
 \end{align*}
 
+for c.o.m. frame with $E\gg m$ we have 
+\begin{align*}
+\overline{|\mathcal M|}_{\textup{CM}}^2
+&\approx2q^4\left(\frac{p\cdot k'}{p\cdot k}+\frac{p\cdot k}{p\cdot k'}\right)\approx2q^4\left(\frac{1+\cos\theta}{2}+\frac{2}{1+\cos\theta}\right)
+\end{align*}
+
+we notice that the term $p\cdot k/p\cdot k'$ becomes divergent when the electron is emitted in the backward direction ($\theta\approx\pi$), while other terms are all of $\mathcal O(1)$ or smaller.
+
+Notice that two initial diagrams $\mathcal M_A$, $s$-channel, and $\mathcal M_B$, $u$-channel, give contributions to the total amplitude proportional to\footnote{You can easily verify this statement looking at the calculation on the beginning of this section.} 
+\[\mathcal M_A\quad\rightarrow\quad\frac1{2p\cdot k}=\frac1{s-m^2}\qquad\quad
+\mathcal M_B\quad\rightarrow\quad\frac1{2p\cdot k'}=\frac1{u-m^2}\]
+Here is clear the relation between the momentum of the channel and the contribution to the total Feynman amplitude. The divergent contribution is due to the square of the $u$-channel diagram, we can see that for $\theta=\pi$ we have $u=(p-k')^2=m^2-2p\cdot k'\approx m^2-2\omega_k^2(1+\cos\theta)\approx m^2$ i.e. the divergent contribution is related to the situation where the initial electron emits a photon with all its kinetic energy and then absorbs all the energy of the initial photon. The amplitude is large at $\theta\approx\pi$ because the denominator of the propagator is then small ($\sim m^2$) compared to $s$. This kind of divergence is called \emph{Infra-Red divergence}.\\
+\todo{This is a Infra-Red divergence, related to Sudakov logs. Add some comment. See Mandl 8.9}
+We can correct the divergent term (unphysical) considering higher terms in the Taylor expantion of $E$ in $m$:
+\begin{align*}
+E&=\sqrt{\vec k^2+m^2}=|\vec k|+\frac{m^2}{2|\vec k|}+o(m^3)\overset{m\approx0}{\approx}\omega_k+\frac{m^2}{2\omega_k}
+\end{align*}
+\[p\cdot k'=\omega_{k'}(E+\omega_k\cos\theta)\overset{m=0}{\approx}\omega_{k'}\left(\omega_k+\frac{m^2}{2\omega_k}+\omega_k\cos\theta\right)
+=\omega_{k}^2\left(1+\cos\theta+\frac{m^2}{2\omega_k^2}\right)\]
+\begin{align*}
+\overline{|\mathcal M|}_{\textup{CM}}^2
+&\approx2q^4\left(\frac{p\cdot k'}{p\cdot k}+\frac{p\cdot k}{p\cdot k'}\right)
+\approx2q^4\left(\frac{1+\cos\theta}{2}+\frac{2}{1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)
+\end{align*}
+Now we can compute the cross section in the CM frame (we can use the formula for elastic scattering):
+\begin{align*}
+\left(\frac{\de\bar\sigma}{\de\Omega}\right)_{\textup{CM}}
+=\frac1{64\pi^2}\frac{\overline{|\mathcal M|}^2_{\textup{CM}}}s
+&\approx\frac{q^4}{32\pi^2s}\left(\frac{1+\cos\theta}{2}+\frac{2}{1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)\\
+&\approx\frac{\alpha^2}{2s}\left(\frac{1+\cos\theta}{2}+\frac{2}{1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)
+\end{align*}
+or
+\[{\left(\frac{\de\bar\sigma}{\de(\cos\theta)}\right)}_{\textup{CM}}
+\approx\frac{\pi\alpha^2}{s}\left(\frac{1+\cos\theta}{2}+\frac{2}{1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)\]
+Recall that the electron mass $m$ can be neglected completely in this formula if it were not necessary to cutoff the singularity for $\theta=0$.\\
+The total Compton scattering cross section reads:
+\begin{align*}
+\bar\sigma_{\textup{total}}=\int_{-1}^1\de(\cos\theta){\left(\frac{\de\bar\sigma}{\de(\cos\theta)}\right)}_{\textup{CM}}
+&\approx 
+\frac{\pi\alpha^2}{s}\int_{-1}^1\de(\cos\theta)\left(\frac{1+\cos\theta}{2}+\frac{2}{1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)\\
+&=\frac{\pi\alpha^2}{s}+\frac{2\pi\alpha^2}{s}\log\left(\frac s{m^2}\right)
+\end{align*}
+The main dependence $\alpha^2/s$ follows from dimensional analysis. But the singularity associated to backward scattering of photons leads to an enhancement by an extra logarithm of the energy, called \emph{Sudakov logarithm}.
+
+\todo{Questo è un esercizio, sistemare}
+\todo{Inserire diagrammi di Feynman pag 168 Peskin (ruotati appropriatamente)}
+\begin{example}[Pair Annihilation into Photons]
+Find the total cross section of the annihilation process $e^+e^-\rightarrow2\gamma$
+\end{example}
 
 
-
-
-
+\section{Scattering by an external E.M. field and the Rutherford formula}
 
 
 
