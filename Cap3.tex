@@ -818,8 +818,66 @@ Find the total cross section of the annihilation process $e^+e^-\rightarrow2\gam
 
 
 \section{Scattering by an external E.M. field and the Rutherford formula}
+\textsf{See Mandl sec. 8.7 and Schwartz sec. 13.4}
 
-{\small We consider a low energy process, where the proton can be consider as a fundamental particle, described as a spin $1/2$ fermion.}
+Now let us go back to the problem of scattering of an electron by a Coulomb potential. Recall the classical Rutherford scattering formula, 
+\[\frac{\de\sigma}{\de\Omega}=\frac{m_e^2e^4}{4|\vec p_i|^4\sin^4\frac\theta2}\]
+where $|\vec p_i|=|\vec p_f|$ is the magnitude of the incoming electron momentum, which. is the same as the magnitude of the outgoing electron momentum for elastic scattering. Rutherford calculated this using classical mechanics to describe how an electron would get deflected in a central potential, as from atomic nucleus.
+
+In order to give a description of this process using QED, we modify the QED lagrangian, so that we introduce also protons in our theory. We consider a low energy process, where the proton can be consider as a fundamental particle, described as a spin $1/2$ fermion. Then we can do the same trick we used for QED flavours. The modified Lagrangian reads:
+\[\mathcal L=\bar\psi_e(i\slashed\partial-m_e)\psi_e+\bar\psi_p(i\slashed\partial-M_p)\psi_p+\underbrace{q_e\bar\psi_e\slashed A\psi_e+q_p\bar\psi_p\slashed A\psi_p}_{\mathcal L_{\textup{int}}}\]
+
+{\small Notice that $\mathcal L_{\textup{int}}$ in order to obtain a description of Rutherford scattering we need to consider at least 2-nd order processes, i.e. 2 vertex.}
+The two-vertex S matrix element becomes
+\begin{align*}
+S_{(2)}&=\frac{(-i)^2}{2!}\int\de^4 x\,\de^4y\,\textup{T}\left\{\textup{N}\left[q_e\bar\psi_e\slashed A\psi_e+q_p\bar\psi_p\slashed A\psi_p\right]_x\textup{N}\left[q_e\bar\psi_e\slashed A\psi_e+q_p\bar\psi_p\slashed A\psi_p\right]_y\right\}\\
+&=\frac12(-iq_e)(-iq_p)\int\de^4 x\,\de^4y\,\textup{T}\left\{\textup{N}\left[\bar\psi_e\slashed A\psi_e\right]_x\textup{N}\left[\bar\psi_p\slashed A\psi_p\right]_y+\textup{N}\left[\bar\psi_e\slashed A\psi_e\right]_y\textup{N}\left[\bar\psi_p\slashed A\psi_p\right]_x\right\}\\
+&=(-iq_e)(-iq_p)\int\de^4 x\,\de^4y\,\textup{T}\left\{\textup{N}\left[\bar\psi_e\slashed A\psi_e\right]_x\textup{N}\left[\bar\psi_p\slashed A\psi_p\right]_y\right\}
+\end{align*}
+%
+where in the first step we omitted products in the integral that does not describe interaction between electron and proton, and in the second step we change integral variables in the second term of the time product.
+
+The $e^-p\rightarrow e^-p$  process is similar to the process $e^-f^-\rightarrow e^-f^-$. Both processes are described by a $t$-channel
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[baseline=(i)]
+  \begin{feynman}[large]
+    \vertex (e1) {\(e^-\)};
+    \vertex [label={[label distance=0cm]182:$\mu$}] at ([shift={(315:2.5)}]e1)  (mu);
+    \vertex [label={[label distance=0.1cm]270:$\nu$}] at ([shift={(270:2)}]mu) (nu);
+    \vertex [below right=of nu] (p2) {\(p\)};
+    \vertex [below left=of nu] (p1){\(p\)};
+    \vertex [above right=of mu] (e2){\(e^-\)};
+    \vertex at ([shift={(270:1)}]mu)(i);
+    
+    \diagram*{
+      (e1) -- [fermion, momentum={[arrow shorten=0.25]\(p_e\)}] (mu) -- [fermion, momentum={[arrow shorten=0.2]\(p_e'\)}](e2),
+      (mu) -- [boson, momentum={[arrow shorten=0.3]\(k=(p-p')=(q'-q)=\sqrt t\)}] (nu),
+      (p1) -- [fermion, ultra thick, red, momentum={[arrow shorten=0.25, black]\(p_p\)}] (nu) -- [fermion, ultra thick, red, momentum={[arrow shorten=0.2, black]\(p_p'\)}](p2),
+      };
+  \end{feynman}
+\end{tikzpicture}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{document}
