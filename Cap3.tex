@@ -818,13 +818,49 @@ Find the total cross section of the annihilation process $e^+e^-\rightarrow2\gam
 
 
 \section{Scattering by an external E.M. field and the Rutherford formula}
-\textsf{See Mandl sec. 8.7 and Schwartz sec. 13.4}
+
+\subsection{$e^-p\rightarrow e^-p$ - Rutherford scattering}
+\textsf{See Schwartz sec. 13.4}
 
 Now let us go back to the problem of scattering of an electron by a Coulomb potential. Recall the classical Rutherford scattering formula, 
 \[\frac{\de\sigma}{\de\Omega}=\frac{m_e^2e^4}{4|\vec p_i|^4\sin^4\frac\theta2}\]
 where $|\vec p_i|=|\vec p_f|$ is the magnitude of the incoming electron momentum, which. is the same as the magnitude of the outgoing electron momentum for elastic scattering. Rutherford calculated this using classical mechanics to describe how an electron would get deflected in a central potential, as from atomic nucleus.
 
-In order to give a description of this process using QED, we modify the QED lagrangian, so that we introduce also protons in our theory. We consider a low energy process, where the proton can be consider as a fundamental particle, described as a spin $1/2$ fermion. Then we can do the same trick we used for QED flavours. The modified Lagrangian reads:
+\skipline
+
+We study the process in the CM frame for the proton.
+
+\begin{figure}[H]
+\centering
+\input{img/Rutherford_lab_frame.tex}
+\end{figure}
+
+We neglect the recoil of the proton because of its huge mass ($\vec{p_{p}}'\approx0$) (we are not considering high energy case). 
+\[\left( \omega_{p} ',\vec{p_{p}} '\right)=\left( M+\frac{|\vec{p_{p}}'|^2}{2M}+o\left(|\vec{p_{p}}'|^{3}\right) ,\vec{p_{p}}'\right)\approx(M,0)\]
+If we can neglect the electron mass ($m_e\approx0$) we also have
+\[\omega_e=\sqrt{m^2+\vec p_e^2}=|\vec p_e|+\frac{m^2}{2|\vec p_e|}+o(m^3)\approx|\vec p_e|\]
+\[\omega_e'=\sqrt{m^2+\vec p_e'^2}=|\vec p_e'|+\frac{m^2}{2|\vec p_e'|}+o(m^3)\approx|\vec p_e'|\]
+Then energy conservation reads
+\[\omega_e+M_p=\omega_e'+\omega_p'
+\quad\rightarrow\quad
+\omega_e=\omega_e'+\frac{|\vec{p_{p}}'|^2}{2M_p}+o\left(|\vec{p_{p}}'|^{3}\right)
+\quad\rightarrow\quad
+\omega_e\approx\omega_e'
+\]
+
+The only quantity that shows a remarkable variation is the angle $\theta$ (variation can be $\mathcal O(1)$):
+\begin{align*}
+(p_e-p_e')^2&=2m^2-2p_e\cdot p_e'=2m^2-2\omega_e\omega_e'+2|\vec p_e||\vec p_e'|\cos\theta\approx-2|\vec p_e|^2(1-\cos\theta)\\
+(p_p-p_p')^2&=2M^2-2p_p\cdot p_p'=2M^2-2M\omega_p'\approx-|\vec p_p'|^2
+\end{align*}
+and because of momentum conservation $p_e+p_p=p_e'+p_p'$ we have
+\[-2|\vec p_e|^2(1-\cos\theta)\approx-|\vec p_p'|^2
+\quad\rightarrow\quad
+\cos\theta\approx 1-\frac12\frac{|\vec p_p'|^2}{|\vec p_e|^2}\]
+
+\skipline
+
+In order to give a description of this process using QED, we modify the QED lagrangian, so that we introduce also protons in our theory. We consider a low energy process, where the proton can be consider as a fundamental particle, described as a spin $1/2$ fermion. Then we can do the same trick we used for QED flavours. The modified Lagrangian reads:\footnote{\textsf{See Schwartz sec. 5.2}}
 \[\mathcal L=\bar\psi_e(i\slashed\partial-m_e)\psi_e+\bar\psi_p(i\slashed\partial-M_p)\psi_p+\underbrace{q_e\bar\psi_e\slashed A\psi_e+q_p\bar\psi_p\slashed A\psi_p}_{\mathcal L_{\textup{int}}}\]
 
 {\small Notice that $\mathcal L_{\textup{int}}$ in order to obtain a description of Rutherford scattering we need to consider at least 2-nd order processes, i.e. 2 vertex.}
@@ -853,12 +889,112 @@ The $e^-p\rightarrow e^-p$  process is similar to the process $e^-f^-\rightarrow
     
     \diagram*{
       (e1) -- [fermion, momentum={[arrow shorten=0.25]\(p_e\)}] (mu) -- [fermion, momentum={[arrow shorten=0.2]\(p_e'\)}](e2),
-      (mu) -- [boson, momentum={[arrow shorten=0.3]\(k=(p-p')=(q'-q)=\sqrt t\)}] (nu),
+      (mu) -- [boson, momentum={[arrow shorten=0.3]\(k=(p_e-p_e')=(p_p'-p_p)=\sqrt t\)}] (nu),
       (p1) -- [fermion, ultra thick, red, momentum={[arrow shorten=0.25, black]\(p_p\)}] (nu) -- [fermion, ultra thick, red, momentum={[arrow shorten=0.2, black]\(p_p'\)}](p2),
       };
   \end{feynman}
 \end{tikzpicture}
 \end{figure}
+
+Feynman amplitude for this process is (we consider the gauge fixing term for EM field with $\zeta=1$)
+
+\[\mathcal M=i\frac{q_eq_p}{t}\left(\bar u_{r'}(p_e')\gamma^\mu u_r(p_e)\right)_e\left(\bar u_{s'}(p_p')\gamma_\mu u_s(p_p)\right)_p\]
+
+where lower indices means that spinors are related respectively to electron and proton fields. Since proton is at rest  its spinors takes a simple form
+\[u_s(p_e=(M,0))=\sqrt {2M}\begin{pmatrix}\xi_s\\0\end{pmatrix}
+\qquad\quad
+\bar u_s(p_e'=(M,0))=\sqrt {2M}\begin{pmatrix}\xi_s^\dagger&0\end{pmatrix}\]
+and the proton current reads\footnote{The last identity can be easly proved using an explicit representation of gamma matrices.}
+\[\left(\bar u_{s'}(p_p')\gamma_\mu u_s(p_p)\right)_p=2M\begin{pmatrix}\xi_s'^\dagger&0\end{pmatrix}\gamma_\mu\begin{pmatrix}\xi_s\\0\end{pmatrix}=2Mg_{\mu0}\delta_{ss'}\]
+so we obtain
+
+\[\mathcal M_{\text{LAB}}=i\frac{q_eq_p}{t}\left(\bar u_{r'}(p_e')g_{\mu0}\gamma^\mu u_r(p_e)\right)_e2M\delta_{ss'}=i\frac{q_eq_p}{t}\left(\bar u_{r'}(p_e')\gamma^0 u_r(p_e)\right)_e2M\delta_{ss'}\]
+
+The unpolarized squared amplitude in the lab frame reads
+\begin{align*}
+\overline{|\mathcal M|}^2_{\text{LAB}}
+&=\left(\frac{q_eq_p}{t}\right)^2\left(\sum_{s,s'}4M^2\delta_{ss'}\right)\frac12\sum_{rr'}\left(\bar u_{r'}(p_e')\gamma^0 u_r(p_e)\right)_e\left(\bar u_{r}(p_e)\gamma_0 u_{r'}(p_e')\right)_e\\
+&=\left(\frac{q_eq_p}{t}\right)^22M^2\Tr\left[(\slashed p_e+m)\gamma^0(\slashed p_e'+m)\gamma_0\right]=\dots
+=16\left(\frac{q_eq_p}{t}\right)^2M^2\omega_e^2\left(1-v^2\sin^2\left(\frac\theta2\right)\right)\end{align*}
+\todo{Verify last step, probably is wrong. See both Schwartz and Mandl. Also next calculation can be wrong}
+where we define the magnitude of the speed of the electron
+\[v=\frac{|\vec p_e|}m\]
+We also have 
+\[t=-4\omega_e^2v^2\sin^2\left(\frac\theta2\right)\]
+
+Putting pieces together we obtain
+\[\overline{|\mathcal M|}^2_{\text{LAB}}
+=(q_eq_p)^2\frac{\omega_e^2M^2}{|\vec p_e|^4}\left(\frac{1-v^2\sin^2\left(\frac\theta2\right)}{\sin^4\left(\frac\theta2\right)}\right)\]
+
+\[\left(\frac{\de\bar\sigma}{\de\omega}\right)_{\textup{LAB}}=\frac{\alpha^2\left(1-v^2\sin^2\left(\frac\theta2\right)\right)}{4\omega_e^2v^4\sin^4\left(\frac\theta2\right)}\qquad (q_p=-q_e=e)\]
+
+The latter is known as \emph{Mott formula}. In the non-relativistic limit we can use $v\ll1$ and $p_e\ll\omega_e\sim m_e$, thus
+\[\left(\frac{\de\bar\sigma}{\de\omega}\right)_{\textup{LAB}}^{\textup{non-rel.}}=\frac{\alpha^2}{4\omega_e^2v^4\sin^2\left(\frac\theta2\right)}\]
+which is the Rutherford formula. We can consider a generic nucleous with atomic number $Z$, then
+\[\left(\frac{\de\bar\sigma}{\de\omega}\right)_{\textup{LAB}}^{\textup{non-rel.}}=\frac{\alpha^2Z^2}{4\omega_e^2v^4\sin^2\left(\frac\theta2\right)}\]
+
+\subsection{Generic external E.M. field}
+\textsf{See Mandl sec. 8.7}\\
+We can use a more general approach, where instead of considering the proton as a fundamental particle, we consider it as a source of E.M. field, considered as an external field in our theory. 
+
+So far, the electromagnetic field has been described by a quantized field, involving photon creation and annihilation operators. In some problem, where the quantum fluctuations are unimportant, it may be adequate to describe the field as a purely classical function of the space-time coordinates. In cases such as Rutherford scattering, we consider an applied external electromagnetic field $A^\textup{ext}(x)$, such as the Coulomb field of a heavy nucleus. More generally, one may have to consider both types of field, replacing $A$ by the sumof the quantized and the classical fields, $A(x)+A^{\textup{ext}}(x)$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
