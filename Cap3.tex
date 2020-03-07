@@ -1309,34 +1309,34 @@ We can use a more general approach, where instead of considering the proton as a
 
 So far, the electromagnetic field has been described by a quantized field, involving photon creation and annihilation operators. In some problem, where the quantum fluctuations are unimportant, it may be adequate to describe the field as a purely classical function of the space-time coordinates. In cases such as Rutherford scattering, we consider an applied external electromagnetic field $A^\textup{ext}(x)$, such as the Coulomb field of a heavy nucleus. More generally, one may have to consider both types of field, replacing $A$ by the sum of the quantized and the classical fields, $A(x)+A^{\textup{ext}}(x)$.
 
-Without the external EM field, the matrix element of the scattering amplitude reads
+In the last section, we have seen that matrix element of the scattering amplitude reads
 \begin{align*}
 S_{fi}&=\bra f S_{(2)}\ket i=\bra{e_{r'}^-(p_e')p_{(s')}(M)}S_{(2)}\ket{e_{r}^-(p_e)p_{(s)}(M)}\\
 &=\int\de^4x\bra{e_{r'}^-(p_e')}(-iq_e)\left[\bar\psi_e\gamma^\mu\psi_e\right]_x\ket{e_{r}^-(p_e)}
 \int\de^4y\bra{p_{(s')}(M)}(-iq_p)\left[\bar\psi_p\gamma^\nu\psi_p\right]_y\ket{p_{(s)}(M)}
 iD_{\mu\nu}^F(x-y)\\
 &=-iq_e\int\de^4x\bra{e_{r'}^-(p_e')}\left[\bar\psi_e\gamma^\mu\psi_e\right]_x\ket{e_{r}^-(p_e)}
-\int\de^4yD_{\mu\nu}^F(x-y)\underbrace{q_p\bra{p_{(s')}(M)}\left[\bar\psi_p\gamma^\mu\psi_p\right]_y\ket{p_{(s)}(M)}}_{J^\nu_p(y)}
+\int\de^4yD_{\mu\nu}^F(x-y)\underbrace{q_p\bra{p_{(s')}(M)}\left[\bar\psi_p\gamma^\nu\psi_p\right]_y\ket{p_{(s)}(M)}}_{J^\nu_p(y)}
 \end{align*}
-where $J^\nu_p(y)$ is the 4-current density associated to the proton field. We can therefore define the field
-\[A_{\textup{ext}}^\mu(x)=\int\de^4yD_{\mu\nu}^F(x-y)J^\nu_p(y)
+where $J^\nu_p(y)$ is a 4-current density, associated to the proton field. We can therefore define the classic field (i.e. a function)
+\[A^{\textup{ext}}_\mu(x)=\int\de^4yD_{\mu\nu}^F(x-y)J^\nu_p(y)
 \]
 which Maxwell equation reads\footnote{Here we used proprieties of Green functions}
 \todo{Metti qualche commento sulle funzioni di green}
 \[ \square A_{\textup{ext}}^\mu(x)=\int\de^4y\left(\square D_{\mu\nu}^F(x-y)\right)J^\nu_p(y)=J^\nu_p(x)\]
-i.e. $A_{\textup{ext}}^\mu(x)$ is a Maxwell (classic) field with external source $J^\nu_p(x)$.
+i.e. $A_{\textup{ext}}^\mu(x)$ can be interpreted as a classic Maxwell field with external source $J^\nu_p(x)$.
 With this notation we obtain
 \[S_{fi}=-iq_e\int\de^4x\bra{e_{r'}^-(p_e')}\left[\bar\psi_e\slashed A_{\textup{ext}}\psi_e\right]_x\ket{e_{r}^-(p_e)}\]
 We obtained the same result if we would have defined the QED interaction lagrangian as
 \[\mathcal L_{\textup{int}}=-q_e\bar\psi\gamma^\mu\psi(A_\mu+A^{\textup{ext}}_\mu)\]
-and we considered its expantion at the first order (the field $A_\mu$ vanishes in the matrix element because of the form of initial and final states). Notice that $A_\mu$ is a quantum field (i.e. an operator) while $A^{\textup{ext}}_\mu$ is a classic field (i.e. a function).
+and we considered its expantion at the first order (the field $A_\mu$ vanishes in the matrix element because of the sandwich  with initial and final states). Notice that $A_\mu$ is a quantum field (i.e. an operator) while $A^{\textup{ext}}_\mu$ is a classic field (i.e. a function).
 
-The Feynman diagram for this process is
+From a "graphical" point of view we introduce a new symbol, marking external source by a crossed circle
 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[baseline=(e1)]
-  \begin{feynman}[large]
+  \begin{feynman}[medium]
     \vertex (e1) {\(e^-\)};
     \vertex [right=of e1] (i);
     \vertex [right=of i] (e2){\(e^-\)};
@@ -1351,7 +1351,7 @@ The Feynman diagram for this process is
 \end{tikzpicture}
 \end{figure}
 
-Let's assume that $A_{\textup{ext}}^\mu$ is a static potential. In this case we obtain same result as classic Rutherford scattering. First we express the external field in momentum space\footnote{Notice that $\epsilon_{\textup{ext}}^\mu(\vec k)=\tilde A_{\textup{ext}}^\mu(\vec k)$, but we use this notiation in analogy with the quantum Maxwell field expantion.}
+As a simple example, let's assume that $A_{\textup{ext}}^\mu$ is a static potential.\footnote{This is not a restrictive assumption.} In this case we obtain same result as classic Rutherford scattering. First we express the external field in momentum space\footnote{Notice that $\epsilon_{\textup{ext}}^\mu(\vec k)=\tilde A_{\textup{ext}}^\mu(\vec k)$, but we use this notiation in analogy with the quantum Maxwell field expantion.}
 \[A_{\textup{ext}}^\mu(x)=\frac1{(2\pi)^3}\int\de^3k\,e^{i\vec k\cdot\vec x}\epsilon_{\textup{ext}}^\mu(\vec k)\]
 
 Then the $S$ matrix element at first order reads
@@ -1365,19 +1365,20 @@ S_{fi}&=
 &=-iq_e\int\de x\,\de^3k\,\delta^3(\vec k+\vec p-\vec p')\bar u(p_e')\gamma^\mu u(p_e)
 \,\epsilon_\mu^{\textup{ext}}(\vec k)\,e^{-i(\omega_e-\omega_e')x}\\
 &=-iq_e(2\pi)\delta(\omega_e-\omega_e')\bar u(p_e')\gamma^\mu u(p_e)
-\,\epsilon_\mu^{\textup{ext}}(\vec p'-\vec p)
+\,\epsilon_\mu^{\textup{ext}}(\vec p'-\vec p)\\
+&=(2\pi)\delta(\omega_e-\omega_e')\mathcal M_{fi}^{\textup{ext}}
 \end{align*}
-and
-\[\mathcal M_{fi}^{\textup{ext}}=-iq_e\bar u(p_e')\gamma^\mu u(p_e)
+where
+\[ \mathcal M_{fi}^{\textup{ext}}=-iq_e\bar u(p_e')\gamma^\mu u(p_e)
 \,\epsilon_\mu^{\textup{ext}}(k)\]
 
-Notice that the Feynman rules for QED with external field are the same as in the free case, using terms $\tilde A_{\textup{ext}}^\mu(k)$ instead of polarization vector for the Maxwell field. Set $\epsilon_\mu^{\textup{ext}}(k)=\tilde A^{\textup{ext}}_\mu(k)$ we have
+Analysing $\mathcal M_{fi}^{\textup{ext}}$, we notice that the Feynman rules for QED with external field are the usual ones, using factors $\tilde A_{\textup{ext}}^\mu(k)$ instead of polarization vector for the Maxwell field. Set again $\epsilon_\mu^{\textup{ext}}(k)=\tilde A^{\textup{ext}}_\mu(k)$ we have the following rules
 
 
 \begin{align*}
 \epsilon_\mu^{\textup{ext}}(k)&=\quad
 \begin{tikzpicture}[baseline=(s2)]
-  \begin{feynman}[large]
+  \begin{feynman}[medium]
     \vertex [crossed dot, minimum width=2pt](s1){\hspace{0.5pt}};
     \vertex [right=of s1](s2){\(\mu\)};
     \vertex [below left=5mm of s1](a){\(A_{\textup{ext}}\)};
@@ -1390,7 +1391,7 @@ Notice that the Feynman rules for QED with external field are the same as in the
 %
 \epsilon_\mu^{\textup{ext}\,*}(k)&=\quad
 \begin{tikzpicture}[baseline=(s2)]
-  \begin{feynman}[large]
+  \begin{feynman}[medium]
     \vertex [crossed dot, minimum width=2pt](s1){\hspace{0.5pt}};
     \vertex [left=of s1](s2){\(\mu\)};
     \vertex [below right=5mm of s1](a){\(A_{\textup{ext}}\)};
@@ -1403,14 +1404,14 @@ Notice that the Feynman rules for QED with external field are the same as in the
 %
 -iq_e\gamma^\mu&=\quad
 \begin{tikzpicture}[baseline=(j)]
-  \begin{feynman}[large]
+  \begin{feynman}[medium]
     \vertex (e1);
     \vertex [right=of e1] (i);
     \vertex [right=of i] (e2);
-    \vertex [below=of i, crossed dot, minimum width=2pt](s){\hspace{0.5pt}};
+    \vertex [below=of i, crossed dot, minimum width=5pt](s){\hspace{2mm}};
     \vertex [below right=5mm of s](s1){\(A_{\textup{ext}}\)};
     \vertex [above=0mm of i](mu){\(\mu\)};
-    \vertex [below=14mm of i](j);
+    \vertex [below=7mm of i](j);
     %
     \diagram*{
       (e1) -- [fermion] (i) -- [fermion](e2),
@@ -1421,16 +1422,49 @@ Notice that the Feynman rules for QED with external field are the same as in the
 \end{align*}
 Other rules are unchanged.
 
+Let's consider the cross section for the incoming electron\footnote{Respect to the calculations done in chapter 2, we must make the replace $(2\pi)^4\delta^4(P_f-P_i)\rightarrow (2\pi)\delta(\omega_e'-\omega_e)$. Notice that in the first line the amplitude is canonically normalized.}
+\begin{align*}
+\de\omega_{fi}
+&=|S_{fi}^{CN}|^2\frac{V\de^3 p_e'}{(2\pi)^3}
+=(2\pi)^2\delta(\omega_e-\omega_e')\frac T{2\pi}\left(\frac{V\de^3 p_e'}{(2\pi)^3}\right)| M_{fi}^{\textup{ext}}|^2\\
+&=(2\pi)\delta(\omega_e-\omega_e') T\frac1{2\omega_eV}\frac1{2\omega_e'V}\left(\frac{V\de^3 p_e'}{(2\pi)^3}\right)| \mathcal M_{fi}^{\textup{ext}}|^2\\
+&=(2\pi)\delta(\omega_e-\omega_e') \frac T{2\omega_eV}\left(\frac{\de^3 p_e'}{(2\pi)^3\,2\omega_e'}\right)| \mathcal M_{fi}^{\textup{ext}}|^2
+\end{align*}
+and (in lab frame, with number densities $n_i=1/V$)
+\[\de\sigma=\frac{\de\omega_{fi}}{n_en_pv_eVT}
+=\frac{V}{Tv_e}\de\omega_{fi}
+=\frac1{16\pi^2}\delta(\omega_e-\omega_e') \frac {| \mathcal M_{fi}^{\textup{ext}}|^2}{\omega_e\omega_e'v_e}\de^3 p_e'
+\]
+Writing $\de^3 p_e'=|p_e'|^2\,\de|p_e'|\,\de\Omega\approx\omega_e'^2\,\de\omega_e'\,\de\Omega$, integrating over the magnitude of final momentum $|p_e'|$, and averaging over polarizations, we obtain ($|p_e'|\approx\omega_e'$)
+\[\left(\frac{\de\bar\sigma}{\de\Omega}\right)_{\textup{LAB}}=\frac1{16\pi^2}\frac {|p_e'|^2}{\omega_ev_e}\overline{| \mathcal M_{fi}^{\textup{ext}}|}^2_{\textup{LAB}}\]
+The squared unpolarized amplitude reads
+\begin{align*}
+\overline{| \mathcal M_{fi}^{\textup{ext}}|}^2_{\textup{LAB}}
+&=\frac12\sum_{rr'}q_e^2\epsilon_\mu^{\textup{ext}}(k)\epsilon_\nu^{\textup{ext}\,*}(k)\bar u_{r'}(p_e')\gamma^\mu u_r(p_e)\bar u_r(p_e)\gamma^\nu u_{r'}(p_e')\\
+&=\frac12q_e^2\epsilon_\mu^{\textup{ext}}(k)\epsilon_\nu^{\textup{ext}\,*}(k)\Tr[(\slashed p'_e+m)\gamma^\mu(\slashed p_e+m)\gamma^\nu]
+\end{align*}
 
+For example, in the Rutherford scattering, the external field is a Coulomb field, i.e.
+\[A^\mu_{\textup{ext}}(x)=\left(\frac{Zq_p}{4\pi|\vec x|},0,0,0\right)\]
+Taking its Fourier transform
+\[\epsilon^\mu_{\textup{ext}}(x)=\left(\frac{Zq_p}{|\vec k|^2},0,0,0\right)\]
+we obtain
+\todo{Complete calculations, see also previous section. Notice that mandl use wrong normalization}
+\begin{align*}
+\overline{| \mathcal M_{fi}^{\textup{ext}}|}^2_{\textup{LAB}}
+&=\frac{q_e^2q_p^2Z^2}{2|\vec k|^4}\Tr[(\slashed p'_e+m)\gamma^0(\slashed p_e+m)\gamma^0]
+=\dots
+\end{align*}
+Introducing scattering angle we obtain again the Mott formula
+\begin{align*}
+\left(\frac{\de\bar\sigma}{\de\Omega}\right)_{\textup{LAB}}
+&=\dots
+=\frac{(\alpha Z)^2}{4\omega_e^2v_e^4}\left(\frac{1-v_e^2\sin^2(\theta/2)}{\sin^4(\theta/2)}\right)
+\end{align*}
+for scattering of relativistic electrons by a Coulomb field. In the non-relativistic limit ($v_e\ll1$) this reduces to the Rutherford scattering formula
+\[\left(\frac{\de\bar\sigma}{\de\Omega}\right)_{\textup{LAB}}=\frac{(\alpha Z)^2}{4m^2v_e^4\sin^4(\theta/2)}\]
 
-
-
-
-
-
-
-
-
+We have here only considered the nucleus as a point charge. We only mention that the treatment is easily modified to the realistic case of a nucleus whose charge is distributed over a finite volume. For high energy electrons, this leads to an important method of investigating nuclear charge distribution. 
 
 
 
