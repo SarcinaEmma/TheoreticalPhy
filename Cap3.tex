@@ -2,7 +2,7 @@
 \begin{document}
 
 
-\chapter{QED Processes at Lowest order} %Sei stato bravissimo, si chiamava proprio così
+\chapter{QED processes at lowest order} %Sei stato bravissimo, si chiamava proprio così
 
 \section{The QED Lagrangian and its Symmetries}
 \textsf{Mandl, sec 11.1 - Maggiore, sec 7.1}\\
@@ -698,8 +698,63 @@ Let's consider a different but closely related QED process: $e^- \, f^- \to e^- 
   \end{feynman}
 \end{tikzpicture}
 \end{equation*}
+The Feynman amplitude of this process (in Feynmann gauge) reads
+\[
+\mathM_{fi} = \frac{iq^2}{t} \bigl( \bar{u}(p') \, \gamma^{\mu} \, u(p) \bigr) \bigl(\bar{u}(q') \, \gamma_{\mu} \, u(q) \bigr)
+\]
+The relation between this process and $e^+e^- \to f^+f^-$ becomes clear when we compute the squared amplitude, average and summed over spins:
+\[
+\abs{\overline{\mathM_{fi}}}^2 = \frac{q^4}{4t^2}
+	\Tr \bigl[ (\slashed p +  m) \gamma^{\nu} (\slashed p' + m) \gamma^{\mu} \bigr]
+	\Tr \bigl[ (\slashed q + m) \gamma_{\nu} (\slashed q' + M) \gamma_{\mu} \bigr]
+\]
+Recall that for $e^-e^+ \to f^-f^+$
+\[
+\abs{\overline{\mathM_{fi}}}^2_{e^-e^+} = \frac{q^4}{4s^2}
+	\Tr \bigl[ (\slashed p  + m) \gamma^{\nu} (\slashed q - m) \bigr]
+	\Tr \bigl[ (\slashed q' - m) \gamma_{\nu} (\slashed p' + m) \gamma_{\mu} \bigr] 
+\]
+Notice that following symmetry relations hold
+\begin{align*}
+e^+e^- 	& \leftrightarrow e^-f^- 	& \quad 	&		& e^+e^- 		& \leftrightarrow e^-f^- \\
+p 		& \leftrightarrow p 		& 		&		& s=(p+q)^2	& \leftrightarrow t=(p-p')^2 \\
+q		&\leftrightarrow -p'		& \xrightarrow{\textup{in Mandelstam variables}}
+											& 		& t=(p-p')^2	& \leftrightarrow u=(p-q')^2 \\
+p'		& \leftrightarrow q' 		& 		&		& u =(p-q')^2	& \leftrightarrow s=(p+q)^2 \\
+q'		& \leftrightarrow -q		&		&		&			&
+\end{align*}
+So instead of evaluating traces from scratch, we can just make the same replacement in our previous result. Setting $m = 0$ we find
+\begin{align*}
+\abs{\overline{\mathM_{fi}}}^2 = 	& \frac{8q^4}{t^2} \bigl( (p \cdot q')(p' \cdot q) + (p \cdot q)(p' \cdot q') - M^2 (p \cdot p') \bigr) \\
+	\underset{\text{UR limit} \atop n=0}{\approx}
+							& 2q^4 \biggl( \frac{t^2 + u^2}{s^2} \biggr)
+\end{align*}
+Where we used following relation for the UR limit
+\[
+\begin{split}
+s 	& = 2pq = 2p'q' \\
+t 	& = -2pp' = -2qq' \\
+u 	& = -2pq' = -2p'q
+\end{split}
+\]
+In the center of mass frame, in the UR limit, we have
+\begin{gather*}
+\abs{\overline{\mathM_{fi}}}^2_{CM} = 2e^4 \biggl[ \frac{4 + (1 + \cos \theta)^2}{(1 - \cos \theta)^2} \biggr] \\
+\biggl( \overline{\frac{\de \sigma}{\de \Omega}} \biggr)_{CM} 
+	= \frac{\alpha^2}{2s} \biggl[ \frac{4 + (1 + \cos \theta)^2}{(1 - \cos \theta)^2} \biggr]
+\end{gather*}
+Where $\theta$ is the angle between $f^-_{\textup{init}}$ and $e^-_{\text{fin}}$\\
+\todo{Diagramma foglio 41}
 
-
+\skipline
+\subsection{Crossing symmetry}
+The trick we made use of here, namely the relation between the two processes $e^+e^- \to f^+f^-$ and $e^-f^- \to e^-f^-$, is our first example of a type of relation known as \textbf{crossing symmetry}:
+\begin{mdframed}[style=mybox]
+The S-matrix for any process involving a particle with momentum p in the initial state is equal to the S-matrix for an otherwise identical process but with an antiparticle of momentum $k = -p$ in the final state
+\[
+\mathM \bigl( \phi(p) + \dots \to \dots \bigr) = \pm \mathM \bigl( \dots \to \dots + \bar{\phi}(k) \bigr)
+\]
+\end{mdframed}
 
 \section{$e^-\gamma\rightarrow e^-\gamma$ (Compton)}
 \textsf{See Peskin, sec 5.5}\\
@@ -814,12 +869,12 @@ Invariance of the amplitude Eq.\eqref{eqn:Ward-form} under this transformation r
 \[k^\alpha_1L_{\alpha,\beta,\dots}(k_1,k_2,\dots)=k^\beta_1L_{\alpha,\beta,\dots}(k_1,k_2,\dots)=\dots=0\]
 i.e. when any external photon polarization vector is replaced by the corresponding four momentum, the amplitude must vanish. This is the statement of the \emph{Ward Identity}:
 
-\todo{Sistemare grafica}%%%%%%%%%%%
+\todo{Dimmi se ti va bene così}%%%%%%%%%%%
 
-\begin{quoting}
+\begin{mdframed}[style=mybox]
 If $\mathcal M(k)=\epsilon_\mu(k)L^\mu(k)$ is the amplitude for some QED process involving an external photon with momentum $k$, then this amplitude vanishes if we replace $\epsilon_\mu$ with $k_\mu$:
 \[k_\mu L^\mu(k)=0\]
-\end{quoting}
+\end{mdframed}
 
 \begin{exercise}
 Verify explicitly the Ward Identity for the Feynman amplitude of Compton scattering

@@ -15,7 +15,7 @@
 \usepackage{quoting}
 \usepackage{bbold} %identity symbol (double 1)
 \usepackage[framemethod=TikZ, nobreak=true]{mdframed}
-	\usepackage{amsthm}
+\usepackage{amsthm}
 \usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{enumitem}
 	\setlist{nosep}
@@ -73,7 +73,6 @@ innertopmargin=\topskip,
 %Exercise
 % metti il colore che preferisci su linecolor e frametitlebackgroundcolor
 % nel file .tex: \begin{exercise}[TITOLO ESERICZIO], se non vuoi dare un titolo all'esercizio non mettere le parentesi quadre (lo stesso vale per example)
-
 \definecolor{blue}{RGB}{0, 114, 178} % modifica qui se vuoi creare un colore personalizzato con codice RGB
 
 \mdfdefinestyle{exercise}{%
@@ -84,6 +83,17 @@ innertopmargin=\topskip,
 }
 \mdtheorem[style=exercise, nobreak=false]{exercise}{Exercise}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Framed
+\mdfdefinestyle{mybox}{
+	leftmargin = 1cm,
+	rightmargin = 1cm,
+	innerleftmargin = 5 pt,
+	innerrightmargin = 5 pt,
+	font = \itshape\rmfamily,
+}
+	
+
 \begin{document}
 
 %struttura modulare
@@ -96,6 +106,8 @@ innertopmargin=\topskip,
 
 %%The S-matrix and physical observables
 \input{Cap2}
+
+%%QED Process at Lowest order
 \subfile{Cap3}
 
 \end{document}
