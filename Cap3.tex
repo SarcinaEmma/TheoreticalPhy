@@ -276,14 +276,15 @@ with Feynman amplitude
 In the second passage $\xi =1$. We can prove that this choice has no importance, \textsf{see Maggiore pg 187}\\ \\
 Using the identity $(\bar{u} \gamma^{\mu} v)^* = \bar{v} \gamma^{\mu} u$ (that can be proved by direct calculation using
 $(\gamma^{\mu})^{\dagger} = \gamma^0 \gamma^{\mu} \gamma^0$) we obtain (we omit polarization indexes)
-\todo{gurda foglio 27}
-\[
-\begin{split}
-\abs{\mathM_{fi}}^2 = \mathM_{fi} \mathM^*_{fi}	& = \frac{q^4}{s^2} \bigl( \bar{u}(p')\gamma_{\mu} v(q') \bigr) \
-											\bigl( \bar{v}(q) \gamma^{\mu}u(p) \bigr) \\
-										& = ??
-\end{split}
-\]
+\todo{dimmi se ti va bene così}
+\begin{alignat*}{2}
+\abs{\mathM_{fi}}^2 = \mathM_{fi} \mathM^*_{fi}
+	& = \frac{q^4}{s^2} \bigl( \bar{u}(p')\gamma_{\mu} v(q') \bigr) \times \bigl( \bar{v}(q') \gamma_{\nu} \, u(p') \bigr) 
+		 & \quad	& \longrightarrow \textup{f-current} \\	
+\abs{\mathM_{fi}}^2 = \mathM_{fi} \mathM^*_{fi}
+	& = \frac{q^4}{s^2} \bigl( \bar{v}(q) \gamma^{\mu}u(p) \bigr) \times \bigl(\bar{u}(p)\gamma^{\nu} \, v(q) \bigr)
+		&		& \longrightarrow \textup{e-current}										
+\end{alignat*}
 At this point, we are still free to specify any particular spinors $u_r(p)$, $\bar{v}_{s'}(p')$ and so on, corresponding to any desired spin states of the fermions.
 
 \subsection{Sum Over Fermion Spins. Squared Averaged Feynman Amplitude}
@@ -319,7 +320,7 @@ The spinors u and v have disappeared, leaving us with a much cleaner expression 
 
 \skipline
 There is a trick to obtain previous formula using only Feynman rules. If we set $\mathM_{fi}=\mathM_e\mathM_f$ (we divide $\mathM_{fi}$ in 2 factors related to e and f), then $\abs{\mathM_{fi}}^2 = \mathM_e^* \mathM_e \, \mathM_f^* \mathM_f$. We have
-\todo{Da completare}
+\todo{Nei tuoi schemi ci sono delle sommatorie e altre cose nel diagramma di Feynman che non ho idea di come inserire}
 \begin{equation*}\sum_{rs} \mathM^*_e \, \mathM_e=%
 \begin{tikzpicture}[baseline=(nu)]
   \begin{feynman}[large]
@@ -342,7 +343,26 @@ The closed fermion line contributes in the final amplitude with a factor
 \frac{q^2}{2s} \Tr \bigl[ \underbrace{(\slashed p + m)}_{\textup{Fermion}} \gamma^{\nu} \underbrace{(\slashed q - m)}_{\textup{Antifermion}} \gamma^{\mu} \bigr]
 \]
 The factor $-q^2/(2s)$ is obtained using full diagram (s is given by photon propagator)
-\todo{Fare diagramma di Feynman}
+\todo{Nei tuoi schemi in mezzo alle 4 linee continue ci sono delle sommatorie. Non ho idea di come metterle, sorry}
+\begin{equation*} \abs{\overline{\mathM_{fi}}}^2 =
+\begin{tikzpicture}[baseline=($0.5*(nu1)+0.5*(nu2)$)]
+  \begin{feynman}[large]
+    \vertex [label={[label distance=0.1cm]2:$\nu$}] (nu2);
+    \vertex [label={[label distance=0.12cm]180:$\mu$}] at ([shift={(0:2.5)}]nu2) (mu2);
+        \vertex [label={[label distance=0.1cm]2:$\nu$}, below=2cm of nu2] (nu1);
+    \vertex [label={[label distance=0.12cm]180:$\mu$}] at ([shift={(0:2.5)}]nu1) (mu1);
+    
+    \diagram*{   
+      (nu1) -- [fermion, half left, looseness=0.8, momentum'={[arrow shorten=0.35]\(p'\)}](mu1)
+      		-- [fermion, half left, looseness=0.8, reversed momentum={[arrow shorten=0.35]\(q'\)}](nu1),
+      (nu2) -- [fermion, half left, looseness=0.8, momentum={[arrow shorten=0.35]\(p\)}](mu2)
+      		-- [fermion, half left, looseness=0.8, reversed momentum'={[arrow shorten=0.35]\(q\)}](nu2),
+      (nu1) -- [boson, half left, momentum={[arrow shorten=0.35]\(k\)}](nu2),
+      (mu2) -- [boson, half left, momentum={[arrow shorten=0.35]\(k\)}](mu1),
+    };
+  \end{feynman}
+\end{tikzpicture}
+\end{equation*}
 
 \skipline
 Going back to the expression of $\abs{\mathM_{fi}}^2$ that we obtain, now we need to calculate explicitly $\gamma$ matrices traces
@@ -405,8 +425,8 @@ With these relations we obtain
 To obtain a more explicit formula we must specialize to a particular frame of reference and express the vectors $p, q, p', q', k$ in terms of the basis kinematic variables (energies and angles) in that frame. In practice, the choice of frame will be dictated by the experimental conditions.\\
 We want to calculate cross section in the center of mass frame.
 
-\todo{Cambia il nome del file}
-\todo{Da sistemare}
+\todo{Se vuoi cambia il nome del file}
+
 \begin{figure}[H]
 \centering
 \input{img/Chiamalo_come_meglio_credi.tex}
@@ -528,17 +548,73 @@ u_+ 	& = \Pi_+ \, u = u_1 = u_R & &\to \text{right handed spinor}	& & h = \frac{
 u_- 	& = \Pi_- \, u = u_2 = u_L 	& &\to \text{left handed spinor}		& & h = -\frac{1}{2} \\
 \text{with h = helicity eigenvalue}
 \end{align*}
-\todo{disegni foglio 35}
+
+\begin{center}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+%Straight Lines [id:da7337110922624275] 
+\draw    (196,121) -- (294.3,121.42) ;
+\draw [shift={(296.3,121.43)}, rotate = 180.24] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da6737912272281203] 
+\draw    (231.3,109.43) .. controls (264.62,77.09) and (261.44,170.56) .. (233.07,140.43) ;
+\draw [shift={(231.3,138.43)}, rotate = 410.19] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Straight Lines [id:da5770055833414192] 
+\draw    (412,120) -- (510.3,120.42) ;
+\draw [shift={(512.3,120.43)}, rotate = 180.24] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da8808936980192339] 
+\draw    (449.78,106.19) .. controls (481.08,80.24) and (476.55,172.53) .. (447.3,137.43) ;
+\draw [shift={(447.3,108.43)}, rotate = 315.86] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+
+% Text Node
+\draw (174,109) node    {$e^{-}_{R}$};
+% Text Node
+\draw (170,142) node    {$h\ =\frac{1}{2}$};
+% Text Node
+\draw (390,108) node    {$e^{-}_{L}$};
+% Text Node
+\draw (386,141) node    {$h\ =-\frac{1}{2}$};
+\end{tikzpicture}
+\end{center}
+
 \begin{align*}
 v_+ 	& = \Pi_+ \, v = v_2 = v_L 	& &\to \text{left handed spinor}		& & h = \frac{1}{2} \\
 v_- 	& = \Pi_- \, v = v_1 = v_R	& &\to \text{right handed spinor}		& & h = -\frac{1}{2} \\
 \end{align*}
-\todo{disegni foglio 35}
+
+\begin{center}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+%Straight Lines [id:da7337110922624275] 
+\draw    (196,121) -- (294.3,121.42) ;
+\draw [shift={(296.3,121.43)}, rotate = 180.24] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da6737912272281203] 
+\draw    (233.78,107.19) .. controls (265.08,81.24) and (260.55,173.53) .. (231.3,138.43) ;
+\draw [shift={(231.3,109.43)}, rotate = 315.86] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Straight Lines [id:da5770055833414192] 
+\draw    (412,120) -- (510.3,120.42) ;
+\draw [shift={(512.3,120.43)}, rotate = 180.24] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da8808936980192339] 
+\draw    (447.3,108.43) .. controls (480.62,76.09) and (477.44,169.56) .. (449.07,139.43) ;
+\draw [shift={(447.3,137.43)}, rotate = 410.19] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+
+% Text Node
+\draw (174,109) node    {$e^{+}_{R}$};
+% Text Node
+\draw (170,142) node    {$h\ =-\frac{1}{2}$};
+% Text Node
+\draw (390,108) node    {$e^{+}_{L}$};
+% Text Node
+\draw (386,141) node    {$h\ =\frac{1}{2}$};
+\end{tikzpicture}
+\end{center}
+
 We notice that for antiparticles the relations between chirality and helicity is inverted. This can be easily interpretated using Dirac's Holes Theory, for example an antiparticle with positive helicity is the hole left by a particle with posotive helicity (since both momenta and spin change sign), and so particles and antiparticles with same helicity must have inverse chirality.\\ \\
 Using chirality projectors properties we can write Dirac currents as
 \[
 \begin{split}
-\bar{v}\gamma^{\mu}u 	& = \bar{v}(P_L + P_R) \gamma^{\mu} \, (P_L +P_R) u \\
+\bar{v}\gamma^{\mu}u 	& =s \bar{v}(P_L + P_R) \gamma^{\mu} \, (P_L +P_R) u \\
 					& = \bar{v} P_L \, \gamma^{\mu} \, P_L \, u + \bar{v} P_R \, \gamma^{\mu} \, P_R \, u
 					+ \bar{v} P_L \, \gamma^{\mu} \, P_R \, u + \bar{v} P_R \, \gamma^{\mu} \, P_L \, u
 \end{split}
@@ -593,8 +669,64 @@ Going back to the Feynman amplitude
 	& \times 	\bigl( \bar{u}(p') \, \gamma^{\mu}_R \, v(q') \bigr) \bigl( \bar{v}(q) \, \gamma_{\mu}^R \, u(p) \bigr)  \quad \to \mathM_{RR}
 \end{align*}
 If I did not used the UK limit, I would have obtained 16 independent terms, instead of 4.\\
-Each factor in the latter, corresponds to a different Feynman diagram with different left- and right-handed, initial and final particles, for example\\
-\todo{diagramma di Feynman}
+Each factor in the latter, corresponds to a different Feynman diagram with different left- and right-handed, initial and final particles, for example
+
+\begin{center}
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_znetn390l}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_znetn390l}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,121); %set diagram left start at 0, and has height of 121
+
+%Shape: Ellipse [id:dp8604492433556694] 
+\draw  [pattern=_znetn390l,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}] (427.39,55.56) .. controls (427.39,47.14) and (434.22,40.32) .. (442.63,40.32) .. controls (451.05,40.32) and (457.87,47.14) .. (457.87,55.56) .. controls (457.87,63.97) and (451.05,70.79) .. (442.63,70.79) .. controls (434.22,70.79) and (427.39,63.97) .. (427.39,55.56) -- cycle ;
+%Straight Lines [id:da20623536349725513] 
+\draw    (357.3,24.8) -- (428.45,50.53) ;
+%Straight Lines [id:da8183318646405824] 
+\draw    (457.44,59.25) -- (526.89,85.58) ;
+%Straight Lines [id:da12307202546107243] 
+\draw    (357.3,86.8) -- (428.19,60.02) ;
+%Straight Lines [id:da8598250238620639] 
+\draw    (457.18,51.04) -- (527.5,25.41) ;
+
+% Text Node
+\draw (342,16) node  [font=\footnotesize]  {$e^{-}_{L}$};
+% Text Node
+\draw (341,83) node  [font=\footnotesize]  {$e^{+}_{R}$};
+% Text Node
+\draw (538,20) node  [font=\footnotesize]  {$f^{+}_{R}$};
+% Text Node
+\draw (538,86) node  [font=\footnotesize]  {$f^{-}_{L}$};
+% Text Node
+\draw (292,51) node    {$\mathcal{M}_{LL} =$};
+\end{tikzpicture}
+\end{center}
+With 
+\[
+\mathM_{LL} = UR \Biggl( e^- \biggl( -\frac{1}{2} \biggl) + \, e^+ \biggl( \frac{1}{2} \biggr) \to f^- \biggl( -\frac{1}{2} \biggl) + \, f^+ \biggl( \frac{1}{2} \biggr) \Biggr)
+\]
 Having inserted these projection operators, we are now free to sum over the electron and positron spins in the squared amplitude. As a cosequence of projector operators, we saw that the amplitude vanishes (in UR limit) unless the eletron and positron have opposite helicity, or equivalently, unless their spinors have the same helicity.\\
 Let's calculate squared Feynman amplitude of $\mathM_{LL}$, summing over spins
 \[
@@ -650,10 +782,136 @@ Notice that this amplitude vanished for $\theta = \pm \pi$\\
 In particular
 \begin{enumerate}
 \item $\abs{\mathM_{LL}}^2$ is max when $\theta = 0$
-	\todo{disegno foglio 38}
-\item $\abs{\mathM_{LL}}^2$ is zero when $\theta = \pi$\\
-	\todo{disegno foglio 38}
-	Amplitude vanished when helicity states are orthogonal. This  is what we would expect, since for $\theta = \pi$ the total angular momentum of the final state is opposite to that of the initial state 
+\todo{Guarad se ti vano bene}
+\begin{center}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,158); %set diagram left start at 0, and has height of 158
+%Straight Lines [id:da669107110385539] 
+\draw    (329.3,69.42) -- (329.3,110.42) ;
+\draw [shift={(329.3,113.42)}, rotate = 270] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Straight Lines [id:da627459893712426] 
+\draw [line width=0.75]    (240.3,48.32) -- (293.3,48.32)(240.3,51.32) -- (293.3,51.32) ;
+\draw [shift={(232.3,49.82)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4765040602253443] 
+\draw    (209.3,60.02) -- (269.3,60.02) ;
+\draw [shift={(271.3,60.02)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da29377791630873906] 
+\draw    (271.3,59.82) -- (318.3,59.82) ;
+%Straight Lines [id:da44477314041985583] 
+\draw [line width=0.75]    (241.3,109.32) -- (294.3,109.32)(241.3,112.32) -- (294.3,112.32) ;
+\draw [shift={(233.3,110.82)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da22886348844829163] 
+\draw    (210.3,121.02) -- (270.3,121.02) ;
+\draw [shift={(272.3,121.02)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4550035294111221] 
+\draw    (272.3,120.82) -- (319.3,120.82) ;
+%Straight Lines [id:da8487018364507297] 
+\draw [line width=0.75]    (372.3,48.32) -- (425.3,48.32)(372.3,51.32) -- (425.3,51.32) ;
+\draw [shift={(364.3,49.82)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5318280133300979] 
+\draw    (341.3,60.02) -- (401.3,60.02) ;
+\draw [shift={(403.3,60.02)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da3905985591100851] 
+\draw    (403.3,59.82) -- (450.3,59.82) ;
+%Straight Lines [id:da8244198966562746] 
+\draw [line width=0.75]    (372.3,109.32) -- (425.3,109.32)(372.3,112.32) -- (425.3,112.32) ;
+\draw [shift={(364.3,110.82)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7180961299742097] 
+\draw    (341.3,121.02) -- (401.3,121.02) ;
+\draw [shift={(403.3,121.02)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7120656651335486] 
+\draw    (403.3,120.82) -- (450.3,120.82) ;
+
+% Text Node
+\draw (329,58) node    {$\times $};
+% Text Node
+\draw (329,119) node    {$\times $};
+% Text Node
+\draw (189,57) node    {$e^{-}_{L}$};
+% Text Node
+\draw (471,57) node    {$e^{+}_{R}$};
+% Text Node
+\draw (187,119) node    {$f^{+}_{R}$};
+% Text Node
+\draw (472,119) node    {$f^{-}_{L}$};
+% Text Node
+\draw (266,38) node    {$h$};
+% Text Node
+\draw (267,99) node    {$h$};
+% Text Node
+\draw (398,38) node    {$h$};
+% Text Node
+\draw (398,99) node    {$h$};
+\end{tikzpicture}
+\end{center}
+
+\item $\abs{\mathM_{LL}}^2$ is zero when $\theta = \pi$
+
+\begin{center}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,385); %set diagram left start at 0, and has height of 385
+%Straight Lines [id:da6414620174481562] 
+\draw    (331.3,243.42) -- (331.3,284.42) ;
+\draw [shift={(331.3,287.42)}, rotate = 270] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Straight Lines [id:da7712612094623315] 
+\draw [line width=0.75]    (242.3,222.32) -- (295.3,222.32)(242.3,225.32) -- (295.3,225.32) ;
+\draw [shift={(234.3,223.82)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6329413369817596] 
+\draw    (211.3,234.02) -- (271.3,234.02) ;
+\draw [shift={(273.3,234.02)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6521358199156739] 
+\draw    (273.3,233.82) -- (320.3,233.82) ;
+%Straight Lines [id:da8580773916634847] 
+\draw [line width=0.75]    (235.3,283.32) -- (288.3,283.32)(235.3,286.32) -- (288.3,286.32) ;
+\draw [shift={(296.3,284.82)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da35708190789077965] 
+\draw    (212.3,295.02) -- (263.3,294.82) ;
+%Straight Lines [id:da966212209129732] 
+\draw    (265.3,294.82) -- (321.3,294.82) ;
+\draw [shift={(263.3,294.82)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da08341380647263419] 
+\draw [line width=0.75]    (374.3,222.32) -- (427.3,222.32)(374.3,225.32) -- (427.3,225.32) ;
+\draw [shift={(366.3,223.82)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4542241796358275] 
+\draw    (343.3,234.02) -- (403.3,234.02) ;
+\draw [shift={(405.3,234.02)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9615711677964063] 
+\draw    (405.3,233.82) -- (452.3,233.82) ;
+%Straight Lines [id:da6801235882982959] 
+\draw [line width=0.75]    (366.3,283.32) -- (419.3,283.32)(366.3,286.32) -- (419.3,286.32) ;
+\draw [shift={(427.3,284.82)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8950639729314604] 
+\draw    (344.3,294.82) -- (400.3,294.82) ;
+%Straight Lines [id:da8731925462114822] 
+\draw    (402.3,294.82) -- (458.3,294.82) ;
+\draw [shift={(400.3,294.82)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (331,232) node    {$\times $};
+% Text Node
+\draw (331,293) node    {$\times $};
+% Text Node
+\draw (191,231) node    {$e^{-}_{L}$};
+% Text Node
+\draw (473,231) node    {$e^{+}_{R}$};
+% Text Node
+\draw (189,293) node    {$f^{-}_{L}$};
+% Text Node
+\draw (474,293) node    {$f^{+}_{R}$};
+% Text Node
+\draw (268,212) node    {$h$};
+% Text Node
+\draw (269,273) node    {$h$};
+% Text Node
+\draw (400,212) node    {$h$};
+% Text Node
+\draw (400,273) node    {$h$};
+\end{tikzpicture}
+\end{center}
+
+Amplitude vanished when helicity states are orthogonal. This  is what we would expect, since for $\theta = \pi$ the total angular momentum of the final state is opposite to that of the initial state 
 \end{enumerate}
 
 \begin{exercise}
@@ -768,9 +1026,139 @@ previous relation follows directly from Feynman rules. Relative sign between amp
 \]
 For squared amplitudes the relative sign is irrelevant but it's important when we have to sum different diagrams contributions\\
 The diagrams that contribute to the two amplitudes fall into a natural one-to-one correspondence, where corresponding diagrams differ inly by changing the incoming $\phi$ into the outgoing $\bar{\phi}$\\
-\todo{disegni foglio 42}
-For example, in the $e^+e^- \to f^-f^+$ and $e^-f^- \to e^-f^-$ correspondence we have\\
-\todo{diagrammi foglio 42}
+\begin{center}
+% Pattern Info
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_ew6bh2rvn}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_ew6bh2rvn}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_6qogx6xkd}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_6qogx6xkd}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,160); %set diagram left start at 0, and has height of 160
+%Shape: Circle [id:dp335274179172804] 
+\draw  [pattern=_ew6bh2rvn,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}] (179,100) .. controls (179,86.19) and (190.19,75) .. (204,75) .. controls (217.81,75) and (229,86.19) .. (229,100) .. controls (229,113.81) and (217.81,125) .. (204,125) .. controls (190.19,125) and (179,113.81) .. (179,100) -- cycle ;
+%Straight Lines [id:da4072015602862924] 
+\draw    (171.84,65.07) -- (188,81) ;
+\draw [shift={(171.84,65.07)}, rotate = 224.59] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8226309801171026] 
+\draw    (146.3,38.63) -- (170.42,63.67) ;
+%Straight Lines [id:da777237968894338] 
+\draw    (181.3,109.63) -- (142.3,130.63) ;
+%Straight Lines [id:da25062503543421477] 
+\draw    (185.3,116.63) -- (154.3,148.63) ;
+%Straight Lines [id:da3310853290904092] 
+\draw    (257.3,57.63) -- (226.3,89.63) ;
+%Straight Lines [id:da7679793034418163] 
+\draw    (268.3,83.63) -- (228.3,94.63) ;
+%Straight Lines [id:da9333358493656714] 
+\draw    (229,100) -- (270.3,95.63) ;
+%Shape: Circle [id:dp23266904036871083] 
+\draw  [pattern=_6qogx6xkd,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}] (421,99) .. controls (421,85.19) and (432.19,74) .. (446,74) .. controls (459.81,74) and (471,85.19) .. (471,99) .. controls (471,112.81) and (459.81,124) .. (446,124) .. controls (432.19,124) and (421,112.81) .. (421,99) -- cycle ;
+%Straight Lines [id:da17826808721141885] 
+\draw    (423.3,108.63) -- (384.3,129.63) ;
+%Straight Lines [id:da8771687702917634] 
+\draw    (427.3,115.63) -- (396.3,147.63) ;
+%Straight Lines [id:da33167152828521496] 
+\draw    (499.3,56.63) -- (468.3,88.63) ;
+%Straight Lines [id:da8719573028225778] 
+\draw    (510.3,82.63) -- (470.3,93.63) ;
+%Straight Lines [id:da023689693655271737] 
+\draw    (471,99) -- (512.3,94.63) ;
+%Straight Lines [id:da3840612605767302] 
+\draw    (461.3,78.63) -- (479.3,48.42) ;
+%Straight Lines [id:da8203731162375616] 
+\draw    (480.32,46.71) -- (497.3,18.22) ;
+\draw [shift={(479.3,48.42)}, rotate = 300.8] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7202215251178163] 
+\draw    (295.3,88.02) -- (365.3,88.02) ;
+\draw [shift={(368.3,88.02)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw [shift={(292.3,88.02)}, rotate = 0] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+
+% Text Node
+\draw (135,22) node    {$\varphi ( p)$};
+% Text Node
+\draw (521,17) node    {$\overline{\varphi }( -p)$};
+\end{tikzpicture}
+\end{center}
+
+For example, in the $e^-e^+ \to f^+f^-$ and $e^-f^- \to e^-f^-$ correspondence we have
+\todo{Controlla se sono giusti}
+\begin{equation*}
+\begin{tikzpicture}[baseline=(nu)]
+  \begin{feynman}[medium]
+    \vertex (f1) {\(e^-\)};
+    \vertex [below right=of f1] (nu);
+    \vertex [below left=of nu] (b1) {\(e^+\)};
+    \vertex at ([shift={(0:2)}]nu) (mu);
+    \vertex [above right=of mu] (f2) {\(f^-\)};
+    \vertex [below right=of mu] (b2) {\(f^+\)};
+
+    \diagram*{
+      (f1) -- [fermion, momentum={[arrow shorten=0.25]\(p\)}] (nu) -- [boson] (mu) -- [fermion, momentum={[arrow shorten=0.25]\(p'\)}] (f2),
+      (nu) -- [fermion, reversed momentum={[arrow shorten=0.25]\(q\)}] (b1),
+      (b2) -- [fermion, reversed momentum={[arrow shorten=0.25]\(q'\)}] (mu),
+    };
+  \end{feynman}
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[baseline=(nu)]
+  \begin{feynman}[medium]
+    \vertex (f1) {\(e^-\)};
+    \vertex [below right=of f1] (nu);
+    \vertex [above right=of nu] (b1) {\(e^-\)};
+    \vertex at ([shift={(0:2)}]nu) (mu);
+    \vertex [below left=of mu] (f2) {\(f^-\)};
+    \vertex [below right=of mu] (b2) {\(f^-\)};
+
+    \diagram*{
+      (f1) -- [fermion, momentum'={[arrow shorten=0.25]\(p\)}] (nu) -- [boson] (mu) -- [fermion, momentum={[arrow shorten=0.25]\(p'\)}] (b2),
+      (nu) -- [fermion, momentum={[arrow shorten=0.25]\(-q\)}] (b1),
+      (f2) -- [fermion, momentum'={[arrow shorten=0.25]\(-q'\)}] (mu),
+    };
+  \end{feynman}
+\end{tikzpicture}
+\end{equation*}
+
 
 \section{$e^-\gamma\rightarrow e^-\gamma$ (Compton)}
 \textsf{See Peskin, sec 5.5}\\

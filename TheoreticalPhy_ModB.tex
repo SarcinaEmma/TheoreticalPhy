@@ -14,13 +14,12 @@
 \usepackage{mathrsfs}
 \usepackage{quoting}
 \usepackage{bbold} %identity symbol (double 1)
-\usepackage[framemethod=TikZ, nobreak=true]{mdframed}
 \usepackage{amsthm}
 \usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{enumitem}
 	\setlist{nosep}
 	\setlist{label=(\roman*)}
-\usepackage[framemethod=TikZ]{mdframed}
+\usepackage[framemethod=TikZ, nobreak = false]{mdframed}
 	\usepackage{amsthm}
 \usepackage{booktabs}
 \usepackage{caption}
@@ -67,7 +66,7 @@ frametitlerule=true,%
 frametitlebackgroundcolor=gray!20,
 innertopmargin=\topskip,
 }
-\mdtheorem[style=example, nobreak=false]{example}{Example}
+\mdtheorem[style=example]{example}{Example}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Exercise
