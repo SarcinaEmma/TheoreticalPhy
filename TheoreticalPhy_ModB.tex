@@ -10,7 +10,7 @@
 \usepackage{cases}
 \usepackage{mathtools}
 \usepackage{slashed}
-\usepackage{braket}
+\usepackage{physics}
 \usepackage{mathrsfs}
 \usepackage{quoting}
 \usepackage{bbold} %identity symbol (double 1)
@@ -26,12 +26,22 @@
 \usepackage{dsfont}
 \usepackage{float}
 
-%footnote con num romani invece dei numeri (lo trovo più chiaro visto che potrebbero essere scambiati per apici, però vedi tu se tenerlo o no)
+%footnote con num romani invece dei numeri (lo trovo più chiaro visto che potrebbero essere scambiati per apici, però vedi tu se tenerlo o no -> figo)
 \renewcommand{\thefootnote}
 	{\Roman{footnote}}
 
 \renewcommand{\epsilon}{\varepsilon}
-\renewcommand{\phi}{\varphi}
+
+%scambia phi e varphi
+\let\temp\phi
+\let\phi\varphi
+\let\varphi\temp
+
+%scambia epsilon e varepsilon
+\let\temp\epsilon
+\let\epsilon\varepsilon
+\let\varepsilon\temp
+
 \renewcommand{\vec}{\mathbf}
 
 \newcommand{\mathL}{\mathcal{L}}
@@ -41,11 +51,9 @@
 \newcommand{\mathZ}{\mathbb{Z}} %Interi
 \newcommand{\de}{\textup{d}}
 \newcommand{\so}{\Rightarrow}
-\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\norma}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\id}{\mathbb 1} %Identità con il doppio 1
 \newcommand{\varid}{\textup {id}} %Identità con "id"
-\newcommand{\Tr}{\textup{Tr}} %trace
 
 
 \newcommand{\skipline}{\vspace{\baselineskip}} %Salta una riga (devi saltare una riga prima di mettere il comando)
@@ -91,6 +99,8 @@ innertopmargin=\topskip,
 	innerrightmargin = 5 pt,
 	font = \itshape\rmfamily,
 }
+% use \begin{mdframed}[style=mybox] -> \end{mdframed}
+
 
 
 \usepackage[backend=biber, style=numeric, sorting=nty]{biblatex}
@@ -99,16 +109,17 @@ innertopmargin=\topskip,
 
 \begin{document}
 
+
 %struttura modulare
 \renewcommand{\onlyinsubfile}[1]{}
 \renewcommand{\onlyinmainfile}[1]{#1}
 
 \tableofcontents
 
-\input{introduction}
+\subfile{Cap1}
 
 %%The S-matrix and physical observables
-\input{Cap2}
+\subfile{Cap2}
 
 %%QED Process at Lowest order
 \subfile{Cap3}

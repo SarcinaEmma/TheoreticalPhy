@@ -12,3 +12,5 @@ TheoreticalPhy_ModB.bbl
 TheoreticalPhy_ModB.bcf
 TheoreticalPhy_ModB.blg
 TheoreticalPhy_ModB.run.xml
+*.bcf
+*.xml
