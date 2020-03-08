@@ -5,3 +5,10 @@
 *.toc
 *.synctex(busy)
 .DS_Store
+Cap3.bcf
+Cap3.run.xml
+TheoreticalPhy_ModB-blx.bib
+TheoreticalPhy_ModB.bbl
+TheoreticalPhy_ModB.bcf
+TheoreticalPhy_ModB.blg
+TheoreticalPhy_ModB.run.xml

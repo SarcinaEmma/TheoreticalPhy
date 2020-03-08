@@ -91,6 +91,10 @@ innertopmargin=\topskip,
 	innerrightmargin = 5 pt,
 	font = \itshape\rmfamily,
 }
+
+
+\usepackage[backend=biber, style=numeric, sorting=nty]{biblatex}
+\addbibresource{Bibliography.bib}
 	
 
 \begin{document}
@@ -109,4 +113,6 @@ innertopmargin=\topskip,
 %%QED Process at Lowest order
 \subfile{Cap3}
 
+\nocite{*}
+\printbibliography
 \end{document}
