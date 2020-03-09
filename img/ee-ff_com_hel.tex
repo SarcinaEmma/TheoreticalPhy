@@ -1,0 +1,50 @@
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_znetn390l}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_znetn390l}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,121); %set diagram left start at 0, and has height of 121
+
+%Shape: Ellipse [id:dp8604492433556694] 
+\draw  [pattern=_znetn390l,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}] (427.39,55.56) .. controls (427.39,47.14) and (434.22,40.32) .. (442.63,40.32) .. controls (451.05,40.32) and (457.87,47.14) .. (457.87,55.56) .. controls (457.87,63.97) and (451.05,70.79) .. (442.63,70.79) .. controls (434.22,70.79) and (427.39,63.97) .. (427.39,55.56) -- cycle ;
+%Straight Lines [id:da20623536349725513] 
+\draw    (357.3,24.8) -- (428.45,50.53) ;
+%Straight Lines [id:da8183318646405824] 
+\draw    (457.44,59.25) -- (526.89,85.58) ;
+%Straight Lines [id:da12307202546107243] 
+\draw    (357.3,86.8) -- (428.19,60.02) ;
+%Straight Lines [id:da8598250238620639] 
+\draw    (457.18,51.04) -- (527.5,25.41) ;
+
+% Text Node
+\draw (342,16) node  [font=\footnotesize]  {$e^{-}_{L}$};
+% Text Node
+\draw (341,83) node  [font=\footnotesize]  {$e^{+}_{R}$};
+% Text Node
+\draw (538,20) node  [font=\footnotesize]  {$f^{+}_{R}$};
+% Text Node
+\draw (538,86) node  [font=\footnotesize]  {$f^{-}_{L}$};
+% Text Node
+\draw (292,51) node    {$\mathcal{M}_{LL} =$};
+\end{tikzpicture}
