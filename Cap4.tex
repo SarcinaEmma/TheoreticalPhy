@@ -1,0 +1,1241 @@
+\documentclass[TheoreticalPhy_ModB.tex]{subfiles}
+\begin{document}
+
+\chapter{QED processes at higher order}
+\section{Beyond the tree-level}
+Up to now we have calculated QED processes in the lowset order of perturbation theory. On taking higher order into account we expect correction contributions from both real and virtual radiation. However, these corrections drag with them divergences in the corresponding integrals which make the results unphysical. In order to remove these inherent effects in the higher order perturbative approach, we can consider adopting the tools provided by regularization and renormalization theory based on the concept of modifying quantities to keep the finite and well-defined feature of the physical theory.
+
+Feynman diagrams representing higher order corrections contain additional vertices, compared with those describing the process in the lowest order of perturbation theory. In the following we write down some of these diagrams:
+\onlyinsubfile{\begin{comment}}%in order to improve compilation speed
+\begin{alignat*}{2}
+S_{(1)}\quad\Rightarrow\quad&
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex (e1);
+		\vertex [right= of e1](e2);
+		\vertex [above right= of e2](e3);
+		\vertex [below right= of e2](e4);
+		%
+		\diagram*{
+			(e1) --  [boson] (e2),
+			(e3) -- (e2) -- (e4),
+		};
+	\end{feynman}
+\end{tikzpicture}
+&\text{Not Physical}\\
+%
+S_{(2)}\quad\Rightarrow\quad&
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex (e1);
+		\vertex [right= of e1, label={\tiny $x$}](e2);
+		\vertex [above right= of e2](e3);
+		\vertex [below right= of e2](e4);
+		%
+		\diagram*{
+			(e1) --  [boson] (e2),
+			(e3) -- (e2) -- (e4),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad\times\quad
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex (e1);
+		\vertex [right= of e1, label={\tiny$y$}](e2);
+		\vertex [above right= of e2](e3);
+		\vertex [below right= of e2](e4);
+		%
+		\diagram*{
+			(e1) --  [boson] (e2),
+			(e3) -- (e2) -- (e4),
+		};
+	\end{feynman}
+\end{tikzpicture}
+&\text{$0$ propagators}\\
+&\begin{tikzpicture}[baseline=(e2)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[below right=of e1](e2);
+		\vertex[below left=of e2](e3);
+		\vertex[right=of e2](e4);
+		\vertex[above right=of e4](e5);
+		\vertex[below right=of e4](e6);
+		\diagram{
+			(e1) -- (e2) -- (e3),
+			(e2) -- [boson] (e4),
+			(e5) -- (e4) -- (e6),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad,\quad
+\begin{tikzpicture}[baseline=(e2)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[below right=of e1](e2);
+		\vertex[below left=of e2](e3);
+		\vertex[right=of e2](e4);
+		\vertex[above right=of e4](e5);
+		\vertex[below right=of e4](e6);
+		\diagram{
+			(e3) -- (e2) -- (e4) -- (e6),
+			(e1) -- [boson] (e2),
+			(e5) -- [boson] (e4),
+		};
+	\end{feynman}
+\end{tikzpicture}
+&\text{$1$ propagator}\\
+&\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[right=of e1](e2);
+		\vertex[right=of e2](e3);
+		\vertex[right=of e3](e4);
+		\diagram*{
+			(e1) -- (e4),
+			(e2) -- [boson, half left] (e3),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad,\quad
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[right=of e1](e2);
+		\vertex[right=of e2](e3);
+		\vertex[right=of e3](e4);
+		\diagram*{
+			(e2) -- [half left] (e3) -- [half left] (e2),
+			(e1) -- [boson] (e2),
+			(e3) -- [boson] (e4),
+		};
+	\end{feynman}
+\end{tikzpicture}\quad
+&\text{$2$ propagators}\\
+&\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[right=of e1](e2);
+		\diagram*{
+			(e1) -- [half left] (e2) -- [half left] (e1),
+			(e1) -- [boson] (e2),
+		};
+	\end{feynman}
+\end{tikzpicture}\qquad\text{(Vacuum)}
+&\text{$3$ propagators}\\
+S_{(3)}\quad\Rightarrow\quad&
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex (e1);
+		\vertex [right= of e1](e2);
+		\vertex [above right= of e2](e3);
+		\vertex [below right= of e2](e4);
+		\vertex [above right=0.6cm of e2](e5);
+		\vertex [below right=0.6cm of e2](e6);
+		%
+		\diagram*{
+			(e1) --  [boson] (e2),
+			(e3) -- (e2) -- (e4),
+			(e5) -- [boson] (e6),
+		};
+	\end{feynman}
+\end{tikzpicture}
+&\\
+S_{(4)}\quad\Rightarrow\quad&
+\begin{tikzpicture}[baseline=(e2)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[below right=of e1](e2);
+		\vertex[below left=of e2](e3);
+		\vertex[right=of e2](e4);
+		\vertex[above right=of e4](e5);
+		\vertex[below right=of e4](e6);
+		\vertex[above left=0.3cm of e2](e7);
+		\vertex[above right=0.3cm of e4](e8);
+		\diagram{
+			(e1) -- (e2) -- (e3),
+			(e2) -- [boson] (e4),
+			(e5) -- (e4) -- (e6),
+			(e7) -- [boson] (e8),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad,\quad
+\begin{tikzpicture}[baseline=(e2)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[below right=of e1](e2);
+		\vertex[below left=of e2](e3);
+		\vertex[right=of e2](e4);
+		\vertex[above right=of e4](e5);
+		\vertex[below right=of e4](e6);
+		\vertex[below right=0.5cm of e4](e7);
+		\vertex[above right=0.5cm of e4](e8);
+		\diagram{
+			(e1) -- (e2) -- (e3),
+			(e2) -- [boson] (e4),
+			(e5) -- (e4) -- (e6),
+			(e7) -- [boson] (e8),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\end{alignat*}
+			
+The 1 loop diagrams with 2 external particles are higher order corrections of the free propagator:
+\[
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[right=1cm of e1, blob](e2){\hspace{1.5cm}};
+		\vertex[right=1.3cm of e2](e3);
+		\diagram*{
+			(e1) -- [boson] (e2) -- [boson] (e3),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\quad
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[right=1cm of e1](e2);
+		\vertex[right=1.3cm of e2](e3);
+		\diagram*{
+			(e1) -- [boson]  (e3),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad+\quad
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[right=of e1](e2);
+		\vertex[right=0.6cm of e2](e3);
+		\vertex[right=of e3](e4);
+		\diagram*{
+			(e2) -- [half left] (e3) -- [half left] (e2),
+			(e1) -- [boson] (e2),
+			(e3) -- [boson] (e4),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad+\quad
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[right=of e1](e2);
+		\vertex[above right=0.4 of e2](e5);
+		\vertex[below right=0.4 of e2](e6);
+		\vertex[below right=0.4cm of e5](e3);
+		\vertex[right=of e3](e4);
+		
+		\diagram*{
+			(e2) -- [quarter left] (e5) -- [quarter left] (e3) -- [quarter left] (e6) -- [quarter left] (e2),
+			(e1) -- [boson] (e2),
+			(e3) -- [boson] (e4),
+			(e5) -- [boson] (e6),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\]
+
+
+
+\[
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[right=1cm of e1, blob](e2){\hspace{1.5cm}};
+		\vertex[right=1.3cm of e2](e3);
+		\diagram*{
+			(e1) --  (e2) -- (e3),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\quad
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[right=1cm of e1](e2);
+		\vertex[right=1.3cm of e2](e3);
+		\diagram*{
+			(e1) --   (e3),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad+\quad
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[right=of e1](e2);
+		\vertex[right=0.6cm of e2](e3);
+		\vertex[right=of e3](e4);
+		\diagram*{
+			(e1) -- (e4),
+			(e2) -- [half left, boson] (e3),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad+\quad
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[right=0.5cm of e1](e2);
+		\vertex[right=0.8cm of e2](e3);
+		\vertex[right=0.4 of e2](e4);
+		\vertex[right=0.8cm of e4](e5);
+		\vertex[right=2.3 of e1](e6);
+		\diagram*{
+			(e1) -- (e6),
+			(e2) -- [half left, boson] (e3),
+			(e4) -- [half right, boson] (e5),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\]
+
+Diagrams at third order loops modifies tree level interactions
+
+
+\[
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex (e1);
+		\vertex [right= of e1, blob](e2){\hspace{1.5cm}};
+		\vertex [above right= of e2](e3);
+		\vertex [below right= of e2](e4);
+		%
+		\diagram*{
+			(e1) --  [boson] (e2),
+			(e3) -- (e2) -- (e4),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\quad
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex (e1);
+		\vertex [right= of e1](e2);
+		\vertex [above right= of e2](e3);
+		\vertex [below right= of e2](e4);
+		%
+		\diagram*{
+			(e1) --  [boson] (e2),
+			(e3) -- (e2) -- (e4),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad+\quad
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex (e1);
+		\vertex [right= of e1](e2);
+		\vertex [above right= of e2](e3);
+		\vertex [below right= of e2](e4);
+		\vertex [above right=0.6cm of e2](e5);
+		\vertex [below right=0.6cm of e2](e6);
+		%
+		\diagram*{
+			(e1) --  [boson] (e2),
+			(e3) -- (e2) -- (e4),
+			(e5) -- [boson] (e6),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\]
+
+And at fourth order loops affects the scattering amplitude
+
+\[
+\begin{tikzpicture}[baseline=(e2)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[below right=0.8cm of e1,blob](e2){\hspace{1.5cm}};
+		\vertex[below left=of e2](e3);
+		\vertex[above right=of e2](e5);
+		\vertex[below right=of e2](e6);
+		\diagram{
+			(e1) -- (e2) -- (e3),
+			(e5) -- (e2) -- (e6),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\quad
+\begin{tikzpicture}[baseline=(e2)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[below right=of e1](e2);
+		\vertex[below left=of e2](e3);
+		\vertex[right=of e2](e4);
+		\vertex[above right=of e4](e5);
+		\vertex[below right=of e4](e6);
+		\diagram{
+			(e1) -- (e2) -- (e3),
+			(e2) -- [boson] (e4),
+			(e5) -- (e4) -- (e6),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad+\quad
+\begin{tikzpicture}[baseline=(e2)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[below right=of e1](e2);
+		\vertex[below left=of e2](e3);
+		\vertex[right=of e2](e4);
+		\vertex[above right=of e4](e5);
+		\vertex[below right=of e4](e6);
+		\vertex[above left=0.3cm of e2](e7);
+		\vertex[above right=0.3cm of e4](e8);
+		\diagram{
+			(e1) -- (e2) -- (e3),
+			(e2) -- [boson] (e4),
+			(e5) -- (e4) -- (e6),
+			(e7) -- [boson] (e8),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad+\quad
+\begin{tikzpicture}[baseline=(e2)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[below right=of e1](e2);
+		\vertex[below left=of e2](e3);
+		\vertex[right=of e2](e4);
+		\vertex[above right=of e4](e5);
+		\vertex[below right=of e4](e6);
+		\vertex[below right=0.5cm of e4](e7);
+		\vertex[above right=0.5cm of e4](e8);
+		\diagram{
+			(e1) -- (e2) -- (e3),
+			(e2) -- [boson] (e4),
+			(e5) -- (e4) -- (e6),
+			(e7) -- [boson] (e8),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\]
+\onlyinsubfile{\end{comment}}
+
+I call processes without loops (\emph{tree}) \textbf{$\alpha_{EM}$-order processes}, then processes with $n$ loops are \textbf{$\alpha_{EM}\circ(\alpha_{EM}^n)$ order processes}. 
+
+We have so far shown how to calculate processes in the order $\alpha_{EM}(1+o(\alpha_{EM})+\dots)$.
+Since QED is a perturbative theory, theoretical result we obtained so far (considering only tree-level diagrams) coincides with experimental results only up to the first order in $\alpha_{EM}$. In order to obtain better results we must consider higher order contibutions. See next example:
+
+\begin{example}[Magnetic Dipole Momentum of $e^-$]
+\textsf{Mandl, sec 9.6.1}
+
+The magnetic moment of a particle shows up through the scattering of the particle by a magnetic field. For this reason we shall one more study the elastic scattering of an electron by a static potential. We considered this process in lowest order in sec.\ref{sec:3-ext_EM_field}, whose diagram at lowest order is:
+\onlyinsubfile{\begin{comment}}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[baseline=(j)]
+  \begin{feynman}[medium]
+    \vertex (e1);
+    \vertex [above right=of e1] (i);
+    \vertex [below right=of i] (e2);
+    \vertex [above=of i, crossed dot, minimum width=5pt](s){\hspace{2mm}};
+    \vertex [right=5mm of s](s1){\(A_{\textup{ext}}\)};
+    \vertex [above right=0mm of i](mu){\(\mu\)};
+    \vertex [below=7mm of i](j);
+    %
+    \diagram*{
+      (e1) -- [fermion] (i) -- [fermion](e2),
+      (i) -- [boson] (s),
+      };
+  \end{feynman}
+\end{tikzpicture}
+\end{figure}
+\onlyinsubfile{\end{comment}}
+
+We can rewrite the lowest order scattering amplitude as follows (using \emph{Gordon Identity})\footnote{See Mandl for explicit derivation.}
+\begin{equation}\label{eqn:mag-dipole}
+iq_e\bar u(p')\gamma^\mu u(p)=i\left(\frac{q_e}{2m_e}\right)\bar u(p')\left\{(p'+p)^\mu+2i\Sigma^{\mu\nu}(p'-p)_\nu\right\}u(p)
+\end{equation}
+Physically this means that $\gamma^\mu$ (related to QED interaction) using Dirac e.o.m. can be rewritten in terms of 
+\begin{enumerate}
+\item $(p'+p)^\mu$ (which is related to $e^-$ coupling)
+\item $g_e\Sigma^{\mu\nu}$ (where $\Sigma^{\mu\nu}=\frac i4[\gamma^\mu,\gamma^\nu]$ is the Lorentz generator and $g_e=2$ is the gyromagnetic ratio)
+\item $(p'-p)_\nu$ (which is related to spin coupling)
+\end{enumerate}
+The the non-relativistic limit of slowing moving particles and static magnetic field, the second term in \eqref{eqn:mag-dipole} is just the amplitude for the scattering of a spin $1/2$ particle with magnetic moment $(-e/2m)$, i.e. with gyromagnetic ratio $g_e=2$. In QM the factor $g_e=2$ is given by experimental results, while QFT predict this value at lowest order.
+
+At higher orders, QED predicts $o(\alpha_{EM})$ corrections to $g_e$. Let's consider higher order diagrams, i.e. diagrams with one loop, for example\footnote{All possible diagrams with one loop are shown in Mandl.}
+
+\onlyinsubfile{\begin{comment}}
+\[
+\begin{tikzpicture}[baseline=(j)]
+  \begin{feynman}[medium]
+    \vertex (e1);
+    \vertex [above right=of e1] (i);
+    \vertex [below right=of i] (e2);
+    \vertex [above=of i, crossed dot, minimum width=5pt](s){\hspace{2mm}};
+    \vertex [right=5mm of s](s1){\(A_{\textup{ext}}\)};
+    \vertex [above right=0mm of i](mu){\(\mu\)};
+    \vertex [below=7mm of i](j);
+    \vertex [below left=0.5cm of i](c1);
+    \vertex [below right=0.5cm of i](c2);
+    %
+    \diagram*{
+      (e1) -- [fermion] (i) -- [fermion](e2),
+      (i) -- [boson] (s),
+      (c1) -- [boson, looseness=-1 ] (c2),
+      };
+  \end{feynman}
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[baseline=(j)]
+  \begin{feynman}[medium]
+    \vertex (e1);
+    \vertex [above right=of e1] (i);
+    \vertex [below right=of i] (e2);
+    \vertex [above=of i, crossed dot, minimum width=5pt](s){\hspace{2mm}};
+    \vertex [right=5mm of s](s1){\(A_{\textup{ext}}\)};
+    \vertex [above right=0mm of i](mu){\(\mu\)};
+    \vertex [below=7mm of i](j);
+    \vertex [below left=0.3cm of i](c1);
+    \vertex [below left=1.3cm of i](c2);
+    %
+    \diagram*{
+      (e1) -- [fermion] (i) -- [fermion](e2),
+      (i) -- [boson] (s),
+      (c1) -- [boson, half right ] (c2),
+      };
+  \end{feynman}
+\end{tikzpicture}
+\]
+\onlyinsubfile{\end{comment}}
+
+All possible diagrams with one loop gives a $o(\alpha_{EM})$ correction.  In 1948 Schwinger did the calculation and obtained another term in the amplitude of the process, namely
+\[i\left(\frac{q_e}{2m}\right)\bar u(p')\left\{\left(\frac{\alpha}{2\pi}\right)2i\Sigma^{\mu\nu}(p'-p)_\nu\right\}u(p)\]
+
+Then the QED prediction at $o(\alpha_{EM})$ is
+\[g_e=2\left(1+\frac\alpha{2\pi}\right)+o(\alpha^2)
+\quad\to\quad
+\left(\frac{g_e-2}2\right)_{TH}=\frac\alpha{2\pi}=0.00116\]
+
+Kusch and Foley (respectively in 1947 and 1948) done experiments and found
+\[\left(\frac{g_e-2}2\right)_{EXP}=\frac\alpha{2\pi}=0.00119\pm0.00005\]
+This was the first prove that we need QED to describe EM interactions with high precision.
+
+Subsequently, both theory and experiment have been greatly refined. Theoretically, the high order corrections of order $\alpha^2$, $\alpha^3$ and $\alpha^4$ have been calculated. The result of these heavy calculations is
+\[10^{12}\left(\frac{g_e-2}2\right)_{TH}=1159652183\pm8\]
+while the experimental value is
+\[10^{12}\left(\frac{g_e-2}2\right)_{EXP}=1159652182\pm7\]
+The agreement can only be described as remarkable. 
+\end{example}
+
+When calculating diagrams with loops often one finds divergences. Consider for example the photon self-energy
+
+\begin{example}[Photon Self-Energy]
+\textsf{Mandl sec. 9.2}
+
+Consider the effect of the photon self-energy insertion in the photon propagator
+
+\onlyinsubfile{\begin{comment}}
+\[
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[right=of e1](e2);
+		\vertex[right=of e2](e3);
+		\vertex[right=of e3](e4);
+		\vertex[above left= of e1](r1);
+		\vertex[below left= of e1](r2);
+		\vertex[above right= of e4](s1);
+		\vertex[below right= of e4](s2);
+		\diagram*{
+			(e1) -- [boson, momentum={[arrow shorten=0.3]\(p\)}] (e4),
+			(r1) -- (e1) -- (r2),
+			(s1) -- (e4) -- (s2),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad\rightarrow\quad
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[small]
+		\vertex(e1);
+		\vertex[right=of e1](e2);
+		\vertex[right=of e2](e3);
+		\vertex[right=of e3](e4);
+		\vertex[above left= of e1](r1);
+		\vertex[below left= of e1](r2);
+		\vertex[above right= of e4](s1);
+		\vertex[below right= of e4](s2);
+		\diagram*{
+			(e2) -- [half left, fermion, momentum={[arrow shorten=0.3]\(p+k\)}] (e3) -- [half left, fermion, momentum={[arrow shorten=0.3]\(k\)}] (e2),
+			(e1) -- [boson, momentum=\(p\)] (e2),
+			(e3) -- [boson, momentum=\(p\)] (e4),
+			(r1) -- (e1) -- (r2),
+			(s1) -- (e4) -- (s2),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\]
+\onlyinsubfile{\end{comment}}
+
+In the Feynman amplitudes, the insertion of the photon propagator corresponds to the replacement
+\[D_{F\alpha\beta}(p)\quad\rightarrow\quad D_{F\alpha\mu}(p)\left(-iq_e)^2\Pi^{\mu\nu}(p,m)\right)D_{F\nu\beta}(p)\]
+where
+\begin{equation}\label{eqn:photon-self-energy-term}
+(-iq_e)^2\Pi^{\mu\nu}(p,m)
+=(-1)(-iq_e)^2\int\frac{\de^4k}{(2\pi)^4}\frac{\Tr[((\slashed p+\slashed k)+m)\gamma^\mu(\slashed k+m)\gamma^\nu]}{[(p+k)^2-m^2][k^2-m^2]}
+\end{equation}
+This formula express the possibility of creating virtual electrons with any momentum $k$. This leads to some problem since the integral is divergent. Take $\Lambda>0$. Then:
+\[ \Pi^{\mu\nu}(p,m)=\int_0^\Lambda\big(\dots\big)+\lim_{\Lambda_0\to\infty}\int_\Lambda^{\Lambda_0}\big(\dots\big)
+\equiv \Pi^{\mu\nu}_{Fin}(p,m)+\Pi^{\mu\nu}_{Div}(p,m)\]
+Suppose $\Lambda\gg p,m$, then
+\begin{align*}
+\Pi^{\mu\nu}_{Div}(p,m)&=
+\lim_{\Lambda_0\to\infty}\int_\Lambda^{\Lambda_0}\frac{\de^4k}{(2\pi)^4}\frac{\Tr[\slashed k\gamma^\mu\slashed k\gamma^\nu]}{k^4}\\
+&\propto\lim_{\Lambda_0\to\infty}\int_\Lambda^{\Lambda_0}\de^4k\frac{k^\mu k^\nu}{k^4}\\
+&\simeq \lim_{\Lambda_0\to\infty} \Lambda_0^2
+\end{align*}
+i.e. the integral is quadratic divergent.
+
+
+\end{example}
+
+\section{Superficial degree of divergence and renormalizability condition on the coupling constant}
+\textsf{Peskin sec. 10.1}
+
+The divergence shown in the previous example (for $k\rightarrow\infty$) is called \textbf{ultraviolet divergence}. We can also say that the \textbf{superficial degree of divergence $D$} of this diagram is $D=2$.
+
+\begin{exercise}
+Verify that following diagrams are superficially divergent ($D\geq0$):
+\onlyinsubfile{\begin{comment}}
+\[
+\begin{tikzpicture}[baseline=(e1)]
+\begin{feynman}[small]
+\vertex(e1);
+\vertex[right=of e1](e2);
+\vertex[right=of e2](e3);
+\vertex[right=of e3](e4);
+\diagram*{
+	(e1)--[photon] (e2),
+	(e2) -- [ half left]  (e3) -- [half left] (e2),
+	(e3) -- [photon] (e4),
+};
+\end{feynman}
+\end{tikzpicture}
+%
+\qquad
+%
+\begin{tikzpicture}[baseline=(e1)]
+\begin{feynman}[small]
+\vertex(e1);
+\vertex[right=of e1](e2);
+\vertex[right=of e2](e3);
+\vertex[right=of e3](e4);
+\diagram*{
+	(e1) -- (e4),
+	(e2) -- [photon, half left] (e3),
+};
+\end{feynman}
+\end{tikzpicture}
+%
+\qquad
+%
+\begin{tikzpicture}[baseline=(e1)]
+\begin{feynman}[small]
+\vertex(e1);
+\vertex[above left=of e1](e2);
+\vertex[below left=of e1](e3);
+\vertex[above left=0.5cm of e1](e4);
+\vertex[below left=0.5cm of e1](e5);
+\vertex[right=of e1](e6);
+\diagram*{
+	(e2) -- (e1) -- (e3),
+	(e4) -- [photon] (e5),
+	(e1) -- [photon] (e6),
+};
+\end{feynman}
+\end{tikzpicture}%
+\qquad
+%
+\begin{tikzpicture}[baseline=(e0)]
+\begin{feynman}[small]
+\vertex(e0);
+\vertex[above=0.5cm of e0](e1);
+\vertex[right=of e1](e2);
+\vertex[below=of e2](e3);
+\vertex[left=of e3](e4);
+\vertex[left=of e1](e5);
+\vertex[right=of e2](e6);
+\vertex[right=of e3](e7);
+\vertex[left=of e4](e8);
+\diagram*{
+	(e1) -- [photon] (e5),
+	(e2) -- [photon] (e6),
+	(e3) -- [photon] (e7),
+	(e4) -- [photon] (e8),
+	(e1) -- (e2) -- (e3) -- (e4) -- (e1),
+};
+\end{feynman}
+\end{tikzpicture}
+\]
+Verify that following diagrams are not superficially divergent ($D<0$):
+\[
+\begin{tikzpicture}[baseline=(e0)]
+\begin{feynman}[small]
+\vertex(e0);
+\vertex[above=0.5cm of e0](e1);
+\vertex[right=of e1](e2);
+\vertex[below=of e2](e3);
+\vertex[left=of e3](e4);
+\vertex[left=of e1](e5);
+\vertex[right=of e2](e6);
+\vertex[right=of e3](e7);
+\vertex[left=of e4](e8);
+\diagram*{
+	(e5) --  (e6),
+	(e7) --  (e8),
+	(e1) -- [photon] (e4),
+	(e2) -- [photon] (e3),
+};
+\end{feynman}
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[baseline=(e0)]
+\begin{feynman}[small]
+\vertex(e0);
+\vertex[above=0.5cm of e0](e1);
+\vertex[right=of e1](e2);
+\vertex[below=of e2](e3);
+\vertex[left=of e3](e4);
+\vertex[left=of e1](e5);
+\vertex[right=of e2](e6);
+\vertex[right=of e3](e7);
+\vertex[left=of e4](e8);
+\diagram*{
+	(e1) -- [photon] (e2),
+	(e3) -- [photon] (e4),
+	(e5) -- (e1) -- (e4) -- (e8),
+	(e6) -- (e2) -- (e3) -- (e7),
+};
+\end{feynman}
+\end{tikzpicture}
+\]
+\onlyinsubfile{\end{comment}}
+\end{exercise}
+
+There is a simple formula to determinate the superficial degree of divergence of a diagram. First we introduce some notation for diagrams:
+\begin{enumerate}
+\item $D$ is the superficial degree of divergence
+\item $L$ is the number of loops (i.e. the number of independent momentum in Feynman graph)
+\item $E_{B/F}$ is the number of external bosons/fermions
+\item $n_{B/F}$ is the number of bosons/fermions attached to each vertex
+\item $P_{B/F}$ is the number of bosonic/fermionic propagators
+\item $V$ is the number of vertex in the diagram
+\end {enumerate}
+
+First, notice that the following topological propriety holds:
+\[L=P_B+P_F-V+1\]
+
+\begin{example}
+\onlyinsubfile{\begin{comment}}
+\[
+\begin{tikzpicture}[baseline=(e1)]
+\begin{feynman}[large]
+\vertex(e1);
+\vertex[right=2.5cm of e1](e2);
+\vertex[above right=2.5cm of e2](e3);
+\vertex[below right=2.5cm of e2](e4);
+\vertex[below right=2.5cm of e3](e5);
+\vertex[right=2.5cm of e5](e6);
+\diagram{
+	(e1) -- [photon,momentum={[arrow shorten=0.3]\(p\)}] (e2),
+	(e2) -- [fermion, quarter left, momentum={[arrow shorten=0.3]\(k_1\)}](e3) -- [fermion, quarter left, momentum={[arrow shorten=0.3]\(k_2\)}](e5) -- [fermion, quarter left, momentum={[arrow shorten=0.3]\(k_2-p\)}](e4) -- [fermion, quarter left, momentum={[arrow shorten=0.3]\(k_1-p\)}](e2),
+	(e3) -- [photon, momentum={[arrow shorten=0.3]\({\small k_1-k_2}\)}](e4),
+	(e5) -- [photon,momentum={[arrow shorten=0.3]\(p\)}](e6),
+};
+\end{feynman}
+\end{tikzpicture}
+\qquad\Rightarrow\quad
+\begin{cases}
+\text{2 loops }(k_1,k_2)\\
+\text{5 props}\\
+\text{4 vertex}
+\end{cases}
+\]
+\onlyinsubfile{\end{comment}}
+
+\end{example}
+
+Since the number of bosons and the number of fermions attached to each vertex is constant,\footnote{For any theory, $n_B$ and $n_F$ are fixed by the interaction lagrangian. For example, in QED $n_B=1$ and $n_F=2$} then the number of vertices can also be express in terms of external particles:
+
+\[V=\frac{2P_B+E_B}{n_B}=\frac{2P_F+E_F}{n_f}\]
+
+
+Notice that each boson propagator decrease the degree of divergence by 2 since it's related to a factor $\frac1{k^2}$, while for fermionic propagators I have  a factor $\frac1{\slashed k}=\frac{\slashed k}{k}$ so it decrease the degree of divergence by 1. Then I obtain
+\[D=4L-2P_B-P_F\]
+
+Putting all these relations together I obtain:
+\begin{align*}
+D&=4-\left(4-n_B-\frac32n_F\right)V-E_B-\frac32E_F
+\end{align*}
+Notice that this formula holds for any theory involving bosons and fermions, since we didn't made any restrictive assumption on the theory. The dimension of the lagrangian is 4, while dimensions of bosonic and fermionic fields are respectively $1$ and $3/2$, therefore let $[g]$ be the dimension of the coupling constant $g$ of my theory, I have
+\[[g]=4-n_B-\frac32n_F\]
+and then
+\begin{equation}\label{eqn:diverg-coupling-dim}
+\boxed{D=4-[g]V-E_B-\frac32E_F}
+\end{equation}
+
+\begin{example}
+
+In QED $n_B=1$ and $n_F=2$, so $[g]=4-n_B-\frac32n_F=0$ as we expected since interaction lagrangian is $\mathcal L_{int}=q\bar\psi\slashed A\psi$ and $[q]=0$.
+\end{example}
+
+Notice that from \eqref{eqn:diverg-coupling-dim} follows that in theories with $[g]=0$ (therefore QED is included) the degree divergence is independent by the number of vertices in diagrams. 
+
+\begin{example}
+Following diagrams have all $D=2$:
+\onlyinsubfile{\begin{comment}}
+\[
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[medium]
+		\vertex(e1);
+		\vertex[right=1cm of e1](e2);
+		\vertex[right=0.6cm of e2](e3);
+		\vertex[right=1cm of e3](e4);
+		\diagram*{
+			(e2) -- [half left] (e3) -- [half left] (e2),
+			(e1) -- [boson] (e2),
+			(e3) -- [boson] (e4),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[medium]
+		\vertex(e1);
+		\vertex[right=1cm of e1](e2);
+		\vertex[above right=0.4 of e2](e5);
+		\vertex[below right=0.4 of e2](e6);
+		\vertex[below right=0.4cm of e5](e3);
+		\vertex[right=1cm of e3](e4);
+		
+		\diagram*{
+			(e2) -- [quarter left] (e5) -- [quarter left] (e3) -- [quarter left] (e6) -- [quarter left] (e2),
+			(e1) -- [boson] (e2),
+			(e3) -- [boson] (e4),
+			(e5) -- [boson] (e6),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[baseline=(e1)]
+	\begin{feynman}[medium]
+		\vertex(e1);
+		\vertex[right=1cm of e1](e2);
+		\vertex[above right=0.4 of e2](e5);
+		\vertex[below right=0.4 of e2](e6);
+		\vertex[right=0.4cm of e5](e7);
+		\vertex[right=0.4cm of e7](e8);
+		\vertex[right=0.4cm of e8](e9);
+		\vertex[right=0.4cm of e6](e10);
+		\vertex[right=0.4cm of e10](e11);
+		\vertex[right=0.4cm of e11](e12);
+		\vertex[below right=0.4cm of e9](e3);
+		\vertex[right=1cm of e3](e4);
+		\diagram*{
+			(e6) -- [quarter left](e2) -- [quarter left] (e5) -- (e9) -- [quarter left] (e3) -- [quarter left] (e12) -- (e6),
+			(e1) -- [boson] (e2),
+			(e3) -- [boson] (e4),
+			(e5) -- [boson] (e6),
+			(e7) -- [boson] (e10),
+			(e8) -- [boson] (e11),
+			(e9) -- [boson] (e12),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\]
+\onlyinsubfile{\end{comment}}
+\end{example}
+
+
+A necessary condition for renormalizability is that $[g]\leq0$, otherwise if $[g]<0$ then $D$ increases with the number of vertex and, therefore, with the order of the perturbative expansion, making perturbative expansion useless.
+
+In spite of the superficial degree of divergente, doing explicit calculations we find that actually the degree of divergence of diagrams may be smaller that the one we obtained through the topological analysis, for example in QED we have these seven amplitudes whose superficial degree of divergence is $\geq0$:
+\onlyinsubfile{\begin{comment}}
+\begin{alignat*}{4}
+%%%%%%%%%%%%%%%%
+&\hspace{0.74cm}\begin{tikzpicture}[baseline=(e0)]
+\begin{feynman}[small]
+\vertex[blob](e0){\hspace {1cm}};
+\diagram*{
+};
+\end{feynman}
+\end{tikzpicture}
+&&\quad=\text{Vacuum}
+\hspace {1.5cm}
+&&D=4
+\hspace {1cm}
+&&\text{Irrelevant}\\
+%%%%%%%%%%%%%%%%
+&\begin{tikzpicture}[baseline=(e0)]
+\begin{feynman}[small]
+\vertex[blob](e0){\hspace {1cm}};
+\vertex[left=of e0](e1);
+\diagram*{
+	(e0)--[photon](e1),
+};
+\end{feynman}
+\end{tikzpicture}
+&&\quad=\text{Tadpole}
+\hspace {1.5cm}
+&&D=3
+\hspace {1cm}
+&&\text{Vanishes}\\
+%%%%%%%%%%%%%%%%
+&\begin{tikzpicture}[baseline=(e0)]
+\begin{feynman}[small]
+\vertex[blob](e0){\hspace {1cm}};
+\vertex[left=of e0](e1);
+\vertex[right=of e0](e2);
+\diagram*{
+	(e1)--[photon](e0),
+	(e0)--[photon](e2),
+};
+\end{feynman}
+\end{tikzpicture}
+&&\quad=\text{Photon Self-Energy}
+\hspace {1.5cm}
+&&D=2
+\hspace {1cm}
+&&\text{Log divergence}\\
+%%%%%%%%%%%%%%%%
+&\begin{tikzpicture}[baseline=(e0)]
+\begin{feynman}[small]
+\vertex[blob](e0){\hspace {1cm}};
+\vertex[left=of e0](e1);
+\vertex[right=of e0](e2);
+\diagram*{
+	(e1)--(e0),
+	(e0)--(e2),
+};
+\end{feynman}
+\end{tikzpicture}
+&&\quad=\text{Electron Self-Energy}
+\hspace {1.5cm}
+&&D=1
+\hspace {1cm}
+&&\text{Log divergence}\\
+%%%%%%%%%%%%%%%%
+&\begin{tikzpicture}[baseline=(e0)]
+\begin{feynman}[small]
+\vertex[blob](e0){\hspace {1cm}};
+\vertex[above left=of e0](e1);
+\vertex[above right=of e0](e2);
+\vertex[below=of e0](e3);
+\diagram*{
+	(e0)--[photon](e1),
+	(e0)--[photon](e2),
+	(e0)--[photon](e3),
+};
+\end{feynman}
+\end{tikzpicture}
+&&\quad=\text{$3\gamma$}
+\hspace {1.5cm}
+&&D=1
+\hspace {1cm}
+&&\text{Vanishes}\\
+%%%%%%%%%%%%%%%%
+&\begin{tikzpicture}[baseline=(e0)]
+\begin{feynman}[small]
+\vertex[blob](e0){\hspace {1cm}};
+\vertex[above left=of e0](e1);
+\vertex[above right=of e0](e2);
+\vertex[below left=of e0](e3);
+\vertex[below right=of e0](e4);
+\diagram*{
+	(e0)--[photon](e1),
+	(e0)--[photon](e2),
+	(e0)--[photon](e3),
+	(e0)--[photon](e4),
+};
+\end{feynman}
+\end{tikzpicture}
+&&\quad=\text{$4\gamma$}
+\hspace {1.5cm}
+&&D=0
+\hspace {1cm}
+&&\text{Finite}\\
+%%%%%%%%%%%%%%%%
+&\begin{tikzpicture}[baseline=(e0)]
+\begin{feynman}[small]
+\vertex[blob](e0){\hspace {1cm}};
+\vertex[above left=of e0](e1);
+\vertex[above right=of e0](e2);
+\vertex[below=of e0](e3);
+\diagram*{
+	(e0)--(e1),
+	(e0)--(e2),
+	(e0)--[photon](e3),
+};
+\end{feynman}
+\end{tikzpicture}
+&&\quad=\text{Vertex}
+\hspace {1.5cm}
+&&D=0
+\hspace {1cm}
+&&\text{Log Divergence}\\
+%
+\end{alignat*}
+\onlyinsubfile{\end{comment}}
+
+This is due to the additional degrees of freedom of QED. When a theory has additional symmetries (as gauge symmetry for QED $\rightarrow$ Ward Identity) the divergence can be smaller than superficial divergence $D$.
+
+\section{Basic idea behind the renormalization procedure}
+\textsf{Halzen sec. 7.2; Mandl sec. 9.1, 9.2}
+
+Let's consider again the scattering by an external potential problem. Now we consider higher corrections in the total amplitude (in the previous analysis we considered only the first diagram):
+\onlyinsubfile{\begin{comment}}
+\[
+\underbrace{\quad
+\begin{tikzpicture}[baseline=(i)]
+  \begin{feynman}[medium]
+    \vertex (e1);
+    \vertex [above right=of e1] (i);
+    \vertex [below right=of i] (e2);
+    \vertex [above=of i, crossed dot, minimum width=5pt](s){\hspace{2mm}};
+    \vertex [right=5mm of s](s1){\(A_{\textup{ext}}\)};
+%    \vertex [above right=0mm of i](mu){\(\mu\)};
+    \vertex [below=7mm of i](j);
+    %
+    \diagram*{
+      (e1) -- [fermion] (i) -- [fermion](e2),
+      (i) -- [boson] (s),
+      };
+  \end{feynman}
+\end{tikzpicture}
+\quad}_{\text{tree level}}
++
+\underbrace{\quad
+\begin{tikzpicture}[baseline=(i)]
+  \begin{feynman}[medium]
+    \vertex (e1);
+    \vertex [above right=of e1] (i);
+    \vertex [below right=of i] (e2);
+    \vertex [above=of i, crossed dot, minimum width=5pt](s){\hspace{2mm}};
+    \vertex [right=5mm of s](s1){\(A_{\textup{ext}}\)};
+%    \vertex [above right=0mm of i](mu){\(\mu\)};
+    \vertex [below=7mm of i](j);
+    \vertex [above=4mm of i](a);
+    \vertex [above=11mm of i](b);
+    %
+    \diagram*{
+      (e1) -- [fermion] (i) -- [fermion](e2),
+      (i) -- [boson] (a),
+      (b) -- [boson] (s),
+      (a) -- [fermion, half left](b) -- [fermion, half left](a),
+      };
+  \end{feynman}
+\end{tikzpicture}
+\quad}_{\text{divergent bubble}}
++
+\underbrace{\quad
+\begin{tikzpicture}[baseline=(i)]
+  \begin{feynman}[medium]
+    \vertex (e1);
+    \vertex [above right=of e1] (i);
+    \vertex [below right=of i] (e2);
+    \vertex [above=of i, crossed dot, minimum width=5pt](s){\hspace{2mm}};
+    \vertex [right=5mm of s](s1){\(A_{\textup{ext}}\)};
+    \vertex [above right=0mm of i](mu){\(\mu\)};
+    \vertex [below=7mm of i](j);
+    \vertex [below left=0.5cm of i](c1);
+    \vertex [below right=0.5cm of i](c2);
+    %
+    \diagram*{
+      (e1) -- [fermion] (i) -- [fermion](e2),
+      (i) -- [boson] (s),
+      (c1) -- [boson, looseness=-1 ] (c2),
+      };
+  \end{feynman}
+\end{tikzpicture}
+\quad}_{\text{divergent vertex}}
++
+\underbrace{\quad
+\begin{tikzpicture}[baseline=(i)]
+  \begin{feynman}[medium]
+    \vertex (e1);
+    \vertex [above right=of e1] (i);
+    \vertex [below right=of i] (e2);
+    \vertex [above=of i, crossed dot, minimum width=5pt](s){\hspace{2mm}};
+    \vertex [right=5mm of s](s1){\(A_{\textup{ext}}\)};
+    \vertex [above right=0mm of i](mu){\(\mu\)};
+    \vertex [below=7mm of i](j);
+    \vertex [below left=0.3cm of i](c1);
+    \vertex [below left=1.3cm of i](c2);
+    %
+    \diagram*{
+      (e1) -- [fermion] (i) -- [fermion](e2),
+      (i) -- [boson] (s),
+      (c1) -- [boson, half right ] (c2),
+      };
+  \end{feynman}
+\end{tikzpicture}
+\quad+\quad
+\begin{tikzpicture}[baseline=(i)]
+  \begin{feynman}[medium]
+    \vertex (e1);
+    \vertex [above right=of e1] (i);
+    \vertex [below right=of i] (e2);
+    \vertex [above=of i, crossed dot, minimum width=5pt](s){\hspace{2mm}};
+    \vertex [right=5mm of s](s1){\(A_{\textup{ext}}\)};
+    \vertex [above right=0mm of i](mu){\(\mu\)};
+    \vertex [below=7mm of i](j);
+    \vertex [below right=0.3cm of i](c1);
+    \vertex [below right=1.3cm of i](c2);
+    %
+    \diagram*{
+      (e1) -- [fermion] (i) -- [fermion](e2),
+      (i) -- [boson] (s),
+      (c1) -- [boson, half right ] (c2),
+      };
+  \end{feynman}
+\end{tikzpicture}
+\quad}_{\text{self energy electron}}
+\]
+\onlyinsubfile{\end{comment}}
+
+We already know Feynman amplitude for the first diagram
+\[\mathcal M_0=
+\begin{tikzpicture}[baseline=(mu)]
+  \begin{feynman}[large]
+    \vertex (e1);
+    \vertex [above right=of e1] (i);
+    \vertex [below right=of i] (e2);
+    \vertex [above=of i, crossed dot, minimum width=5pt](s){\hspace{2mm}};
+    \vertex [right=6mm of s](s1){\(A_{\textup{ext}}\)};
+    \vertex [above left=0mm of i](mu){\(\tiny\mu\)};
+    \vertex [below left=3.5mm of s](nu){\(\tiny\nu\)};
+    \vertex [below=7mm of i](j);
+    %
+    \diagram*{
+      (e1) -- [fermion, momentum={[arrow shorten=0.3]$p$}] (i) -- [fermion, momentum={[arrow shorten=0.3]$p'$}](e2),
+      (s) -- [boson, momentum={[arrow shorten=0.3]$q$}] (i),
+      };
+  \end{feynman}
+\end{tikzpicture}
+=(-ie)\bar u(p')\gamma^\mu u(p) g_{\mu\nu}\epsilon^\nu_{\text{ext}}(q)\]
+
+For the diagram with the photon self-energy we can use previous computation obtaining
+\[\mathcal M_1=
+\begin{tikzpicture}[baseline=(al)]
+  \begin{feynman}[large]
+    \vertex (e1);
+    \vertex [above right=of e1] (i);
+    \vertex [below right=of i] (e2);
+    \vertex [above=3cm of i, crossed dot, minimum width=5pt](s){\hspace{2mm}};
+    \vertex [right=5mm of s](s1){\(A_{\textup{ext}}\)};
+    \vertex [below=7mm of i](j);
+    \vertex [above=9mm of i](a);
+    \vertex [above=21mm of i](b);
+    \vertex [above left=0mm of i](mu){\(\tiny\mu\)};
+    \vertex [below left=3.5mm of s](nu){\(\tiny\nu\)};
+    \vertex [below=0mm of b](be){\(\tiny\beta\)};
+    \vertex [above=0mm of a](al){\(\tiny\alpha\)};
+    %
+    \diagram*{
+      (e1) -- [fermion, momentum={[arrow shorten=0.3]$p$}] (i) -- [fermion,  momentum={[arrow shorten=0.3]$p'$}](e2),
+      (i) -- [boson] (a),
+      (b) -- [boson] (s),
+      (a) -- [fermion, half left,  momentum={[arrow shorten=0.3]$k$}](b) -- [fermion, half left,  momentum={[arrow shorten=0.3]$q+k$}](a),
+      };
+  \end{feynman}
+\end{tikzpicture}
+=(-ie)\bar u(p')\gamma^\mu u(p)\left(-i\frac{g_{\mu\alpha}}{q^2}\right)(-ie)^2\Pi^{\alpha\beta}(q,m)\left(-i\frac{g_{\beta\nu}}{q^2}\right)\,\epsilon^\nu_{\text{ext}}(q)
+\]
+where $\Pi^{\alpha\beta}(q,m)$ was defined in \eqref{eqn:photon-self-energy-term}:
+\[\Pi^{\alpha\beta}(q,m)
+=(-1)\int\frac{\de^4k}{(2\pi)^4}\frac{\Tr[(\slashed q+\slashed k+m)\gamma^\alpha(\slashed k+m)\gamma^\beta]}{[(q+k)^2-m^2][k^2-m^2]}\]
+This integral is quadratically divergent for large $k$. In order to handle it, we must regularize it, that is, we most modify it so that it becomes a well-defined finite integral, that is, we must modify it so that it becomes a well-defined finite integral. For example, this could be archived by multiplying int integrand in the previous equation by the convergence factor
+\[\left(\frac{-\Lambda_\infty^2}{k^2-\Lambda_\infty^2}\right)^2\]
+Here, $\Lambda_\infty$ is a \textbf{cut-off} parameter. For large, but finite, values of $\Lambda_\infty$, the integral now behaves like $\int\de^4k/k^6$ for large $k$, and is well- defined and convergent. For $\Lambda_\infty\rightarrow\infty$, the factor tends to unity, and the original theory is restored. One can think of such convergence factor either as a mathematical device, introduced to overcome a very unsatisfactory feature of QED, or as a genuine modification of QED at very high energies, i.e. at very small distances, which should show up in experiments at sufficently high energies.
+
+Let assume that the theory has been already regularized in this way, so that all expression are well-defined, finite and gauge invariant.
+
+After regularization $\Pi^{\alpha\beta}(q^2)$ expression can be simplified. It follows from Lorentz invariance that $\Pi^{\alpha\beta}(q^2)$ must be of the form
+\[e^2\Pi^{\alpha\beta}(q^2)=-ig^{\alpha\beta}I(q^2)+iq^\alpha q^\beta K(q^2)\]
+since this is the most general second-rank tensor which can be formed using only the four-vector $q^\mu$. From the Ward Identity (i.e. gauge invariance) follows that the second term proportional to the photon momentum $q$ give vanishing contributions, hence, it can be omitted.
+$I(q^2)$ takes the form
+\[I(q^2)=\frac\alpha{3\pi}\int^{\Lambda_\infty}_{m^2}\frac{\de k^2}{|k|^2}-\frac{2\alpha}{\pi}\int_0^1\de z(1-z)\log(1-\frac{q^2z(1-z)}{m^2})\]
+where $m$ is the mass of the electron and $\Lambda_\infty$ is the cutoff parameter that we introduced in order to regularize the integral. Here we notice that the divergence is due to the first integral, and has logarithmic behaviour. After we will have solved the integral we have to take the limit $\Lambda\rightarrow\infty$. With this procedure we avoid the calculation of indeterminated divergent integrals.
+
+In the approximation $q^2\ll m^2$ we obtain following formula for $I(q^2)$:
+\[I(q^2)\simeq\frac\alpha{3\pi}\log(\frac{\Lambda_\infty^2}{m^2})+\frac\alpha{15\pi}\frac{q^2}{m^2}+o\left(\frac{q^2}{m^2}\right)\]
+Unless we can dispose of the infinite part of $I(q^2)$ the result will not be physically meaningful.
+
+The way to proceed is best explained by returning to Rutherford scattering. Recall $\epsilon^\nu_{\text{ext}}(q)=(Ze/q^2,0,0,0)$, including the loop contribution to the tree-order amplitude, we obtain for the small $q^2$ limit the amplitude
+\[\mathcal M=-i\frac{Ze^2}{q^2}\left(1-\frac{e^2}{12\pi^2}\log(\frac{\Lambda_\infty^2}{m^2})-\frac{e^2}{60\pi^2}\frac{q^2}{m^2}+o\left(\alpha^2, \frac{q^4}{m^4}\right)\right)\]
+Now, notice that the parameter $e$ is just a theoretical parameter, called \textbf{bare parameter} $e_B=e$, that cannot be measured. Then I can introduce a new parameter called \textbf{renormalized parameter}
+\[e_R\equiv e_B\left(1-\frac{e^2}{12\pi^2}\log\frac{\Lambda_\infty^2}{m^2}\right)^{1/2}\]
+With this new variable Feynman amplitude is
+\[\mathcal M=-i\frac{Ze_R^2}{q^2}\left(1-\frac{e_R^2}{60\pi^2}\frac{q^2}{m^2}+o\left(\alpha^2, \frac{q^4}{m^4}\right)\right)\]
+In this way we obtained a copmletely physical amplitude. Since the measurable quantities are scattering amplitudes, I solved the problem of divergent contributions in my theory due to photons self-energy (in the first order).
+
+\subsection{Renormalizable theories}
+
+Up to now we saw that a sufficent condition for a theory to be renormalizable is that all the divergences can be absorbed into redefinitions of physical parameters. 
+
+In QED I have only two kind of particles: photons and electrons (and positrons). Therefore only parameters are the charge and the mass of the electron, which are the only parameter I can use to renormalize the theory.
+
+I have three kind of divergences:
+
+\begin{alignat*}{2}
+&
+\begin{tikzpicture}[baseline=(e1)]
+\begin{feynman}[small]
+\vertex(e1);
+\vertex[above left=of e1](e2);
+\vertex[below left=of e1](e3);
+\vertex[above left=0.5cm of e1](e4);
+\vertex[below left=0.5cm of e1](e5);
+\vertex[right=of e1](e6);
+\diagram*{
+	(e2) -- (e1) -- (e3),
+	(e4) -- [photon] (e5),
+	(e1) -- [photon] (e6),
+};
+\end{feynman}
+\end{tikzpicture}
+&&\quad=\quad-ieZ_1\gamma^\mu\\
+%
+&
+\begin{tikzpicture}[baseline=(e1)]
+\begin{feynman}[small]
+\vertex(e1);
+\vertex[right=of e1](e2);
+\vertex[right=of e2](e3);
+\vertex[right=of e3](e4);
+\diagram*{
+	(e1) -- (e4),
+	(e2) -- [photon, half left] (e3),
+};
+\end{feynman}
+\end{tikzpicture}
+&&\quad=\quad\frac{+iZ_2}{p^2-m^2}\\
+%
+&\begin{tikzpicture}[baseline=(e1)]
+\begin{feynman}[small]
+\vertex(e1);
+\vertex[right=of e1](e2);
+\vertex[right=of e2](e3);
+\vertex[right=of e3](e4);
+\diagram*{
+	(e1)--[photon] (e2),
+	(e2) -- [ half left]  (e3) -- [half left] (e2),
+	(e3) -- [photon] (e4),
+};
+\end{feynman}
+\end{tikzpicture}
+&&\quad=\quad-i\frac{g^{\mu\nu}}{p^2}Z_3
+\end{alignat*}
+i.e. I have 3 divergent terms to be removed: $Z_1,Z_2,Z_3$. Since I have only 2 parameters I can use to remove these divergent terms, it seems that QED is not renormalizable. Luckily, doing explicit calculations, I obtain that thanks to gauge invariance (Ward Identities) I obtain $Z_1=Z_2$ and therefore QED is renormalizable using opportune definitions of free parameters:
+\[e_R=e_B\left(1-\frac{\delta e}{e}\right)
+\hspace{2cm}
+m_R=m_B\left(1-\frac{\delta m}{m}\right)\]
+where $\delta e/e$ and $\delta m/m$ are divergent terms. We obtained that QED is renormalizable at any order.
+
+\end{document}
