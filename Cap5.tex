@@ -46,7 +46,7 @@ Beside the neutron decay, much other processes involving weak interaction was fo
 \end{alignat*}
 
 \section{Four Fermions Fermi Lagrangian and neutron decay}
-\textsf{Halzen sec 12.1; Maggiore sec. 8.1, 8.2}\\
+\textsf{Halzen sec. 12.Introduction, 12.1; Maggiore sec. 8.1, 8.2}\\
 
 In 1934 Fermi proposed his theory to describe $\beta$-decay process $n\to p+e^-+\bar \nu_e$. While in QED, the Legrangian for $p\to p\gamma$ (the proton being in a nucleus) is
 \[\mathcal L=e(\bar p\gamma^\mu p)A_\mu\]
@@ -58,7 +58,7 @@ Since lagrangian has to be 4-dimensional and all these fields have dimension $3/
 \[[G_F]=4-6=-2\]
 i.e. this theory is not renormalizable since $D=2+2V-E_B-3E_F/2>0$. We will use the SM to obtain a renormalizable theory of weak interactions. 
 
-\subsection{Modifiation of Fermi's theory: the $V$ - $A$ current}
+\subsection{Modification of Fermi's theory: the $V$ - $A$ current}
 In 1957 Wu found a Parity violation ($\slashed P$) in Weak interaction, since the $e^-$ produced in the neutron decay is mostly left handed. The parity violation signed the death of Fermi's theory. Therefore the Lagrangian must be modified in order to include parity violation. Parity violation is obtained by a mixture of vector current
 \[j_V^\mu=\bar e\gamma^\mu \nu_e\]
 and an axial current
@@ -73,16 +73,33 @@ For leptonic processes involving electrons, muons, and them corresponding neutri
 
 \[\mathcal L_{\text{V-A}}^{\mu^-}=-\frac {G_F}{\sqrt2} \p{\bar \nu_\mu\gamma^\alpha (1-\gamma_5)\mu}\p{\bar e \gamma_\alpha (1-\gamma_5)\nu_e}\]
 
-The general form for V-A Lagrangian for leptonic interactions is
+The general form for V-A Lagrangian for leptonic interactions with charged\footnote{Since $l$ describes a charged particle while $\nu_l$ an uncharged one. This means that interaction between currents must be mediated by a charged particle.} currents
 \begin{align*}
-\mathcal L_{V-A}
-&=-\frac{4G_F}{\sqrt2}\p{\sum_{l=e,\mu,\tau}J_L^{\alpha}(l)}^\dagger\p{\sum_{l=e,\mu,\tau}J_{L,\alpha}(l)}
+\mathcal L_{CC}
+&=-\frac{4G_F}{\sqrt2}\p{\sum_{l=e,\mu,\tau}J_{CC}^{\alpha}(l)}^\dagger\p{\sum_{l=e,\mu,\tau}J_{CC,\alpha}(l)}
 \end{align*}
 with
-\[J_L^{\alpha}(l)=\bar l\gamma^\alpha P_L\nu_l\]
+\begin{equation}\label{eqn:charged-current-VA}
+J_{CC}^{\alpha}(l)=\bar l\gamma^\alpha P_L\nu_l
+\end{equation}
+
+while when we consider neutral\footnote{Here each current is made of particles with same charge.} currents we have
+\begin{align*}
+\mathcal L_{NC}
+&=-\frac{4G_F}{\sqrt2}\p{\sum_{l=e,\mu,\tau,\nu_e,\nu_\mu,\nu_\tau}J_{NC}^{\alpha}(l)}^\dagger\p{\sum_{l=e,\mu,\tau,\nu_e,\nu_\mu,\nu_\tau}J_{NC,\alpha}(l)}
+\end{align*}
+with
+\begin{equation}\label{eqn:neutral-current-VA}
+J_{NC}^{\alpha}(l)=\bar l\gamma^\alpha P_Ll
+\end{equation}
+
+\begin{equation}\label{eqn:neutral-current-VA}
+J_L^{\alpha}(l)=\bar l\gamma^\alpha P_Ll\hspace{2cm} l=e,\mu,\tau,\nu_e,\nu_\mu,\nu_\tau
+\end{equation}
+and corresponding $V-A$ Lagrangian.
 
 \subsection{$\mu$-decay and 3-body final state}
-\textsf{Maggiore, problem 8.1; Mandl, sec. 16.6.1}\\
+\textsf{Maggiore, problem 8.1}\\
 
 Let's consider muon decay rate using V-A lagrangian, $\mu^-\to e^-\bar \nu_e\nu_\mu$. Here there is a sketch of the process, where lines are related to conserved currents in the lagrangian:
 
@@ -101,20 +118,20 @@ S_{fi}^{(\mu)}
 
 with
 
-\[\mathcal M_{fi}=-i\frac{4G_F}{\sqrt2}\p{u_{\nu_\mu}(q)\gamma^\alpha_Lu_\mu(p)}\p{\bar u_e(p')\gamma_{\alpha,L}v_{\nu_e}(q')}\]
-where we introduced Dirac spinors $u_f$ and $\bar u_f$ for each particle $f$. The unpolarized amplitude reads
+\[\mathcal M_{fi}=-i\frac{4G_F}{\sqrt2}\p{\bar u_{\nu_\mu}(q)\gamma^\alpha_Lu_\mu(p)}\p{\bar u_e(p')\gamma_{\alpha,L}v_{\nu_e}(q')}\]
+where we introduced Dirac spinors $u_f$ and $\bar u_f$ for each fermion field $f$. The unpolarized amplitude reads\footnote{For this process $\overline{|\mathcal M|}^2=\frac12|\mathcal M|^2$.}
 \[\overline{|\mathcal M|}^2
 =\frac12\p{\frac{4G_F}{\sqrt2}}^2\Tr[(\slashed p+m_\mu)\gamma^\beta_L\slashed q\gamma^\alpha_L]\Tr[(\slashed p'+m_e)\gamma_{\alpha,L}\slashed q'\gamma_{\beta, L}]\]
-where we assumed vanishing neutrinos masses since $m_{\nu_e}\simeq m_{\nu_\mu}\approx 10^{-6}m_e$. Using traces proprieties we obtain
+We can assume vanishing neutrinos masses since $m_{\nu_e}\simeq m_{\nu_\mu}\approx 10^{-6}m_e$:
 \[\overline{|\mathcal M|}^2
 =\frac18\p{\frac{4G_F}{\sqrt2}}^2\underbrace{\Tr[\slashed p\gamma^\beta\slashed q\gamma^\alpha(1-\gamma_5)]}_{\tiny\circled A}\underbrace{\Tr[\slashed p'\gamma_{\alpha}\slashed q'\gamma_{\beta}(1-\gamma_5)]}_{\tiny\circled B}\]
-which terms can be simplified using Levi-Civita tensor and another tensor:\todo{Is S symmetric?}
+Using traces proprieties the result can be simplified using a simmetric tensor $S$ and a completely antisimmetric (Levi-Civita) tensor:
 \begin{align*}
 {\tiny\circled A}&=4\p{S^{\rho\beta\sigma\alpha}-i\epsilon^{\rho\beta\sigma\alpha}}p_\rho q_\sigma\\
 {\tiny\circled B}&=4\p{S_{\rho'\alpha\sigma'\beta}-i\epsilon_{\rho'\alpha\sigma'\beta}}(p')^{\rho'}(q')^{\sigma'}
 \end{align*}
-Contracting tensors we obtain 
-\[\overline{|\mathcal M|}^2
+Performing the contraction we obtain 
+\[{|\mathcal M|}^2
 =64G_F^2(p\cdot q')(q\cdot p')\]
 
 We can now compute the differential decay rate in the lab frame:
@@ -126,7 +143,7 @@ where $\de\phi_{(3)}$ is the three body phase space:
 \p{\frac{\de^3q'}{(2\pi)^32\omega_{\nu_e}'}}
 \p{\frac{\de^3q}{(2\pi)^32\omega_{\nu_\mu}}}
 \]
-Notice that since I cannot see neutrino experimentally, I can't measure the energies of neutrinos separately.
+Notice that since I cannot see neutrino experimentally, I can't measure the energies of neutrinos separately. Therefore neutrino energies must be eliminated in the phase space computation.
 If we define
 \[k=(p-p')=(q+q')\]
 then
@@ -139,7 +156,7 @@ I_{\alpha\beta}(k)
 &=\int\frac{\de^3q'}{\omega_{\nu_e}'}\frac{\de^3q}{\omega_{\nu_\mu}}\delta^4(p-p'-q'-q)q'_\alpha q_\beta\\
 &=g_{\alpha\beta}A(k^2)+\frac{k_\alpha k_\beta}{k^2}B(k^2)
 \end{align*}
-for some functions $A(k^2)$ and $B(k^2)$. Using tensor proprieties we have
+for some functions $A(k^2)$ and $B(k^2)$. Last step is a consequence of Lorentz invariance, that implies that most general formula of $I_{\alpha\beta}$ is the one showed above. Using tensor proprieties we have
 \begin{equation}\label{eqn:mu-decay-tensor-dec}
 \begin{cases}
 \begin{alignedat}{3}
@@ -194,7 +211,7 @@ and finally
 \[I_{\alpha\beta}=g_{\alpha\beta}\frac\pi6k^2+k_\alpha k_\beta\frac\pi3\]
 The differential cross section is 
 \[\p{\de\overline\Gamma}_{\text{LAB}}
-=\frac{G_F^2}{48\pi^4}\frac1{m_\mu}[k^2(p\cdot p')+2(p\cdot k)(p'\cdot k')]\underbrace{\frac{\omega_e'^2\de\omega_e'}{\omega_e'}\de\Omega_e}_{\de^3p'/\omega_e'}\]
+=\frac{G_F^2}{48\pi^4m_\mu}[k^2(p\cdot p')+2(p\cdot k)(p'\cdot k')]\underbrace{\frac{\omega_e'^2\de\omega_e'}{\omega_e'}\de\Omega_e}_{\de^3p'/\omega_e'}\]
 We notice that differential term above (and below) the brace depends only on electron energy and angular distribution. In the $\mu$ rest frame
 \[p=(m_\mu,0)\quad\to\quad
 \begin{cases}\begin{alignedat}{2}
@@ -206,13 +223,13 @@ We notice that differential term above (and below) the brace depends only on ele
 \]
 so
 \[\p{\frac{\de\overline\Gamma}{\de\omega_e'}}_{\text{LAB}}
-=\frac{G_F^2}{12\pi^3}\omega_e'^3m_\mu(3m_\mu-4\omega'_e)\]
+=\frac{G_F^2}{12\pi^3}\omega_e'^2m_\mu(3m_\mu-4\omega'_e)\]
 
 Now we consider the total decay rate. First notice that minimum value for $\omega_e'$ is $(\omega_e')_{\text{MIN}}=0$ and in this case all energies are taken by two neutrinos, on the other side its maximum value is $(\omega_e')_{\text{MAX}}=m_\mu/2$ and this happen when direction of $e$ is opposite to the direction of neutrinos. Therefore the total decay rate is
-\[\p{\overline{\Lambda}_{\text{TOT}}}_{\text{LAB}}=\int_{\omega_{min}}^{\omega_{max}}\de\omega_e'\p{\frac{\de\overline\Gamma}{\de\omega_e'}}_{\text{LAB}}
+\[\p{\overline{\Gamma}_{\text{TOT}}}_{\text{LAB}}=\int_{\omega_{min}}^{\omega_{max}}\de\omega_e'\p{\frac{\de\overline\Gamma}{\de\omega_e'}}_{\text{LAB}}
 =\frac{G_F^2m_\mu^5}{192\pi^3}\]
-From the latter we see that only relevant parameter in Lab frame are $G_F$ and $m_\mu$. The lifetime is\footnote{This is an experimental result}
-\[\tau_\mu=\frac1{\Lambda_{\text{TOT}}}=2.2\cdot 10^{-6}\text{s}
+From the latter we see that only relevant parameter in Lab frame are $G_F$ and $m_\mu$. The lifetime in the Lab frame is\footnote{This is an experimental result}
+\[\tau_\mu=\frac1{\overline\Gamma_{\text{TOT}}}=2.2\cdot 10^{-6}\text{s}
 =3.467\cdot 10^{18}\text{ GeV}^-1\]
 while muon mass is 
 \[m_\mu=0.105\text{ GeV}\]
@@ -253,10 +270,10 @@ Compute the cross section for the process $\nu_e e^-\to\nu_\mu\mu^-$.
 \end{alignat*}
 \end{exercise}
 
-\subsection{Problems of Fermi Lagrangian: unitarity and renormalizability}
+\subsection{Problems of Fermi Lagrangian}
 
 The four-fermion contact interaction with V-A currents described well the weak interaction processes known in the 1950s-1960s, namely at low energies. Rapidly, it was realized that this theory was only an approximation, i.e. an effective theory in the low energy range. 
-The theory we presented have some problems, some of them related to high energy behaviour of the theory. 
+The theory we presented have some problems, some of them related to high energy behaviour. This leads to the interpretation of $V-A$ lagrangian as the low-energy limit of a wider theory. 
 
 
 \subsubsection{Processes that cannot be described}
@@ -267,10 +284,9 @@ With the Fermi Lagrangian we are not able to describe following processes:
 &\bar\nu_\mu e^-\quad&&\to\quad\bar\nu_\mu e^-
 \end{alignat*}
 
-\subsection{Currents in the lagrangian}
+\subsubsection{Currents in the lagrangian}
 
-Fermi lagrangian contains two parts, a charged current (CC) and a neutral current (NC). Let's consider first charged current:
-
+We have seen that $V-A$ lagrangian for leptonic interactions contains charged currents eq.\eqref{eqn:charged-current-VA}, for example
 
 \[
 \begin{tikzpicture}[baseline=(e0)]
@@ -285,7 +301,8 @@ Fermi lagrangian contains two parts, a charged current (CC) and a neutral curren
 \end{tikzpicture}
 \]
 
-This is somehow equivalent to the uncharged current in QED
+Recall that in QED interactions are mediated through photon, i.e. an uncharged particle
+
 \[
 \begin{tikzpicture}[baseline=(e0)]
 \begin{feynman}
@@ -301,7 +318,9 @@ This is somehow equivalent to the uncharged current in QED
 \end{tikzpicture}
 \]
 
-But we have problems with the neutral current, because interaction cannot be mediated by photons since the current is neutral
+In order to mediate interaction between charged currents I cannot used an uncharged particle, therefore I have to introduce another mediator for these interactions.
+This problem does not appear for uncharged currents of $V-A$ lagrangian eq.\eqref{eqn:neutral-current-VA}, which can be coupled by an uncharged particle
+
 
 \[
 \begin{tikzpicture}[baseline=(e0)]
@@ -322,15 +341,7 @@ But we have problems with the neutral current, because interaction cannot be med
 \]
 
 
-\begin{alignat*}{3}
-&J_{CC}^\alpha=\bar e\,\gamma_L^\alpha\,\nu_e\hspace{2cm}&&J_{NC}^\alpha=&&\bar\nu_\mu\,\gamma_L^\alpha\,\nu_\mu\\
-&&&&&\bar\mu\,\gamma_L^\alpha\,\mu\\
-&&&&&\bar e\,\gamma_L^\alpha\, e\\
-&&&&&\bar\nu_e\,\gamma_L^\alpha \,e\\
-\end{alignat*}
 
-\[\mathcal L_{\text{NC}}=\frac{4G_F}{\sqrt2}(\bar e\,\gamma^\alpha_L\,e)(\bar\nu_\mu\,\gamma_{\alpha,L}\,\nu_\mu)+
-\frac{4G_F}{\sqrt2}(\bar \mu\,\gamma^\alpha_L\,\mu)(\bar\nu_e\,\gamma_{\alpha,L}\,\nu_e)\]
 
 
 
