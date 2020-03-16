@@ -1,0 +1,456 @@
+\documentclass[TheoreticalPhy_ModB.tex]{subfiles}
+\begin{document}
+
+
+\section{Interacting Vector Bosons}
+\textsf{Mandl chap. 16.1, 16.2; Maggiore sec. 8.2}\\
+
+We have already drawn attention to the analogy between weak interactions and QED which Fermi exploited in constructing his theory. The analogy with QED that he banked upon not only made him to choose the correct form of the weak interactions - the vector form in contrast to the scalar or tensor form that were introduced later but then rejected - but also served as a fruitful analogy in the searcch for a more complete theory of weak interactions. This is what we shall describe in this section. 
+
+In beta decay, Fermi had imagined the $n-p$ line and the $e-\nu$ line interacting at the same space-time point. But clearly the correspondence with QED is greatly enhanced if the two pairs of lines are separated and an exchange of a mediator $W$ between the $n-p$ and $e-\nu$ lines is inserted. The proprieties of this new particle must be the following:
+\begin{enumerate}
+\item $W$ has to be charged, in contrast to the photon, in order to conserve the electric charge;
+\item just like the photon, the $W$ particle also has a spin angular momentum of one unit;
+\item in contrast to the photon, the $W$ boson has to be a very massive object. For, the weak interaction has a short range unlike the infinite-ranged electromagnetic interaction
+\end{enumerate}
+
+This considerations (with also later correction) leads to the theory of Weak Interactions that involves interacting bosons. Like the strong and electromagnetic interactions, the weak interactions is also associated with the exchange of elementary spin-1 bosons that act as `force carriers' between quarks and/or leptons. However, in constrast to photons and gluons, there are very massive particles. There are three such `intermediate vector boson': the charged bosons $W^+$ and $W^-$ and the neutral $Z$ boson, with masses
+\[M_W=80.40\text{GeV}\qquad M_Z=91.19\text{GeV}\]
+These larges masses have two obvious consequences. 
+
+Firstly, we already said that the range of any force is given by the Compton wavelength of the particle transmitting it. Consequently, the range of the weak interactions between quarks and leptons is of order $10^{-3}$fm and at low energies the weak interaction can be treated as a zero range interactions. This is the reason why Fermi theory works very well to describe weak interactions in the low energy limit. 
+
+Secondly, very large energies are required to produce $W^\pm$ and $Z$ bosons in the laboratory, so that they were not discovered until 1983, long after their existence and masses had been theoretically predicted. 
+
+The idea that weak interactions were due to the exchange of massive charged bosons seems to have been first by Klein in 1938, and until 1973 all observed weak interactions were consistent with the hypotesis that they were mediated by the exchange of heavy charged bosons $W^\pm$ only. However, in the 1960s, Glashow, Salam and Weinberg developed a theory that unified electromagnetic and weak interactions in a way that is often compared to the unification of electric and magnetic interactions by Faraday and Maxwell a century earlier. This new theory made several remarkable predictions, including the existence of a neutral vector boson $Z^0$, and of the weak reactions arising from its exchange. In particular, neutral reactions of the type
+\[\nu_\mu+N\to\nu_\mu+X\]
+were predicted, where $N$ is a nucleon and $X$ is any set of hadrons allowed by the conservation laws. Such reactions were finally observed at CERN in 1973, as we stated in the previous section.
+
+The prediction of the existence and proprieties of neutral currents, prior to their discovery, is only one of the many spectacular successes of the unified theory of electromagnetic and weak interactions. Others include the prediction of the existence of the charmed quark, prior to its discovery in 1974; and the prediction of the masses of the $W^\pm$ and $Z^0$ bosons prior to the long-awaited detection of these particles in 1983. In general, the theory is in complete areement with all the data on both weak and electromagnetic interactions, which are now usually referred to collectively as the \emph{electroweak interaction}. However the new unification only becomes manifest at very high energies, and at lower energies, weak and electromagnetic interactions can still be clearly separated, as we shall see.
+
+In the previous section we constructed $V-A$ lagrangian using vector currents, but the forms eq. \eqref{eqn:charged-lagrangian-VA} and eq. \eqref{eqn:neutral-lagrangian-VA} are not the unique ways of costructing interactions from the currents eq. \eqref{eqn:charged-current-VA} and eq. \eqref{eqn:neutral-current-VA}. The most general renormalizable coupling with 2 fermions and an interacting particle is
+\[\bar\psi\gamma^\mu(c_LP_L+c_RP_R)\psi V_\mu\]
+where $c_{L,R}$ are adimensional factors $[c_L]=[c_R]=0$. Notice that when $c_L=c_R$ we obtain a vector-like coupling (like in QED) while if $c_L\neq c_R$ we obtain an axial coupling (this is the case of Weak interactions as we know after Wu experiment: even if $\nu_R$ exists, it doesn't couple in Weak Interactions).
+
+Let's introduce two charged vector bosons $W^\pm$ described by a complex Proca field\footnote{These fields are coupled with leptonic vector currents, hence they must be  vector fields. These vector fields satisfies the relation $\partial^\alpha W_\alpha=0=\partial^\alpha Z_\alpha$ and therefore are vector bosons with spin 1. See Mandl sec. 16.3 the proof of this statement.} $W_\alpha$ and neutral vector boson $Z$ with its neutral Proca field $Z_\alpha$. Their corresponding field strengths are
+\begin{align*}
+W_{\alpha\beta}&=\partial_\alpha W_\beta+\partial_\beta W_\alpha\\
+Z_{\alpha\beta}&=\partial_\alpha Z_\beta+\partial_\beta Z_\alpha
+\end{align*}
+Then we can define the \textbf{Interacting Vector Boson (IVB) Lagrangian}:
+
+\begin{mdframed}[style=mybox]
+\begin{equation}
+\mathcal L_{\text{IVB}}=\mathcal L_{KB}+\mathcal L_{KF}+\mathcal L_{int}
+\end{equation}
+where
+\begin{align}
+\mathcal L_{KB}&=-\frac12W^\dagger_{\alpha\beta}W^{\alpha\beta}+M_W^2W_\alpha^\dagger W^\alpha-\frac14Z_{\alpha\beta}Z^{\alpha\beta}+\frac12M_Z^2Z_\alpha Z^\alpha\label{eqn:lag-IVB-KB}\\
+\mathcal L_{KF}&=\bar e(i\slashed\partial-m_e)e+\bar \mu(i\slashed\partial-m_\mu)\mu+\bar \nu_e(i\slashed\partial)\nu_e+\bar \nu_\mu(i\slashed\partial)\nu_\mu\label{eqn:lag-IVB-KF}\\
+\mathcal L_{int}&=\frac g{\sqrt 2}W^\alpha\left[\bar e\gamma_\alpha P_L\nu_e+\bar \mu\gamma_\alpha P_L\nu_\mu+\bar \nu_e\gamma_\alpha P_Le+\bar \nu_\mu\gamma_\alpha P_L\mu\right] +\notag\\
+&\quad+\frac g{c_W}Z^\alpha[\bar e\gamma_\alpha(c_L^eP_L+c_R^eP_R)e+\bar \mu\gamma_\alpha(c_L^\mu P_L+c_R^\mu P_R)\mu+\notag\\
+&\hspace{1.8cm}+\bar\nu_e\gamma_\alpha c_L^{\nu_e}P_L\nu_e+\bar\nu_\mu\gamma_\alpha c_L^{\nu_\mu}P_L\nu_\mu]\label{eqn:lag-IVB-int}
+\end{align}
+\end{mdframed}
+where $g$ and $c_W$ are dimensionless coupling constant. In eq.\eqref {eqn:lag-IVB-KF} and eq.\eqref{eqn:lag-IVB-int} we omitted fields corresponding to $\tau$ and $\nu_\tau$, understanding how to introduce them in the lagrangian is trivial.
+Notice that in \eqref{eqn:lag-IVB-int} I introduced the interaction only for right-handed spinors, since left-handed spinors does not interact. We assumed (it's not the general case) that all fermions have same coupling ($g$ for the coupling with $W_\alpha$ and $g/c_W$ for the coupling with $Z_\alpha$). 
+
+\subsubsection{Feynman Rules for the IVB Lagrangian}
+\textsf{Mandl sec. 16.4}\\
+
+We can easily write down the Feynman rules for treating leptonic processes between charged currents (i.e. mediated through $W^\pm$ bosons). Recall that these interactions are described by first line of eq.\eqref{eqn:lag-IVB-int}, we have that for each vertex we write a factor 
+\[-i\frac g{\sqrt2}\gamma_\alpha P_L\]
+Feynman rules for external lines are obtained from QED ones only requiring a trivial relabeling for all possible fermions, for example
+\[-i \frac g{\sqrt2}(\bar u_{\nu_f}\gamma_\alpha P_L u_f)\quad=\quad
+\begin{tikzpicture}[baseline=(a)]
+	\begin{feynman}[small]
+		\vertex[label={[above, xshift=-1mm]$\alpha$}] (a);
+		\vertex[left=of a](mu){$f$};
+		\vertex[above right=of a](nu){$\nu_f$};
+		\vertex[below right=of a](W){$W_\alpha$};
+		\diagram*{
+			(mu)--[fermion](a)--[fermion](nu),
+			(a)--[charged boson](W),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\]
+For each internal $W$ boson line, labelled by momentum $k$, write a factor
+\[D^{\alpha\beta}_W(k)=\frac{-i}{k^2-M_W^2}\p{g^{\alpha\beta}-\frac{k^\alpha k^\beta}{M^2_W}}\quad=\quad
+\begin{tikzpicture}[baseline=(u)]
+	\begin{feynman}[small]
+		\vertex(u);
+		\vertex[left=of u](a){$\alpha$};
+		\vertex[right=2cm of a](b){$\beta$};
+		\diagram*{
+			(a)--[charged boson, momentum={[arrow shorten=0.3]$k$}](b),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\]
+For processes involving neutral currents (i.e. mediated through $Z$ boson) each vertex gives a factor
+\[-i\frac g{c_W}\gamma_\alpha (c_LP_L+c_RP_R)\]
+Analogously to the rules for charged bosons we have (recall that for neutrinos we have $c_R=0$)
+\[-i \frac g{c_W}\p{\bar u_{f}\gamma_\alpha (c_LP_L+c_RP_R) u_f}\quad=\quad
+\begin{tikzpicture}[baseline=(a)]
+	\begin{feynman}[small]
+		\vertex[label={[above, xshift=-1mm]$\alpha$}] (a);
+		\vertex[left=of a](mu){$f$};
+		\vertex[above right=of a](nu){$f$};
+		\vertex[below right=of a](W){$Z_\alpha$};
+		\diagram*{
+			(mu)--[fermion](a)--[fermion](nu),
+			(a)--[boson](W),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\]
+For each internal $Z$ boson line, labelled by momentum $k$, write a factor
+\[D^{\alpha\beta}_Z(k)=\frac{-i}{k^2-M_W^2}\p{g^{\alpha\beta}-\frac{k^\alpha k^\beta}{M^2_Z}}\quad=\quad
+\begin{tikzpicture}[baseline=(u)]
+	\begin{feynman}[small]
+		\vertex(u);
+		\vertex[left=of u](a){$\alpha$};
+		\vertex[right=2cm of a](b){$\beta$};
+		\diagram*{
+			(a)--[boson, momentum={[arrow shorten=0.3]$k$}](b),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\]
+For each external initial or final boson line, write a factor $\epsilon_{\alpha}^{(\lambda)}$ for each initial boson and a factor $\epsilon_{\alpha}^{(\lambda)*}$ for each final boson. For the field $Z_\mu$, which is real, $\epsilon_{\alpha}^{(\lambda)}=\epsilon_{\alpha}^{(\lambda)*}$:
+\begin{align*}
+\epsilon_{\alpha}^{(\lambda)}\quad&=\quad
+\begin{tikzpicture}[baseline=(u)]
+	\begin{feynman}[small]
+		\vertex(u);
+		\vertex[left=of u](a);
+		\vertex[right=2cm of a](b){$\alpha$};
+		\diagram*{
+			(a)--[charged boson, momentum={[arrow shorten=0.3]$k$}](b),
+		};
+	\end{feynman}
+\end{tikzpicture}\\
+\epsilon_{\alpha}^{(\lambda)*}\quad&=\quad
+\begin{tikzpicture}[baseline=(u)]
+	\begin{feynman}[small]
+		\vertex(u);
+		\vertex[left=of u](a){$\alpha$};
+		\vertex[right=2cm of a](b);
+		\diagram*{
+			(a)--[charged boson, momentum={[arrow shorten=0.3]$k$}](b),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\end{align*}
+\[
+\begin{tikzpicture}[baseline=(u)]
+	\begin{feynman}[small]
+		\vertex(u);
+		\vertex[left=of u](a);
+		\vertex[right=2cm of a](b){$\alpha$};
+		\diagram*{
+			(a)--[ boson, momentum={[arrow shorten=0.3]$k$}](b),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\epsilon_{\alpha}^{(\lambda)}=\quad
+\begin{tikzpicture}[baseline=(u)]
+	\begin{feynman}[small]
+		\vertex(u);
+		\vertex[left=of u](a){$\alpha$};
+		\vertex[right=2cm of a](b);
+		\diagram*{
+			(a)--[ boson, momentum={[arrow shorten=0.3]$k$}](b),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\]
+Notice that $\lambda$ describes one of the possible polarization of the boson. For massive boson all possible polarization are 3. 
+
+\subsection{Fermi Lagrangian as low energy limit of a massive vector boson Lagrangian}
+\textsf{Mandl sec. 16.6.1; Halzen sec. 12.2}\\
+
+In the section \ref{sec:4-fermions-and-VA} we said that $V-A$ lagrangian can describe Weak interactions in the low energy limit. Indeed, the full structure of the electroweak theory (described by the Standard Model) is only revealed at energies comparable to the masses of the bosons $W^\pm$ and $Z^0$ that, together with the photon, mediate the electroweak interactions. Since $m_W=80.425(38)$GeV and $m_Z=91.1876(21)$GeV, the weak decays of particles with masses between a few hundred MeV and a few GeV, as for instance the muons, the pions, the kaons, the neutron, charmed mesons like the $D^0$, etc., can be studied in a low-energy approximation to the SM using the $V-A$ Lagrangian. For instance in the $\beta$-decay of the free neutron, $n\to pe^-\var\nu_e$, we have a mass difference $m_n-m_p\simeq1.29$ MeV. Therefore, even if at the fundamental level the decay is mediated by the $W$-boson, the fact that the maximum momentum transfer is much smaller than $m_W$ allows un to use a low-energy effective theory. The same approximation holds for nuclear $\beta$- decays. 
+
+This is the reason why we used the low-energy theory in order to study a scattering process mediated by weak interactions, as for instance the muon decay, at center-of-mass energies well below $m_W$.
+
+Now we have to prove that IVB Lagrangian in the low energy limit leads to the results we obtained using Four Fermions model.
+Let's consider again the muon decay width, this time using IVB lagrangian in the limit  of $\omega_e,\omega_\mu\ll M_W$. There is only 1 Feynman diagram in the lower order of $S$ matrix expantion (i.e. second order):
+\[\begin{tikzpicture}[baseline=(a)]
+	\begin{feynman}[large]
+		\vertex[label=above left:{$\alpha$}] (a);
+		\vertex[left=of a](mu){$\mu$};
+		\vertex[above right=of a](numu){$\nu_\mu$};
+		\vertex[below right=of a, label=below left:{$\beta$}](b);
+		\vertex[above right=of b](e){$e^-$};
+		\vertex[below right=of b](nue){$\bar\nu_e$};
+		\diagram*{
+			(mu)--[fermion, momentum={[arrow shorten=0.3]$p$}](a)--[fermion, momentum={[arrow shorten=0.3]$q$}](numu),
+			(a)--[charged boson, momentum'={[arrow shorten=0.3]$k$}](b),
+			(b)--[fermion, momentum={[arrow shorten=0.3]$p'$}](e),
+			(b)--[anti fermion, momentum'={[arrow shorten=0.3]$q'$}](nue),
+		};
+	\end{feynman}
+\end{tikzpicture}\]
+Obviously kinematics constraints impose $k=p-q=p'+q'$. The Feynman amplitude is 
+\[\mathcal M=\p{-i\frac g{\sqrt2}}^2\p{\bar u_{\nu_\mu}\gamma^\alpha P_L u_\mu}\p{\bar u_e\gamma^\beta P_Lv_{\bar\nu_e}}D^W_{\alpha\beta}(p-q)\]
+Using muon rest frame we have $k^2=(m_\mu^2-2m_\mu\omega_{\nu_\mu})$ and in the limit $m_\mu\ll M_W$ we have $k^2\ll M^2_W$, therefore we can expand the propagator $D^W_{\alpha\beta}(k)$ in terms of $
+k^2$:
+\[D^W_{\alpha\beta}(k)=\frac i{M_W^2}g_{\alpha\beta}+\frac i{M_W^2}g_{\alpha\beta}\frac{k^2}{M^2_W}+o\p{\frac{k^4}{M^4_W}}\]
+In this limit our Feynman amplitude reads
+\[\mathcal M=-\frac{g^2}{2M_W^2}\p{\bar u_{\nu_\mu}\gamma^\alpha P_L u_\mu}\p{\bar u_e\gamma^\beta P_Lv_{\bar\nu_e}}\]
+Then, If I compare with the amplitude I obtained using $V-A$ amplitude, I can identify this relation between coefficents $G_F$ and $g$:
+\begin{equation}\label{eqn:G_F-g-correspondence-CC}
+\frac{4G_F}{\sqrt2}=\frac{g^2}{2M_W^2}\qquad\to\qquad G_F=\frac{\sqrt2g^2}{8M_W^2}
+\end{equation}
+For the moment we do not know exactly the value of $g$, but we know that $g/\sqrt2$ must be lower than 1 in order to obtain a well-defined perturbative expantion. This means that in the low energy limit I have an information about the mass of the $W^\pm$ boson:
+\[M_W\lesssim120\text{GeV}\]
+
+This calculation finally prove that $V-A$ Lagrangian is the low energy limit of the IVB lagrangian.
+
+\begin{exercise}
+Calculate the $\mu$ decay rate using the full $W$ propagator
+
+\textit{Hint:} We expect a correcting factor term in the order $o(m_\mu^2/M_W^2)$.
+\end{exercise}
+
+\subsection{Charge Current ($CC$) and Neutral Current ($NC$) processes in IVB}
+
+One can try to compute the cross section for the process $\nu_\mu e^-\to\nu_e\mu^-$ in order to verify if IVB Lagrangian has same unitarity problem shown for the $V-A$ Lagrangian. In order to fix unitarity problem, we expect neutrino scattering process at sufficiently high energies to exhibit the effects of the intermediate vector boson. We leave the full calculation as an exercize, and we just write down the solutions in order to discuss them
+
+\begin{exercise}[$\nu_\mu e^-\to\nu_e\mu^-$ cross section]
+
+\textsf{Mandl sec. 16.6.2}\\
+
+Calculate $\nu_\mu e^-\to\nu_e\mu^-$ cross section using the full propagator in the unitary limit (i.e. at high energies $s\gg m_e^2,M_W^2$) 
+\[\begin{tikzpicture}[baseline=(u)]
+	\begin{feynman}[small]
+		\vertex(u);
+		\vertex[above=0.7cm of u](a);
+		\vertex[below=0.7cm of u](b);
+		\vertex[above left=of a](i1){$\nu_\mu$};
+		\vertex[above right=of a](f1){$\mu^-$};
+		\vertex[below left=of b](i2){$e^-$};
+		\vertex[below right=of b](f2){$\nu_e$};
+		\diagram*{
+			(i1)--[fermion, momentum'={[arrow shorten=0.3, arrow distance=1.8mm]$p$}](a)--[fermion, momentum'={[arrow shorten=0.3, arrow distance=1.8mm]$q'$}](f1),
+			(i2)--[fermion, momentum={[arrow shorten=0.3, arrow distance=1.8mm]$q$}](b)--[fermion, momentum={[arrow shorten=0.3, arrow distance=1.8mm]$p'$}](f2),
+			(a)--[charged boson, momentum'={[arrow shorten=0.3, arrow distance=1.8mm]$k$}](b),
+		};
+	\end{feynman}
+\end{tikzpicture}\]
+
+\textit{Solution:}\\
+The solution is easily obtained from the results we derived using $V-I$ lagrangian, just using the following substitution
+\[\frac{G_F}{\sqrt2}\quad\to\quad\frac{g^2}8\frac{1}{u-M^2_W}\]
+where $u=(p-q')^2=k^2$. Notice that factor $(k_\alpha k_\beta)/M_W^2$ does not contribute when I neglect fermions mass. Therefore I obtain
+\begin{alignat*}{4}
+|\mathcal M|^2_{V-A}=16G_F^2s^2&&\quad\to\quad&&|\mathcal M|^2_{IVB}&=\frac{g^4}2\frac{s^2}{(u-M^2_W)^2}&&\\
+\p{\frac{\de\bar\sigma}{\de\Omega}}_{CM}^{V-A}=\frac{G_F^2s}{4\pi^2}&&\quad\to\quad&&\p{\frac{\de\bar\sigma}{\de\Omega}}_{CM}^{IVB}&=\frac{g^4}{128\pi^2}\frac{s}{(u-M^2_W)^2}\simeq\frac{g^4}{128\pi^2}\frac{1}{s}&&
+\end{alignat*}
+Now the cross section is finite at high energies, and then is clear that the introduction of the massive boson $W$ cure the unitarity problem.
+
+\end{exercise}
+
+Another problem of the Four Fermions model were related to the impossibility of the description of processes $\nu_\mu e^-\to\nu_\mu e^-$. Using the IVB Lagrangian is now possible to describe these processes. Let's consider its description in low energy limit ($s\ll M_Z^2$).
+
+\begin{example}[Neutral current contributions to $\nu_\mu e^-\to\nu_\mu e^-$ cross section]
+At the lowest order this process not include the charged part of the Lagrangian
+\[\begin{tikzpicture}[baseline=(u)]
+	\begin{feynman}[medium]
+		\vertex(u);
+		\vertex[above=0.7cm of u](a);
+		\vertex[below=0.7cm of u](b);
+		\vertex[above left=of a](i1){$e^-$};
+		\vertex[above right=of a](f1){$e^-$};
+		\vertex[below left=of b](i2){$\nu_\mu$};
+		\vertex[below right=of b](f2){$\nu_\mu$};
+		\diagram*{
+			(i1)--[fermion, momentum'={[arrow shorten=0.3, arrow distance=1.8mm]$p$}](a)--[fermion, momentum'={[arrow shorten=0.3, arrow distance=1.8mm]$p'$}](f1),
+			(i2)--[fermion, momentum={[arrow shorten=0.3, arrow distance=1.8mm]$q$}](b)--[fermion, momentum={[arrow shorten=0.3, arrow distance=1.8mm]$q'$}](f2),
+			(a)--[boson, momentum'={[arrow shorten=0.3, arrow distance=1.8mm]$k$}](b),
+		};
+	\end{feynman}
+\end{tikzpicture}\]
+Obviously kinematics impose $k=(p-p')=(q'-q)$. The Feynman amplitude reads
+\[\mathcal M=\p{-i\frac g{c_W}}^2\p{\bar u_{\nu_\mu}\gamma^\alpha c_L^\nu P_Lu_{\nu_\mu}}\p{\bar u_e\gamma^\beta(c_L^eP_L+c_R^eP_R)u_e}D_{\alpha\beta}^Z(p-p')\]
+In the low energy limit we have
+\[\mathcal M=-i\p{\frac g{c_WM_Z}}^2\p{\bar u_{\nu_\mu}\gamma^\alpha c_L^\nu P_Lu_{\nu_\mu}}\p{\bar u_e\gamma^\beta(c_L^eP_L+c_R^eP_R)u_e}\]
+Comparing this relation with eq.\eqref{eqn:neutral-lagrangian-VA} we notice that following relation between $g$ and $G'_F$:
+\[\frac{4G'_F}{\sqrt2}=\frac{g^2}{c_W^2M_Z^2}\qquad\to\qquad G'_F=\frac{\sqrt2g^2}{4c_W^2M_Z^2}\]
+Therefore the coupling $G_F$ of the charged current in the Fermi theory is actually different than the coupling $G_F'$ of the neutral current, since eq.\eqref{eqn:G_F-g-correspondence-CC} is different than the latter relation. 
+The unpolarized amplitude reads
+\[\overline{\vert\mathcal M\vert}^2=\frac14\p{\frac g{c_WM_Z}}^4\Tr[\slashed q'(c_L\gamma_\alpha P_L)\slashed q(c_L\gamma_\beta P_L)]\Tr[\slashed p'(c_L\gamma^\alpha P_L+c_R\gamma^\alpha P_R)\slashed p(c_L\gamma^\beta P_L+c_R\gamma^\beta P_R)] \]
+If we consider the high energies approximation $m_e=m_{\nu_\mu}=0$ (notice that features related to the presence of $Z$ boson are related to the high energy behaviour of processes) then
+\[\overline{\vert\mathcal M\vert}^2=\frac{4g^4}{c_W^4M_Z^4}(c_L^\nu)^2\left[c_L^2(p\cdot q)(p'\cdot q')+c_R^2(p\cdot q')(p'\cdot q)\right]\]
+Now I can take the rest frame and go on with the computation of the unpolarized scattering amplitude.
+\end{example}
+
+\begin{exercise}
+Complete computation of the cross section in the previous example.
+\end{exercise}
+
+\begin{exercise}
+Calculate the $\bar\nu_ee^-\to\bar\nu_ee^-$ amplitude.
+
+\textit{Hint / Solution:}
+The process is described by following diagrams:
+\[
+\begin{tikzpicture}[baseline=(a)]
+	\begin{feynman}[medium]
+		\vertex(a);
+		\vertex[above left=of a](i1){$e^-$};
+		\vertex[below left=of a](i2){$\bar\nu_e$};
+		\vertex[right=of a](b);
+		\vertex[above right=of b](f1){$e^-$};
+		\vertex[below right=of b](f2){$\bar\nu_e$};
+		\diagram*{
+			(i1)--[fermion](a)--[fermion](i2),
+			(a)--[charged boson](b),
+			(f2)--[fermion](b)--[fermion](f1),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\qquad+\qquad
+\begin{tikzpicture}[baseline=(a)]
+	\begin{feynman}[medium]
+		\vertex(a);
+		\vertex[above left=of a](i1){$e^-$};
+		\vertex[above right=of a](f1){$e^-$};
+		\vertex[below=of a](b);
+		\vertex[below left=of b](i2){$\bar\nu_e$};
+		\vertex[below right=of b](f2){$\bar\nu_e$};
+		\diagram*{
+			(i1)--[fermion](a)--[fermion](f1),
+			(a)--[charged boson](b),
+			(i2)--[fermion](b)--[fermion](f2),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\]
+\end{exercise}
+
+\subsection{Decay rates of charged and neutral massive vector bosons}
+
+In this section it is shown how to compute the decay rate of the $Z$ boson. Same procedure can be used for the $W$ boson. 
+
+\begin{example}[$Z$ boson decay]
+We consider the leptonic decay process of the $Z$ boson $Z\to f\bar f$ (for example the process $Z\to e^-e^+$ can be described as follows)
+
+\[\begin{tikzpicture}[baseline=(a)]
+	\begin{feynman}[large]
+		\vertex[label={[xshift=5mm,yshift=-2.2mm]:\footnotesize$(\lambda)$}](a){$Z$};
+		\vertex[right=of a, label=below left:{\footnotesize$\alpha$}](b);
+		\vertex[above right=of b](e){$e^-$};
+		\vertex[below right=of b](nue){$e^+$};
+		%\vertex[above right=5mm of a](l){\footnotesize$(\lambda)$};
+		\vertex[below=5mm of e, xshift=-2.2mm, yshift=-1mm](m){\footnotesize$(r)$};
+		\vertex[above=5mm of nue, xshift=-2.2mm, yshift=1mm](n){\footnotesize$(s)$};
+		\diagram*{
+			(a)--[boson, momentum'={[arrow distance=2mm, arrow shorten=0.3]$p$}](b),
+			(b)--[fermion, momentum={[arrow distance=2mm, arrow shorten=0.3]$q$}](e),
+			(b)--[anti fermion, momentum'={[arrow distance=2mm, arrow shorten=0.3]$q'$}](nue),
+		};
+	\end{feynman}
+\end{tikzpicture}\]
+Using Feynman rules we obtain following amplitude
+\[\mathcal M=-i\frac{g}{c_W}\bar u_r(q)(c_L\gamma^\alpha P_L+c_R\gamma^\mu P_R)v_s(q')\epsilon_\alpha^{(\lambda)}(p)\]
+When we compute the unpolarized amplitude we have to introduce a factor $1/3$ in order to average over all possible initial polarizations. Therefore:
+\begin{align*}
+\overline{\vert\mathcal M\vert}^2&=\p{\frac{g}{c_W}}^2\p{\frac13\sum_\lambda\epsilon_\alpha^{(\lambda)}\epsilon_\beta^{(\lambda)*}}\sum_{r,s}\bar u_r(c_L\gamma^\alpha P_L+c_R\gamma^\alpha P_R)v_s\bar v_r(c_L\gamma^\beta P_L+c_R\gamma^\beta P_R)u_s\\
+&=\frac13\p{\frac{g}{c_W}}^2\p{-g_{\alpha\beta}+\frac{p_\alpha p_\beta}{M_Z^2}}
+\Tr[(\slashed q'-M_Z)(c_L\gamma_L^\beta+c_R\gamma_R^\beta)(\slashed k+m_f)(c_L\gamma_L^\alpha+c_R\gamma_R^\alpha)]\\
+&=\frac13\p{\frac{g}{c_W}}^2\p{2(c_L^2+c_R^2)\p{q\cdot q'+\frac{2(p\cdot q)(p\cdot q')}{M_Z^2}}+12m_f^2c_Lc_R}
+\end{align*}
+If we consider the lab frame, i.e. the rest frame for the initial boson, we have following kinematic relations
+\[\begin{cases}\begin{alignedat}{2}
+&p^2=M_Z^2=(q+q')^2=2m_f^2+2q\cdot q'&&\quad\to\quad q\cdot q'=\frac{M_Z^2}2-m_f\\
+&(p-q)^2=M_Z^2+m_f^2-2p\cdot q=q'^2=m_f^2&&\quad\to\quad p\cdot q=\frac{M_Z^2}2\\
+&(p-q')^2=q^2&&\quad\to\quad p\cdot q'=\frac{M_Z^2}2
+\end{alignedat}\end{cases}\]
+So we obtain
+\[\overline{\vert\mathcal M\vert}^2_{\text{LAB}}=\p{\frac g{c_W}}^2\frac{M_Z}3\p{2(c_L^2+c_R^2)\p{1-\frac{m_f^2}{M_Z^2}}+12c_Lc_R\frac{m_f^2}{M_Z^2}}\]
+We can see that there is no dependence on momentum and angles for this process. In order to obtain final formula for the decay rate, let's consider the phase space $\de\Phi_{(2)}$:
+\begin{align*}
+\int\de\Phi_{(2)}
+&=\int\frac{\de^3q}{(2\pi)^3}\frac{\de^3q'}{(2\pi)^3}\frac1{4E_qE_{q'}}(2\pi)^4\delta^4(p-q-q')\\
+&=\int\frac{\de^3q}{(2\pi)^2}\frac1{4E_q^2}\delta(M_Z-2E_q)\\
+&=\int\frac{\de\Omega}{4\pi }\frac{|\vec q|^2\,\de|\vec q|}{4\pi E_q^2}\delta(M_Z-2E_q)\\
+&=\frac1{4\pi}\int\de|\vec q|\,\frac{|\vec q|^2}{E_q^2}\frac12\delta\p{E_q-\frac{M_Z}2}\\
+&=\frac1{8\pi}\p{1-\frac{4m_f^2}{M_Z^2}}
+\end{align*}
+Where in the fourth line we performed the integration over the solid angle since there is no dependence over the angle in the unpolarized amplitude. In the last step we used 
+\[\p{\frac{M_Z}2}^2=E_q^2=m_f^2+|\vec q|^2\qquad\to\quad |\vec q|^2=\frac{M_Z^2}{4}-m_f^2\]
+Finally we can obtain the decay rate
+\begin{align*}
+\p{\de\overline\Gamma_Z}_{\text{LAB}}
+&=\frac{\overline{\vert\mathcal M\vert}^2_{\text{LAB}}}{2M_Z}\de\Phi_{(2)}\\
+\p{\overline\Gamma_Z}_{\text{LAB}}&=\p{\frac g{c_W}}^2\frac{M_Z}{48\pi}\p{1-\frac{4m_f^2}{M_Z^2}}^{1/2}\p{2(c_L^2+c_R^2)\p{1-\frac{m_f^2}{M_Z^2}}+12c_Lc_R\frac{m_f^2}{M_Z^2}}
+\end{align*}
+In the special case where $f$ is a neutrino, we have $c_R=0$, $c_L=1/2$, $m_\nu=0$ and therefore the decay rate reads
+\[ \p{\overline\Gamma_Z^{\,\nu}}_{\text{LAB}}=\p{\frac g{c_W}}^2\frac{M_Z}{96\pi}\]
+We stress the fact that this decay rate correspond to the decay process into a specific neutrino and its antineutrino. Recall that neutrinos cannot be detached, therefore we cannot ``see'' experimentally the process $Z\to\nu\,\bar\nu$. Let's define 
+\[ \p{\overline\Gamma_Z^{\,inv}}_{\text{LAB}}=N_\nu\p{\frac g{c_W}}^2\frac{M_Z}{96\pi}\]
+the decay rate of $Z$ into \emph{inv}isible particles. Experimentally $N_\mu\simeq3.01$, therefore we can interpret this result as the fact that the only invisible products of $Z$ decay are neutrinos, i.e. there is no other invisible particle  coupled with the field $Z_\alpha$ into $\mathcal L_{\text{int}}$ (eq.\eqref{eqn:lag-IVB-int})
+\end{example}
+
+\begin{exercise}
+
+\textsf{Mandl sec. 16.6.3}\\
+
+Calculate the decay rate of the charged boson $W$ 
+
+\textit{Solution:}
+\[\p{\overline\Gamma_Z}_{\text{LAB}}=\frac{g^2}{48\pi^2}M_W\p{1-\frac{m_e^2}{M_W^2}}^2\p{1+\frac{m_e^2}{2M_W^2}}\]
+\end{exercise}
+
+\subsection{Problems with IVB theory}
+
+This model describes very well Weak Interaction at lowest orders, and solve most of the problems of the Fermi theory, but still it cannot be renormalizable. Indeed, in IVB theory we have $[g]=0$, but in the naive dimensional counting we assumed that the propagator dacayes as $1/k^2\sim D_A(k)$. But for massive vector bosons this is no more true since
+\[D_{W,Z}=\frac1{k^2-M^2}\p{g_{\alpha\beta}-\frac{k_\alpha k_\beta}{M^2}}\sim\frac1{k^2}+c\]
+The additional term $c$ has as consequence that the naive dimensional analysis of the superficial degree of divergence $D$ in this case reads
+\begin{enumerate}[noitemsep]
+\item for $M=0$ boson \[D=4-[g]V-E_B-\frac32E_F=4-E_B-\frac32E_F\]
+\item for $M\neq0$ boson \[D=4-[g]V+n_BV-2E_B-\frac32E_F=4+n_BV-2E_B-\frac32E_F\]
+\end{enumerate}
+
+We can see that $M\neq0$ case there is an additional term $n_BV$ that counts the number of vertices, and therefore the theory cannot be renormalizable. In order to obtain a renormalizable theory with vector mediators required conditions are $[g]\geq0$ and $M_B=0$ (these two conditions guaranteers $D\sim1/k^2$).
+
+Therefore in order to obtain a renormalizable gauge theory\footnote{All interacting theories are defined in terms of gauge theories.} we need to find a trick to define a theory with massless boson that also in some level produces massive bosons without breaking the renormalizability. This is what we will do in the next chapter.
+
+We can also see this requirement as follows: in order to obtain a Lagrangian that exhibits gauge symmetry we cannot have massive terms for the interacting bosons, otherwise any term proportional to $M^2A^\mu A_\mu$ will break the symmetry.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

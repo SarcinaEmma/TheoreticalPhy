@@ -3,13 +3,9 @@
 
 \chapter{Weak Interactions}
 
-In this section we begin our study of weak interactions. The electroweak theory is described by the Standard Model (SM). However, the full structure of the SM is only revealed at energies comparable to the masses of the bosons $W^\pm$ and $Z^0$ that, together with the photon, mediate the electroweak interactions. Since $m_W=80.425(38)$GeV and $m_Z=91.1876(21)GeV$, the weak decays of particles with masses between a few hundred MeV and a few GeV, as for istance the muons, the pions, the kaouns, the neutron, charmed mesons like the $D^0$, etc., can be studied in a low-energy approximation to the SM. For instance in the $\beta$-decay of the free neutron, $n\to pe^-\var\nu_e$, we have a mass difference $m_n-m_p\simeq1.29$ MeV. Therefore, even if at the funamental level the decay is mediated by the $W$-boson, the fact that the maximum momentum transfer is much smaller than $m_W$ allows un to use a low-energy effective theory. The same approximation holds for nuclear $\beta$- decays. 
+\textsf{Mandl sec. 16.1; Halzen sec. 12.Introduction; \footnote{Beside bibliography, for this chapter some good references can be found in the following sites:\\\url{https://www.imsc.res.in/~graj/genGRaja.pdf}\\\url{http://polywww.in2p3.fr/~paganini/ch6.pdf}\\These reference are used in the following sections even if not cited.}}\\
 
-For the same reason, we can use the low-energy theory when we study a scattering process mediated by weak interactions, as for instance $e^-\nu_e\to e^-\nu_e$, at center-og-mass energies well below $m_W$.
-
-\skipline
-
-The Weak interactions theory was born after, in the study of $\beta$-deday\footnote{Which theory was developed by Pauli in 1934.}, scientist discovered a process that couldn't be described by QED:
+The Weak interactions theory was born after, in the study of $\beta$-deday\footnote{The theory of $\beta$-decay was developed by W. Pauli in 1934. To solve the puzzle of the continuous energy spectrum of the electrons emitted in the beta decay of nuclei, Pauli had suggested that along with the electron, an almost massless neutral particle also was emitted. This particle was named by Fermi as \emph{neutrino}.}, scientist discovered a process that couldn't be described by QED, namely the neutron decay:
 \[n\to p+e^-+\bar \nu_e\]
 where $n$ is the neutron, $p$ is the proton, $e^-$ is the electron and $\bar\nu_e$ is the antineutrino. 
 From the energy spectrum of out-coming $e^-$ particles scientist understood that this is a 3 body decay. Notice also that netrunos ($\nu_e$ and $\bar \nu_e$) are fermions that couldn't be discovered by detectors since they have no charge. This is the sketch of this interaction:\footnote{We used different colors for different charge currents and different line thickness to distinguish nucleons by smaller fermions.}
@@ -33,73 +29,67 @@ From the energy spectrum of out-coming $e^-$ particles scientist understood that
 
 This new interaction can't be described using QED and two photons that mediate the interactions because of the charge and the spin conservation. 
 
-Beside the neutron decay, much other processes involving weak interaction was found, for example:
-\begin{alignat*}{3}
-&\text{Leptonic}\hspace{2cm}
-&&\mu^-&&\to\, e^-\bar\nu_e\nu_\mu\\
-&\text{Semileptonic}
-&&n&&\to\, pe^-\bar\nu_e\\
-&&&\pi^\mp&&\to\,\mu^\mp\overset{(-)}{\nu}_\mu\\
-&\text{Hadronic}
-&&\Lambda&&\to\, p\pi^-\\
-&&&K^+&&\to\,\pi^+\pi^0
-\end{alignat*}
+Before proceeding, we note that it is conventional to divide weak interaction processes into three categories, depending on whether leptons and/or hadrons are involved. Accordingly, we distinguish:
+\begin{enumerate}
+\item \emph{purely leptonic} processes like
+\[\mu^-\to\, e^-\bar\nu_e\nu_\mu\]
+which involve only the charged leptons $e^pm$, $\mu^\pm$, $\tau^\pm$ and their associated neutrinos $\nu_e$, $\nu_\mu$, $\nu_\tau$ and antineutrinos $\bar\nu_e$, $\bar\nu_\mu$, $\bar\nu_\tau$
+\item \emph{semileptonic} processes involving both hadrons and lepton, like neutron $\beta$-decay
+\[n\to\, pe^-\bar\nu_e\]
+and 
+\[\pi^\mp\to\,\mu^\mp\overset{(-)}{\nu}_\mu\]
+\item \emph{purely hadronic} processes like the $\Lambda$ decay
+\[\Lambda\to\, p\pi^-\]
+and
+\[K^+\to\,\pi^+\pi^0\]
+\end{enumerate}
 
-\section{Four Fermions Fermi Lagrangian and neutron decay}
-\textsf{Halzen sec. 12.Introduction, 12.1; Maggiore sec. 8.1, 8.2}\\
+Unfortunately we have only a limited understanding of hadrons structure, since the strong forces which bind the wearks act over distances of order 1 fm, where they cannot be treated in perturbation theory. In contrast, we belive that perturbation theory is valid for weak and electromagnetic interactions, and that we understand the latter. Consequently purely leptonic processes afford an unambiguous and far simpler field for studying weak interactions, and we shall restric ourselves to purely leptonic processes. This is analogous to our treatment of QED, where we also did not consider hadrons. 
 
-In 1934 Fermi proposed his theory to describe $\beta$-decay process $n\to p+e^-+\bar \nu_e$. While in QED, the Legrangian for $p\to p\gamma$ (the proton being in a nucleus) is
-\[\mathcal L=e(\bar p\gamma^\mu p)A_\mu\]
-Fermi replaced the proton current by a current with the transition $n\to p$ and the photon $A_\mu$ by a current expressing the creation of the electron and neutrino:
-\[\mathcal L_{\text{W.I.}}=\frac{G_F}{\sqrt 2}\p{\bar p\gamma^\mu n}\p{\bar e \gamma_\mu\nu_e}\]
-the constant $e$ being replaced by $G_F$ is called \textbf{Fermi constant}. Here $\bar f$ is the adjoint of the field $f$ for the particle $f$. This lagrangian shows two currents, one related to hadrons $n$ and $p$ called \textbf{hadronic current} and one related to leptons $e$ and $\nu_e$ called \textbf{leptonic current}. It describes 4 fermions interaction. A new coupling constant meant a new force was born. Moreover, the currents in the latter Lagrangian are charged while in QED they are always neutral. Perturbation theory based on this Lagrangian described preatty well the $\beta$-decay.
+\section{Four Fermions Fermi Theory and $V-A$ Theory}\label{sec:4-fermions-and-VA}
+\textsf{Halzen sec. 12.1; Maggiore sec. 8.1}\\
+
+In 1934 Fermi proposed his theory to describe $\beta$-decay process $n\to p+e^-+\bar \nu_e$. In QED the electromagnetic current $q(\bar e\gamma^\mu e)$ of the charged particle like the electron interacts with the electromagnetic vector potential $A_\mu$, which becomes the field operator for the photon:
+\[\mathcal L=q(\bar e\gamma^\mu e)A_\mu\]
+The electric current and the vector potential are vectors and so Fermi adopted the vector form for the weak currrents also. 
+In Fermi's theory of weak interactions, the weak current of the proton-neutron pair interacts with the weak current of the electron-neutrino pair:
+\[\mathcal L_{\text{F}}=\frac{G_F}{\sqrt 2}\p{\bar p\gamma^\mu n}\p{\bar e \gamma_\mu\nu_e}\]
+where the particle symbols represent the corresponding field operators. The strength of the weak interaction is characterized by the constant $G_F$ called \textbf{Fermi constant}. The value of $G_F$ is very small, and therefore this interaction is called ``weak''. This lagrangian describes 4 fermions interaction, and therefore is called \textbf{Four Fermions Fermi Lagrangian}. A new coupling constant meant a new force was born. Moreover, the currents in the latter Lagrangian are charged while in QED they are always neutral. Perturbation theory based on this Lagrangian described pretty well the $\beta$-decay.
 
 Since lagrangian has to be 4-dimensional and all these fields have dimension $3/2$ the Fermi constant must have dimension
 \[[G_F]=4-6=-2\]
 i.e. this theory is not renormalizable since $D=2+2V-E_B-3E_F/2>0$. We will use the SM to obtain a renormalizable theory of weak interactions. 
 
 \subsection{Modification of Fermi's theory: the $V$ - $A$ current}
-In 1957 Wu found a Parity violation ($\slashed P$) in Weak interaction, since the $e^-$ produced in the neutron decay is mostly left handed. The parity violation signed the death of Fermi's theory. Therefore the Lagrangian must be modified in order to include parity violation. Parity violation is obtained by a mixture of vector current
-\[j_V^\mu=\bar e\gamma^\mu \nu_e\]
-and an axial current
-\[j^\mu_A=\bar e_L\gamma^\mu\nu_e=\bar e\gamma^\mu_L\nu_e=\bar e_L\gamma^\mu\p{\nu_e}_L\]
-in particular we have to introduce a current
-\[j^\mu=c_Vj^\mu_V-c_Aj^\mu_A=\bar e\gamma^\mu(c_V-c_A\gamma_5)\nu_e\]
-Since $e^-$ has both chiralities\footnote{In QED $\bar e\gamma^\mu e=\bar e_R\gamma^\mu e_R+\bar e+L\gamma^\mu e_L$} then I obtain that neutrino has to be only left-handed. Usually I chose $c_V=c_A=1/2$ in order to obtain $(c_V-c_A\gamma_5)=P_L$. Introducing this current in the Fermi Lagrangian I obtain the \text{Four Fermions V-A}\footnote{It is said "V minus A".} interaction for the neutron decay:
-\[\mathcal L_{\text{V-A}}^n=-\frac {G_F}{\sqrt2} \p{\bar p\gamma^\mu\p{1-c_A\gamma_5} n}\p{\bar e \gamma_\mu\p{1-\gamma_5}\nu_e}\]
-where we modified both hadronic and leptonic currents. Parameter $c_A$ will be fixed by further experiments.
+\textsf{Mandl sec. 16.2, Maggiore sec. 8.2}\\
+
+This theory of weak interactions proposed by Fermi almost 80 years ago purely on an intuitive basis stood the test of time inspite of many amendments that were incorporated into Fermi's theory successfully.  One important amendment came after in 1957 Wu found a Parity violation ($\slashed P$) in Weak interaction, since the $e^-$ produced in the neutron decay is mostly left handed. Fermi's theory survived even this fundamental revolution and the only modification was to replace the vector current of Fermi by an equal mixture of vector currents (V)
+\[j_V^\alpha=\bar \psi\gamma^\alpha \phi\]
+and axial currents (A)
+\[j^\alpha_A=\bar \psi_L\gamma^\alpha\phi=\bar \psi\gamma^\alpha_L\phi=\bar \psi\gamma^\alpha\phi_L\]
+Vectors and axial currents behave differently when we go from left to right-handed coordinate systems and hence the parity violation. The new current takes the form:
+\[j^\alpha_{\text{V-A}}=c_Vj^\alpha_V-c_Aj^\alpha_A=\bar \psi\gamma^\alpha(c_V-c_A\gamma_5)\phi\]
+where constant $c_V$ and $c_A$ must be fixed in such a way our Lagrangian is consistent with parity proprieties of our theory.
+Since $e^-$ has both chiralities\footnote{In QED $\bar e\gamma^\alpha e=\bar e_R\gamma^\alpha e_R+\bar e+L\gamma^\alpha e_L$} then I obtain that neutrino has to be only left-handed. Usually I chose $c_V=c_A=1/2$ in order to obtain $(c_V-c_A\gamma_5)=P_L$. Introducing this current in the Fermi Lagrangian I obtain the \text{Four Fermions V-A}\footnote{It is said "V minus A".} interaction for the neutron decay:
+\[\mathcal L_{\text{V-A}}^n=-\frac {G_F}{\sqrt2} \p{\bar p\gamma^\alpha\p{1-c_A\gamma_5} n}\p{\bar e \gamma_\alpha\p{1-\gamma_5}\nu_e}\]
+where we modified both hadronic and leptonic currents. Parameter $c_A$ correspond to a free parameter in the lagrangian that can be fixed in further experiments. For example, if $c_A=0$ we obtain a non-chiral current for hadrons.
 
 For leptonic processes involving electrons, muons, and them corresponding neutrinos (such as muon decay $\mu^-\to e^-\bar\nu_e\nu_\mu$) we can obtain a similar solution:
 
 \[\mathcal L_{\text{V-A}}^{\mu^-}=-\frac {G_F}{\sqrt2} \p{\bar \nu_\mu\gamma^\alpha (1-\gamma_5)\mu}\p{\bar e \gamma_\alpha (1-\gamma_5)\nu_e}\]
 
-The general form for V-A Lagrangian for leptonic interactions with charged\footnote{Since $l$ describes a charged particle while $\nu_l$ an uncharged one. This means that interaction between currents must be mediated by a charged particle.} currents
-\begin{align*}
+The general form for V-A Lagrangian responsible for leptonic processes is constructed from bilinear forms of the lepton field operators, i.e. from charged\footnote{Since $l$ describes a charged particle while $\nu_l$ an uncharged one. This means that (in the future development of the weak theory) this interaction must be mediated by a charged particle.} currents:
+\begin{align}\label{eqn:charged-lagrangian-VA}
 \mathcal L_{CC}
 &=-\frac{4G_F}{\sqrt2}\p{\sum_{l=e,\mu,\tau}J_{CC}^{\alpha}(l)}^\dagger\p{\sum_{l=e,\mu,\tau}J_{CC,\alpha}(l)}
-\end{align*}
+\end{align}
 with
 \begin{equation}\label{eqn:charged-current-VA}
 J_{CC}^{\alpha}(l)=\bar l\gamma^\alpha P_L\nu_l
 \end{equation}
 
-while when we consider neutral\footnote{Here each current is made of particles with same charge.} currents we have
-\begin{align*}
-\mathcal L_{NC}
-&=-\frac{4G_F}{\sqrt2}\p{\sum_{l=e,\mu,\tau,\nu_e,\nu_\mu,\nu_\tau}J_{NC}^{\alpha}(l)}^\dagger\p{\sum_{l=e,\mu,\tau,\nu_e,\nu_\mu,\nu_\tau}J_{NC,\alpha}(l)}
-\end{align*}
-with
-\begin{equation}\label{eqn:neutral-current-VA}
-J_{NC}^{\alpha}(l)=\bar l\gamma^\alpha P_Ll
-\end{equation}
-
-\begin{equation}\label{eqn:neutral-current-VA}
-J_L^{\alpha}(l)=\bar l\gamma^\alpha P_Ll\hspace{2cm} l=e,\mu,\tau,\nu_e,\nu_\mu,\nu_\tau
-\end{equation}
-and corresponding $V-A$ Lagrangian.
-
 \subsection{$\mu$-decay and 3-body final state}
-\textsf{Maggiore, problem 8.1}\\
+\textbf{Maggiore problem 8.1; Mandl sec. 16.6.1; Halzen sec. 12.5}\\
 
 Let's consider muon decay rate using V-A lagrangian, $\mu^-\to e^-\bar \nu_e\nu_\mu$. Here there is a sketch of the process, where lines are related to conserved currents in the lagrangian:
 
@@ -233,9 +223,9 @@ From the latter we see that only relevant parameter in Lab frame are $G_F$ and $
 =3.467\cdot 10^{18}\text{ GeV}^-1\]
 while muon mass is 
 \[m_\mu=0.105\text{ GeV}\]
-In this way we obtain the value fot $G_F$:
+In this way we obtain the value for $G_F$:
 \[G_F=\p{\frac{192\pi^3}{\tau_\mu m_\mu^5}}^{1/2}=1.16\cdot 10^{-5}\text{ GeV}\]
-
+The muon lifetime only determines the coupling constant $G_F$.
 This coupling constant is much smaller that interaction coupling in QED ($\alpha=0.007$). This is the reason why this kind of interaction are called \emph{Weak}.
 
 \begin{exercise}
@@ -287,7 +277,6 @@ With the Fermi Lagrangian we are not able to describe following processes:
 \subsubsection{Currents in the lagrangian}
 
 We have seen that $V-A$ lagrangian for leptonic interactions contains charged currents eq.\eqref{eqn:charged-current-VA}, for example
-
 \[
 \begin{tikzpicture}[baseline=(e0)]
 \begin{feynman}[medium]
@@ -300,9 +289,8 @@ We have seen that $V-A$ lagrangian for leptonic interactions contains charged cu
 \end{feynman}
 \end{tikzpicture}
 \]
-
-Recall that in QED interactions are mediated through photon, i.e. an uncharged particle
-
+In order to obtain a charge conservation in these processes, and exchange of charge must be somehow mediated during the interactions between currents.
+Recall that in QED interactions are mediated through photon, i.e. an uncharged spin-1 boson
 \[
 \begin{tikzpicture}[baseline=(e0)]
 \begin{feynman}
@@ -317,51 +305,42 @@ Recall that in QED interactions are mediated through photon, i.e. an uncharged p
 \end{feynman}
 \end{tikzpicture}
 \]
-
-In order to mediate interaction between charged currents I cannot used an uncharged particle, therefore I have to introduce another mediator for these interactions.
-This problem does not appear for uncharged currents of $V-A$ lagrangian eq.\eqref{eqn:neutral-current-VA}, which can be coupled by an uncharged particle
+In order to mediate interaction between charged currents we cannot used an uncharged particle, therefore it is clear that we can't use the photon as mediator for these interactions. We will see in the next section that this mediator is the $W^\pm$ charged boson.
 
 
-\[
-\begin{tikzpicture}[baseline=(e0)]
-\begin{feynman}[medium]
-\vertex[dot](e0){};
-\vertex[left=of e0](e1){$\nu_\mu$};
-\vertex[right=of e0](e2){$\nu_\mu$};
-\vertex[below=of e0,dot](f0){};
-\vertex[left=of f0](f1){$\nu_\mu$};
-\vertex[right=of f0](f2){$\nu_\mu$};
-\diagram*{
-	(e1)--[fermion](e0)--[fermion](e2),
-	(f1)--[fermion](f0)--[fermion](f2),
-	(e0)--[looseness=0.5, in=120, out=240, ghost](f0)--[looseness=0.5, in=300, out=60, ghost](e0),
-};
-\end{feynman}
-\end{tikzpicture}
-\]
+\subsubsection{Neutral Currents}
 
+\textsf{Halzen sec. 12.9, 12.10; Maggiore sec. 8.2}\\
 
+In 1973 at CERN, neutral currents in weak interactions were discovered. This discovery has its own intrinsic importance because it opened up a whole new class of weak interactions which had remained undetected in all the 70 years'history of weak interactions. From the point of view of electroweak theory it has an added significance since the neutral-current (NC) interaction acts as a bridge between electrodynamics and the old charged-current (CC) weak interaction, but involves a massive boson $Z$ like the $W$ involved in the CC interaction. 
 
+Anyhow, the neutral current can be described by the $V-A$ Lagrangian too. In this case the lagrangian takes the form:
+\begin{align}\label{eqn:neutral-lagrangian-VA}
+\mathcal L_{NC}
+&=-\frac{4G'_F}{\sqrt2}\p{\sum_{l=e,\mu,\tau,\nu_e,\nu_\mu,\nu_\tau}J_{NC}^{\alpha}(l)}^\dagger\p{\sum_{l=e,\mu,\tau,\nu_e,\nu_\mu,\nu_\tau}J_{NC,\alpha}(l)}
+\end{align}
+with
+\begin{equation}\label{eqn:neutral-current-VA}
+J_{NC}^{\alpha}(l)=\bar l\gamma^\alpha (c_LP_L+c_RP_R)l
+\end{equation}
+We will see that the coupling $G'_F$ is actually different from the coupling for charged currents $G_F$.
 
-
+Very general arguments show that the range of any force is given by the Compton wavelength of the particle transmitting it. 
+This implies that neutral currents cannot be mediated through the photon either, since photon is massless and therefore describes infinite-range interaction. But experiments shows that weak interactions are low range interactions, and therefore must be mediated through massive particles. So we have introduce a mediator for interactions between neutral currents as well, in this case we have to introduce a massive neutral boson $Z$.
 
 \subsubsection{Unitarity}
+\textsf{Halzen sec. 12.7}\\
 
 If we compute the cross section for the process $\nu_\mu e^-\to\nu_e\mu^-$ with $\mathcal L_{\text{V-A}}$ we obtain
 \[(\bar\sigma)_{CM}=\frac{G_F^2s}{\pi}\]
 If initial energy $s$ approaches infinity then cross section goes to $\infty$. Obviously this is wrong, since leads to an unitarity problem. Experimentally we have
-
-
 \begin{figure}[H]
 \centering
 \include{img/VA-problems}
 \end{figure}
-
-This implies that the theory does not work for high energies. In order to have an unitary theory a requirement is 
+\noindent This implies that the theory does not work for high energies. In order to have an unitary theory a requirement is 
 \[\bar\sigma\leq\frac{4\pi}{s}\]
 i.e. V-A theory preserves unitariety only if $\sqrt s\leq\sqrt{2\pi/G_F}\simeq 700$GeV. This implies that initial energies of particles in c.o.m. have to be smaller than $\approx 300$GeV.
-
-
 \begin{figure}[H]
 \centering
 \include{img/VA-problems-1}
