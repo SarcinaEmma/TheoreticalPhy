@@ -1,0 +1,404 @@
+\documentclass[TheoreticalPhy_ModB.tex]{subfiles}
+\begin{document}
+
+\chapter{Non abelian Gauge Theories}
+\textsf{Maggiore sec. 10.1; Peskin sec. 15.1; Schwartz sec. 25.Intro, Mandl sec. 11.Intro, 11.1}\\
+
+In this chapter we introduce non-abelian gauge theories, or Yang-Mills theories. Their importance stems from the fact that strong interactions are described by a non-abelian gauge theory with gauge group $SU(3)$, known as quantum chromodynamics or QCD, while the electromagnetic and weak interactions are unified in a gauge theory with gauge group $SU(2)\times U(1)$, the electroweak theory. Together, QCD and the electroweak theory form the Standard Model, which to date reproduces all known experimental results of particle physics, up to energies of the order of a few hundred GeV.
+
+A full presentation of the Standard Model is beyond the scope of this course. In this and the next chapter we will however introduce two of its main ingredients, namely Yang-Mills theories and the Higgs mechanism. 
+
+Non-abelian gauge theories\footnote{For a description of Gauge groups, Lie Algebras and their representation, see \textsf{Peskin sec. 15.4; Schwartz sec. 25.1}}, beside having an extraordinary experimental success, have also a very rich theoretical structure, at the classical and especially at the quantum level. Within the scope of this course, we can only limit ourself to just a few elementary aspects, in particular, we will discuss how to generalize gauge transformations to non-abelian groups and how to write the corresponding invariant Lagrangians. 
+
+As a first step, it is useful to rewrite the abelian gauge transformation of electrodynamics in a form more suitable for generalization. 
+We already know that the Lagrangian of QED is invariant under a very large group of transformations, allowing an independent symmetry transformation at every point in spacetime. This invariance is the famous \emph{gauge symmetry} of QED. From the modern viewpoint, however, gauge symmetry is not an incidental curiosity, but rather the fundamental principle that determines the form of the Lagrangian. Let us now review the elements of the theory, taking a modern viewpoint. 
+
+We begin with the complex-valued Dirac field $\psi(x)$, and stipulate that our theory should be invariant under the transformation
+\[\psi(x)\quad\to\quad e^{iq\alpha(x)}\psi(x)=\Omega(x)\psi(x)\]
+where $\Omega(x)=e^{iq\alpha(x)}$ is the representation of the $U(1)$ transformation. The transformation of the gauge field instead is 
+\[A_\mu(x)\quad\to\quad A_\mu(x)-\partial_\mu\alpha(x)=\Omega(x)A_\mu(x)\Omega^\dagger(x)-\frac iq(\partial_\mu\Omega)\Omega^\dagger\]
+where in the last step we used the propriety $\Omega^{-1}(x)=\Omega^\dagger(x)$ that holds since we arae considering the unitary group $U(1)$. 
+The coupling between $A_\mu$ and $\psi$ is obtained using the \emph{covariant derivative}, which in the representation to which $\psi$ belongs takes the form
+\[D_\mu=(\partial_\mu+iqA_\mu)\]
+The important propriety of the covariant derivative is that, even under $x$-dependent transformations, it transforms in the same way as $\psi$:
+\[D_\mu\psi\quad\to\quad \Omega(D_\mu\psi)\]
+Using covariant derivatives there is a very simple way to construct a theory with local $U(1)$ invariance: we start from a theory with global $U(1)$ invariance and we just replace all the ordinary derivatives with covariant derivatives. This method of coupling matter to the electromagnetic field is know as \emph{minimal coupling}. Non-minimal coupling are also possible, but they are characterized by coupling constant with dimensions of the inverse powers of mass. If we consider the example of the Fermi theory, we understand that couplings with inverse mass dimensions are less fundamental than dimensionless couplings, and emerge as the low-energy limit of some more fundamental dimensionless coupling. Therefore, it is the minimal coupling that we want to generalize. \\
+Notice that, since covariant derivative $D_\mu\psi$ has same proprieties of the field $\psi$, we have
+\[D_\mu D_\nu\psi\quad\to\quad \Omega(D_\mu D_\nu\psi)\]
+However, the commutator between covariant derivatives is not a derivative at all, since in general (for any gauge theory) it acts multiplicatively on the field $\psi$:
+\begin{equation}\label{eqn:prop-F-covdev-rel}
+-\frac iq[D_\mu,D_\nu]\psi=F_{\mu\nu}\psi
+\end{equation}
+where we introduced the structure $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$. Let's consider the transformation propriety of this structure:
+\[F_{\mu\nu}\psi\quad\to\quad -\frac iq\Omega[D_\mu,D_\nu]\psi=\Omega F_{\mu\nu}\psi\]
+this means that 
+\begin{equation}\label{eqn:F-tensor-transform}
+F_{\mu\nu}\quad\to\quad\Omega F_{\mu\nu}\Omega^\dagger
+\end{equation}
+and therefore this structure is a tensor. 
+
+If the simple geometrical construction we have just presented yield Maxwell's theory of electrodynamics, then surely it must be possible to construct other interesting theories by starting from more general geometrical principles. We want to generalize the above transformations to the case where $\Omega$ belong to a non-abelian group $G$, rather then just to $U(1)$, and we want to construct a Lagrangian invariant under such local transformations. We will limit ourselves to the case $G=SU(N)$, although the construction is very general; $G$ is called the \textbf{gauge group}.
+
+We start considering a fermion field\footnote{For definiteness we take $\psi_i$ to be Dirac fermions, but all the subsequent considerations are very general and apply to any matter fields, e.g. to bosonic fields or to Weyl fermions.} in $N$-dimensional fundamental representation\footnote{Notice that this construction is similar to the one we used for flavours. Nevertheless, this time we require a local symmetry, not only global.}
+\[\Psi=\begin{pmatrix}\psi_1\\\vdots\\\psi_N\end{pmatrix}\]
+The fact that $\Psi$ transform in the $N$-dimensional fundamental representation means that, under a gauge transformation
+\[\Psi(x)\quad\to\quad\Psi'(x)=\Omega(x)\Psi(x)\]
+The transformation matrix $\Omega\in SU(N)$ can be written as
+\[\Omega(x)=\exp{ig\hat\alpha(x)}\]
+where $\hat\alpha$ is a function that can be written in terms of the $N^2-1$ generators $T^a$ of the group $SU(N)$
+\begin{equation}\label{eqn:alpha-deco-gauge}
+\hat\alpha(x)=\alpha^a(x)T^a
+\end{equation}
+To construct an invariant Lagrangian, we introduce a set of gauge fields $A_\mu^a$ labeled by an index $a$, with one gauge field for each generator of the gauge group; the $A_\mu^a$ are called \textbf{non-abelian gauge fields}.   In particular, $SU(N)$ has $N^2-1$ generators, so we have three gauge fields for $SU(2)$ and eight gauge fields for $SU(3)$. We introduce the matrix field
+\begin{equation}\label{eqn:matrix-vector-pot-gauge}
+\hat A_\mu(x)=\sum_{a=1}^{N^2-1}A_\mu^a(x)T^a
+\end{equation}
+The summation over $a$ will be omitted from now on, it should be introduced each time there are two indeces $a$ in the same term. 
+
+We now introduce the covariant derivative on the field $\psi$. The most general form is
+\begin{equation}\label{eqn:gauge-cov-deriv}
+\hat D_\mu\Psi=(\id_N\partial_\mu+igA_\mu^a(x)T^a)\Psi=(\hat \partial_\mu+ig\hat A_\mu(x))\Psi
+\end{equation}
+Fields $A_\mu^a$ do not depend on the specific representation we choose\footnote{Just as in electromagnetism the gauge field, and therefore its transformation proprieties, does not know anything about about the representation of the matter field we consider.} for the field $\Psi$ and neither do the covariant derivative $\hat D_\mu$. Even if we use non-fundamental representation $\Psi_R$ of the field (and therefore different generators $T^a_R$) equation eq.~\eqref{eqn:gauge-cov-deriv} does not change. 
+
+\section{The Yang-Mills Lagrangian}
+
+\textsf{Maggiore sec. 10.2; (Peskin sec. 15.2)}\\
+
+The free Dirac Lagrangian 
+\[\mathcal L_{\text{free}}=\bar\Psi(i\hat{\slashed\partial}-m)\Psi\equiv\sum_{\alpha=1}^N\bar\psi^\alpha(i(\hat{\slashed\partial}\psi)^\alpha-m\psi^\alpha)\]
+is invariant under global $SU(N)$ transformations, since if $\Psi\to\Omega\Psi$ then $\bar\Psi\to\Psi\Omega^\dagger$ and, if $\Omega$ is independent of $x$, it goes through $\partial_\mu$ and cancels against $\Omega^\dagger$. However, if $\Omega$ depends on $x$, performing the transformation we also get a term proportional to $\partial_\mu\Omega$ and this Lagrangian is no longer invariant. 
+
+To construct an invariant Lagrangian, we have to use the covariant derivative, just replacing $\partial_\mu\to D_\mu$ in the free theory, that is 
+\begin{equation}\label{eqn:Dirac-lag-gauge}\boxed{
+\mathcal L_D=\bar\Psi(i\hat{\slashed D}-m)\Psi\equiv\sum_{\alpha=1}^N\bar\psi^\alpha(i(\hat{\slashed D}\psi)^\alpha-m\psi^\alpha)
+}\end{equation}
+We can obtain the gauge transformation of $A_\mu$ just requiring the invariance of the Dirac Lagrangian. We impose that 
+\[\hat D_\mu\Psi\quad\to\quad\Omega(\hat D_\mu\Psi)\]
+We have
+\begin{align*}
+(\hat D_\mu\Psi)'&=(\hat \partial_\mu+ig\hat A'_\mu(x))\Omega\Psi=((\hat \partial_\mu\Omega)+\Omega\hat \partial_\mu+ig\hat A'_\mu(x))\Psi\\
+&\overset{!}{=}\Omega(\hat D_\mu\Psi)=\Omega(\hat \partial_\mu+ig\hat A_\mu(x))\Psi
+\end{align*}
+and therefore the requirement implies the following gauge transformation for the field $\hat A_\mu$:
+\begin{equation}\label{eqn:trn-A-gauge}\boxed{
+\hat A_\mu\quad\to\quad\Omega\hat A_\mu\Omega^\dagger+\frac1g(\hat \partial_\mu\Omega)\Omega^\dagger
+}\end{equation}
+The Lagrangian eq.~\eqref{eqn:Dirac-lag-gauge} contains the fermionic field and its interaction with the gauge fields. The interaction term, which is hidden in the covariant derivative, is
+\[\mathcal L_{\text{int}}=g\bar\psi^\alpha \slashed A_\mu^a(T^a)_{\alpha\beta}\psi^\beta\]
+and we see that $g$ is a couling constant. We also need a kinetic term for the gauge fields. One might try to define the field strength tensor of each of the gauge fields $A^a_\mu$ as $F_{\mu\nu}^a=\partial_\mu A^a_\nu-\partial_\nu A^a_\mu$, but it is immediate to verify that this quantity does not satisfy any simple transformation property under gauge transformation under eq.~\eqref{eqn:trn-A-gauge}. Instead, a straightforward computation shows that the quantity
+\begin{equation}\label{eqn:dfn-F-gauge}\boxed{
+\hat F_{\mu\nu}=\hat \partial_\mu \hat A_\nu-\hat \partial_\nu \hat A_\mu-ig[\hat A_\mu,\hat A_\nu]
+}\end{equation}
+transforms as
+\begin{equation}\label{eqn:F-tensor-matr-transform}
+F_{\mu\nu}\quad\to\quad\Omega(x)F_{\mu\nu}\Omega^\dagger(x)
+\end{equation}
+and satisfy the relation
+\[-\frac ig[\hat D_\mu,\hat D_\nu]\Psi=F_{\mu\nu}\Psi\]
+which are the trivial generalizations of eq.~\eqref{eqn:F-tensor-transform} and eq.~\eqref{eqn:prop-F-covdev-rel}.
+Therefore, using the definition eq.~\eqref{eqn:dfn-F-gauge} the tensor $\hat F_{\mu\nu}$ is the generalization of the field strength tensor $F_{\mu\nu}$ we defined for the Maxwell's field. The object $\hat F_{\mu\nu}$ is called \textbf{non-abelian field strength tensor}. From eq.~\eqref{eqn:dfn-F-gauge} ad eq.~\eqref{eqn:matrix-vector-pot-gauge} we see that we can rewrite $\hat F_{\mu\nu}$ as
+\[\hat F_{\mu\nu}= F_{\mu\nu}^a T^a\]
+with\footnote{Recall that \emph{structure constant} are defined as $[T^a,T^b]=if^{abc}T^c$.}
+\begin{equation}\label{eqn:deco-F-tensor}
+F_{\mu\nu}^a=\partial_\mu A_\nu^a-\partial_\nu A_\mu^a+gf^{abc}A_\mu^bA_\nu^c
+\end{equation}
+Now it is easy to construct a gauge-invariant kinetic term for the gauge field; it is given by
+\[\mathcal L_{\text{gauge}}=-\frac12\Tr[F_{\mu\nu}F^{\mu\nu}]=-\frac14F_{\mu\nu}^aF^{\mu\nu}_a\]
+where $F_{\mu\nu}$ has be taken in the fundamental representation, and we used the fact that $\Tr(T^aT^b)=\delta^{ab}/2$. Under gauge transformations $\Tr F_{\mu\nu}F^{\mu\nu}\to \Tr (\Omega F_{\mu\nu}F^{\mu\nu}\Omega^\dagger)=\Tr F_{\mu\nu}F^{\mu\nu}$ due to the cyclic property of the trace. 
+
+The complete Lagrangian of the $SU(N)$ Yang-Mills theory with Dirac fermions is therefore 
+\begin{equation}\label{eqn:YM-lag}\boxed{
+\mathcal L_{YM}=\bar\Psi(i\slashed D-m)\Psi-\frac12\Tr F_{\mu\nu} F^{\mu\nu}
+}\end{equation}
+This Lagrangian is called \textbf{Yang-Mills Lagrangian}. The kinetic term for the gauge field can be rewritten using the vector potential $\hat A_\mu$ as follows
+\begin{subequations}\label{eqn:YM-lag-potentials}\begin{align}
+\mathcal L_{\text{gauge}}
+&=-\frac12\Tr[(\partial_\mu\hat A_\nu-\partial_\nu\hat A_\mu)^2]\\
+&\quad-ig\Tr[(\partial_\mu\hat A_\nu-\partial_\nu\hat A_\mu)[A^\mu,A^\nu]]\label{eqn:YM-lag-potentials-3int}\\
+&\quad+\frac{g^2}2\Tr[[\hat A_\mu,\hat A_\nu][\hat A^\mu,\hat A^\nu]]\label{eqn:YM-lag-potentials-4int}
+\end{align}\end{subequations}
+Observe, from eq.~\eqref{eqn:YM-lag-potentials}, that the term $F^2$ contains not only the standard kinetic term of the gauge fields, but also an interaction vertex with three gauge bosons, proportional to $g$, and a vertex with four gauge bosons, proportional to $g^2$. This interactions represented in following figures:
+\[
+\begin{tikzpicture}[baseline=(e0)]
+	\begin{feynman}[small]
+		\vertex(e0);
+		\vertex[below left=of e0](e1);
+		\vertex[below right=of e0](e2);
+		\vertex[above=0.9cm of e0](e3);
+		\diagram*{
+			(e1)--[boson](e0)--[boson](e2),
+			(e0)--[boson](e3),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\propto g
+\hspace{3cm}
+\begin{tikzpicture}[baseline=(e0)]
+	\begin{feynman}[small]
+		\vertex(e0);
+		\vertex[below left=of e0](e1);
+		\vertex[below right=of e0](e2);
+		\vertex[above left=of e0](e3);
+		\vertex[above right=of e0](e4);
+		\diagram*{
+			(e1)--[boson](e0)--[boson](e2),
+			(e3)--[boson](e0)--[boson](e4),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\propto g^2
+\]
+Observe also that gauge invariance has fixed the three-boson, four-boson, and boson-fermion-fermion vertices in terms of a single parameter, the gauge coupling $g$.
+
+
+\subsubsection{Adjoint representation of the field strength tensor}
+\textsf{Maggiore sec. 10.4}\\
+
+Finally, notice that eq.~\eqref{eqn:F-tensor-matr-transform} means that the tensor $\hat F_{\mu\nu}$ transforms with the adjoint representation of the group. Let's take an infinitesimal gauge transformation, i.e. $\Omega(x)\simeq\id+ig\hat \alpha(x)+o(\hat \alpha^2(x))$, then
+\begin{equation}\label{eqn:fund-rep-field-analogy}
+\Psi\quad\to\quad\Omega\Psi=\p{e^{ig\alpha^aT^a}}\Psi\simeq\Psi+ig\alpha^aT^a\Psi
+\end{equation}
+Under the infinitesimal transformation eq.~\eqref{eqn:F-tensor-matr-transform} reads\footnote{The symbol $\overset{\sim}\longrightarrow$ indicate an approximated transformation, since we neglect $o(\hat \alpha^2)$ terms.}
+\[\begin{split}
+\hat F_{\mu\nu}\quad\overset{\sim}\longrightarrow\quad& \hat F_{\mu\nu}+ig[\hat\alpha,\hat F_{\mu\nu}]
+=\hat F_{\mu\nu}+ig\alpha^aF_{\mu\nu}^b[T^a,T^b]\\
+&=\hat F_{\mu\nu}-g\alpha^aF_{\mu\nu}^bf^{abc}T^c
+=\hat F_{\mu\nu}+g\alpha^aF_{\mu\nu}^bf^{acb}T^c\\
+&=\hat F_{\mu\nu}+g\alpha^bF_{\mu\nu}^cf^{bac}T^a
+=\hat F_{\mu\nu}+ig\alpha^bF_{\mu\nu}^c(T^b_{\text{adj}})^{ac}T^a
+\end{split}\]
+where in the fourth step we used the total asymmetry of structure constant $f^{abc}$, in the fifth we just renamed indexes, and in the last the relation $(T^a_{\text{adj}})^{bc}=-if^{abc}$. Using the decomposition $\hat F_{\mu\nu}=F_{\mu\nu}^aT^a$:
+\begin{equation}\label{eqn:adj-transf-F}
+F_{\mu\nu}^a\quad\overset{\sim}\longrightarrow\quad F_{\mu\nu}^a+ig \alpha^b(T^b_{\text{adj}})^{ac}F_{\mu\nu}^c
+\end{equation}
+If we introduce the following representation
+\[\vec F_{\mu\nu}=\begin{pmatrix}F_{\mu\nu}^1\\\vdots\\F_{\mu\nu}^{N^2-1}\end{pmatrix}\]
+the eq.~\eqref{eqn:adj-transf-F} can be rewritten (neglecting $o(\hat\alpha^2)$ terms):
+\begin{equation}\label{eqn:adj-rep-field-analogy}
+\vec F_{\mu\nu}\quad\overset{\sim}\longrightarrow\quad 
+\vec F_{\mu\nu}+ig\alpha^a T^a_{\text{adj}}\vec F_{\mu\nu}
+\simeq \p{e^{ig\alpha^a T^a_{\text{adj}}}}\vec F_{\mu\nu}
+\end{equation}
+We notice that compared with the transformation in the fundamental representation eq.~\eqref{eqn:fund-rep-field-analogy}, the transformation for the field strength eq.~\eqref{eqn:adj-rep-field-analogy} is obtained just substituting the generators $T^a$ with them adjoints $T^a_{\text{adj}}$. This means that the field $F_{\mu\nu}$ transforms in the adjoint representation of $SU(N)$.
+We could expected this result since the representation of $\hat F_{\mu\nu}$ is $(N^2-1)$-dim., and the dimension of the adjoint representation of a fundamental $N$-dim. representation has $N^2-1$ dimensions. 
+
+\section{The Strong sector of the Standard Model: the $SU(3)$ example}
+\textsf{Schwartz 25.1.1, 26.Intro, 26.1}\\
+
+Let's consider the specific case of the $SU(3)$ group. The $SU(3)$ has $N^2-1=8$ hermitian\footnote{The Lie algebra of $SU(N)$ is made of hermitian matrices.} generators that must satisfy the algebra
+\[[T^a,T^b]=if^{abc}T^c\qquad\text{with}\quad a,b,c=1,\dots,8\]
+where the \emph{structure constant} $f_{abc}$ must be a completely antisymmetric tensor. The values of $f_{abc}$ are conveniently chosen to be
+\begin{align*}
+f^{123} &= 1\\
+f^{147} = -f^{156} = f^{246} = f^{257} = f^{345} = -f^{367} &= \frac{1}{2} \\
+f^{458} = f^{678} &= \frac{\sqrt{3}}{2}
+\end{align*}
+and all other $f^{abc}$ not related to these by permuting indices are zero. If we define \textbf{Gell-Mann matrices} as follows:
+\begin{alignat*}{4}
+\lambda^1 = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}\quad
+&&\lambda^2 = \begin{pmatrix} 0 & -i & 0 \\ i & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}\quad
+&&\lambda^3 = \begin{pmatrix} 1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 0 \end{pmatrix}\\
+\lambda^4 = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \end{pmatrix}\quad
+&&\lambda^5 = \begin{pmatrix} 0 & 0 & -i \\ 0 & 0 & 0 \\ i & 0 & 0 \end{pmatrix}\quad
+&&\lambda^6 = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{pmatrix}\\
+\lambda^7 = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & -i \\ 0 & i & 0 \end{pmatrix}\quad
+&&\lambda^8 = \frac{1}{\sqrt{3}} \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -2 \end{pmatrix}
+&&
+\end{alignat*}
+then the generators $T^a$ in the fundamental representation are given by
+\[T^a=\frac12\lambda^a\]
+They satisfy this normalization propriety
+\begin{equation}\label{eqn:Gellmann-matrices-norm}
+\Tr[T^aT^b]=\frac12\delta_{ab}
+\end{equation}
+
+Let's introduce eight non-abelian gauge fields $G^a_\mu$. Adopting the previous fundamental representation of $SU(3)$ the gauge matrix field become
+\begin{equation}\label{eqn:gluon-field-matrix}
+\hat G_\mu(x)\equiv\sum_{a=1}^8G_\mu^a(x)T^a=\frac12
+\begin{pmatrix}
+G_\mu^3+\frac{1}{\sqrt2}G_\mu^8	& G_\mu^1-iG_\mu^2	& G_\mu^4-iG_\mu^5\\
+G_\mu^1+iG_\mu^2	& G_\mu^3+\frac1{\sqrt3}G_\mu^8	& G_\mu^6-iG_\mu^7\\
+G_\mu^4+iG_\mu^5	& G_\mu^6+iG_\mu^7	& -\frac2{\sqrt3}G_\mu^8\\
+\end{pmatrix}
+\end{equation}
+The matrix $\hat G_\mu$ shows 2 gauge bosons in the diagonal sector and 6 gauge bosons in the off-diagonal sector. These gauge bosons associated to each field $G_\mu^a(x)$ are called \textbf{gluons}.
+
+
+\subsection{The QCD Yang-Mills Lagrangian}
+\textsf{Schwartz sec. 26.1; Mandl sec. 11.2, 11.3.1}\\
+
+Matter fields in QCD describe particles called \textbf{quarks}. Quark's fields are 3-dim complex Dirac fields, that can be represented as
+\[\Psi=\begin{pmatrix}\psi_1 \\\psi_2\\\psi_3\end{pmatrix}
+=\begin{pmatrix}\psi_R \\\psi_G\\\psi_B\end{pmatrix}\]
+where components of this fields are the three possible ``color states'' called respectively \textbf{red} ($R$), \textbf{green} ($G$), \textbf{blue} ($B$) quarks. The Dirac Lagrangian takes the form
+\begin{equation}\label{eqn:QCD-Dirac-lag}
+\mathcal L_{D}=\bar\Psi(i\slashed D-m)\Psi=\bar\Psi(i\slashed \partial-m)\Psi-g_s\bar\Psi\gamma^\mu\hat G_\mu\Psi
+\end{equation}
+
+
+\subsubsection{Gluons couplings with quarks}
+
+Let's consider the interacting part of eq.~\eqref{eqn:QCD-Dirac-lag}:
+\begin{equation}\label{eqn:QCD-int-lag}
+\mathcal L_{int}=-g_S\bar\Psi\gamma^\mu\hat G_\mu\Psi=-g_s\bar\psi_i(\hat G_\mu)_{ij}\gamma^\mu\psi_j
+\end{equation}
+where in the second step we wrote explicitly the components. We can immediately write down Feynman's rule for vertices in the form $f\bar fg$ (where $f$ indicate fermions and $g$ the gluon):
+\[
+\begin{tikzpicture}[baseline=(e0)]
+	\begin{feynman}
+		\vertex(e0);
+		\vertex[below=0.7cm of e0](a);
+		\vertex[above=of a, label={[xshift=0.5cm, yshift=-0.5cm, font=\footnotesize]$(\mu,a)$}](b);
+		\vertex[right=of a](c);
+		\vertex[left=of a](d);
+		\diagram*{
+			(d)--[fermion, font=\footnotesize, edge label=$j$](a)--[fermion, font=\footnotesize, edge label=$i$](c),
+			(a)--[gluon](b),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=-ig_s\gamma^\mu(T^a)_{ij}
+\]
+Indexes $i,j$ describes the color of external quarks, while indexes $\mu$ and $a$ are referred to the gluon field. In particular, $\mu$ indicate the component of the gluon field and $a$ indicate which gluon is involved in the process. 
+
+When we consider eq.~\eqref{eqn:QCD-int-lag} with eq.~\eqref{eqn:gluon-field-matrix} we notice that colors of quarks attached to each vertex define which gluons can be involved in the process. For example, if incoming and outgoing quarks has same color $i=j$, then only gluons in the diagonal sector of eq.~\eqref{eqn:gluon-field-matrix} are involved, namely $G_\mu^3$ and $G_\mu^8$. Differently, if I take $i=1$ and $j=2$ only 
+gluons $G_\mu^1$ and $G_\mu^2$ are involved. We can interpret this feature of the theory as the fact gluons carries colors. They have to carry out the color of the incoming quark and provide the color of the outgoing gluon. This (heuristic) description of the interaction between gluons and quarks is here represented pictorially:
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[baseline=(e0)]
+	\begin{feynman}
+		\vertex(e0);
+		\vertex[below=0.8cm of e0](a);
+		\vertex[above=of a](b);
+		\vertex[right=of a](c);
+		\vertex[left=of a](d);
+		\vertex[above=2mm of d](l1);
+		\vertex[left=2mm of b](l2);
+		\vertex[above=2mm of c](r2);
+		\vertex[right=2mm of b](r1);
+		\diagram*{
+			(d)--[fermion, font=\footnotesize, edge label'=$j$](a)--[fermion, font=\footnotesize, edge label'=$i$](c),
+			(a)--[gluon](b),
+			(l1)--[style=->, in=260, out=10,looseness=2.1, font=\footnotesize, edge label=$j$](l2),
+			(r1)--[style=->, out=280, in=170,looseness=2.1, font=\footnotesize, edge label=$i$](r2),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\end{figure}
+
+\subsubsection{Gluon propagators and gluon self-interactions}
+
+The Feynman propagator for the gluon field takes the following form
+\[
+\begin{tikzpicture}[baseline=(a)]
+	\begin{feynman}
+		\vertex[label={[yshift=0.1cm, font=\footnotesize]$(\mu,a)$}](a);
+		\vertex[right=2cm of a, label={[yshift=0.1cm, font=\footnotesize]$(\nu,b)$}](b);
+		\diagram*{
+			(a)--[gluon](b)
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=D_{\mu\nu}^{ab}(k)=-\frac i{k^2}\p{g_{\mu\nu}-(1-\xi)\frac{k_\mu k_\nu}{k^2}}\delta_{ab}
+\]
+where the term $(1-\xi)$ is the gauge fixing term needed for the quantization of the field. When we consider amplitudes we can chose $\xi=1$ in order to simplify computation. Again, indexes $\mu,\nu$ indicate components of the gluon field, while indexes $a,b$ indicate color carried by the gluon. We notice the absence of mass terms, since gauge symmetry requires massless gauge fields. 
+
+Let's consider 3 gluons interaction given by the gauge field kinetic term proportional to $g_s$ (eq.~\eqref{eqn:YM-lag-potentials-3int})
+\[-ig_s\Tr[(\partial_\mu\hat G_\nu-\partial_\nu\hat G_\mu)[\hat G^\mu, \hat G^\nu]]
+=g_sf^{abc}(\partial_\mu G_{\nu}^a) G^{\mu,b} G^{\nu,c}
+\]
+where we used eq.~\eqref{eqn:Gellmann-matrices-norm} to obtain the right side term. We shall prove the following Feynman rule for 3 gluons interactions
+\begin{equation}\label{eqn:fey-rule-3-gluon}
+\begin{tikzpicture}[baseline=(a)]
+	\begin{feynman}
+		\vertex(a);
+		\vertex[above left=of a, label={[yshift=0.1cm, font=\footnotesize]$(\mu,a)$}](g1);
+		\vertex[below left=of a, label={[yshift=-0.5cm, font=\footnotesize]$(\nu,b)$}](g2);
+		\vertex[right=of a, label={[yshift=0.1cm, font=\footnotesize]$(\rho,c)$}](g3);
+		\diagram*{
+			(g1)--[gluon, momentum={[arrow shorten=0.3, font=\footnotesize]$p$}](a),
+			(g2)--[gluon, momentum={[arrow shorten=0.3, font=\footnotesize]$k$}](a),
+			(g3)--[gluon, momentum={[arrow shorten=0.3, font=\footnotesize]$q$}](a),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=g_sf^{abc}(g_{\mu\nu}(p-k)_\rho-g_{\nu\rho}(k-q)_\mu+g_{\rho\mu}(q-p)_\nu)
+\end{equation}
+
+\begin{exercise}[Proof of eq.~\eqref{eqn:fey-rule-3-gluon}]
+Let's show how to derive the Feynman rule eq.~\eqref{eqn:fey-rule-3-gluon}. The interaction is given by the interaction Lagrangian
+\[g_sf^{ijk}(\partial_\sigma G_{\tau}^i) G^{\sigma,j} G^{\tau,k}\]
+Then we have
+\begin{equation}\label{eqn:calc-fey-rule-3-gluon}\begin{split}
+&\bra0-i\int\de^4x\mathcal H^{\text{int}}(x)\ket{(\mu,a,p),(\nu,b,k),(\rho,c,q)}=\\
+&=\bra0ig_sf^{ijk}\int\de^4x\left[(\partial_\sigma G_{\tau}^i) G^{\sigma,j} G^{\tau,k}\right]_x a^\dagger(\mu,a,p)a^\dagger(\nu,b,k)a^\dagger(\rho,c,q)\ket0
+\end{split}\end{equation}
+Notice that I have $3!=6$ ways to associate these fields with outgoing gluon states. First consider the case where
+\begin{enumerate}
+\item the term $(\partial_\sigma G_\tau^i)$ is applied to gluon $(\mu,a,p)$;
+\item the term $G^{\sigma,j}$ is applied to gluon $(\nu,b,k)$;
+\item the term $G^{\tau, k}$ is applied to gluon $(\rho,c,q)$.
+\end{enumerate}
+In this case we can make following substitution into eq.~\eqref{eqn:calc-fey-rule-3-gluon}
+\[(\partial_\sigma G_{\tau}^i) G^{\sigma,j} G^{\tau,k}
+\quad\to\quad
+\p{g_{\tau\mu'}\partial_\sigma  G^{\mu',i} }\p{g^{\sigma\nu'}G^{j}_{\nu'}}\p{ g^{\tau\rho'}G^{k}_{\rho'}}\]
+The contribution to the amplitude is 
+\[ig_sf^{abc}\p{g_{\tau\mu}p_\sigma  \epsilon^{\mu,a} }\p{-ig^{\sigma\nu}\epsilon^{b}_{\nu}}\p{ g^{\tau\rho}\epsilon^{c}_{\rho}}
+\]
+Terms in the form $ \epsilon^{\mu,a}$ are given by Feynman rules of incoming gluons, therefore must be omitted. We now have
+\[g_sf^{abc}g_{\tau\mu}p_\sigma g^{\sigma}_\nu g^{\tau}_\rho
+=g_sf^{abc}g_{\mu\rho}p_\nu
+\]
+This is the contribution given by only one of the six possible configurations. When we swap $(\nu,b,k)$ and $(\rho,c,q)$ the contribution is given by a simple exchange of indexes
+\[g_sf^{acb}g_{\mu\nu}p_\rho=-ig_sf^{abc}g_{\mu\nu}p_\rho\]
+Therefore the choice ``the term $(\partial_\sigma G_\tau^i)$ is applied to gluon $(\mu,a,p)$'' give a contribution
+\[g_sf^{abc}(g_{\mu\rho}p_\nu-g_{\mu\nu}p_\rho)\]
+Using cyclic permutations  $(\mu,a,p)\to(\nu,b,k)\to(\rho,c,q)\to(\mu,a,p)$ we can sum over all possible choices for $(\partial_\sigma G_\tau^i)$ and finally obtain eq.~\eqref{eqn:fey-rule-3-gluon}.
+\end{exercise}
+
+Let's consider 4 gluons interaction given by the gauge field kinetic term proportional to $g_s^2$ (eq.~\eqref{eqn:YM-lag-potentials-4int})
+\[\frac{g^2}2\Tr[[\hat A_\mu,\hat A_\nu][\hat A^\mu,\hat A^\nu]]
+=\frac{g^2}4f^{abc}f^{cde} G_\mu^aG_\nu^bG^{\mu,c} G^{\nu,d}
+\]
+where we used eq.~\eqref{eqn:Gellmann-matrices-norm} to obtain the right side term. We shall prove the following Feynman rule for 4 gluons interactions
+\begin{equation}\label{eqn:fey-rule-4-gluon}
+\begin{tikzpicture}[baseline=(a)]
+	\begin{feynman}
+		\vertex(a);
+		\vertex[above left=of a, label={[yshift=0.1cm, font=\footnotesize]$(\mu,a)$}](g1);
+		\vertex[below left=of a, label={[yshift=-0.5cm, font=\footnotesize]$(\nu,b)$}](g2);
+		\vertex[above right=of a, label={[yshift=0.1cm, font=\footnotesize]$(\rho,c)$}](g3);
+		\vertex[below right=of a, label={[yshift=-0.5cm, font=\footnotesize]$(\sigma,d)$}](g4);
+		\diagram*{
+			(g1)--[gluon](a),
+			(g2)--[gluon](a),
+			(g3)--[gluon](a),
+			(g4)--[gluon](a),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad
+\begin{aligned}
+=g_s^2\big\{&f^{abc}f^{cde}(g_{\mu\rho}g_{\nu\sigma}-g_{\mu\sigma}g_{\nu\rho})+\\
++&f^{abc}f^{cde}(g_{\mu\nu}g_{\rho\sigma}+g_{\mu\sigma}g_{\nu\rho})+\\
++&f^{abc}f^{cde}(g_{\mu\nu}g_{\rho\sigma}-g_{\mu\rho}g_{\nu\sigma})\big\}
+\end{aligned}
+\end{equation}
+Notice that for 4 gluons interactions there is no dependence on the momenta od gauge particles. 
+
+\section{Topics in QCD}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
