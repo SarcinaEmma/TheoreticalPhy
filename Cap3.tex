@@ -232,7 +232,7 @@ Flavours changing in neutral sector are forbidden too
 
 \section{QED Feynman Rules $\to$ fogli stampati (23-26)}
 
-\section{$e^+ e^- \to f^+ f^-$}
+\section{$e^+ e^- \to f^+ f^-$}\label{sec:electr-to-muon-scatt-QED}
 This diagram is called s-channel
 \begin{equation*}
 \begin{tikzpicture}[layered layout, baseline=(nu)]
@@ -494,12 +494,12 @@ Integrating over $\de \Omega$ we find the total unpolarized cross section
 Energy of initial particles must be grater than the mass of final particles $\omega > M$ (we changed the case $m \approx 0$)\\
 In equation \ref{eq:3}, \emph{the same term}, shows that for $m \approx M$ the cross section vanish and (see previous formulas) there is almost no dependence on the angle, moreover the term $\sigma(\alpha^3)$ is trabscured since we considering only first order of perturbative expansion.\\ \\
 We used approximation $m \approx 0$ because usually in experiments $\omega \approx 1 GeV$ and $m_{\mu} \approx 200 me \ m_{\mu} = 105 MeV$. For very high experiments, $\omega \approx TeV$, we can omit also f mass, approximating $M \approx 0$. This is called \textbf{ultra relativistic regime} (only energies are taken into account)
-\[
+\begin{equation}\label{eqn:electr-muon-scatt-QED-UR}
 \biggl( \frac{\de \bar{\sigma}}{\de \Omega} \biggr)_{CM}^{UR} =
 	\frac{\alpha^2}{4s} \underbrace{(1 + \cos \theta)}_{\text{scattering amplitude} \atop \text{is higher at small angles}}
 \qquad
 \bigl( \bar{\sigma} \bigr)^{UR}_{TOT} = \frac{4 \pi \alpha^2}{3s} + o \biggl( \frac{M^2}{s} \biggr)
-\]
+\end{equation}
 
 \skipline
 Let's summarize how we obtained these results. The method extends in a straightforward way to the calculation of unpolarized cross section for other QED processes at lowest order. The general procedure is as follows:
@@ -719,7 +719,7 @@ Adding up all four contributions, and dividing by 4 to average over the electron
 \end{split}
 \]
 
-\subsection{Mandelstam variables and crossing symmetries}
+\subsection{Mandelstam variables and crossing symmetries}\label{sec:crossing-symmetries}
 \textsf{Peskin, sec 5.4}\\
 Let's consider a different but closely related QED process: $e^- \, f^- \to e^- \, f^-$
 \begin{equation*}
@@ -1283,9 +1283,9 @@ Find the total cross section of the annihilation process $e^+e^-\rightarrow2\gam
 \end{exercise}
 
 
-\section{Scattering by an external E.M. field and the Rutherford formula}
+\section{Scattering by an external E.M. field and the Rutherford formula}\label{sec:scatt-Rutherf}
 
-\subsection{$e^-p\rightarrow e^-p$ - Rutherford scattering}
+\subsection{$e^-p\rightarrow e^-p$  Rutherford scattering}
 \textsf{See Schwartz sec. 13.4}
 
 Now let us go back to the problem of scattering of an electron by a Coulomb potential. Recall the classical Rutherford scattering formula, 

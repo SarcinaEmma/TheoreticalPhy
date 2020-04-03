@@ -2,7 +2,7 @@
 \begin{document}
 
 \chapter{Non abelian Gauge Theories}
-\textsf{Maggiore sec. 10.1; Peskin sec. 15.1; Schwartz sec. 25.Intro, Mandl sec. 11.Intro, 11.1}\\
+\textsf{Maggiore sec. 10.1; Peskin sec. 15.1; Schwartz sec. 25.Intro; Mandl sec. 11.Intro, 11.1}\\
 
 In this chapter we introduce non-abelian gauge theories, or Yang-Mills theories. Their importance stems from the fact that strong interactions are described by a non-abelian gauge theory with gauge group $SU(3)$, known as quantum chromodynamics or QCD, while the electromagnetic and weak interactions are unified in a gauge theory with gauge group $SU(2)\times U(1)$, the electroweak theory. Together, QCD and the electroweak theory form the Standard Model, which to date reproduces all known experimental results of particle physics, up to energies of the order of a few hundred GeV.
 
@@ -291,7 +291,7 @@ gluons $G_\mu^1$ and $G_\mu^2$ are involved. We can interpret this feature of th
 \subsubsection{Gluon propagators and gluon self-interactions}
 
 The Feynman propagator for the gluon field takes the following form
-\[
+\begin{equation}\label{eqn:gluon-propagator}
 \begin{tikzpicture}[baseline=(a)]
 	\begin{feynman}
 		\vertex[label={[yshift=0.1cm, font=\footnotesize]$(\mu,a)$}](a);
@@ -302,7 +302,7 @@ The Feynman propagator for the gluon field takes the following form
 	\end{feynman}
 \end{tikzpicture}
 \quad=D_{\mu\nu}^{ab}(k)=-\frac i{k^2}\p{g_{\mu\nu}-(1-\xi)\frac{k_\mu k_\nu}{k^2}}\delta_{ab}
-\]
+\end{equation}
 where the term $(1-\xi)$ is the gauge fixing term needed for the quantization of the field. When we consider amplitudes we can chose $\xi=1$ in order to simplify computation. Again, indexes $\mu,\nu$ indicate components of the gluon field, while indexes $a,b$ indicate color carried by the gluon. We notice the absence of mass terms, since gauge symmetry requires massless gauge fields. 
 
 Let's consider 3 gluons interaction given by the gauge field kinetic term proportional to $g_s$ (eq.~\eqref{eqn:YM-lag-potentials-3int})
@@ -390,6 +390,199 @@ where we used eq.~\eqref{eqn:Gellmann-matrices-norm} to obtain the right side te
 Notice that for 4 gluons interactions there is no dependence on the momenta od gauge particles. 
 
 \section{Topics in QCD}
+\textsf{Peskin sec. 17.1}\\
+
+Quantum chromodynamics is a non-Abelian gauge theory with gauge group $SU(3)$, and describes strong interactions between quarks and gluons. 
+
+Our current theoretical picture of the strong interactions began with the identification of the elementary fermions that make up the proton and other hadrons. As the properties of these fermions became better understood, the nature of their interactions became tightly constrained, in a way that led eventually to a unique candidate theory.
+
+In 1963 Gell-Mann and Zweig proposed a model that explained the spectrum of strongly interacting particles in terms of elementary constituents called \textbf{quarks}. Meson were expected to be quark-antiquark bound states. Indeed the lightest mesons have just the correct quantum numbers to justify the interpretation; they are spin-0 and spin-1 states of odd parity. Baryons were interpreted as bound states of three quarks. To explain the electric charges and other quantum numbers of hadrons, Gell-Mann and Zweig needed to assume three species of quarks, \textbf{up} ($u$), \textbf{down} ($d$), and \textbf{strange} ($s$). Additional hadrons discovered since that time require the existence of three more species: \textbf{charm} ($c$), \textbf{bottom} ($b$), and \textbf{top} ($t$). To make baryons with integer charges, the quark needed to be assigned fractional electric charge: $+2/3$ for $u$, $c$, $t$, and $-1/3$ for $d$, $s$, $b$. Then, for example, the proton would be a bound state of $uud$, while the neutron would be a bound state of $udd$. The six types of quarks are conventionally referred to as \textbf{flavors}. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lllllll}
+Quark & up & down & charm & strange & top & bottom \\ \hline
+Mass (GeV) & 2.15 & 4.70 & 1270 & 93.5 & 163000 & 4180 \\
+E-M Charge & +2/3 & -1/3 & +2/3 & -1/3 & +2/3 & -1/3
+\end{tabular}
+\end{table}
+
+Despite the phenomenological success of the original quark model, it had two serious problems. First, despite considerable effort, free particles with fractional charge could not be found. Second, the spectrum of baryons required the assumption that the wave functions of the three quarks be totally symmetric under the interchange of the quark spin and flavour quantum numbers, contradicting the expectation that quarks, which must have spin $1/2$, should obey Fermi statistics. 
+
+To reconcile the baryon spectrum with the spin-statistics theorem, was proposed that quarks carry an additional, unobserved quantum number, called \textbf{color}, and that baryon wave functions must be totally antisymmetric in color quantum numbers. Then, if the quark wave functions are totally symmetric in spin and flavour, they are totally antisymmetric overall, in agreement with Fermi statistics. The simplest model of color would be to assign quarks to the fundamental representation of a new, internal $SU(3)$ global symmetry. 
+
+Suppressing for a moment the spin and flavor quantum numbers, we can represent quarks by $q_i$, where $i=1,2,3$ is the color index. Thus quarks transform under the fundamental, or ``3'',  representation of the color $SU(3)$ symmetry. Antiquarks, $\bar q^i$, transforms in the $\bar 3$ representation. In the inner product of a $3$ and a $\bar 3$ is an invariant of $SU(3)$. One can also form a invariant by using the totally antisymmetric combination of three 3's, $\epsilon_{ijk}$: this object is invariant under $SU(3)$ transformations. Under the postulate that all hadrons wave functions must be invariant under $SU(3)$ symmetry transformations, these two types of combinations are the only simple ones allowed:
+\[\bar q^iq_i\qquad\epsilon^{ijk}q_iq_jq_k\qquad\epsilon_{ijk}\bar q^i\bar q^j\bar q^k\]
+That is, the assumption that physical hadrons are singlets under color implies that the only possible light hadrons are the \textbf{mesons} $\bar q^iq_i$, \textbf{baryons} $\epsilon^{ijk}q_iq_jq_k$, \textbf{antibaryons} $\epsilon_{ijk}\bar q^i\bar q^j\bar q^k$. All these color-neutral bound states are called \textbf{hadrons}. 
+
+Like the original quark model, the color hypothesis was phenomenologically successful but raised additional questions: Why should quarks have this seemingly superfluous property, and what mechanism insures that all hadron wave functions are color singlets? The answer to these questions came from deep-inelastic scattering experiments and the ensuing search for a theory of parton binding with the property of asymptotic freedom. When it was discovered that non-Abelian gauge theories have this property, all that remained was to identify the correct gauge group, with the colors being the gauge quantum numbers of the quarks. This reasoning resulted in a model of the strong interaction as a system of quarks, of the various flavours, each assigned to the fundamental representation of the local gauge group $SU(3)$. The quanta of the $SU(3)$ gauge field are called \textbf{gluons}, and th e theory is known as Quantum Chromodynamics of QCD. 
+
+Wilson showed that for sufficiently strong coupling, QCD exhibits \emph{confinement of color}: the only finite-energy asymptotic states of the theory are those that are singlets of color $SU(3)$. Thus the assumption that explains the spectrum of hadrons turns out to be a consequence of the non-Abelian gauge theory coupling to color. 
+
+The short-distance limit of QCD can be readily studied using Feynman diagrams. Here asymptotic freedom makes the coupling weak, and there is a sensible diagrammatic perturbation theory that begins from the model of free quarks and gluons.
+
+\subsection{QCD vs QED running constant: confinement and asymptotic freedom}
+\textsf{Halzen sec. 1.3, 7.8, 7.9}\\
+
+The existence of direct coupling between gluons in QCD has dramatic implications that become evident if oue contrasts the effects of \emph{charge screening} in both QED and QCD. 
+
+\subsubsection{Charge screening in QED}
+
+In QED, the electron is not just an electron, but it can suddenly emit a photon, or it can emit a photon that subsequently annihilates into an electron-posititron pair, and so on. Hence, any electron is surrounded by $e^-e^+$ pairs and, because opposite charges attract, the positrons will be preferentially closer to the electron. Therefore, the electron is surrounded by a cloud of charges which polarized in such a way that the positive charges are closer to the electron; the negative charge of the electron is thus screened, as shown in the next figure:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{img/Running-coupling-constant-QED.jpg}
+\end{figure}
+
+Suppose that we want to determine the charge of the electron by measuring the Coulomb force experienced by a test charge. The result will depend on where we place the test charge: when moving the test charge closer to the electron, we penetrate the cloud of positrons that screens the electron's charge. Therefore, the closer one approaches the electron, the larger is the charge one measures. In QFT the vacuum surrounding the electron has become a polarizable medium. The situation is analogous to that of a negative charge in a dielectric medium: the electron-positron pairs respond to the presence of the electron like the polarized molecules do in the dielectric. This effect is known as charge screening; as a result the ``measured charge'' depends on the distance one is probing the electron. 
+
+In the QED we discussed electron-proton scattering and we derived that this can be described using a Coulomb potential in the form
+\[V(r)=\frac{\alpha}r\]
+where $\alpha_0$ is the usual E-M coupling constant. We seen that when we renormalize QED (compare for instance with eq.~\eqref{eqn:correction-charge-NLO-QED}) the charge is modified by vacuum polarization loop in the photon propagator. Indeed, more in general, for higher order we can describe the interaction in the renormalized theory through a modified coulomb potential, where $\alpha$ is substituted by
+\[\alpha_{EM}(s)=\frac{\alpha}{1-\frac{\alpha}{3\pi}\log({s}/{\mu_0^2})}\]
+where $\mu_0$ is some term given by renormalization called renormalization or reference momentum, and $s$ is the Mandelstam variable associated to the momentum of the propagator.
+
+The term $\alpha_{EM}(s)$ is called \textbf{running coupling constant} since it depends on the energy of the photon, and describes how the effective charge depends on the separation of the two charged. Then, by summing part of all orders of perturbation theory, we have obtained the charge screening of electrodynamics. As $s$ increases, the photon sees more and more charge until, at some astronomically large but finite $s$, the coupling $\alpha_{EM}(s)$ is infinite. such point is called \textbf{Landau pole} and corresponds usually to $\sqrt s=10^{286}$eV. However, by inserting numerical values, we find that for all practically attaindable $s$, the variation of $\alpha_{EM}$ with $s$ is extremely small; $\alpha_{EM}$ increases from $1/137$ very slowly as $s$ increases. Of course, as $s$ increases, other loops (formed, for example, by a $\mu^+\mu^-$-pair or a $\bar u u$-quark pair) will also contribute to the variation. The energy 
+
+\subsubsection{Confinement and asymptotic freedom in QCD}
+
+One can carry through the same calculation for the color charge of a quark. Color screening would be a carbon copy of charge screening if it were not for the new configurations involving gluons turning into pairs of gluons, as shown in next figure:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=11cm]{img/Running-coupling-constant-QCD.jpg}
+\end{figure}
+
+The gluons, themselves carriers of color, also spread out the effective color charge of the quark. It turns out that the additional diagrams reverse the familiar result of quantum electrodynamics: a red charge is preferentially surrounded by other red charges. We now repeat the measure made with the probe for color changes. By moving out test probe closer to the original red quark, the probe penetrates a sphere of predominantly red charge and the amount of red charge measured decreases. The resulting ``antiscreening'' effect is referred to as \textbf{asymptotic freedom}. Asymptotically, two red quarks interact (i.e. for very small separations) through color fields of reduced strength and approach a state where they behave as essentially free, noninteracting particles. 
+
+Doing explicit calculation in QCD, after we renormalized the theory, the running coupling term for strong interactions shows following dependence on $s$ (the label $s$ in $\alpha_s$ indicate that this is the coupling for the \emph{s}trong interaction):
+\[\alpha_s(s)=\frac{\alpha_s}{1+\frac{\alpha_s}{12\pi}(33-2n_f)\log(s/\mu_0^2)}\]
+where $n_f$ is the number of quark flavours at energy $s$ (in our world $n_f\leq6$). Only in a world with more that 16 quarks flavours is the sign of the coefficient the same as in QED. Then $\alpha_s$ decreases with increasing $s$ and therefore becomes small for short-distance interactions. We say that the theory is ``\textbf{asymptotically free}''.
+One parameter, $\mu_0$, with the dimension of mass, remains as a relic of the renormalization. We see that at sufficiently low $s$, the effective coupling will become large. This implies that in such case the perturbative approach doesn't work. It is costumary to denote the $s$ scale at which this happens by $\Lambda_{QCD}^2$. Typical scale of this value is $\Lambda_{QCD}\simeq200MeV$ and corresponds to a distance of $\lambda \simeq1$fm.
+
+For $s$ values much larger than  $\Lambda_{QCD}^2$, the effective coupling is small and perturbative description in terms of quarks and gluons interacting weakly makes sense. For $s$ of order $\Lambda_{QCD}^2$, we cannot make such a picture, since quarks and gluons will arrange themselves into strongly bound cluster, namely, hadrons. Thus, we can think of $\Lambda_{QCD}$ as marking the boundary between a world of quasi-free quarks and gluons, and the world of pions, protons, and so on. 
+
+\subsection{$e^+e^-\,\rightarrow\,$ hadrons production}
+\textsf{Peskin 5.1; Halzen, sec. 11.1}\\
+
+The simples reaction involving quarks is the production of quarks pairs in $e^+e^-$ annihilation, which at most elementary level is a straightforward generalization of the process $e^+e^-\,\rightarrow\,f^+f^-$. Indeed, according to QCD, the simplest $e^+e^-$ process that ends in hadrons is 
+\[e^+e^-\,\rightarrow\,q\bar q\]
+the annihilation of an electron and a positron, through a virtual photon, into a quark-antiquark pair. After they are created, the quarks interact with one another through their strong forces, producing more quark pairs. Eventually the quark and antiquarks combine to form some number of mesons and baryons. 
+
+To adapt the result we obtained for $e^+e^-\,\rightarrow\,f^+f^-$ scattering in sec.~\ref{sec:electr-to-muon-scatt-QED} to handle the case of quarks, we must make three modifications:
+\begin{enumerate}
+\item replace the $f$ charge with the quark charge;
+\item count each quark three times, one for each color;
+\item include the effects of the strong interactions of the produced quark and antiquark
+\end{enumerate}
+Counting colors is necessary because experiments measure only the total cross section for production of all three colors (since hadrons are detected colorless). Surely the third modification is extremely difficult to make, but in high-energy limit, the effect of the strong interaction on the quark production process can be completely neglected, thanks to asymptotic freedom of the theory. The only effect of the strong interaction in this limit is to dress up the final-state quarks into bunches of hadrons. 
+
+Starting from the total scattering amplitude in the UR regime for the $e^+e^-\,\rightarrow\,f^+f^-$ given by eq.~\eqref{eqn:electr-muon-scatt-QED-UR} (we consider only first order terms):
+\[ \sigma_{e^+e^-\,\rightarrow\,f^+f^-} = \frac{4 \pi \alpha_{EM}^2}{3s}
+\]
+it is conventional to define, in the asymptotic limit
+\[R=\frac{\sigma_{e^+e^-\,\rightarrow\,\text{hadrons}}}{\sigma_{e^+e^-\,\rightarrow\,f^+f^-}}=N_c\sum_q(q_q^2)\]
+where $N_c$ is the number of colors for quarks (in our theory $N_c=3$) and the sum runs over all quarks whose masses are smaller that $E_{cm}/2$ and $q_q$ is the fractional charge of these quarks (respect to the electron one). 
+For instance
+\begin{alignat*}{3}
+R&=3\p{\p{\frac23}^2+\p{\frac13}^2+\p{\frac13}^2}=2	\qquad&&\text{for }u,\,d,\,s\\
+&=2+3\p{\frac23}^2=\frac{10}3	&&\text{for }u,\,d,\,s,\,c\\
+&=\frac{10}3+3\p{\frac13}^2=\frac{11}3	&&\text{for }u,\,d,\,s,\,c,\,b
+\end{alignat*}
+In fig.~\ref{fig:elect-quark-scatt} these prediction are compared to the measurements of $R$.  The value $R\simeq 2$ is apparent below the threshold for producing charmed particles at $\sqrt s=2(m_c+m_u)\simeq3.7$GeV. Above the threshold for all five quark flavors ($\sqrt s>m_b\simeq10$GeV),$R\simeq\frac{11}3$ as predicted. These measurements confirm that there are three color of quarks, since $R=\frac{11}3$ would be reduced by a factor 3 if there was only one color. 
+
+When $E_{cm}/2$ is in the vicinity of one of quark masses, the strong interaction cause large deviation from this formula. The most dramatic such effect is the appearance of bound states just below $E_{cm}=2m_q$, manifested as very sharp spikes in the cross section.
+
+These results for $R$ will be modified when we take into account correction due to the running coupling. In particular, the result we obtained holds only at leading order. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15.5cm]{img/electr-quark-scatt.jpg}
+\caption{Ratio $R$ as a function of the total $e^-e^+$ center-of-mass energy. (The sharp peaks correspond to the production of narrow resonance just below or near the flavor thresholds)}
+\label{fig:elect-quark-scatt}
+\end{figure}
+
+\subsection{Quark-quark scattering hard process and QCD potential}
+
+\textsf{Schwartz, sec. 26.2; Peskin, sec. 17.4}\\
+
+To get a feeling for how QCD differs from QED, we examine the tree-level potential between quarks. In QED, we saw in sec.\ref{sec:scatt-Rutherf} that the potential could be extracted from Coulomb scattering $e^-p^+\rightarrow e^-p^+$, which has a contributions from $t$-channel photons. Let us now consider the process $u\bar d\,\rightarrow\,u\bar d$ where $u$ and $d$ are up and down quarks. These are Dirac spinors transforming in the fundamental representation of QCD. The sign and the strength of the potential extracted from the $t$ channel exchange will tell us whether the transition is attractive or repulsive, and thus whether bound states can exist. 
+
+The tree-level diagram for elastic $u\bar d\,\rightarrow\,u\bar d$ scattering in QCD is
+
+\begin{equation*}
+\begin{tikzpicture}[baseline=(i)]
+  \begin{feynman}[large]
+    \vertex (f1) {$u$, {\footnotesize $i$}};
+    \vertex [label={[label distance=0.2cm]90:{\footnotesize$\mu,\,a$}}] at ([shift={(315:2.5)}]f1)  (u);
+    \vertex [label={[label distance=0.1cm]270:{\footnotesize$\nu,\,b$}}] at ([shift={(270:2)}]u) (d);
+    \vertex [below right=of d] (f2) {$\bar d$, {\footnotesize $l$}};
+    \vertex [below left=of d] (b1){$\bar d$, {\footnotesize $k$}};
+    \vertex [above right=of u] (b2){$u$, {\footnotesize $j$}};
+    \vertex at ([shift={(270:1)}]u)(i);
+    
+    \diagram*{
+      (f1) -- [fermion, momentum'={[arrow shorten=0.25]\(p\)}] (u) -- [gluon, momentum={[arrow shorten=0.3]\(\sqrt{t}=(p-p')=(q'-q)\)}] (d) -- [fermion, momentum={[arrow shorten=0.2]\(q'\)}](f2),
+      (u) -- [fermion, momentum'={[arrow shorten=0.3]\(p'\)}] (b2),
+      (b1) -- [fermion, momentum={[arrow shorten=0.2]\(q\)}] (d),
+      };
+  \end{feynman}
+\end{tikzpicture}
+\end{equation*}
+where labels $a,b$ and $i,j,k,l$ indicate colors respectively of quarks and gluons
+
+Notice that a similar diagram, with a photon instead of the gluon, is given by QED, but comparing  coupling constant for typical values of energies we see that QED contributions can be neglected
+\[\alpha_s(s)\simeq 0.12\quad\gg\quad\alpha_{EM}(s)\simeq 0.007\]
+
+The Ferynman amplitude for this QCD process is given by
+\[\mathcal M=(ig_s)^2\p{\bar u_j(p')\gamma^\mu u_i(p)}\p{v_k(q)\gamma^\nu v_l(q')}\sum_{ab}\p{T^a}_{ji}\p{T^b}_{kl}D_{\mu\nu}^{ab}(t)\]
+
+And using eq.~\eqref{eqn:gluon-propagator} with $\xi=1$ we obtain
+
+\[\mathcal M=\frac{ig_s^2}{t}\sum_a\p{T^a}_{ji}\p{T^a}_{kl}\p{\bar u_j(p')\gamma^\mu u_i(p)}\p{v_k(q)\gamma^\nu v_l(q')}\]
+
+Notice that $\frac1t$ behaviour of the amplitude is the same as for process $e^+e^-\rightarrow e^+e^-$ in QED, therefore also the interaction given by gluon is Coulomb like. 
+
+To understand the $\p{T^a}_{ji}\p{T^b}_{kl}$ coefficient, let us consider different choices for the color of the incoming $u$ and $\bar d$ quarks. For example, suppose the incoming $u$ is red and the incoming $\bar d$ is anti-green ($i=1$, $k=2$). Then, by explicit computation using Gell-Mann matrices we obtain
+\[\sum_a\p{T^a}_{j1}\p{T^a}_{2l}=\left(\begin{array}{ccc}0 & 1/6 & 0 \\0 & 0 & 0 \\0 & 0 & 0\end{array}\right)_{jl}=-\frac16\delta_{j1}\delta_{2l}\]
+so that $j=1$ and $l=2$. That is, the final state must also have a red quark and a green anti-quark. Of course, just because color is conserved. Since $\sum_a\p{T^a}_{11}\p{T^a}_{22}=-\frac16$, the $t$-channel diagram has the opposite sign from the $e^-p^+$ case and the potential is therefore repulsive (as it would be for say $e^+p^+$ scattering). Indeed it is impossible to have stable colored states since in this case potential is repulsive.
+
+On the other hand, suppose both $u$ is red and $\bar d$ is anti-red. Then the initial state is a color singlet (color and anti-color cancel each other). In this case $i=1$ and $k=1$ and 
+\begin{equation}\label{eqn:colorless-matrix-contr}
+\sum_a\p{T^a}_{j1}\p{T^a}_{2l}=\left(\begin{array}{ccc}1/3 & 0 & 0 \\0 & 1/2 & 0 \\0 & 0 & 1/2\end{array}\right)_{jl}
+\end{equation}
+so the final state can be red/anti-red, blue/anti-blue or green/anti-green. In any of these cases, the color factor will have a positive coefficient and the potential will be attractive. 
+
+To get the overall strength of the potential, let's consider the most general color singlet state:
+\[\ket1=\frac{1}{\sqrt3}\big(\ket{r\bar r}+\ket{b\bar b}+\ket{g\bar g}\big)\]
+Summing over all the possibilities for $\ket{r\bar r}\,\rightarrow\,$ anything gives a factor 4/3 from the trace of eq.~\eqref{eqn:colorless-matrix-contr}. We then get three times this (for the three collors) multiplied by the normalization $\p{\frac1{\sqrt3}}^2$. Therefore the potentia is
+\[V_s(r)=-\frac{N_c}{(\sqrt 3)^2}\underbrace{\Tr[\sum_aT^aT^a]}_{4/3}\frac{\alpha_s}r=-\frac43\frac{\alpha_s}r\]
+Then only the color singlet channel is attractive is consistent with the observational fact we do not find colored mesons in nature. 
+
+Let's compute the total scattering amplitude in the high energy limit. The unpolarized Feyman amplitude must average also over all possible color of initial states:
+\begin{align*}
+\vert\overline{\mathcal M} \vert^2
+&=\p{\frac13}^2\sum_{\text{color}}\p{\frac12}^2\sum_{\text{spin}}\p{\frac{g_s^2}t}^2\vert(\text{$u$-current})(\text{$\bar d$-current})\vert^2\vert\sum_a\p{T^a}_{ji}\p{T^a}_{kl}\vert^2\\
+&=\frac14\p{\frac{g_s^2}t}^2\Tr[\text{$u$-current}]\Tr[\text{$\bar d$-current}]\frac19\sum_{ab}\sum_{ij}\p{T^a}_{ji}\p{T^b}_{ij}\sum_{kl}\p{T^a}_{kl}\p{T^b}_{lk}
+\end{align*}
+where we used $\p{T^a}_{ij}^*=\p{T^a}_{ji}$. 
+We can simplify calculation using the result we already know from QED process $e^-\mu^+\rightarrow e^-\mu^+$
+\begin{align*}
+\vert\overline{\mathcal M} \vert^2
+&=\frac19\sum_{ab}\Tr[T^aT^b]\Tr[T^aT^b]\p{\frac{\alpha_s}{\alpha_{EM}}}^2\vert\overline{\mathcal M} \vert^2_{e^-\mu^+}\\
+&=\frac19\sum_{ab}\p{\frac12\delta_{ab}}\p{\frac12\delta_{ab}}\p{\frac{\alpha_s}{\alpha_{EM}}}^2\vert\overline{\mathcal M} \vert^2_{e^-\mu^+}\\
+&=\frac19\frac84\p{\frac{\alpha_s}{\alpha_{EM}}}^2\vert\overline{\mathcal M} \vert^2_{e^-\mu^+}
+=\frac29\p{\frac{\alpha_s}{\alpha_{EM}}}^2\vert\overline{\mathcal M} \vert^2_{e^-\mu^+}
+\end{align*}
+Finally (recall that we are working in the high energy limit, i.e. $m_f=0$):
+\[\vert\overline{\mathcal M} \vert^2_{u\bar d}=\frac{64\pi^2}9\alpha_s^2\p{\frac{s^2+u^2}{t^2}}\]
+and
+\[{\p{\frac{\de\overline\sigma}{\de\Omega}}}_{u\bar d}=\frac{\alpha_s^2}{9t}\p{\frac{s^2+u^2}{t^2}}\]
+
+
+
+
 
 
 
