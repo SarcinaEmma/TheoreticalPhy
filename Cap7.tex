@@ -1,0 +1,223 @@
+\documentclass[TheoreticalPhy_ModB.tex]{subfiles}
+\begin{document}
+
+\chapter{Spontaneous Symmetry Breaking (SSB)}
+
+Spontaneous symmetry breaking is one of the most important concepts in quantum field theory. The distinction between spontaneous and explicit symmetry breaking is that with spontaneous symmetry breaking the Lagrangian is invariant under the symmetry, but the ground state of the theory is not. With explicit symmetry breaking, there was never an exact symmetry to begin with. One usually associates spontaneous symmetry breaking with phase transitions. The amazing thing about spontaneous symmetry breaking is that one can say a tremendous amount about the broken phase with an effective theory whose input is the symmetry that was broken - no detailed microscopic description is needed. 
+
+A simple example is given by a ferromagnet. The action governing its microscopic dynamic is invarian under spatial rotations. Above a critical temperature a ferromagnet has a unique ground state, with zero magnetization. Of course this state respects the rotational invariance, since on it the expectation value of the magentization $\vec M$ vanishes, and therefore no preferred direction is selected. Below a critical temperature instead it becomes thermodynamically favourable to develop a non-zero magnetization, and in this new vacuum $\vec M\neq0$ and the full $SO(3)$ rotational symmetry is broken to the subgroup $SO(2)$ of rotations around the magnetization axis. 
+
+The original invariance of the Lagrangian is now reflected in the fact that, instead of a single vacuum state, there is a whole family of vacua related to each other by rotations, since the magnetization can in principle develop in any direction. However, the system will choose one of these states as its vacuum state. The symmetry is then said to be \emph{spontaneously broken} by the choice of a vacuum.
+
+For $T<T_C$ it is helpful to write $\vec M(x)=\vec\mu+\vec\sigma(s)$, where $\vec\mu$ is the expectation value of $\vec M$ in the vacuum ($T=0$) and $\vec\sigma$ are the excitations around this minimum. The field $\vec\sigma(x)$ encodes spin waves whose quanta are called Goldstone bosons. 
+
+For continuous global symmetry, such as $\phi(x)\to e^{i\alpha}\phi(x)$, the breaking of the symmetry automatically implies the existence of long-range correlations and associated massless particles. This is Goldstone's theorem, and the massless particles are called Goldstone bosons. If the symmetry is gauged, as for $\phi(x)\to\phi^{i\alpha(x)}\phi(x)$ with an associated massless gauge field $A_\mu(x)$, then in the broken phase the gauge boson will acquire a mass. This is known as the Higgs mechanism, and allows to describes Weak interactions (which are mediated throw massive bosons $W^\pm$ and $Z$) as a spontaneously broken (renormalizable) gauge theory (an explicit presence of a mass term in the Lagrangian broke the gauge symmetry, since any term in the form $M^2A_\mu A^\mu$ is not gauge invariant because of the transformation rule for gauge fields). 
+
+
+\section{Spontaneous Symmetry Breaking of global symmetries}
+\textsf{Maggiore sec. 11.1-11.2; Peskin sec. 11.1; Schwartz sec. 28.1-28.2; Mandl sec. 18.1}\\
+
+\subsection{The renormalizable complex scalar potential and the sign of the quadratic term $\mu^2$}
+
+The simplest example of a field theory exhibiting spontaneous symmetry breaking is the \emph{Goldstone model}, i.e. a complex scalar theory with $U(1)$ symmetry. The Lagrangian of this model is
+\[\mathcal L=(\partial_\mu\phi^\dagger)(\partial^\mu\phi)-V(\phi^\dagger\phi)
+\qquad \text{with}\qquad
+V(\phi^\dagger\phi)=\lambda\left(\phi^\dagger\phi+\frac{\mu^2}2\right)^2
+\]
+This theory has a global $U(1)$ symmetry $\phi(x)\to e^{i\alpha}\phi(x)$ for constant $\alpha\in\mathR$. The Hamiltonian for this theory is
+\[H=\int\de^3x\left\{|\pi|^2+|\vec\nabla\phi|^2+V(\phi^\dagger\phi)\right\}\]
+hence we require $\lambda>0$ in such a way that the energy is bounded from below. We can see that no conditions is required for the parameter $\mu$, since in any case the potential is well defined. The Lagrangian can also be written in terms of two real fields $\phi_1$ and $\phi_2$ such that $\phi=(\phi_1+i\phi_2)/{\sqrt2}$:
+\[\mathcal L=\frac12(\partial_\mu\phi_1)^2+\frac12(\partial_\mu\phi_2)^2-V(\phi_1^2+\phi_2^2)
+\qquad \text{with}\qquad
+V(\phi_1^2+\phi_2^2)=\frac\lambda4\left(\phi_1^2+\phi_2^2+\mu^2\right)^2
+\]
+In this representation the symmetry of the Lagrangian is $SO(2)\simeq U(1)$.
+
+Let us discuss the proprieties of the ground state (vacuum) of the system. We define the vacuum expectation values as 
+\[\langle\phi\rangle_0=\bra0\phi\ket0=\phi_0\]
+where $\phi$ is a quantum field (i.e. an operator) considered in the vacuum configuration while $\phi_0$ is a classical field. The ground state must satisfy following requirements:
+\begin{enumerate}[label=(\arabic*)]
+\item $\phi_0$ is a constant field configuration: $\partial_\mu\phi_0(x,t)=0$ (we are asking that the kinetic term in the Lagrangian is zero for $\phi_0$). Hence the vacuum has no energy and no 3-momentum: $p^\mu=0$.
+\item $\phi_0$ must be a minimum for the potential $V$. Then $\phi_0$ is a stationary point for $V(\phi^\dagger\phi)$:
+\[\begin{cases}
+\frac{\partial V}{\partial\phi}\Big\vert_0=2\phi_0\left(\phi_0^\dagger\phi_0+\frac{\mu^2}2\right)=0\vspace{0.2cm}\\
+\frac{\partial V}{\partial\phi^*}\Big\vert_0=2\phi_0\left(\phi_0^\dagger\phi_0+\frac{\mu^2}2\right)=0
+\end{cases}\]
+Moreover we want the Hessian of $V$ (respect to $\phi$ and $\phi^\dagger$) to be positive definite in $\phi_0$.
+(Notice that for non-interacting theories (2) is already satisfied when (1) is satisfied).
+\end{enumerate}
+Two different situations occur, depending on the sign of $\mu^2$:
+\begin{enumerate}[label=(\alph*)]
+\item $\mu^2>0$. In this case two terms in $V$ are positive definite. In this case the only minima of the potential is given by $\phi_0=\phi_0^\dagger=0$ and the vacuum state is non-degenerate. The term $\lambda|\phi|^4$ will be treat by perturbation theory, and in the quantized theory represents a self-interaction of the particles. The field $\phi$ represent a charged field for a particle with mass $m_\phi^2=\lambda\mu^2$.
+\item $\mu^2<0$. In this case for $\phi(x)=0$ the Hessian is negative definite, and the minima is given by a whole circle
+\[\phi(x)=\phi_0=\p{\frac{-\mu^2}{2\lambda}}^{1/2}e^{i\theta}\qquad0\leq\theta<2\pi\]
+where the phase angle $\theta$ defines a direction in the complex $\phi$-plane. We see that the state of lowest energy, the vacuum state, is not unique in this case. This arbitrariness in the direction $\theta$ is analogous to that in the direction of the magnetization $\vec M$ of a ferromagnet. Spontaneous symmetry breaking will occur if we choose one particular direction $\theta$ to represent the vacuum ground state. Because of the invariance of the Lagrangian density under the global phase transformations the value of $\theta$ chosen is not significant and we shall take $\theta=0$, so that
+\[\phi_0=\p{\frac{-\mu^2}{2\lambda}}^{1/2}=\frac v{\sqrt2}\quad(>0)\]
+is purely real.
+\end{enumerate}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=11cm]{img/potential-SSB.jpg}
+\caption{Representation of $V(\phi_1^2+\phi_2^2)$ for different signs of $\mu^2$}
+\label{fig:SSB-potental}
+\end{figure}
+
+\subsection{The minimum of the theory and the choice of the vacuum configuration: the $U(1)$ 
+example}
+
+Suppose
+\[\phi_0=\frac v{\sqrt2}\qquad v>0\]
+Let's redefine our complex field introducing two real fields $\sigma(x)$ and $\pi(x)$:
+\[\phi(x)=\frac{\sigma(x)}{\sqrt2}e^{\frac{i\pi(x)}v}\]
+then the Lagrangian becomes
+\[\mathcal L=\frac12(\partial_\mu\sigma)^2+\frac{\sigma^2}{2v^2}(\partial_\mu\pi)^2-V(\sigma,\pi)\]
+where
+\[V(\sigma,\pi)=\frac\lambda4(\sigma^2-v^2)^2\]
+
+The first order derivatives of this Lagrangian is given by
+\[\begin{cases}
+\frac{\partial V}{\partial\sigma}\Big\vert_0=\frac\lambda2\sigma_0(\sigma_0^2-v^2)\vspace{2mm}\\
+\frac{\partial V}{\partial\pi}\Big\vert_0=0
+\end{cases}\]
+hence the vacuum state is given by $\sigma_0=v$ ($\sigma_0=0$ corresponds to negative definite Hessian), no condition over $\pi(x)$ is required.
+In order to write explicitly fluctuations about the vacuum state, let's define the field $\tilde \sigma(x)$ as follows
+\[\sigma(x)=\tilde\sigma(x)+v\]
+in such a way the expected value of $\tilde\sigma(x)$ (i.e. the fluctuation) in the vacuum is $\langle\tilde\sigma\rangle_0=0$
+The Lagrangian can be written in terms of fields $\tilde\sigma$ and $\pi$:
+\begin{equation}\label{eqn:SSB-lag}\begin{split}
+\mathcal L_{\text{SSB}}&=
+\frac12(\partial_\mu\tilde\sigma)^2-\frac{(2\lambda v^2)}2\tilde\sigma^2-\lambda v\tilde\sigma^3-\frac\lambda4\tilde\sigma^4+\frac12(\partial_\mu\pi)^2+\p{\frac{2v\tilde\sigma+\tilde\sigma^2}2}(\partial_\mu\pi)^2
+\end{split}\end{equation}
+This Lagrangian shows kinetic terms for both $\tilde \sigma$ and $\pi$, a massive term only for $\tilde\sigma$:
+\[\begin{cases}
+m_{\tilde\sigma}^2=2\lambda v^2\\
+m_\pi^2=0
+\end{cases}\]
+Lot of new interactions appears, depending on $\tilde\sigma$ and $\partial_\mu\pi$. Notice that the the fact that $\pi$ has only derivative interactions is a typical consequence of SSB. Anyhow, this is not the most general Lagrangian depending on $\tilde\sigma$ and $\pi$, indeed it depends only on 2 parameters $\lambda$ and $v^2$, and self-interacting couplings 
+\[d_3:=\lambda v\qquad\text{and}\qquad d_4:=\frac\lambda4\]
+have a relation with the mass of the real scalar field $\tilde\sigma$. 
+
+Notice that eq.~\eqref{eqn:SSB-lag} shows a hidden/residual symmetry called ``shift symmetry'' given by
+\[\pi(x)\quad\longrightarrow\quad\pi(x)+\alpha\qquad\text{for}\quad\alpha\in\mathR\]
+We can heuristically interpret this symmetry as a redefinition of the field $\phi$ by a phase $e^{i\alpha}$. This is a $U(1)$ symmetry hidden in the SSB, inherited by $\pi$ from the original $U(1)$ symmetry of $\phi$. 
+
+
+
+\subsection{The Nambu-Goldstone bosons and the Goldstone theorem}
+
+The example in the previous section is a particular case of a general theorem, the Goldstone theorem, which states that, given a field theory which is Lorentz invariant, local, and has a Hilbert space witha. a positive definite scalar product, if a continuous global simmetry is spontaneously broken, then in the expansion around the symmetry-breaking vacuum there appears a massless particle for each generator that breaks the symmetry. This particle is called a Goldstone (or Nambu-Goldstone) particle. In the previous example the particle was given by the field $\pi(x)$.
+
+The emergence of massless particles corresponds to the possibility of moving, in field space, in the direction of the manifold of vacua. The dimensionality of the manifold of vacua is equal to the number of generators which break the symmetry. In fact, setting the vacuum energy to zero, by definition we have $H\ket0=0$. Since $T^a$ is the generator of a symmetry transformation, it satisfies $[T^a,H]=0$ and therefore
+\[H(T^a\ket0)=T^aH\ket0=0\]
+So, if $T^a\ket0\neq0$ (and if it is not proportional to $\ket0$ itself) we have found a new state with the minimum energy, i.e. another vacuum state. This is the origin of the fact that we have a Goldstone particle for each generator which breaks the symmetry. 
+
+\subsubsection{Goldstone theorem}
+
+Let's consider a global group of symmetries (compact) $G$, with dimension $d_G$. Let's define a field $\phi$ in the (real) $n$-th dimensional representation of $G$: $\phi=(\phi_1,\dots,\phi_n)^T$. Consider a real Lagrangian for $\phi$:
+\[\mathcal L=\frac12(\partial_\mu\phi^T)(\partial^\mu\phi)-V(\phi^T\phi)\]
+ with a non-trivial ground state $\langle\phi\rangle_0=\vec v\neq0$, in particular
+ \[\frac{\partial V}{\partial\phi_i}\bigg\vert_{\langle\phi_i\rangle=v_i}=0\]
+The choice of a vacuum state spontaneously broke down the symmetry group $G$ to a subgroup $H$, that describes the \emph{residual global symmetry}, with $\dim H=d_H$. The vacuum is then invariant under $H$, but not under the remaining elements of $G$, which are denoted as a \emph{coset} and written as $G/H$. The coset is not a subgroup of $G$ (for example, it does not contain the identity element, moreover in general do not have closure property). 
+
+In particular we can consider $N$ generators of $G$, $\{T^a\}=\{X^{\hat a},Y^{\bar a}\}$, where $a=1,\dots,d_G$, $\bar a=1,\dots,d_H$ and $\hat a=1,\dots,d_G-d_H$. The set $\{Y^{\bar a}\}$ is given by the \emph{unbroken generators}
+\[Y^{\bar a}\vec v=0\]
+and generates the group $H$. Meanwhile, $\{X^{\hat a}\}$ is given by \emph{broken generators}
+\[X^{\hat a}\vec v\neq0\]
+and generates the coset $G/H$.
+
+For any broken generator corresponds a massless particle in the lagrangian
+\[\pi_{\hat a}(x)\qquad\hat a=1,\dots,d_G-d_H\]
+and all these massless particles are called \emph{Goldstone bosons}.
+\skipline
+
+\noindent
+\textit{Proof:}
+
+Consider an infinitesimal transformation of the original symmetry of the Lagrangian 
+\[
+\phi'=\phi+i\hat\alpha\phi
+\qquad\longleftrightarrow\qquad
+\phi'_i=\phi_i+i\alpha_aT^a_{ij}\phi_j
+\]
+Under such a transformation the variation of the potential is zero because of the symmetry of the Lagrangian:
+\[\delta V(\phi)=\frac{\partial V}{\partial\phi_i}\delta\phi_i=i\alpha_a\frac{\partial V}{\partial\phi_i}T^a_{ik}\phi_k=0\]
+Let's derive with respect to $\phi_j$:
+\[i\alpha_a\left\{\frac{\partial^2V}{\partial\phi_i\partial\phi_j}T^a_{ik}\phi_k+\frac{\partial V}{\partial\phi_j}T^a_{ij}\right\}=0\]
+And for $\phi=\phi_0$, so that $\langle\phi\rangle_0=\vec v$, the second term in the l.h.s. of the previous equation vanishes since $\phi_0$ is a minimum of $V$ and since the equality must holds for any symmetry transformation (i.e. for each $\hat a$) we obtain
+\[\p{\frac{\partial^2V}{\partial\phi_i\partial\phi_j}}_{\langle\phi_i\rangle_0=v_i}T^a_{ik}v_k=0\qquad\forall\,a=1,\dots,d_G\]
+I define the mass term $M_{ij}^2$ as the coefficient of the quadratic term in the expansion of $V(\phi)$ about the vacuum state:
+\[M_{ij}^2:=\p{\frac{\partial^2V}{\partial\phi_i\partial\phi_j}}_{\langle\phi_i\rangle_0}\]
+and
+\[w_i^a:=T_{ij}^av_j\]
+Then I obtain the following condition:
+\[M^2w^a=0\]
+hence the matrix $M$ has some zero eigenvalues for some eigenvectors $w^a$.
+If we distinguish between eigenvectors of the zero eigenvalue and  other eigenvectors we obtain the distinction between broken and unbroken generators described in the statement of the theorem:
+\[W^{\bar a}=Y^{\bar a}v=0\qquad\text{and}\qquad W^{\hat a}=X^{\hat a}v\neq0\]
+with $\bar a=1,\dots,d_H$ and $\hat a=1,\dots,d_G-d_H$. Hence $M^2$ has $d_G-d_H$ zero eigenvectors. 
+
+The Goldstone bosons are given by
+\[\pi^{\hat a}=i(X^{\hat a}\vec v)\phi=i(X^{\hat a}\vec v)_i\phi_i\]
+
+
+\begin{example}[$SO(3)\to SO(2)$ SSB]
+
+Take three scalar fields $\phi=(\phi_1,\phi_2,\phi_3)$ in the fundamental representation of $SO(3)$, with the Lagrangian
+\[\mathcal L=\frac12(\partial_\mu)^2-V(\phi^\dagger\phi)\]
+where
+\[V(\phi^\dagger\phi)=\frac\lambda4(\phi^\dagger\phi-v^2)^2\qquad v^2>0\]
+
+The minima condition is given by $\phi^\dagger\phi=v^2$. One possible choice of the vacuum is $\vec v=(0,0,v)$, i.e.
+\[\langle\phi_1\rangle_0=\langle\phi_2\rangle_0=0\qquad\langle\phi_3\rangle_v\]
+
+The generators of $SO(3)$ are
+\[T_1=\left(\begin{array}{ccc}0 & -i & 0 \\i & 0 & 0 \\0 & 0 & 0\end{array}\right)
+\qquad
+T_2=\left(\begin{array}{ccc}0 & 0 & -i \\0 & 0 & 0 \\i & 0 & 0\end{array}\right)
+\qquad
+T_3=\left(\begin{array}{ccc}0 & 0 & 0 \\0 & 0 & -i \\0 & i & 0\end{array}\right)
+\]
+in particular $T_1$ is the unbroken generator, while $T_2$ and $T_3$ are the broken generators:
+\[T_1\vec v=0\qquad T_2\vec v\neq0\qquad T_3\vec v\neq0\]
+
+Physical fields are the ones that in the vacuum state has zero expectation value, and by defining
+\[\phi_3=\tilde\phi_3+v\]
+we obtain that physical fields are $\phi_1$, $\phi_2$ and $\tilde\phi_3$. 
+
+The Goldstone bosons are
+\[\pi_1=\frac iv(T_2\vec v)\phi=\phi_1\qquad \pi_2=\frac iv(T_3\vec v)\phi=\phi_2\]
+which are massless fields, while expanding the Lagrangian in terms of physical fields we obtain that the mass of the particle described by $\tilde\phi_3$ is $m_3^2=2\lambda v$. 
+
+
+\end{example}
+
+Another example of SSB is given by the spontaneous symmetry breaking of $SU(2)\times SU(2)$, whose Goldstone bosons are the pions. 
+
+\section{Spontaneous Symmetry Breaking of a local symmetry}
+\textsf{Schwartz sec. 28.3; Peskin sec. 20.1; Mandl sec. 18.2; Halzen sec. 14.8-14.9}\\
+
+
+
+
+
+
+
+
+
+
+
+\subsection{$U(1)$ gauge theory minimally coupled to a complex scalar field with a non-trivial scalar potential}
+
+\subsection{The minimum of the theory and the choice of the vacuum configuration}
+
+\subsection{The Would Be Goldstone Boson (WBGB) and the longitudinal vector boson d.o.f.}
+
+\subsection{The Higgs mechanism}
+
+\subsection{Feynman rules in the Unitary gauge and in the $R_\xi$ gauge}
+
+\subsection{Generalization of the Higgs mechanism to generic (compact) group}
+
+\end{document}
