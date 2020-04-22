@@ -15,7 +15,7 @@ For continuous global symmetry, such as $\phi(x)\to e^{i\alpha}\phi(x)$, the bre
 
 
 \section{Spontaneous Symmetry Breaking of global symmetries}
-\textsf{Maggiore sec. 11.1-11.2; Peskin sec. 11.1; Schwartz sec. 28.1-28.2; Mandl sec. 18.1}\\
+\textsf{Maggiore sec. 11.1-11.2; Peskin sec. 11.1; Schwartz sec. 28.1-28.2; Mandl sec. 18.1; Halzen sec. 14.6-14.7}\\
 
 \subsection{The renormalizable complex scalar potential and the sign of the quadratic term $\mu^2$}
 
@@ -196,28 +196,159 @@ which are massless fields, while expanding the Lagrangian in terms of physical f
 Another example of SSB is given by the spontaneous symmetry breaking of $SU(2)\times SU(2)$, whose Goldstone bosons are the pions. 
 
 \section{Spontaneous Symmetry Breaking of a local symmetry}
-\textsf{Schwartz sec. 28.3; Peskin sec. 20.1; Mandl sec. 18.2; Halzen sec. 14.8-14.9}\\
+\textsf{Schwartz sec. 28.3-28.4; Peskin sec. 20.1, 21.1; Mandl sec. 18.2; Halzen sec. 14.8-14.9}\\
 
+What happens if we include both local gauge invariance and spontaneous symmetry breaking in the same theory? In this section we will find that this combination of ingredients leads to new possibilities for the construction of quantum field theory models. We will see that spontaneous symmetry breaking requires gauge vector bosons to acquire mass. However, the interactions of these massive bosons are still constrained by the underlying gauge symmetry, and these constraints can have observable consequences. 
 
-
-
-
-
-
-
-
-
+In elementary particle physics, the principal application of spontaneously broken local symmetry is in the currently accepted model of weak interactions. We will see that it makes a number of precise and successful predictions for weak interactions phenomena. Remarkably, this model also unifies the weak interactions with electromagnetism in a single larger gauge theory. 
 
 \subsection{$U(1)$ gauge theory minimally coupled to a complex scalar field with a non-trivial scalar potential}
 
+As our first example, consider a complex scalar field couple both to itself and to an electromagnetic field:
+\[\mathcal L=-\frac14F_{\mu\nu}F^{\mu\nu}+(D_\mu\phi)^\dagger(D^\mu\phi)-V(\phi^\dagger\phi)\]
+with $D_\mu=\partial_\mu+igA_\mu$. This Lagrangian is invariant under the local $U(1)$ transformation
+\[\phi(x)\,\to\,e^{ig\alpha(x)}\phi(x)\hspace{1.5cm}A_\mu(x)\,\to\,A_{\mu}-\partial_\mu\alpha(x)\]
+which implies
+\[(D_\mu\phi)\,\to\,e^{ig\alpha(x)}(D_\mu\phi)\]
+If we choose the potential in $\mathcal L$ to be of the form
+\[V(\phi^\dagger\phi)=\lambda\p{\phi^\dagger\phi-\frac{v^2}2}^2\]
+with $v^2>0$, the field $\phi$ will acquire a vacuum expectation value and the $U(1)$ global symmetry will be spontaneously broken. 
+
 \subsection{The minimum of the theory and the choice of the vacuum configuration}
+
+Let us consider the requirements for the vacuum configurations. The Hamiltonian for this theory is 
+\[\mathcal H=\int\de^3x\left\{\frac12(F_{0i})^2+\frac14(F_{ij})^2+(D_0\phi)^\dagger(D_0\phi)+(D_i\phi)^\dagger(D_i\phi)+V(\phi^\dagger\phi)\right\}>E_{\text{min}}\]
+hence the vacuum configuration must satisfy the followings:
+\begin{enumerate}[label=(\arabic*)]
+\item $A^\mu$ is a pure gauge configuration $A^0_\mu=\partial_\mu\alpha(x)$, this implies $F_{0i}=F_{ij}=0$
+\item $\phi_0$ is a constant field configuration: $(D_\mu\phi_0)=0$, this is satisfied by taking $\phi_0=\frac c{\sqrt2}e^{ig\alpha}$ for some constant $c$ and $0\leq\alpha<2\pi$
+\item $V(\phi_0^\dagger\phi_0)$ is a minimum for $V$, hence $\phi_0^*\phi_0=\frac{v^2}2$
+\end{enumerate}
+If we choose $\alpha(x)=0$ we obtain the vacuum state
+\[\langle A_\mu\rangle_0=A^0_\mu=0\hspace{1.5cm}\langle\phi\rangle_0=\phi_0=\frac v{\sqrt2}\]
+Let's define fluctuations about the vacuum configuration:
+\[\phi(x)=\frac{v+\tilde\sigma}{\sqrt2}e^{i\pi(x)/v}\qquad\to\qquad\langle\sigma\rangle_0=v\qquad\langle\tilde\sigma\rangle_0=0\]
+In terms of $\tilde\sigma$ and $\pi$ the Lagrangian density becomes
+\begin{equation}\label{eqn:SSB-gauge-pi}\begin{split}
+\mathcal L_{\text{SSB}}
+&=-\frac14F_{\mu\nu}F^{\mu\nu}+\frac{g^2}2(v+\tilde\sigma)^2\p{A_\mu+\frac1{gv}\partial_\mu\pi}^2\\
+&\quad+\frac12(\partial_\mu\tilde\sigma)(\partial^\mu\tilde\sigma)-\frac12m_{\tilde\sigma}^2\tilde\sigma^2-\frac\lambda4(4v\tilde\sigma^3+\tilde\sigma^4)
+\end{split}\end{equation}
+where $m_{\tilde\sigma}^2=2\lambda v^2$ is the mass term for $\tilde\sigma$ field. 
 
 \subsection{The Would Be Goldstone Boson (WBGB) and the longitudinal vector boson d.o.f.}
 
+The direct interpretation of eq.~\eqref{eqn:SSB-gauge-pi} leads to difficulties. It contains the equation for a real Klein-Gordon field with mass $\sqrt{2\lambda v^2}$. However, the mixed term $A^\mu\partial_\mu\pi$ shows that $A^\mu$ and $\pi$ are not independent normal coordinates, and one cannot interpret $A_\mu$ and $\pi$ as massive vector bosons and a massless scalar boson respectively. This difficulty also shoes up if we count degrees of freedom: two from the complex scalar field $\phi$ and two from the real massless vector field $A^\mu$ (i.e. for massless photons there are only two independent polarization states, the third is eliminated by gauge invariance). In $\mathcal L_{\text{SSB}}$ the real scalar fields $\tilde\sigma$ and $\pi$ each represent one degree and the real massive vector field $A^\mu$ contributes three degrees (corresponding to three independent polarization states), i.e. the SSB Lagrangian appears to have five degrees of freedom. Of course, a change of variables cannot alter the number of degrees of freedom of a system. We most conclude that the Lagrangian density contains an unphysical field which does not represent real particles and which can be eliminated. 
+
+The field $\pi$ can be eliminated through an appropriate choice of a gauge, in particular we can define the following boson vector field:
+\[B_\mu:=A_\mu+\frac1{gv}(\partial_\mu\pi)\hspace{1.5cm}B_{\mu\nu}:=\partial_\mu B_\nu-\partial_\nu B_\mu\]
+and introducing this field in the Lagrangian we obtain
+\begin{equation}\label{eqn:SSB-gauge}\begin{split}
+\mathcal L_{\text{SSB}}
+&=-\frac14B_{\mu\nu}B^{\mu\nu}+\frac12m_B^2B^\mu B_\mu+\frac{g^2}2(2v\tilde\sigma+\tilde\sigma^2)B^\mu B_\mu\\
+&\quad+\frac12(\partial_\mu\tilde\sigma)(\partial^\mu\tilde\sigma)-\frac12m_{\tilde\sigma}^2\tilde\sigma^2-\frac\lambda4(4v\tilde\sigma^3+\tilde\sigma^4)
+\end{split}\end{equation}
+where we introduce the mass term for the $B^\mu$ field $m_B^2:=g^2v^2$. Hence the SSB of a gauge theory leads to the introduction to a massive vector boson, which ``eats'' the Goldstone boson $\pi$ and the initial massless gauge field $A^\mu$. The the theory of SSB for gauge theories the field $\pi$ is called \emph{Would Be Goldstone Boson (WBGB)}.
+
+By giving a mass to $A_\mu$ introducing $B_\mu$, we have clearly introduced a longitudinal polarization for the gauge field. 
+
 \subsection{The Higgs mechanism}
+
+What we obtained is a remarkable result. Having started from a complex scalar field and a massless real vector field, we have ended up with the Lagrangian density for a real scalar field and a massive real vector field. The number of degrees of freedom is four in both cases. Of the two degrees of freedom of the comple field $\phi$, one has be taken up by the vector field $A_\mu$, which as become massive ($B_\mu$) in the process; the other shows up as the real field $\tilde\sigma$. 
+
+This phenomenon by which a vector boson acquires mass without destroying the gauge invariance of the Lagrangian density is known as the \emph{Higgs mechanism}, and the massive spin-0 boson associated with the field $\tilde\sigma$ is called a Higgs boson or a Higgs scalar. The Higgs mechanism does not generate Goldstone bosons, in contrast to the spontaneous symmetry breaking of the global phase invariance of the Goldstone model. In essence, the field $\pi$ which in the Goldstone model was associated with the massless Goldstone boson, has been eliminated by gauge invariance, and the degree of freedom of $\pi$ has been transferred to the vector field $B_\mu$. 
 
 \subsection{Feynman rules in the Unitary gauge and in the $R_\xi$ gauge}
 
+We notice that eq.~\eqref{eqn:SSB-gauge-pi} still exhibits a local $U(1)$ symmetry:
+\[\tilde\sigma(x)\,\to\,\tilde\sigma(x)\hspace{1.5cm}\pi(x)\,\to\,\pi(x)+gv\alpha(x)\hspace{1.5cm}A_\mu(x)\,\to\,A_\mu(x)-\partial_\mu\alpha(x)\]
+even though in this case I have a mass term in the boson part of the Lagrangian. This is a consequence of the original gauge symmetry of the Lagrangian. Moreover, notice that $\tilde\sigma$ is invariant under this transformation, so it is a singlet under $U(1)$. 
+
+The field $B_\mu$ is a specific gauge choice for such a symmetry, called \emph{unitary gauge}. In the unitary gauge the Lagrangian of a SSB theory shows explicitly the physical fields. 
+
+In some cases, especially if we want to quantize such a theory, we may use different gauge choices, introducing (non-unitary) gauge fixing terms in the Lagrangian, which corresponds to non-physical d.o.f. of the theory (e.g. the longitudinal polarization for the Maxwell field). In particular, the so called \emph{$R_\xi$ gauge choice} corresponds to the introduction of the following gauge fixing term in eq.~\eqref{eqn:SSB-gauge-pi}:
+\begin{equation}\label{eqn:SSB-gauge-Rxi}
+\mathcal L_{\text{GF}}:=-\frac1{2\xi}(\partial_\mu A^\mu-\xi(gv)\pi)^2=-\frac1{2\xi}(\partial_\mu A^\mu)^2-\frac12(\xi g^2v^2)\pi^2+gv(\partial_\mu A^\mu)\pi
+\end{equation}
+which corresponds to the introduction of a mass term $m_\pi^2=\xi^2g^2v^2=\xi^2m_B^2$ for the field $\pi$ and a cross mixing term $(\partial_\mu A^\mu)\pi=-A^\mu(\partial_\mu\pi)+\partial_\mu(A^\mu\pi)$ which cancels the mixing term in eq.~\eqref{eqn:SSB-gauge-pi}. 
+
+If we consider the full Lagrangian with $R_\xi$ gauge fixing term $\mathcal L=\eqref{eqn:SSB-gauge-pi}+\eqref{eqn:SSB-gauge-Rxi}$ we can quantize the SSB theory and obtain following Feynman rules ($M_A^2=g^2v^2$):
+
+\begin{subequations}\begin{alignat}{3}
+A_\mu:&&\qquad
+\begin{tikzpicture}[baseline=(a)]
+	\begin{feynman}
+		\vertex[label={[yshift=0.1cm, font=\footnotesize]$\mu$}](a);
+		\vertex[right=2cm of a, label={[yshift=0.1cm, font=\footnotesize]$\nu$}](b);
+		\diagram*{
+			(a)--[boson, momentum={[arrow shorten=0.3, font=\footnotesize]$k$}](b)
+		};
+	\end{feynman}
+\end{tikzpicture}
+\qquad&&D^A_{\mu\nu}(k)&=
+-\frac i{k^2-M_A^2}\p{\eta_{\mu\nu}-(1-\xi)\frac{k_\mu k_\nu}{k^2-\xi M_A^2}}\\
+%
+\tilde\sigma:&&\qquad
+\begin{tikzpicture}[baseline=(a)]
+	\begin{feynman}
+		\vertex[label={[yshift=0.1cm, font=\footnotesize]$\hspace{1mm}$}](a);
+		\vertex[right=2cm of a, label={[yshift=0.1cm, font=\footnotesize]$\hspace{2mm}$}](b);
+		\diagram*{
+			(a)--[scalar, momentum={[arrow shorten=0.3, font=\footnotesize]$k$}](b)
+		};
+	\end{feynman}
+\end{tikzpicture}
+\qquad&&D^{\tilde\sigma}(k)&=
+-\frac i{k^2-m_{\tilde\sigma}^2}\\
+%
+\pi:&&\qquad
+\begin{tikzpicture}[baseline=(a)]
+	\begin{feynman}
+		\vertex[label={[yshift=0.1cm, font=\footnotesize]$\hspace{1mm}$}](a);
+		\vertex[right=2cm of a, label={[yshift=0.1cm, font=\footnotesize]$\hspace{2mm}$}](b);
+		\diagram*{
+			(a)--[ghost, momentum={[arrow shorten=0.3, font=\footnotesize]$k$}](b)
+		};
+	\end{feynman}
+\end{tikzpicture}
+\qquad&&D^{\pi}(k)&=
+-\frac i{k^2-\xi M_A^2}
+\end{alignat}\end{subequations}
+
+Notice that for $\xi\to\infty$ I obtain the unitary gauge eq.~\eqref{eqn:SSB-gauge}, in this case the propagator for the gauge field becomes ($A_\mu=B_\mu$)
+\[D^B_{\mu\nu}(k)=-\frac i{k^2-M_B^2}\p{\eta_{\mu\nu}-\frac{k_\mu k_\nu}{M_B^2}}\]
+so we obtain (as we expected) the propagator of a Proca field, i.e. a massive vector propagator. Moreover, for $\xi\to\infty$ we have $D^\pi=0$, and the non-physical Goldstone boson disappear from Feynman diagrams. 
+
+As we had disclosed, the gauge $R_\xi$ it is useful to describe the renormalization of SSB gauge theories. Indeed, for $k\to\infty$ the degree of divergence of $D^A_{\mu\nu}(k)$ is the same as the one of the photon propagator in QED:
+\[D^A_{\mu\nu}(k)=-\frac i{k^2-M_A^2}\p{\eta_{\mu\nu}-(1-\xi)\frac{k_\mu k_\nu}{k^2-\xi M_A^2}}
+\approx -\frac i{k^2}\p{\eta_{\mu\nu}-(1-\xi)\frac{k_\mu k_\nu}{k^2}}\]
+Since the renormalizability does not depend on the gauge choice, SSB gauge theories are renormalizable. 
+
 \subsection{Generalization of the Higgs mechanism to generic (compact) group}
+
+In this section we discuss the SSB of a generic gauge theory. For definiteness we consider the case $G=SU(N)$, but the following derivation holds in general. Consider a complex scalar field $\phi$ in the $N$-dimensional fundamental representation of $G$. Suppose that the Lagrangian shows a potential with a non-trivial minimum condition in the form $V(\phi^\dagger\phi)=\lambda(\phi^\dagger\phi-\frac{\vec v^2}2)^2$ and take as vacuum state $\langle\phi\rangle_0=\phi_0=(0,\dots,v_i,\dots,0)$ for some $v_i\neq0$. 
+
+The choice of a vacuum state will broke doen the symmetry group $G$ to a subgroup $H$. As we seen in general, $d_H$ generators $\{Y^{\bar a}\}$ of $G$ are unbroken, while $d_G-d_H$ generators $\{X^{\hat a}\}$ will be broken by the choice of a vacuum state. 
+
+Consider the minimal coupling of the Lagrangian:
+\[(D_\mu\phi)^\dagger(D^\mu\phi)=[(\partial_\mu+ig\hat A_\mu)\phi]^\dagger[(\partial^\mu+ig\hat A^\mu)\phi]\]
+If we define the fluctuation $\tilde\phi$ as $\phi=\tilde\phi-\vec v$ we can express the previous component of the Lagrangian in terms of this field, obtaining
+\[(D_\mu\tilde\phi)^\dagger(D^\mu\tilde\phi)-ig\left\{(\partial^\mu\tilde\phi)^\dagger\hat A_\mu(\vec v+\tilde\phi)-(\vec v+\tilde\phi)^\dagger A^\mu(\partial_\mu\tilde\phi)\right\}+g^2(\vec v+\tilde\phi)^\dagger\hat A^\mu\hat A_\mu(\vec v+\tilde\phi)\]
+so I obtained a mass term for gauge bosons:
+\[g^2\vec v^\dagger\hat A^\mu\hat A_\mu\vec v=g^2A_a^\mu A_\mu^b\underbrace{(T^a\vec v)^\dagger(T^b\vec v)}_{(M_B^2)_{ab}}\]
+The matrix $M_B^2$ is positive definite and has exactly $d_G-d_H$ non-zero eigenvalues due to $(X^{\hat a}\vec v)\neq0$ and $( Y^{\bar a}\vec v)=0$. 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
