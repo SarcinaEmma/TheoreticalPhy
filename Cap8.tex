@@ -1,0 +1,536 @@
+\documentclass[TheoreticalPhy_ModB.tex]{subfiles}
+\begin{document}
+
+\newcommand{\lag}{\mathcal L}
+\newcommand{\pde}[1]{\partial_{#1}}
+\newcommand{\ipde}[1]{\partial^{#1}}
+\newcommand{\mn}{{\mu\nu}}
+
+\chapter{The EW sector of the Standard Model}
+\textsf{Schwartz sec. 29.1, 29.3, 29.5; Mandl sec. 18.3, chap. 19; Peskin chap. 20}\\
+
+Electro-weak interactions can be (phenomenologically) be explained by introducing appropriate (renormalizable) couplings $\bar\psi\gamma^\nu\psi\nu_\mu$. Indeed
+\begin{enumerate}[label=\textbullet]
+\item the photon is massless, then QED can be described by an unbroken $U(1)$ gauge theory
+\item the weak bosons are massive ($\sim100$GeV), and can be described by a SSB gauge theory, through the Higgs mechanism
+\item phenomenologically we know that $\alpha_{EM}\neq\alpha_W$ (since $e\neq g$) so we cannot embed the 4 gauge bosons in a single group (as for example $U(2)$)
+\end{enumerate}
+
+\section{The $SU(2)_L\times U(1)_Y$ gauge sector}
+
+Let's assume that the gauge group of the Standard Model is $\boxed{G_{SM}\equiv SU(2)_L\times U(1)_Y}$. The Yang-Mills Lagrangian for $G_{SM}$ reads
+\[\boxed{\lag_{YM}=-\frac12\Tr[\hat W^{\mu\nu}\hat W_{\mu\nu}]-\frac14B^{\mu\nu}B_{\mu\nu}}\]
+with following field-strength tensors
+\[\begin{cases}\begin{aligned}
+\hat W_{\mu\nu}&=\pde\mu\hat W_\nu-\pde\mu+ig\left[\hat W_\mu,\hat W_\nu\right]&&\quad\to\quad SU(2)\\
+B_{\mu\nu}&=\pde\mu B_\nu-\pde\nu B_\mu&&\quad\to\quad U(1)
+\end{aligned}\end{cases}\]
+Notice that elements of the $W_{\mu\nu}$ gauge vector boson are
+\[W_{\mu\nu}^a=\pde\mu W_\nu^a-\pde\nu W_\mu^a-g\epsilon^{abc}W_\mu^b W_\nu^c\]
+
+For phenomenological reasons we have to set $U(1)_Y\neq U(1)_{EM}$,\footnote{The Noether charged associated to $U(1)_{EM}$ is the \emph{electric charge}, on the other side $U(1)_Y$ correspond to the \emph{hypercharge} $Y$ we will define in the following. } which implies
+\[\begin{cases}
+B_\mu\neq A_\mu\\
+W_\mu^3\neq Z_\mu
+\end{cases}\]
+This is required by the fact that $W_\mu^3$ has only left-handed interactions, while $Z_\mu$ (which is related to the weak neutral current) has both left and right-handed couplings.
+
+The YM Lagrangian is invariant under the local transformations given by $G_{SM}$, which are determinated by $\{T_i\}$ and $Y$, generators respectively of $SU(2)_L$ and $U(1)_Y$:
+\[\begin{cases}\begin{aligned}
+\Omega(x)&=e^{ig\hat\alpha(x)}\quad&&\to&&&\quad\hat\alpha(x)&=\alpha_i(x)T^i\quad\in\quad SU(2)_L\\
+\omega(x)&=e^{ig'\hat\beta(x)}\quad&&\to&&&\quad\hat\beta(x)&=\beta(x)Y\quad\in\quad U(1)_Y
+\end{aligned}\end{cases}\]
+with the gauge fields transforming as:
+\[\begin{aligned}
+\Omega(x)\quad&\to\quad\begin{cases}
+\hat W_\mu'=\Omega\hat W_\mu\Omega^\dagger+\frac ig(\pde\mu\Omega)\Omega^\dagger\\
+B_\mu'=B_\mu\qquad(B_\mu\text{ invariant under $SU(2)_L$})
+\end{cases}	\\
+\omega(x)\quad&\to\quad\begin{cases}
+\hat W_\mu'=\hat W_\mu\qquad(\hat W_\mu\text{ invariant under $U(1)_y$})\\
+B_\mu'=\omega B_\mu\omega^\dagger+\frac i{g'}(\pde\mu W)\omega^\dagger=B_\mu-\pde\mu\beta(x)
+\end{cases}\end{aligned}\]
+A generic $G_{SM}$ transformation then reads
+\[g_{SM}=\omega\cdot\Omega\]
+
+
+\section{The Gauge-Higgs Lagrangian and SSB of the EW gauge group}
+
+To induce the SSB mechanism we need to introduce a scalar sector with a non-trivial potential. The Lagrangian of the minimally coupled complex scalar field reads
+\[\boxed{\lag_{H}=(D_\mu\phi)^\dagger(D^\mu\phi)-\lambda\p{\phi^\dagger\phi-\frac{v^2}2}^2}\]
+with a covariant derivative defined in such a way that gives a coupling with $G_{SM}$: 
+\[D_\mu\phi=(\partial_\mu+ig\hat W_\mu+ig'\hat B_\mu)\phi\quad\to\quad\begin{cases}\begin{aligned}\hat W_\mu&=W_\mu^i T_i\\\hat B_\mu&=B_\mu Y\end{aligned}\end{cases}\]
+with $T_i$ and $Y$ the generators of $SU(2)_L\times U(1)_Y$.
+Let's choose $\phi$ to be in the fundamental representation fo $SU(2)_L$ and with eigenvalue for the hypercharge $Y=\frac12$ (i.e. it is a doublet). Then
+\[T_i=\frac12\sigma_i\qquad\text{and}q\qquad Y=\frac12\id_2\]
+There are several way we can parametrize the complex doublet $\phi$. Having a non trivial potential let's choose the \emph{exponential notation}:
+\[\phi=\begin{pmatrix}\varphi_+\\\varphi_-\end{pmatrix}\overset{(\text{SSB})}{\equiv}e^{i\hat\pi/v}\begin{pmatrix}0\\\frac{h+v}{\sqrt2}\end{pmatrix}\qquad\to\qquad\begin{cases}\hat \pi(x)=\pi_i(x)T^i\\h(x)\end{cases}\]
+where $\varphi_+$, $\varphi_-$ are complex fields and we chosen the following  \emph{vacuum configuration}
+\begin{equation}\label{eqn:vacuum-config-SM}
+\langle\phi\rangle_0=\frac v{\sqrt2}\begin{pmatrix}0\\1\end{pmatrix}
+\end{equation}
+hence $\hat\pi(x)$ and $h(x)$ describes the fluctuations around $\langle\phi\rangle_0$, in particular $\pi_i(x)$ are Goldstone bosons and $h$ is the Higgs field..
+
+All the $SU(2)_L\times U(1)_Y$ generators of the basis are broken by this choice of the vacuum
+\[T_i\begin{pmatrix}0\\1\end{pmatrix}\neq0\qquad\text{and}\qquad Y\begin{pmatrix}0\\1\end{pmatrix}\neq0\]
+but one particular combination of generators is unbroken, indeed
+\[Q=T_3+Y=\begin{pmatrix}\frac12&0\\0&-\frac12\end{pmatrix}+\begin{pmatrix}\frac12&0\\0&\frac12\end{pmatrix}=\begin{pmatrix}1&0\\0&0\end{pmatrix}\quad\to\quad Q\begin{pmatrix}0\\1\end{pmatrix}=0\]
+
+The spontaneous symmetry breaking induced by the scalar field with non trivial vacuum expectation valus is then 
+\[SU(2)_L\times U(1)_Y\quad\to\quad U(1)_{EM}\]
+and we identify $Q$ as the generator of the $U(1)_{EM}$ as we want the photon to remain massless. Indeed only unbroken symmetries corresponds to preserved symmetries after SSB, and they are related to massless bosons. 
+
+From the representation of $Q$ we obtain that $\varphi_+$ is a charged field: $Q\begin{pmatrix}\varphi_+\\0\end{pmatrix}=+\begin{pmatrix}\varphi_+\\0\end{pmatrix}$, while $\phi_0$ is the neutral  field ($Q\begin{pmatrix}0\\\varphi_-\end{pmatrix}=0$). This also implies that $h$ is a real neutral scalar field. 
+
+The final theory will possess an explicit gauge invariance
+\[U(1)_{EM}\quad\to\quad\omega_{EM}=e^{ieQ\alpha(x)}\qquad\text{with}\quad\hat\alpha=Q\alpha\quad\text{and}\quad Q=\begin{pmatrix}1&0\\0&0\end{pmatrix}\]
+
+
+
+The physical component $h$ corresponds to the \emph{EM neutral scalar}, indeed corresponds to the d.o.f. in the choice of the vacuum expectation value in eq.~\eqref{eqn:vacuum-config-SM}. 
+
+Let's study the \emph{Gauge-Higgs Lagrangian} in the \emph{unitary gauge} by setting $\pi_i=0$, i.e. all Goldstone bosons are ``eaten'' by the gauge boson.
+
+
+\subsubsection{i) Higgs Potential}
+
+The \emph{Higgs potential} contains the $h(x)$ mass term and self couplings:
+\[\boxed{V(\phi^\dagger\phi)=\frac\lambda4\p{(v+h)^2-v^2}^2=\frac12(2\lambda v^2)h^2+\lambda vh^3+\frac\lambda4h^4}\]
+i.e. the physical scalar has mass $m_H^2=2\lambda v^2=(125\text{GeV})^2$ and we have self-interactions for the field $h$ described by the following Feynman rules:
+
+\[
+\begin{tikzpicture}[baseline=(e0)]
+	\begin{feynman}
+		\vertex(e0);
+		\vertex[right=of e0, label={[yshift=0.1cm, font=\footnotesize]$h$}](h1);
+		\vertex[above left=of e0, label={[yshift=0.1cm, font=\footnotesize]$h$}](h2);
+		\vertex[below left=of e0, label={[yshift=0.1cm, font=\footnotesize]$h$}](h3);
+		\diagram*{
+			(h1)--[scalar](e0),
+			(h2)--[scalar](e0),
+			(h3)--[scalar](e0),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\quad-6i\lambda v
+\hspace{1.5cm}
+\begin{tikzpicture}[baseline=(e0)]
+	\begin{feynman}
+		\vertex(e0);
+		\vertex[above right=of e0, label={[yshift=0.1cm, font=\footnotesize]$h$}](h1);
+		\vertex[above left=of e0, label={[yshift=0.1cm, font=\footnotesize]$h$}](h2);
+		\vertex[below left=of e0, label={[yshift=0.1cm, font=\footnotesize]$h$}](h3);
+		\vertex[below right=of e0, label={[yshift=0.1cm, font=\footnotesize]$h$}](h4);
+		\diagram*{
+			(h1)--[scalar](e0),
+			(h2)--[scalar](e0),
+			(h3)--[scalar](e0),
+			(h4)--[scalar](e0),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\quad-6i\lambda 
+\]    	
+where the first symmetry factors are $3!$ for the triple and $4!$ for the quartic Higgs self-interactions. 
+
+\subsubsection{ii) Gauge-Higgs interaction}
+
+The \emph{gauge-Higgs interactions} are in the kinetic part of the Lagrangian, given by the covariant derivative
+\[(D_\mu\phi)=\frac1{\sqrt2}\begin{pmatrix}0\\\pde\mu h\end{pmatrix}+\frac{v+h}{\sqrt2}\begin{pmatrix}\frac12g(W_\mu^1-iW_\mu^2)\vspace{0.1cm}\\\frac12(g'B_\mu-gW_\mu^3)\end{pmatrix}\]
+To have diagonal mass terms let's do the following field redefinitions (rotations of fields in the neutral sector):
+\[W_\mu^\pm=\frac{W_\mu^1\mp iW_\mu^2}{\sqrt2}\qquad
+A_\mu=\frac{gB_\mu+g'W_\mu^3}{\sqrt{g^2+g'^2}}\qquad
+Z_\mu=\frac{gW_\mu^3-g'B_\mu}{\sqrt{g^2+g'^2}}
+\]
+where $a_\mu$ and $Z_\mu$ are physical gauge bosons. Then the Goldstone boson has benn eaten by the gauge boson and the $(D_\mu\phi)$ term reads (unitary gauge + physical bosons)
+\[(D_\mu\phi)=\frac1{\sqrt2}\begin{pmatrix}0\\\pde\mu h\end{pmatrix}+\frac{v+h}{\sqrt2}\begin{pmatrix}\frac 1{\sqrt2}gW_\mu^+\\-\frac12\sqrt{g^2+g'^2}Z_\mu\end{pmatrix}\]
+Notice again that the upper part is charged while the lower part is neutral under $U(1)_{EM}$. We obtained the following form for the kinetic part of the Lagrangian in the unitary gauge
+\[\boxed{(D_\mu\phi)^\dagger(D^\mu\phi)=\frac12(\pde\mu h)(\partial^\mu h)+\p{1+\frac hv}^2\left\{\p{\frac{g^2v^2}4}^2W_\mu^+ W_-^\mu+\frac12\p{\frac{(g^2+g'^2)v^2}4}Z^\mu Z_\mu\right\}}\]
+and contains the $W$, $Z$ interactions with $h$ and $h^2$ and mass terms for both $W_\mu^\pm$ and $Z_\mu$.
+\[M_W^2=\frac{g^2v^2}4\qquad M_Z^2=\frac{(g^2+g'^2)v^2}4\]
+We can express the neutral boson rotation in term of the \textbf{Weinberg angle} $\theta_w$:
+\[\begin{pmatrix}A_\mu\\ Z_\mu\end{pmatrix}=\begin{pmatrix}c_w&s_w\\-s_w&c_w\end{pmatrix}\begin{pmatrix}B_\mu\\W_\mu^3\end{pmatrix}\quad\to\quad\begin{cases}c_w=\frac g{\sqrt{g^2+g'^2}}\\s_w=\frac{g'}{\sqrt{g^2+g'^2}}\end{cases}\]
+where $c_w\equiv\cos(\theta_w)$ and $s_w\equiv\sin(\theta_w)$. Then the mass term can be written as
+\[M_W^2=\frac{g^2v^2}4\qquad M_Z^2=\frac{g^2v^2}{4c_\omega^2}=\frac{M_W^2}{c_w^2}\]
+This implies that if $A_\mu\neq B_\mu$ then $c_w\neq1$ and $M_W<M_Z$ (this is a prediction of the model). Notice that the transformation of the field we used must be a rotation, otherwise $Z_\mu$ and $A_\mu$ kinetic terms will not be canonically normalized.
+
+Finally we can write the Feynman rules for $hVV$ and $h^2VV$ interactions:
+
+\[
+\begin{tikzpicture}[baseline=(e0)]
+	\begin{feynman}
+		\vertex(e0);
+		\vertex[right=of e0, label={[yshift=0.1cm, font=\footnotesize]$h$}](h1);
+		\vertex[above left=of e0, label={[yshift=0.1cm, font=\footnotesize]$W_\mu^+$}](h2);
+		\vertex[below left=of e0, label={[yshift=0.1cm, font=\footnotesize]$W_\mu^-$}](h3);
+		\diagram*{
+			(h1)--[scalar](e0),
+			(h2)--[boson](e0),
+			(h3)--[boson](e0),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\quad2i\frac{M_W^2}v\eta_{\mu\nu}
+\hspace{1.5cm}
+\begin{tikzpicture}[baseline=(e0)]
+	\begin{feynman}
+		\vertex(e0);
+		\vertex[above right=of e0, label={[yshift=0.1cm, font=\footnotesize]$h$}](h1);
+		\vertex[above left=of e0, label={[yshift=0.1cm, font=\footnotesize]$W_\mu^+$}](h2);
+		\vertex[below left=of e0, label={[yshift=0.1cm, font=\footnotesize]$W_\mu^-$}](h3);
+		\vertex[below right=of e0, label={[yshift=0.1cm, font=\footnotesize]$h$}](h4);
+		\diagram*{
+			(h1)--[scalar](e0),
+			(h2)--[boson](e0),
+			(h3)--[boson](e0),
+			(h4)--[scalar](e0),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\quad2i\frac{M_W^2}{v^2}\eta_{\mu\nu}
+\]
+
+\[
+\begin{tikzpicture}[baseline=(e0)]
+	\begin{feynman}
+		\vertex(e0);
+		\vertex[right=of e0, label={[yshift=0.1cm, font=\footnotesize]$h$}](h1);
+		\vertex[above left=of e0, label={[yshift=0.1cm, font=\footnotesize]$Z_\mu$}](h2);
+		\vertex[below left=of e0, label={[yshift=0.1cm, font=\footnotesize]$Z_\mu$}](h3);
+		\diagram*{
+			(h1)--[scalar](e0),
+			(h2)--[boson](e0),
+			(h3)--[boson](e0),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\quad2i\frac{M_Z^2}v\eta_{\mu\nu}
+\hspace{1.5cm}
+\begin{tikzpicture}[baseline=(e0)]
+	\begin{feynman}
+		\vertex(e0);
+		\vertex[above right=of e0, label={[yshift=0.1cm, font=\footnotesize]$h$}](h1);
+		\vertex[above left=of e0, label={[yshift=0.1cm, font=\footnotesize]$Z_\mu$}](h2);
+		\vertex[below left=of e0, label={[yshift=0.1cm, font=\footnotesize]$Z_\mu$}](h3);
+		\vertex[below right=of e0, label={[yshift=0.1cm, font=\footnotesize]$h$}](h4);
+		\diagram*{
+			(h1)--[scalar](e0),
+			(h2)--[boson](e0),
+			(h3)--[boson](e0),
+			(h4)--[scalar](e0),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\quad2i\frac{M_Z^2}{v^2}\eta_{\mu\nu}
+\]
+
+\subsection{Diagonalization of the gauge bosons mass matrix and the physical bosons}
+
+Now that we have discussed the symmetry breaking and identified the physical gauge boson one can derive the gauge self-interactions Feynman rules.
+The \emph{gauge sector} in the \emph{physical basis} can be written in the following way (we set $e\equiv gs_w$, we will see that this is actually the electric charge in EM):
+\[\boxed{\begin{aligned}
+\lag_{YM}
+&=-\frac14W_\mn^aW_a^\mn-\frac14B_\mn B^\mn\\
+&=-\frac12(\pde\mu W_\nu^+-\pde\nu W_\mu^+)(\ipde\mu W_-^\nu-\ipde\nu W_-^\mu)-\frac14Z^\mn Z_\mn-\\
+&\quad-\frac14F^\mn F_\mn+\left[M^2_WW_\mu^+W_-^\mu+\frac12 M_Z^2Z^\mu Z_\mu\right]+\\
+&\quad+igc_w\p{Z^\mn W_\mu^+W_\nu^--W_\mn^+Z^\mu W_-^\nu+W_\mn^-Z^\mu W_+^\nu}+\\
+&\quad+ie\p{F^\mn W_\mu^+W_\nu^--W_\mn^+A^\mu W^\nu_-+W_\mn^-A^\mu W_+^\nu}+\\
+&\quad+\frac{g^2}2\p{W_\mu^+W_+^\mu W^-_\nu W^\nu_--W_\mu^+W_-^\mu W_\nu^+W^\nu_-}+\\
+&\quad+e^2\p{A^\mu W_\mu^+ A^\nu W_\nu^--A^\mu A_\mu W_+^\nu W_\nu^-}+\\
+&\quad+g^2c_w^2\p{Z^\mu W_\mu^+ Z^\nu W_\nu^--Z^\mu Z_\mu W_+^\nu W_\nu^-}+\\
+&\quad+egc_w\p{W_+^\mu W_-^\nu A_\mu Z_\nu+W_-^\mu W_+^\nu A_\mu Z_\nu-2W_+^\mu W_\mu^- Z^\nu A_\nu}
+\end{aligned}}\]
+where the term in squared brackets is the mass term given by the gauge-Higgs interaction.
+
+One can derive the corresponding Feynman rules for this Lagrangian. For example the trilinear gauge vertex WWZ reads
+
+\[
+\begin{tikzpicture}[baseline=(e0)]
+	\begin{feynman}
+		\vertex(e0);
+		\vertex[right=of e0, label={[yshift=0.1cm, font=\footnotesize]$Z^\lambda$}](h1);
+		\vertex[above left=of e0, label={[yshift=0.1cm, font=\footnotesize]$W_\mu^+$}](h2);
+		\vertex[below left=of e0, label={[yshift=0.1cm, font=\footnotesize]$W_\nu^-$}](h3);
+		\diagram*{
+			(h1)--[boson, momentum={[arrow shorten=0.3, font=\footnotesize]$p_3$}](e0),
+			(h2)--[boson, momentum={[arrow shorten=0.3, font=\footnotesize]$p_1$}](e0),
+			(h3)--[boson, momentum'={[arrow shorten=0.3, font=\footnotesize]$p_2$}](e0),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\quad
+-igc_w\left[\eta_\mn(p_1-p_2)_\lambda+\eta_{\nu\lambda}(p_2-p_3)_\mu+\eta_{\lambda\mu}(p_3-p_1)_\nu\right]\]
+while the quartic gauge vertex reads
+\[
+\begin{tikzpicture}[baseline=(e0)]
+	\begin{feynman}
+		\vertex(e0);
+		\vertex[above right=of e0, label={[yshift=0.1cm, font=\footnotesize]$Z_\alpha$}](h1);
+		\vertex[above left=of e0, label={[yshift=0.1cm, font=\footnotesize]$W_\mu^+$}](h2);
+		\vertex[below left=of e0, label={[yshift=0.1cm, font=\footnotesize]$W_\nu^-$}](h3);
+		\vertex[below right=of e0, label={[yshift=0.1cm, font=\footnotesize]$Z_\beta$}](h4);
+		\diagram*{
+			(h1)--[boson](e0),
+			(h2)--[boson](e0),
+			(h3)--[boson](e0),
+			(h4)--[boson](e0),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\quad
+ig^2c_w^2\p{\eta_{\alpha\mu}\eta_{\beta\nu}+\eta_{\alpha\nu}\eta_{\beta\mu}-2\eta_{\alpha\beta}\eta_{\mu\nu}}
+\]
+All the other rules can be obtained by accordingly change the coupling constant ($e$, $gc_w$,etc.).
+
+Note that we can show the unbroken $U(1)_{EM}$ symmetry of the SSB Lagrangian. We can see it in  two ways
+\begin{enumerate}
+\item Assigning a charge $\pm1$ to $W_\mu^\pm$ and charge 0 to $A_\mu$ and $Z_\mu$. Then all terms in the Lagrangian have total charge 0, i.e. we have a global $U(1)$ symmetry.
+\item Formally one can assign the following $U(1)_{EM}$ gauge transformation properties to the gauge boson fields
+\[\begin{cases}\begin{aligned}
+A_\mu\quad&\to\quad A_\mu-\pde\mu\alpha\\
+Z_\mu\quad&\to\quad Z_\mu\\
+W_\mu^\pm\quad&\to\quad e^{\pm iq\alpha}W_\mu^\pm\\
+h\quad&\to\quad h
+\end{aligned}\end{cases}\]
+We can notice that the $Z_\mu$ and $h$ fields are invariant under this symmetry since are neutral fields, moreover the transformation for the fields $W_\mu^\pm$ is actually a phase transformation for the complex fields.
+\end{enumerate}
+
+From the expanded Lagrangian the $U(1)_{EM}$ symmetry looks cumbersome due to the presence of couplings with derivative terms. One should instead collect terms together defining a covariant derivative for the $W_\mu^\pm$ fields
+\[\begin{cases}
+\mathcal D_\mu W_\nu ^\pm\equiv(\pde\mu\pm iqA_\mu)W_\nu^\pm\\
+W_\mn^\pm=\mathcal D_\mu W_\nu^\pm-\mathcal D_\nu W_\mu^\pm\mp igc_w(Z_\mu W_\nu ^\pm-Z_\nu W_\mu^\pm)
+\end{cases}\]
+We define $\mathcal D_\mu$ to be the \emph{covariant derivative for $W_\mu^\pm$ fields}. 
+
+Note that in the previous Lagrangian we set $e\equiv gs_w$ to assign charge $\pm1$ to the $W_\mu^\pm$ fields. From this definition one can rewrite the $s_w$ and $c_w$ of the neutral sector rotation as
+\[\begin{aligned}
+s_w&\equiv\frac{g'}{\sqrt{g^2+g'^2}}=\frac eg\\
+c_w&\equiv\frac{g}{\sqrt{g^2+g'^2}}=\frac e{g'}
+\end{aligned}
+\quad\to\quad e\equiv\frac{gg'}{\sqrt{g^2+g'^2}}\]
+so finally one has
+\[e=gs_w=g'c_w\]
+Moreover we found an explicit relation between the couplings $e$, $g$ and $g'$ (one can use only two of them to describe the theory).
+We will verify in the following that this definition is consistent with the fermionic charge (EM) assignment. 
+
+
+
+
+\section{The gauge-fermion sector}
+
+We have defined QED and QCD as vector like interactions, i.e. $\bar\psi\gamma^\mu\psi V_\mu$. When discussing weak interactions we saw that left and right chiralities have different couplings with weak bosons, i.e. are described by chiral currents in the form $\bar\psi(c_L\gamma^\mu_L+c_R\gamma^\mu_R)\psi V_\mu$ with $c_L\neq c_R$.
+In other words we saw that weak interactions are a chiral theory. 
+Then in building the SM interactions between fermions and gauge boson we have to assume
+\begin{enumerate}
+\item $SU(2)_L$ acts only on the left chiral fermionic component (i.e. charged currents are only left handed)
+\item $U(1)_Y$ acts on both left and right chiral components (but in the general the action on the left component is different from the action on the right component)
+\end{enumerate}
+As left fermions transform under $SU(2)$ while right fermions do not, this gives a requirement on the representation of these fields:
+\begin{enumerate}
+\item Left fermions are doublets of $SU(2)$ (i.e. are in the fundamental representation)
+\item Right fermions are singlets of $SU(2)$ (i.e. are in the trivial representation)
+\end{enumerate}
+
+Let's consider the first family of fermions containing the lightest fermion of each type
+\[\text{leptons }=(\nu_e,e)\hspace{1.5cm}\text{quarks }=(u,d)\]
+Recall that families differs only because of masses. 
+
+Let's assign the following quantum numbers (i.e. charges) to the first fermionic family:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}||c||c|c|c|c||@{}}
+\toprule
+& $SU(2)$ & $T_3$ & $U(1)_Y$ & $Q=T_3+Y$ \\ \midrule\midrule
+$l_L\equiv\begin{pmatrix}\nu_e\\e\end{pmatrix}_L$ & 2 & $\begin{matrix}+1/2\\-1/2\end{matrix}$ & -1/2 & $\begin{matrix}0\\-1\end{matrix}$ \\\midrule
+$\nu^e_R$ & 1 & 0 & 0 & 0 \\\midrule
+$e_R$ & 1 & 0 & -1 & -1 \\\midrule
+$q_L\equiv\begin{pmatrix}u\\d\end{pmatrix}_L$ & 2 & $\begin{matrix}+1/2\\-1/2\end{matrix}$ & +1/6 & $\begin{matrix}+2/3\\-1/3\end{matrix}$ \\\midrule
+$u_R$ & 1 & 0 & +2/3 & +2/3 \\ \midrule
+$d_R$ & 1 & 0 & -1/3 & -1/3 \\ \bottomrule
+\end{tabular}
+\end{table}
+%
+\noindent
+where $T_3$ is the diagonal generator of $SU(2)_L$. Hence all right-handed fermions have $T_3=0$, in this way they are left invariant under $SU(2)_L$.  In general quantum numbers are fixed watching how these particles interacts with gauge bosons, moreover hypercharge and isospin eigenvalues (i.e. $T_3$ and $Y$) are fixed in order to satisfy $Q=T_3+Y$. In this way $Q=T_3+Y$ has the same definition of the generator of $U(1)_{EM}$ we gave before. For this reason we gave zero $Q$ eigenvalue for the neutrino. Notice that both $\nu_e$ and $e$ must have same isospin eigenvalue in order to preserve gauge invariance, same statement holds also for $u$ and $d$. For the adjoint field $\bar\psi$ the quantum numbers are the same as for $\psi$ but multiplied by $-1$. 
+
+Knowing all the fermionic charges we can couple fermions to gauge bosons via minimal coupling. Each fermion component has its own $D_\mu$ dependency on its charges:
+\[\begin{aligned}
+D_\mu l_L &=\p{\pde\mu+igW_\mu^aT_a+ig'B_\mu\p{-\frac12}\id}\begin{pmatrix}\nu_e\\e\end{pmatrix}_L\\
+D_\mu q_L &=\p{\pde\mu+igW_\mu^aT_a+ig'B_\mu\p{+\frac16}\id}\begin{pmatrix}u\\d\end{pmatrix}_L\\
+D_\mu \nu_R &=\pde\mu\nu_R\\
+D_\mu e_R&=\p{\pde\mu+ig'B_\mu\p{-1}\id}e_R\\
+D_\mu u_R&=\p{\pde\mu+ig'B_\mu\p{\frac23}\id}u_R\\
+D_\mu d_R&=\p{\pde\mu+ig'B_\mu\p{-\frac13}\id}d_R
+\end{aligned}\]
+We can see that neutrinos does not interact with weak gauge bosons. 
+
+The \emph{fermionic-gauge Lagrangian} then can be rewritten using covariant derivatives:
+\[\boxed{
+\lag_F=\bar\psi_i(i\slashed D)\psi_i
+=\bar l_Li\slashed D l_L+\bar q_Li\slashed D q_L+\bar\nu_Ri\slashed\partial\nu_R+\bar e_Ri\slashed De_R+\bar u_Ri\slashed Du_R+\bar d_Ri\slashed Dd_R
+}\]
+and contains both kinetic part and gauge interactions.
+It is invariant under a $SU(2)_L\times U(1)_Y$ gauge transformations $\Omega\cdot\omega$:
+\[SU(2)_L\quad\to\quad\begin{cases}L'=\Omega L\\e_R'=e_R\end{cases}
+\hspace{1.5cm}
+ U(1)_Y\quad\to\quad\begin{cases}L'=\omega_L L\\e_R'=\omega_Re_R\end{cases}\]
+
+In terms of the physical gauge bosons (i.e. using mass eigenvectors) we have
+\[W_\mu^\pm=\frac{W_\mu^1\mp iW_\mu^2}{\sqrt2}\qquad\text{with}\qquad T_\pm=T_1\pm iT_2\]
+and
+\[\begin{pmatrix}A_\mu\\ Z_\mu\end{pmatrix}=\begin{pmatrix}c_w&s_w\\-s_w&c_w\end{pmatrix}\begin{pmatrix}B_\mu\\W_\mu^3\end{pmatrix}\]
+so the Lagrangian reads
+\[\boxed{\begin{aligned}
+\lag_F
+&=\lag_{\text{KIN}}+\frac g{\sqrt2}\left\{(\bar l_L\gamma^\mu T_+l_L+\bar q_L\gamma^\mu T_+q_L)W_\mu^++\text{n.c.}\right\}+\\
+&\quad+\Big\{\bar l_L\gamma^\mu(gs_wT_3+g'c_wY_{l_L})l_L+\bar q_L\gamma^\mu(gs_wT_3+g'c_wY_{q_L})q_L+\\
+&\quad\quad+\bar e_R\gamma^\mu(g'c_wY_{e_R})e_R+\bar u_R\gamma^\mu(g'c_wY_{u_R})u_R+\bar d_R\gamma^\mu(g'c_wY_{d_R})d_R\Big\}A_\mu\\
+&\quad+\Big\{\bar l_L\gamma^\mu(gc_wT_3+g's_wY_{l_L})l_L+\bar q_L\gamma^\mu(gc_wT_3+g's_wY_{q_L})q_L+\\
+&\quad\quad+\bar e_R\gamma^\mu(-g's_wY_{e_R})e_R+\bar u_R\gamma^\mu(-g's_wY_{u_R})u_R+\bar d_R\gamma^\mu(-g's_wY_{d_R})d_R\Big\}Z_\mu
+\end{aligned}}\]
+where now the couplings with the photon has to reconstruct the EM charge
+\[\begin{cases}\begin{aligned}
+gs_wT_3+g'c_wY&=eQ&&\qquad\text{for the left component}\\
+g'c_wY&=eQ&&\qquad\text{for the right component}
+\end{aligned}\end{cases}\]
+For example for the leptons one has (use quantum numbers shown in the previous table)
+\[\begin{cases}
+gs_w\begin{pmatrix}1/2&0\\0&1/2\end{pmatrix}+g'c_wY_L\begin{pmatrix}1&0\\0&1\end{pmatrix}=e\begin{pmatrix}0&0\\0&-1\end{pmatrix}\\
+g'c_wY_{e_R}=-e\\
+g'c_wY_{\nu_R}=0
+\end{cases}\]
+that with the following assignments for Y (notice $Y_{\nu_L}+Y_{e_L}=-1/2$ as shown in the table)
+\[Y_{\nu_L}=-\frac12\qquad Y_{e_L}=-1/2\qquad Y_{\nu_R}=0\qquad Y_{e_R}=-1\]
+gives the following relations
+\[\begin{cases}
+gs_w=g'c_w\\
+g'c_w=e\\
+\frac12(gs_w+g'c_w)=e
+\end{cases}\]
+Then in order to recover the EM charge one has
+\[gs_w=g'c_w=e\]
+hence previous assignments are consistent.  
+
+Note that assuming left fermions in the fundamental representation and right fermions in the trivial representation, from the previous equations one recover the \emph{hypercharge} assignment (compatible with EM)
+\[Q=T_3+Y\]
+
+\subsection{Couplings with fermions: EW, Charged and Neutral currents}
+
+By using previous definitions the fermionic Lagrangian can be written
+\[\boxed{\lag_F=\lag_{\text{KIN}}+\frac g{\sqrt2}(Y_{\text{CC}}^\mu W_\mu^++\text{n.c.})+eJ_{\text{EM}}^\mu A_\mu+\frac g{c_w}J_Z^\mu Z_\mu}\]
+with the following currents
+\[\begin{aligned}
+J_{\text{CC}}^\mu&=\bar\nu_L\gamma^\mu e_L+\bar u_L\gamma^\mu d_L\\
+J_{\text{EM}}^\mu&=\sum_{i}q_i\bar\psi_i\gamma^\mu\psi_i&&&\begin{pmatrix}\psi_i\\q_i\end{pmatrix}&=\begin{pmatrix}e&u&d\\-1&2/3&-1/3\end{pmatrix}\\
+J_Z^\mu&=\sum_i\bar\psi_i(c_L^i\gamma^\mu_L+c_R^i\gamma_R^\mu)\psi_i\hspace{0.7cm}&&&\psi_i&=(\nu,e,u,d)
+\end{aligned}\]
+where we defined the coupling constants
+\[c_L^i=t_3^i-s_w^2q_i\hspace{1.5cm}c_R^i=-s_w^2q_i\]
+with $q_i$ charges of $\psi_i$ and $t_3^i$ eigenvalues of $T_3$. As we required we have $c_L\neq c_R$ for chiral couplings and $c_L=c_R$ for vector couplings. 
+
+This Lagrangian is exactly the same as IVB. Now we can obtain the boson-fermion couplings in terms of the $SU(2)\times U(1)$ quantum numbers. 
+
+Notice that fermionic mass terms are missing, indeed fermion mass terms are forbidden in a chiral theory by gauge invariance:
+\begin{enumerate}
+\item In vector-like gauge theories like QED ($U(1)_{\text{EM}}$) or QCD ($SU(3)_C$) mass terms are allowed: if we start from a Lagrangian ($\bar\psi\slashed A\psi=\bar\psi_R\slashed A\psi_R+\bar\psi_L\slashed A\psi_L$)
+\[\lag_{\text{vector}}=\bar\psi(i\slashed D-M)\psi\]
+the theory is invariant under gauge transformations ($\Omega\in$ gauge group)
+\[\psi'=\Omega\psi\hspace{1.5cm}(D_\mu\psi)'=\Omega(D_\mu\psi)\]
+indeed
+\[\lag'_{\text{vector}}=\bar\psi'i(\slashed D\psi)'-M\bar\psi'\id\psi'=\bar\psi(i\slashed D-M\id)\psi=\lag_{\text{vector}}\]
+\item In chiral gauge theories like $SU(2)_L\times U(1)_Y$ mass terms are forbidden: if we take a generic chiral Lagrangian with a mass term for $\psi=(\nu,e)$ and covariant derivatives $D^L_\mu=\partial_\mu+ig\hat W_\mu$ and $D^R_\mu=\partial_\mu$:
+\[\lag_{\text{chiral}}=\bar\psi_Li\slashed D_L\psi_L+\bar\psi_Ri\slashed D_R\psi_R-M(\bar\psi_L\psi_R+\bar\psi_R\psi_L)\]
+and for simplicity we consider only a $SU(2)_L$ transformation ($\Omega\in SU(2)_L$)
+\[\psi_L=\begin{pmatrix}\nu_L\\e_L\end{pmatrix}\quad\to\quad\psi_L'=\Omega\psi_L
+\hspace{1.5cm}
+\psi_R=\begin{pmatrix}\nu_R\\e_R\end{pmatrix}\quad\to\quad\psi_R'=\psi_R\]
+then the Lagrangian becomes
+\[\begin{aligned}
+\lag'_{\text{chiral}}&=\bar\psi_L'i(\slashed D_L\psi_L)'+\bar\psi_Ri\slashed \partial\psi_R-M(\bar\psi_L'\psi_R+\bar\psi_R\psi_L')\\
+&=\bar\psi_Li\slashed D_L\psi_L+\bar\psi_Ri\slashed\partial\psi_R-M(\bar\psi_L\Omega^\dagger\psi_R+\bar\psi_R\Omega\psi_L)
+\end{aligned}\]
+and the mass term is clearly not invariant.
+\end{enumerate}
+
+\section{The Higgs-fermion sectors and mass terms for chiral fermions (1 family)}
+
+We can give a mass term to fermions by using the Higgs SSB mechanism, coupling fermions to $\phi$. To make an $SU(2)_L\times U(1)_Y$ coupling between SM fermion and Higgs we have to match the $SU(2)_L$ and $U(1)_Y$ charges:
+\[\phi=(2,1/2)\quad\begin{matrix}l_L=(2,-1/2)&e_R=(1,-1)&\nu_R=(1,0)\\q_L=(2,1/6)&u_R=(1,2/3)&d_R=(1,-1/3)\end{matrix}\]
+
+In particular we use a Lagrangian containing \textbf{Yukawa interactions} i.e. with interacting terms which involves two fermions and one scalar. In this way we obtain the following gauge invariant Lagrangian
+\[\boxed{\lag_{\text{YUK}}=-y_u\bar q_L\tilde \phi u_R-y_d\bar q_L\phi d_R-y_e\bar l_L\phi e_R-y_\nu\bar l_L\tilde\phi\nu_R}\]
+where we have defined
+\[\tilde\phi=i\sigma_2\phi^*=\frac{v+h}{\sqrt2}\begin{pmatrix}1\\0\end{pmatrix}\quad\to\quad\tilde\phi=(2,-1/2)\]
+
+
+To check the $SU(2)_L\times U(1)_Y$ invariance one has to check the invariance of $\lag_{\text{YUK}}$ under both these sets of transformation for fields (verify the invariance of the Lagrangian as exercize):
+\[\begin{aligned}
+SU(2)_L\quad&\to\quad\begin{cases}\begin{matrix}q_L'=\Omega q_L&l_L'=\Omega l_L\\\phi'=\Omega\phi&\tilde\phi'=\Omega\tilde\phi\end{matrix}\end{cases}\\
+U(1)_Y\quad&\to\quad\begin{cases}\begin{cases}\begin{matrix}q_L'=\omega_{1/6} q_L&l_L'=\omega_{-1/2} l_L\\\phi'=\omega_{1/2}\phi&\tilde\phi'=\omega_{-1/2}\tilde\phi\end{matrix}\end{cases}\\\begin{cases}\begin{matrix}\nu_R'=\nu_R&e_R'=\omega_{-1} e_R\\u_R'=\omega_{2/3}u_R&d_R'=\omega_{-1/3}d_R\end{matrix}\end{cases}\end{cases}
+\end{aligned}\]
+Notice that the sum of both $SU(2)_L$ and $U(1)_Y$ eigenvalues in each term of the previous Lagrangian gives a zero sum, for instance the sum of $U(1)_Y$ eigenvalues in $\bar q_L\tilde \phi u_R$ gives $-1/6-1/2+2/3=0$. This ensures the invariance under $U(1)_Y$ transformations we just described. 
+
+Note that in the original definition of the SM $\nu_R$ was not introduced, since it has no effect in gauge interactions ($\nu_R=(1,0)$). Actually according to the Yukawa Lagrangian in principle it can have Yukawa interactions. 
+
+When the Higgs field acquires a vacuum expectation value, in the unitary gauge we have
+\[\phi=\frac{v+h}{\sqrt2}\begin{pmatrix}0\\1\end{pmatrix}\hspace{1.5cm}\tilde\phi=\frac{v+h}{\sqrt2}\begin{pmatrix}1\\0\end{pmatrix}\]
+and the Yukawa Lagrangian reads
+\[\lag_{\text{YUK}}=-\sum m_i\p{1+\frac hv}\p{\bar\psi_L^i\psi_R^i+\bar\psi_R^i\psi_L^i}\]
+for $\psi_i=(\nu_e,e,u,d)$. In this way we obtained a mass term for each fermion field:
+\[m_i\equiv \frac{y_iv}{\sqrt2}\]
+and is called \textbf{Yukawa mass term}.
+
+The Feynman rules associated to this interaction are very symple:
+
+\[
+\begin{tikzpicture}[baseline=(e0)]
+	\begin{feynman}
+		\vertex(e0);
+		\vertex[left=of e0, label={[yshift=0.1cm, font=\footnotesize]$h$}](h1);
+		\vertex[above right=of e0, label={[yshift=0.1cm, font=\footnotesize]$f_i$}](f1);
+		\vertex[below right=of e0, label={[yshift=0.1cm, font=\footnotesize]$\bar f_i$}](f2);
+		\diagram*{
+			(h1)--[scalar](e0),
+			(e0)--[fermion](f1),
+			(f2)--[fermion](e0),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\quad i\frac{m_i}v=i\frac{y_i}{\sqrt2}\]
+
+\section{Summary of the $SU(2)_L\times U(1)_Y$ Lagrangian for 1 family}
+
+\begin{enumerate}[label=(\arabic*)]
+\item The (EW) SM Lagrangian describes the interactions between \emph{gauge bosons}, \emph{fermions} and \emph{Higgs scalars}:
+\begin{enumerate}
+\item $SU(2)_L\times U(1)_Y$ gauge bosons: $W_\mu^\pm$, $Z_\mu$, $A_\mu$
+\item 1 family of fermions: $\begin{pmatrix}\nu_e\\e\end{pmatrix}_L$, $\nu_R$, $e_R$, $\begin{pmatrix}u\\d\end{pmatrix}_L$, $u_R$, $d_R$
+\item Higgs complex scalar doublet $\phi=\begin{pmatrix}\varphi_+\\\varphi_-\end{pmatrix}=e^{i\hat\pi/v}\begin{pmatrix}0\\\frac{v+h}{\sqrt2}\end{pmatrix}$
+\end{enumerate}
+\[\boxed{\lag_{\text{SM}}=\lag_{\text{YM}}+\lag_{\text{H}}+\lag_{\text{F}}+\lag_{\text{YUK}}}\]
+
+\item The Lagrangian is $SU(2)_L\times U(1)_Y$ gauge invariant
+
+\item The non-trivial potential force the Higgs to acquire a non-vanishing vacuum expectation value $\langle\phi\rangle_0=\frac{v}{\sqrt2}\begin{pmatrix}0\\1\end{pmatrix}$ that breaks spontateously the gauge symmetry
+\[SU(2)_L\times U(1)_Y\quad\overset{\text{SSB}}{\longrightarrow}\quad U(1)_{\text{EM}}\]
+This gives the EM charge described by the generator $Q=\begin{pmatrix}1&0\\0&0\end{pmatrix}$. 
+
+\item The non-vanishing vacuum expectation value is the origin of all masses of the SM fields
+\begin{enumerate}
+\item Weak bosons from $(D_\mu\phi)^\dagger(D^\mu\phi)$: $M_W^2=\frac{g^2v^2}4$ and $M_Z^2=\frac{(g^2+g'^2)v^2}4$
+\item The Higgs mass from the Higgs potential $V(\phi^\dagger\phi)$: $m_H^2=2\lambda v^2$
+\item The fermion masses from $\lag_{\text{YUK}}$: $m_i=\frac{y_iv}{\sqrt2}$
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+
+\section{The 3-families case and general $3\times3$ Yukawa sector and flavor violation in the CC sector: the $V_{\text{CKM}}$ and the $V_{\text{PMNS}}$ matrices}
+
+\section{Counting of physical parameters in the Yukawa sector}
+
+
+\end{document}
