@@ -5,6 +5,11 @@
 \newcommand{\pde}[1]{\partial_{#1}}
 \newcommand{\ipde}[1]{\partial^{#1}}
 \newcommand{\mn}{{\mu\nu}}
+\newcommand{\lr}{{L,R}}
+\newcommand{\mcu}{\mathcal U}
+\newcommand{\mcv}{\mathcal V}
+\newcommand{\ckm}{V_{\text{CKM}}}
+\newcommand{\pmns}{V_{\text{PMNS}}}
 
 \chapter{The EW sector of the Standard Model}
 \textsf{Schwartz sec. 29.1, 29.3, 29.5; Mandl sec. 18.3, chap. 19; Peskin chap. 20}\\
@@ -383,7 +388,7 @@ and
 so the Lagrangian reads
 \[\boxed{\begin{aligned}
 \lag_F
-&=\lag_{\text{KIN}}+\frac g{\sqrt2}\left\{(\bar l_L\gamma^\mu T_+l_L+\bar q_L\gamma^\mu T_+q_L)W_\mu^++\text{n.c.}\right\}+\\
+&=\lag_{\text{KIN}}+\frac g{\sqrt2}\left\{(\bar l_L\gamma^\mu T_+l_L+\bar q_L\gamma^\mu T_+q_L)W_\mu^++\text{h.c.}\right\}+\\
 &\quad+\Big\{\bar l_L\gamma^\mu(gs_wT_3+g'c_wY_{l_L})l_L+\bar q_L\gamma^\mu(gs_wT_3+g'c_wY_{q_L})q_L+\\
 &\quad\quad+\bar e_R\gamma^\mu(g'c_wY_{e_R})e_R+\bar u_R\gamma^\mu(g'c_wY_{u_R})u_R+\bar d_R\gamma^\mu(g'c_wY_{d_R})d_R\Big\}A_\mu\\
 &\quad+\Big\{\bar l_L\gamma^\mu(gc_wT_3+g's_wY_{l_L})l_L+\bar q_L\gamma^\mu(gc_wT_3+g's_wY_{q_L})q_L+\\
@@ -418,7 +423,7 @@ Note that assuming left fermions in the fundamental representation and right fer
 \subsection{Couplings with fermions: EW, Charged and Neutral currents}
 
 By using previous definitions the fermionic Lagrangian can be written
-\[\boxed{\lag_F=\lag_{\text{KIN}}+\frac g{\sqrt2}(Y_{\text{CC}}^\mu W_\mu^++\text{n.c.})+eJ_{\text{EM}}^\mu A_\mu+\frac g{c_w}J_Z^\mu Z_\mu}\]
+\[\boxed{\lag_F=\lag_{\text{KIN}}+\frac g{\sqrt2}(Y_{\text{CC}}^\mu W_\mu^++\text{h.c.})+eJ_{\text{EM}}^\mu A_\mu+\frac g{c_w}J_Z^\mu Z_\mu}\]
 with the following currents
 \[\begin{aligned}
 J_{\text{CC}}^\mu&=\bar\nu_L\gamma^\mu e_L+\bar u_L\gamma^\mu d_L\\
@@ -530,7 +535,193 @@ This gives the EM charge described by the generator $Q=\begin{pmatrix}1&0\\0&0\e
 
 \section{The 3-families case and general $3\times3$ Yukawa sector and flavor violation in the CC sector: the $V_{\text{CKM}}$ and the $V_{\text{PMNS}}$ matrices}
 
+In the previous sections we have discussed all the SM construction for 1 family (the lightest one):
+\[q_L^1=\begin{pmatrix}u\\d\end{pmatrix}_L\qquad\begin{matrix}u_R\\d_R\end{matrix}\qquad l_L^1=\begin{pmatrix}\nu_e\\e\end{pmatrix}_L\qquad\begin{matrix}\nu_{e, R}\\e_R\end{matrix}\]
+In nature exist other 2 replicas of this family structure, which differs only by the masses of particles
+\[q_L^2=\begin{pmatrix}c\\s\end{pmatrix}_L\qquad\begin{matrix}c_R\\s_R\end{matrix}\qquad l_L^2=\begin{pmatrix}\nu_\mu\\\mu\end{pmatrix}_L\qquad\begin{matrix}\nu_{\mu, R}\\\mu_R\end{matrix}\]
+\[q_L^3=\begin{pmatrix}t\\b\end{pmatrix}_L\qquad\begin{matrix}t_R\\b_R\end{matrix}\qquad l_L^3=\begin{pmatrix}\nu_\tau\\\tau\end{pmatrix}_L\qquad\begin{matrix}\nu_{\tau, R}\\\tau_R\end{matrix}\]
+There are some theoretical hints about the need of a complete family (\emph{anomaly}) but why we have exactly three families is an open question. 
+
+To deal with 3 families we have to add a 3 dimensional flavor structure:
+\[\begin{aligned}
+u_\lr&&\to&&U_\lr&=\begin{pmatrix}u\\c\\t\end{pmatrix}_\lr
+&&\hspace{1cm}&&
+d_\lr&&\to&&&D_\lr&=\begin{pmatrix}d\\s\\b\end{pmatrix}_\lr\\
+e_\lr&&\to&&E_\lr&=\begin{pmatrix}e\\\mu\\\tau\end{pmatrix}_\lr
+&&\hspace{1cm}&&
+\nu_\lr&&\to&&&N_\lr&=\begin{pmatrix}\nu_e\\\nu_\mu\\\nu_\tau\end{pmatrix}_\lr\\
+q_L&&\to&&Q_L&=\begin{pmatrix}U\\D\end{pmatrix}_L
+&&\hspace{1cm}&&
+l_L&&\to&&&L_L&=\begin{pmatrix}N\\E\end{pmatrix}_L
+\end{aligned}\]
+
+\subsubsection{The gauge-fermion Lagrangian}
+
+The gauge-fermions Lagrangian with the flavor structure now reads
+\[\boxed{
+\lag_F=\lag_{\text{KIN}}+\frac g{\sqrt2}(J_{CC}^\mu W_\mu^++\text{h.c.})+\frac g{c_w}J_{NC}^\mu Z_\mu+eJ_{\text{EM}}^\mu A_\mu
+}\]
+where we define following currents
+\[\begin{aligned}
+J_{\text{CC}}^\mu&=\bar U_L\gamma^\mu\id D_L+\bar N_L\gamma^\mu\id E_L\\
+J_{\text{EM}}^\mu&=q_U\bar U\gamma^\mu\id U+q_D\bar D\gamma^\mu D+q_E\bar E\gamma^\mu\id E\\
+J_Z^\mu&=\bar U(c_L^u\gamma^\mu_L+c_R^u\gamma_R^\mu)\id U+\bar D(c_L^d\gamma^\mu_L+c_R^d\gamma_R^\mu)\id D+\bar N(c_L^\nu\gamma^\mu_L+c_R^\nu\gamma_R^\mu)\id N+\bar E(c_L^e\gamma^\mu_L+c_R^e\gamma_R^\mu)\id E
+\end{aligned}\]
+We define the \textbf{flavor (interaction) basis} the basis where the interactions are diagonal. We assumed \emph{universal couplings}, i.e. are family independent. With these definitions the interaction gauge-fermion Lagranian has an $SU(3)$ global symmetry. 
+
+\subsubsection{The Higgs-fermion Lagrangian}
+
+The Higgs-fermion Lagrangian with the flavor structure now reads
+\[-\lag_{\text{YUK}}=+\bar Q_L\tilde\phi Y_uU_R+\bar Q_L\phi Y_dD_R+\bar L_L\phi Y_eE_R+\bar L_L\tilde\phi Y_\nu N_R+\text{h.c.}\]
+In the interaction (flavor) basis the \textbf{Yukawa matrices} $Y_i$ are arbitrary $3\times 3$ complex matrices.
+
+Remember that fermion masses are proportional to the Yukawa couplings Y, indeed if we set $\phi=\frac{v+h}{\sqrt2}\begin{pmatrix}0\\1\end{pmatrix}$ then:
+\[M_U=\frac{Y_uv}{\sqrt2}\qquad M_D=\frac{Y_dv}{\sqrt2}\qquad M_N=\frac{Y_\nu v}{\sqrt2}\qquad M_E=\frac{Y_ev}{\sqrt2}\]
+In general the mass matrices are not to be assumed diagonal in the flavor basis. According to \textbf{CKM ansatz}, \textit{all sources of $SU(3)$ flavor violation are encoded in the Yukawa matrices}. With an appropriate rotation of the fields we can go to the mass basis. 
+
+\subsubsection{Diagonalization of the mass matrices}
+
+Even if sometimes is useful to work in the flavor basis, the physical basis is where the physical observables (propagators) has to be calculated. This means that physical states are given by mass eigenvalues. 
+
+A general $3\times 3$ matrix can be always diagonalized by a biunitary transformation. Given $M$ we can always build two different Hermitian matrices $MM^\dagger$, $M^\dagger M$ and diagonalize them with unitary transformations
+\[\begin{cases}
+MM^\dagger\quad\to\quad \mcu^\dagger(MM^\dagger)\mcu=M^2_{\text{diag}}\\
+M^\dagger M\quad\to\quad \mcv^\dagger(M^\dagger M)\mcv=M^2_{\text{diag}}
+\end{cases}\]
+As obviously the eigenvalues are the same (real) and we can write ($\mcu\mcu^\dagger=\mcv\mcv^\dagger=\id$)
+\[M^2_{\text{diag}}=(\mcu^\dagger M \mcv)(\mcv^\dagger M^\dagger \mcu)=(\mcv^\dagger M^\dagger \mcu)(\mcu^\dagger M \mcv)=M_{\text{diag}}^\dagger M_{\text{diag}}=M_{\text{diag}}M_{\text{diag}}^\dagger\]
+hence we can set (the other choice is exactly equivalent)
+\[M_{\text{diag}}\equiv \mcu^\dagger M \mcv\hspace{1.5cm}M_{\text{diag}}^\dagger\equiv\mcv^\dagger M^\dagger \mcu\]
+
+Now let's rotate all fermion triplets in flavor space by appropriate $SU(3)$ elements $R_\lr,S_\lr,T_\lr,X_\lr\in SU(3)$ (in general we have to treat differently left and right components since we are considering a chiral theory)
+\begin{equation}\label{eqn:rotat-flavor-mass}
+\begin{matrix}
+	\begin{cases}
+		\begin{matrix}
+			U_L'=R_LU_L & D_L'=S_LD_L\\
+			U_R'=R_RU_R & D_R'=S_RD_R
+		\end{matrix}
+	\end{cases}
+	&
+	\begin{cases}
+		\begin{matrix}
+			N_L'=T_LN_L & E_L'=X_LE_L\\
+			N_R'=T_RN_R & E_R'=X_RE_R
+		\end{matrix}
+	\end{cases}
+\end{matrix}
+\end{equation}
+		
+By these rotations the Yukawa Lagrangian becomes
+\[\boxed{\begin{aligned}
+-\lag_{\text{YUK}}&=\left\{\bar D_L'S_L^\dagger M_DS_RD_R'+\bar U_R'R_L^\dagger M_UR_RU_R'+\bar E_L'X_L^\dagger M_EX_RE_R'+\bar N_L'T_L^\dagger M_NT_RN_R'+\text{h.c.}\right\}\p{1+\frac hv}\\
+&=\left\{\bar D_L'M_D^{\text{diag}}D_R'+\bar U_R'M_U^{\text{diag}}U_R'+\bar E_L'M_E^{\text{diag}}E_R'+\bar N_L'M_N^{\text{diag}}N_R'+\text{h.c.}\right\}\p{1+\frac hv}
+\end{aligned}}\]
+where we introduced the diagonal mass matrices
+\[\begin{matrix}
+	M_U^{\text{diag}}\equiv R_L^\dagger M_UR_R =
+	\begin{pmatrix}m_u&0&0\\0&m_c&0\\0&0&m_t\end{pmatrix}
+	&
+	M_D^{\text{diag}}\equiv S_L^\dagger M_DS_R =
+	\begin{pmatrix}m_d&0&0\\0&m_s&0\\0&0&m_b\end{pmatrix}
+	\vspace{0.2cm}\\
+	M_N^{\text{diag}}\equiv T_L^\dagger M_NT_R =
+	\begin{pmatrix}m_{\nu_e}&0&0\\0&m_{\nu_\mu}&0\\0&0&m_{\nu_\tau}\end{pmatrix}
+	&
+	M_E^{\text{diag}}\equiv X_L^\dagger M_EX_R =
+	\begin{pmatrix}m_e&0&0\\0&m_\mu&0\\0&0&m_\tau\end{pmatrix}
+\end{matrix}\]
+
+\subsubsection{The gauge-fermion interaction Lagrangian}
+
+The gauge-fermion interaction Lagrangian has also to be rotated and written in the mass basis. 
+
+Notice that the neutral current sector is not affected by the change of basis eq.~\eqref{eqn:rotat-flavor-mass}. Indeed all the pieces are in the form 
+\[c_L\bar U_L\gamma^\mu U_L+c_R\bar U_R\gamma^\mu U_R+\dots\]
+hence are transformed into 
+\[c_L\bar U'_L\gamma^\mu U'_L+c_R\bar U'_R\gamma^\mu U'_R+\dots\]
+Hence neutral currents are diagonal and universal in the mass basis. The neutral sector has an $SU(3)_F$ symmetry, i.e. flavor is not broken by neutral currents. 
+
+The charged current sector however is not left diagonal by the change of basis as it involves different fields:
+\[\lag_{CC}=\frac g{\sqrt2}(\bar D_L\gamma^\mu D_L+\bar E_L\gamma^\mu E_L)W_\mu^++\text{h.c.}\]
+and in the mass basis reads
+\[\boxed{\begin{aligned}
+\lag_{CC}&=\frac g{\sqrt2}(\bar D_L'\gamma^\mu(S_LR_L^\dagger)U_L'+\bar E'_L\gamma^\mu(X_LT_L^\dagger)N_L)W_\mu^++\text{h.c.}\\
+&=\frac g{\sqrt2}(\bar D_L'\gamma^\mu \ckm^\dagger U_L'+\bar E'_L\gamma^\mu\pmns^\dagger N_L)W_\mu^++\text{h.c.}
+\end{aligned}}\]
+where we defined the following $3\times 3$ unitary matrices\footnote{CKM=Cabibbo-Kobayashi-Maskawa \\PMNS=Pontecorvo-Maki-Nakagawa-Sakata}
+\[\ckm\equiv R_LS_L^\dagger\hspace{1.5cm}\pmns\equiv T_LX_L^\dagger\]
+which in general are not diagonal in the mass basis. These matrices contain all the flavor (and CP) violation of the SM. In the neutral sector there are no flavor changing couplings, only flavor violation appears in the charged sector. 
+
+The associated Feynman rules read, for instance
+\[\begin{tikzpicture}[baseline=(e0)]
+	\begin{feynman}
+		\vertex(e0);
+		\vertex[right=of e0, label={[yshift=0.1cm, font=\footnotesize]$D_j$}](d);
+		\vertex[left=of e0, label={[yshift=0.1cm, font=\footnotesize]$U_i$}](u);
+		\vertex[below =of e0, label={[xshift=0.45cm, font=\footnotesize]$W_\mu^\pm$}](w);
+		\diagram*{
+			(u)--[fermion](e0),
+			(e0)--[fermion](d),
+			(w)--[boson](e0),
+		};
+	\end{feynman}
+\end{tikzpicture}
+\quad=\quad i\frac g{\sqrt2}V_{ij}^*\gamma_L^\mu
+\]
+where $u_i$ and $d_j$ are elements of $D$ and $U$ respectively, with indices $i$ and $j$. Reverting the role of $U$ and $D$ in the diagram the matrix element $V_{ij}^*$ must be substituted with $V_{ij}$. 
+
+Notice that the CC sector brokes both $SU(3)$ and $U(1)^3$ flavor symmetries. There is only a residual global $U(1)$ symmetry, which corresponds to the conservation of the \textbf{Baryon number}, which is unbroken by $\ckm$ and $\pmns$, as we will see later. Flavor changing couplings of the CC can mix quarks/leptons of different families, for instance the probability amplitude for $W_\mu^+\to u\bar s$ is proportional to $V_{us}$, which in general is non-zero. 
+
+Matrices $\ckm$ and $\pmns$ are general unitary matrices, so they can be complex and we must be careful when we write down Feynman rules, since in general $V_{ij}\neq V_{ij}^*$. 
+
+
 \section{Counting of physical parameters in the Yukawa sector}
+
+Take for instance the quark sector, an analogous discussion holds also for the leptonic sector. In the Yukawa Lagrangian in the flavor basis we introduced complex matrices $Y_U$ and $Y_D$. The number of parameters of 2 generic complex $3\times 3$ matrices is $2\times 2N^2=36$. However not all of these degrees of freedom are physical. To count the number of physical parameters one has to go to the mass basis. 
+
+The number of physical parameters in the Yukawa Lagrangian is given by $M_U^{\text{diag}}=\text{diag}(m_u,m_c,m_t)$ and $M_D^{\text{diag}}=\text{diag}(m_d,m_s,m_b)$, i.e. we have 3+3=6 degrees of freedom. Moreover we have d.o.f. related to $\ckm$ in the charged sector, in particular a generic $3\times3$ unitary matrix contains $\frac12N(N-1)=3$ free moduli and $\frac12N(N+1)=6$ free phases. 
+
+Not all the phases in the $\ckm$ are physical, in the sense that one has always the freedom to redefine (complex) spinor by an arbitrary phase (indeed $U\bar U$ is invariant under such redefinition).
+Let's redefine the $U$ and $D$ triplets as
+\[\begin{aligned}
+\hat U=\begin{pmatrix}e^{i\alpha_1}&0&0\\0&e^{i\alpha_2}&0\\0&0&e^{i\alpha_3}\end{pmatrix}U'=\phi_UU'
+\hspace{1.5cm}
+\hat D=\begin{pmatrix}e^{i\beta_1}&0&0\\0&e^{i\beta_2}&0\\0&0&e^{i\beta_3}\end{pmatrix}D'=\phi_DD'
+\end{aligned}\]
+Notice that for each spinor we have 3 d.o.f. in the choice of the phases. The neutral sector is invariant under these redefinition, hence for the neutral sector this redefinition is actually a $U(1)^6$ symmetry transformation. On the other side, the charged sector is not invariant under this $U(1)^6$ transformation (e.g. it mixes up and down quarks)
+\[\bar U_L'\gamma^\mu\ckm D_L'\quad\to\quad\hat{\bar U}_L'\gamma^\mu (\phi_U\ckm\phi_D^\dagger)\hat D_L'\]
+This phases redefinition modify the $\ckm$ matrix
+\[\ckm\quad\to\quad\hat V_{\text{CKM}}\equiv\phi_U\ckm\phi_D^\dagger\]
+and one can choose the $\phi_U$ and $\phi_D$ phases in such a way to cancel some of the $\ckm$ phases. Such cancellation reduces the number of degrees of freedom in $\ckm$.  
+
+Note that the charged sector (and all the EW Lagrangian) is invariant under the following global $U(1)_B$ transformation:
+\[U'\quad\to\quad\hat U'=e^{i\alpha}U'
+\hspace{1.5cm}
+D'\quad\to\quad\hat D'=e^{i\alpha}D'\]
+This $U(1)_B$ symmetry\footnote{B = Baryon} is the one associated to the baryon number conservation. In particular all quarks and antiquarks have $1/3$ and $-1/3$ $U(1)_B$ charge respectively.
+
+Due to the $U(1)_B$ global symmetry 1 phase is arbitrary, i.e. only $2N-1=5$ phases can be removed by spinorial phase redefinition. 
+
+Finally, the CKM matrix has $\frac12N(N-1)=3$ d.o.f. in moduli and $\frac12N(N+1)-(2N-1)=1$ d.o.f. in the phase. 
+Then number of independent parameters in the Yukawa (quark) sector is then 
+\[\begin{cases}\begin{matrix}
+2N&\text{masses}&\to&6\\
+\frac12N(N-1)&\text{moduli}&\to&3\\
+\frac12(N-1)(N-2)&\text{phases}&\to&1
+\end{matrix}\end{cases}
+\qquad\Longrightarrow\qquad 10\text{ independent parameters}
+\]
+Hence there are 10 independent parameters in the quark sector, instead of the 36 ones we discussed before. 
+With the presence of $\nu_R$ there are 10 independent parameters also in the leptonic sector.
+
+The fact that $\ckm$ and $\pmns$ are complex implies that SM violates  $CP$ symmetry. The only discrete symmetry of SM is CPT. 
+
+
+
+
+
+
 
 
 \end{document}
