@@ -1,51 +1,56 @@
 \documentclass[TheoreticalPhy_ModB.tex]{subfiles}
 \begin{document}
 
-\chapter{The S-matrix and physical observables}
+\chapter{The $S$-matrix and physical observables}
+
+\textsf{Maggiore sec. 6.2-6.4; Schwartz chap. 5; Mandl sec. 8.1}
 
 \section{Decay Rate}
-Consider the case in which the initial state is a single particle and the final state is given by n particles. We are therefore considering a decay process. Assume for the moment that particles are indistinguishable.
+Consider the case in which the initial state is a single particle and the final state is given by $n$ particles. We are therefore considering a decay process. Assume for the moment that particles are indistinguishable.
 
 \begin{center}
 \input{img/Decay_rate_sketch.tex}
 \end{center}
-
 The rules of quantum mechanics tell us that the probability for this process is obtained by taking the squared modulus of the amplitude and summing over all possible final states
 \[
 \begin{split}
 \abs{S_{fi}^{CN}}^2	& = \abs{(2 \pi)^4 \delta^4 (p - p')M_{fi}^{CN}}^2 \\
 				& = (2 \pi)^4 \delta^4 (p - p') (VT) \abs{M_{fi}^{CN}}^2 \\
-				& = (2 \pi)^4 \delta^4 (p - p')(VT) \frac{1}{2 \omega_in V}
+				& = (2 \pi)^4 \delta^4 (p - p')(VT) \frac{1}{2 \omega_{in} V}
 					\prod_{l=1}^{n_f} \biggl( \frac{1}{2 \omega_l V} \biggr) \abs{\mathM_{fi}}^2
 \end{split}
 \]
-\textbf{Note:} $\bigl( \delta^4 (p - p') \bigr)^2 = \delta^4 (p - p') \delta^4 (p - p') = \delta^4 (p - p') \delta^4(0) = \delta^4 (p - p') \frac{VT}{(2 \pi)^4}$\\
-We use the final space and time in order to remove divergent terms during calculation\\ \\
-We must now sum this expression over all final states. Since we are working in a finite volume V, this is the sum over the possible discrete values of the momenta of the final particles .\\
-Since $p_i = (2 \pi/L) n_i$, we have $dn_i = (L/2\pi) \de p_i$ and $\de^3 n_i = (V/(2 \pi)^3) \de^3 p$ where $\de^3 n_i$ is the infinitesimal phase space related to a final state in which the i-th particle has momentum between $p_i$ and $p_i + \de p_i$\\
-Let $\de \omega$ be the probability for a decay in which in the final state the i-th particle has momentum between $p_i$ and $p_i \de p_i$
+where we used
+\[\bigl( \delta^4 (p - p') \bigr)^2 = \delta^4 (p - p') \delta^4 (p - p') = \delta^4 (p - p') \delta^4(0) = \delta^4 (p - p') \frac{VT}{(2 \pi)^4}\]
+Now we must sum this expression over all final states. Since we are working in a finite volume V, this is the sum over the possible discrete values of the momenta of the final particles .
+Recalling $p_i = (2 \pi/L) n_i$, we have $dn_i = (L/2\pi) \de p_i$ and $\de^3 n_i = (V/(2 \pi)^3) \de^3 p$ where $\de^3 n_i$ is the infinitesimal phase space related to a final state in which the $i$-th particle has momentum between $p_i$ and $p_i + \de p_i$.
+
+Let $\de \omega$ be the probability for a decay in which in the final state the $i$-th particle has momentum between $p_i$ and $p_i+ \de p_i$:
 \[
 \de \omega = \abs{S_{fi}^{SN}}^2 \prod_{l=1}^{n_f} \biggl( \frac{V\de^3 p_l}{(2 \pi)^3} \biggr)
+=(2 \pi)^4 \delta^4 (p - p')T\frac {\abs{\mathM_{fi}}^2}{2 \omega_{in}} \prod_{l=1}^{n_f} \frac{\de^3 p_l}{(2 \pi)^3 2 \omega_l}
 \]
 This is the probability that the decay takes place in any time between $-T/2$ and $T/2$. We are more interested in the differential decay rate $\de \Gamma_{fi}$, which is the decay probability per unit of time:
 \[
-\de \Gamma_{fi} = \frac{\de \omega}{T} = (2 \pi)^4 \delta^4 (p_i - p_f) \frac{\abs{\mathM_{fi}}^2}{2 \omega_{p_{in}}}
+\de \Gamma_{fi} = \frac{\de \omega}{T} = (2 \pi)^4 \delta^4 (p_i - p_f) \frac{\abs{\mathM_{fi}}^2}{2 \omega_{in}}
 	\prod_{l=1}^{n_f} \frac{\de^3 p_l}{(2 \pi)^3 2 \omega_l}
 \]
-\textbf{Notes:}
+Recall the meaning of the quantities in the previous relation:
 \begin{itemize}[label=$\bullet$]
 \item $\de \Gamma_{fi}$ = differential decay rate
 \item $p_f$ = sum over final momenta
-\item $\omega_{p_{in}}$ = initial energy
+\item $\omega_{{in}}$ = initial energy
 \item $\abs{\mathM_{fi}}^2$ = Feynman amplitude of the process (depends on final momenta $p_i$)
 \end{itemize}
-It is useful to define the \textbf{(differential) n-body phase space} as
+It is useful to define the \textbf{(differential) $n$-body phase space} as
 \[
 \de \Phi_{(n_f)} = (2 \pi)^4 \delta^4 (p_i - p_f) \prod_{l=1}^{n_f} \frac{\de^3 p_l}{(2 \pi)^3 2 \omega_l}
 \]
+Notice that if $n$ of the final particles are identical, configurations that differ by a permutation are not distinct and therefore the phase space is reduced by a factor $1/n!$.
+
 Therefore the differential decay rate can be written as
 \[
-\de \Gamma_{fi} = \frac{1}{2 \omega_{p_{in}}} \abs{\mathM_{fi}}^2 \de \Phi_{(n_f)}
+\de \Gamma_{fi} = \frac{1}{2 \omega_{{in}}} \abs{\mathM_{fi}}^2 \de \Phi_{(n_f)}
 \]
 The decay rate is defined as
 \[
@@ -53,9 +58,9 @@ The decay rate is defined as
 \quad
 \to \textup{integration over all possible final momenta}
 \]
-and its meaning is $\Gamma \equiv$ trans. probability $\times$ unit of time $\times$ \ init. particle\\
-Notice that if n of the final particles are identical, configurations that differ by a permutation are not distinct and therefore the phase space is reduced by a factor $1/h!$\\
-If we have a system of N(0) particles, the time evolution of the number of particles N(t) is
+and its meaning is $\Gamma \equiv$ trans. probability $\times$ unit of time $\times$ \ init. particle.
+
+If we have a system of $N(0)$ particles, the time evolution of the number of particles $N(t)$ is
 \[
 \frac{\de N}{\de t} = - \Gamma N
 \quad \so \quad
@@ -64,20 +69,19 @@ N(t) = N(0) e^{-\Gamma t}
 Notice that decay rate is not invariant
 \[
 \bigl[ \Gamma \bigr] = \bigl[ E \bigr] = \frac{1}{T}
-\qquad
-\textup{(in natural units)}
 \]
-If we define the \textbf{lifetime} as $\tau = 1/\Gamma \so N(t) = N(0) \exp(-t/\tau)$ this changes under Lorentz tfm. If we consider two reference frames o and o'
+hence defining the \textbf{lifetime} as $\tau = 1/\Gamma \so N(t) = N(0) \exp(-t/\tau)$ this changes under Lorentz transformations. If we consider two reference frames $o$ and $o'$
 \[
 \Gamma' = \frac{\Gamma}{\gamma} < \Gamma
 \qquad
 \tau' = \gamma \tau > \tau
 \]
-$\gamma = (1 - v)^{-1/2}$, where v is the speed of o' in o in natural units, $\gamma > 1$. Therefore a article in a moving frame has a longer lifetime then in the rest frame\\ \\
+with $\gamma = (1 - v)^{-1/2}$, where $v$ is the speed of $o'$ in $o$ in natural units, $\gamma > 1$. Therefore a particle in a moving frame has a longer lifetime then in the rest frame.
+
 \begin{example}[muon lifetime]
 For a muon in the rest frame $\tau_{\mu}^{RF} = 2.2 \times 10^{-6} s$, but if we observe it in the lab frame \\
-$\tau_{\mu}^{LAB} = \gamma \tau_{\mu}^{RF} \simeq 2 \times 10^{-5} s$ since $E_{\mu}$ = 1 GeV, $m_{\mu}$ = 0.1 GeV \\
-$\so \gamma = E_{\mu} / m_{\mu} \simeq 10$ 
+$\tau_{\mu}^{LAB} = \gamma \tau_{\mu}^{RF} \simeq 2 \times 10^{-5} s$ since $E_{\mu}$ = 1 GeV, $m_{\mu}$ = 0.1 GeV imply
+$ \gamma = E_{\mu} / m_{\mu} \simeq 10$ .
 \end{example}
 
 \begin{example}[1 $\to$ 2 decay]
@@ -95,58 +99,56 @@ q_2 = (\omega_2, q_2) \notag \\
 \de \Phi_{(2)} = (2 \pi)^4 \delta^4 \underbrace{(P_i - P_f)}_{= p - q_1 - q_2}
 	\frac{\de^3 q_1}{(2 \pi)^3 2 \omega_1} \frac{\de^3 q_2}{(2 \pi)^3 2 \omega_2} \notag
 \end{gather}
-I have 6 integration parameters, 4 constraint given by $\delta^4$, so I have 2 independent variables. Integrating over $\de^3 q_2$
+I have 6 integration parameters, 4 constraints given by $\delta^4$, so I have 2 independent variables. Integrating over $\de^3 q_2$
 \[
 \de \Phi'_{(2)} = \int \de \Phi_{(2)} = \frac{1}{(2 \pi)^2} \delta(M - \omega_1 - \omega_2) \frac{1}{4 \omega_1 \omega_2} \de^3 q_1
 \]
-in this way, the condition $\vec{q_2} = \vec{q_1}$ vanish. We have to impose it again when we calculate $\de \Gamma$ (we omit this detail)\\
-Usually the 4-th non independent parameter is eliminated by integration over modulus of $q_1$, leaving free 2 parameters for the angles. 
-$\de^3 q_1 \to \vec{q_1}^2 \de \abs{\vec{q_2}}\de \Omega_1$.\\ \\
-Notice that $M -\omega_1 - \omega_2 = M - \sqrt{\vec{q_1}^2 + m_1^2} - \sqrt{\vec{q_2} + m_2^2}$ and then the $\delta$ implies
+in this way, the condition $\vec{q_2} = \vec{q_1}$ vanish. We have to impose it again when we calculate $\de \Gamma$.\\
+Usually the 4-th non independent parameter is eliminated by integration over modulus of $q_1$, leaving free 2 parameters for the angles, $\de^3 q_1 \to \vec{q_1}^2 \de \abs{\vec{q_1}}\de \Omega_1$. Notice that $M -\omega_1 - \omega_2 = M - \sqrt{\vec{q_1}^2 + m_1^2} - \sqrt{\vec{q_1}^2 + m_2^2}$ and then the $\delta$ fixes $\vec{q_1}^2$ to the value
 \[
-\hat{q_1}^2 = \frac{1}{2M} \biggl( M^4 - 2M^2(m_1^2 + m_2^2) + (m_1^2 - m_2^2)^2 \biggr)^{1/2}
+\hat{\vec{q_1}}^2 = \frac{1}{2M} \biggl( M^4 - 2M^2(m_1^2 + m_2^2) + (m_1^2 - m_2^2)^2 \biggr)^{1/2}
 \]
-$\abs{\vec{q_1}}$ is the only zero of $f(\abs{\hat{q_1}}) = M - \omega_1 - \omega_2$.\\
-We also have
+Writing $f(\abs{\vec{q_1}})=M-\omega_1-\omega_2$, such that $f(\abs{\hat{\vec{q_1}}})=0$, we have
 \[
-\abs{f'(\abs{\hat{q_1}})} = \frac{\partial \omega_1}{\partial \abs{\vec{q_1}}} 
+\abs{f'(\abs{\hat{\vec{q_1}}})} = \frac{\partial \omega_1}{\partial \abs{\vec{q_1}}} 
 	+ \frac{\partial \omega_2}{\partial \abs{\vec{q_1}}} 
-	= \abs{\hat{q_1}} \biggl ( \frac{\omega_1 + \omega_2}{\omega_1 \omega_2} \biggr)
+	= \abs{\hat{\vec{q_1}}} \biggl ( \frac{\omega_1 + \omega_2}{\omega_1 \omega_2} \biggr)
 \]
-Using
+and then using
 \[
 \delta \bigl( f(x) \bigr) = \sum_{x_0 = \textup{zero of f(x)}} \frac{\delta (x - x_0)}{\abs{f'(x_0)}} 
 \]
-and performing integration over $\de \abs{\vec{q_1}}$ we obtain
+we can perform the integration over $\de \abs{\vec{q_1}}$ obtaining
 \[
-\de \Phi''_{(2)} = \int \de \Phi'_{(2)} = \frac{1}{16 \pi^2} \frac{\abs{\hat{q_1}}}{M} \de \Omega_1
+\de \Phi''_{(2)} = \int \de \Phi'_{(2)} = \frac{1}{16 \pi^2} \frac{\abs{\hat{\vec{q_1}}}}{M} \de \Omega_1
 \]
-Using this result we obtain the $1 \to 2$ decay rate in function of the solid angle (in the rest frame)
+Using this result we obtain the $1 \to 2$ decay rate in function of the solid angle (in the rest frame of the initial particle, $\omega_{in}=M$)
 \[
 \biggl( \frac{\de \Gamma_{RF}}{\de \Omega} \biggr) = \frac{1}{64 \pi^4 M^3}
 	\bigl[ M^4 - 2M^2 (m_1^2 + m_2^2) + (m_1 - m_2^2)^2 \bigr]^{1/2} \abs{\mathM_{RF}}^2
 \]
-In a general frame we can easily obtain an analogous formula, just consider $\de \Gamma = 1/(2 \omega_in) \abs{\mathM_{fi}}^2 \de \Phi_{(nf)}$ in a general frame. remember that $\de I_{(nf)}$ is invariant \\ \\
+In a general frame we can easily obtain an analogous formula, just consider the generic relation $\de \Gamma = 1/(2 \omega_{in}) \abs{\mathM_{fi}}^2 \de \Phi_{(n_f)}$. Recall that $\de \Phi_{(n_f)}$ is invariant.
+
 We have 2 important limit cases:
-\begin{enumerate}[label=(\Alph*)]
+\begin{enumerate}[label=(\alph*)]
 \item If $m_1 = m_2 = m$ (for example $Z \to e^+ e^-$)
 	\begin{gather}
 	\abs{\hat{q_1}} = \frac{M}{2} \biggl( 1 - \frac{4 m^2}{M^2} \biggr)^{1/2} \notag \\
 	\biggl( \frac{\de \Gamma_{RF}}{\de \Omega} \biggr) = \frac{1}{64 \pi^2 M} \biggl( 1 - \frac{4 m^2}{M^2} \biggl)^{1/2} \abs{\mathM_{fi}}^2 \notag
 	\end{gather}
-\item If $m_1 = m, m_2 = 0$ (for example $W^{\pm} \to e^{\pm} \stackrel{(-)}{\nu}$)
+\item If $m_1 = m$, $m_2 = 0$ (for example $W^{\pm} \to e^{\pm} \stackrel{(-)}{\nu}$)
 	\begin{gather}
 	\abs{\hat{q_1}} = \frac{M}{2} \biggl( 1 - \frac{4 m^2}{M^2} \biggr)^{1/2} \notag \\
 	\biggl( \frac{\de \Gamma_{RF}}{\de \Omega} \biggr) = \frac{1}{64 \pi^2 M} \biggl( 1 - \frac{m^2}{M^2} \biggr)^{1/2} \abs{\mathM_{fi}}^2 \notag
 	\end{gather}
 \end{enumerate}
-\textbf{Notes:} If we have two identical particles in the final state, the calculation of the phase is different
+Notice that if we have two identical particles in the final state, the calculation of the phase space is different
 \[
 \de \Phi_{(2)}^{\textup{identical}} = \frac{1}{2} \de \Phi_{(2)}^{\textup{distinguishable}}
 \]
 \end{example}
 
-\section{Cross section ($\leftrightarrow$ scattering process)}
+\section{Cross section (scattering process)}
 
 \begin{center}
 \input{img/Cross_section_sketch_interaction.tex}
@@ -158,46 +160,44 @@ We have 2 important limit cases:
 \input{img/Cross_section_sketch_lab.tex}
 \end{center}
 
-Consider a beam of particles with mass $m_1$, number (assuming a uniform distribution) density $n_1^{(0)}$ (subscript 0 is meant to stress that these are number densities in a specific frame, that with particle 2 at rest) and velocity $v_1$ inpining on a target made of particles with mass $m_2$ and number density $n_2^{(0)}$ at rest.\\
+Consider a beam of particles with mass $m_1$ with number density (assuming a uniform distribution)  $n_1^{(0)}$ (subscript 0 is meant to stress that these are number densities in a specific frame, with particle 2 at rest) and velocity $v_1$ colliding on a target made of particles with mass $m_2$ and number density $n_2^{(0)}$ at rest.
 Let $N_s$ be the number of scattering events that place per unit volume and per unit time
 \[
-\frac{N_t}{T} \phi_1 N_2 \sigma = \bigl( n_1^{(0)} v_1 \bigr) \bigl( n_2^{(0)} V \bigr) \sigma
+\frac{N_s}{T} \phi_1 N_2 \sigma = \bigl( n_1^{(0)} v_1 \bigr) \bigl( n_2^{(0)} V \bigr) \sigma
 \]
 More formally we have
 \[
-\de N_s = \sigma v_1 n_1^{(0)} n_2^{(0)} \ \de V \de V
+\de N_s = \sigma v_1 n_1^{(0)} n_2^{(0)} \ \de V \de t
 \]
 with:
 \begin{itemize}[label=$\bullet$]
-\item T: unit of time
-\item $\phi_1$: flux of the beam $\phi_1 = n_1^{(0)} v_1$
-\item $N_2$: particles per unit volume in the detector $N_2 = n_2^{(0)}V$
-\item $\sigma$: proportionality constant
+\item $T$: unit of time;
+\item $\phi_1$: flux of the beam $\phi_1 = n_1^{(0)} v_1$;
+\item $N_2$: particles per unit volume in the detector $N_2 = n_2^{(0)}V$;
+\item $\sigma$: proportionality constant, called \textbf{cross section}.
 \end{itemize}
-Dimensional analysis shows $[\sigma] = [L]^2$ and then $\sigma$, called cross section, can be interpreted as an ``effective area''\\
-Consider the case where just one particle collides with another particle (2 particles scattering). We can obtain this condition imposing $n_{1,2}^{(0)} = 1/V$, in this way the scattering per unit of volume is the same as two particles scattering\\
-Notice that this situation is the more physical. The probability of 3 particles collision in the same $\de^3 x$ and $\de t$ is almost 0\\ \\
-If $\de \omega$ is, again, the probability for a process in which in the final state the i-th particle has momentum between $p_i$ and $p_i + \de p_i$
+Dimensional analysis shows $[\sigma] = [L]^2$ and then $\sigma$, called cross section, can be interpreted as an ``effective area''.
+
+Consider the case where just one particle collides with another particle (2 particles scattering). We can obtain this condition imposing $n_{1,2}^{(0)} = 1/V$, in this way the scattering per unit of volume is the same as two particles scattering.
+Notice that this situation is the more physical one. The probability of 3 particles collision in the same $\de^3 x$ and $\de t$ is almost 0.
+Let $\de \omega$ be, again, the probability for a process in which in the final state the $i$-th particle has momentum between $p_i$ and $p_i + \de p_i$:
 \[
 \de \omega = (2 \pi)^4 \delta^4 (p_i - p_f) VT \biggl( \frac{1}{2 \omega_1 V} \biggl) \biggl( \frac{1}{2 \omega_2 V} \biggr) \
-	\prod_{l=1}^{n_f} \biggl( \frac{\de^3 pl}{(2 \pi)^3 2 \omega_l} \biggr) \abs{\mathM_{fi}}^2
+	\prod_{l=1}^{n_f} \biggl( \frac{\de^3 p_l}{(2 \pi)^3 2 \omega_l} \biggr) \abs{\mathM_{fi}}^2
 \]
-we can define the \textbf{differential cross section} (in the lab frame) \textbf{$\de \sigma$} as
+We can now define the \textbf{differential cross section} (in the lab frame) $\de \sigma$ as
 \[
 \begin{split}
-(\de \sigma)_{\textup{LAB}}	& = \frac{\de \omega}{n_1^{(0)} n_2^{(0)} v_1 VT}	\\
-						& =\frac{V}{T v_1} \de \omega \\
-						& = (2 \pi)^4 \delta^4 (p_i - p_f) \
-						\prod_{l_1}^{n_f} \biggl( \frac{\de^3 p_l}{(2 pi)^3 2 \omega_l} \biggr)
-						\frac{\abs{\mathM_{fi}}^2}{4 \omega_1 \omega_2 v_1}
-						\qquad \textup{with } \omega_2 = m_2
+(\de \sigma)_{\textup{LAB}}	& = \frac{\de \omega}{n_1^{(0)} n_2^{(0)} v_1 VT}
+						=\frac{V}{T v_1} \de \omega 
+						= (2 \pi)^4 \delta^4 (p_i - p_f) \frac{\abs{\mathM_{fi}}^2}{4 \omega_1 \omega_2 v_1} \prod_{l_1}^{n_f} \biggl( \frac{\de^3 p_l}{(2 \pi)^3 2 \omega_l} \biggr)
 \end{split}
 \]
-The result is then
+with $\omega_2 = m_2$. The result is then (all quantities are considered in the LAB frame)
 \[
-(\de \sigma)_{\textup{LAB}} = \frac{1}{4 \omega_1 v_1 m_2} \abs{\mathM_{fi}}^2 \ \de \Phi_{(nf)}
+(\de \sigma)_{\textup{LAB}} = \frac{1}{4 \omega_1 v_1 m_2} \abs{\mathM_{fi}}^2 \ \de \Phi_{(n_f)}
 \]
-All quantities refers to the rest frame for particle 2 ($\omega_1 = \omega_1^{(0)}, v_1 = v_1^{(0)}$)\\
+
 In order to obtain a covariant relation for $\de \sigma$, we notice that the only non-covariant factor in the latter relation is $(I_{12})_{\textup{LAB}} = \omega_1^{(0)} m_2$. This factor can be substituted with a covariant one
 \[
 I_{12} = \bigl[ (p_1 p_2)^2 - m_1^2 m_2^2 \bigr]^{1/2}
@@ -205,15 +205,14 @@ I_{12} = \bigl[ (p_1 p_2)^2 - m_1^2 m_2^2 \bigr]^{1/2}
 called \textbf{covariant flux factor}. This factor is obviously covariant, we just have to prove that in the lab frame it coincides with $(I_{12})_{\textup{LAB}}$.
 In the lab frame we have $p_1 = (\omega_1, \vec{p_1}^{(0)})$ and $p_2 = (m_2, \vec{0})$, so the previous formula becomes
 \[
-\bigl[ m_2^2 (\omega_1^{(0)})^2 - m_1 m_2 \bigr]^{1/2} = m_2 \bigl( (\omega_1^{(0)})^2 - p_1^2 \bigr)^{1/2} = m_2 \abs{\vec{p_1^{(0)}}}
+\bigl[ m_2^2 (\omega_1^{(0)})^2 - m_1 m_2 \bigr]^{1/2} = m_2 \bigl( (\omega_1^{(0)})^2 - p_1^2 \bigr)^{1/2} = m_2 \big\vert{\vec{p_1^{(0)}}}\big\vert
 	= m_2 \omega_1^{(0)} v_1^{(0)}
 \]
 So the final result is
 \[
-\de \sigma = \frac{\abs{\mathM_{fi}^2}}{4 I_{12}} \de \ \Phi_{(nf)}
+\de \sigma = \frac{\abs{\mathM_{fi}^2}}{4 I_{12}} \de \Phi_{(nf)}
 \]
 
-\newpage
 \begin{example}[$2 \to 2$ scattering]
 Consider a scattering process $2 \to 2$. We consider an initial state with two particles with masses $m_1, m_2$ and four momenta $p_1, p_2$ and a final state with masses $m'_1, m'_2$ and four momenta $p'_1, p'_2$
 
@@ -232,10 +231,10 @@ With a procedure identical to $1 \to 1$ decay (imposing also $\vec{p'_2} = \vec{
 \[
 \de \Phi'_{(2)} = \frac{1}{(2 \pi)^2} \frac{1}{4 \omega'_1 \omega'_2} \delta (\omega_1 + \omega_2 - \omega'_1 - \omega'_2) \ \de^3p'_1
 \]
-In order to integrate over $\de \abs{\vec{p'_1}}$ it is useful to introduce Mandelstam variables s, t and u
+In order to integrate over $\de \abs{\vec{p'_1}}$ it is useful to introduce Mandelstam variables $s$, $t$ and $u$
 \[
-s = (p1 + p2)^2 \qquad
-t = (p1 - p'_1)^2 \qquad
+s = (p_1 + p_2)^2 \qquad
+t = (p_1 - p'_1)^2 \qquad
 u = (p_1 - p'_2)^2
 \]
 These variables are clearly Lorentz invariants, and satisfy (using $p_1 + p_2 = p'_1 + p'_2$) the relation
@@ -249,18 +248,18 @@ p_1 + p_2 = (\sqrt{s}, 0) \notag \\
 \end{gather}
 With a procedure identical to the one used for $1 \to 2$ decay ($M \leftrightarrow \sqrt{s}$) we obtain
 \begin{gather}
-\bigl( \de \Phi''_{(2)} \bigr)_{CM} = \frac{1}{16 \pi^2} \frac{\abs{\widehat{p'_1}}_{CM}}{\sqrt{s}} \ \de \Omega'_1 \notag \\
-\abs{\widehat{p'_1}}_{CM} = \frac{1}{2 \sqrt{s}} \biggl[ s^2 + (m^{\prime 2}_1 + m^{\prime 2}_2)^2 - 2s (m^{\prime 2}_1 + m^{\prime 2}_2) \biggr]^{1/2} \notag
+\bigl( \de \Phi''_{(2)} \bigr)_{CM} = \frac{1}{16 \pi^2} \frac{\big\vert{\widehat{p'_1}}\big\vert_{CM}}{\sqrt{s}} \ \de \Omega'_1 \notag \\
+\big\vert{\widehat{p'_1}}\big\vert_{CM} = \frac{1}{2 \sqrt{s}} \left[ s^2 + (m^{\prime 2}_1 + m^{\prime 2}_2)^2 - 2s (m^{\prime 2}_1 + m^{\prime 2}_2) \right]^{1/2} \notag
 \end{gather}
 The covariant flux factor in CM frame reads
 \[
-(I_{12})_{CM} = \bigl[ \vec{p}^2 (\omega_1 + \omega_2 )^2 \bigr]^{1/2} = \abs{\vec{p}} \sqrt{s}
+(I_{12})_{CM} = \left[ \vec{p}^2 (\omega_1 + \omega_2 )^2 \right]^{1/2} = \abs{\vec{p}} \sqrt{s}
 \]
 So we obtain the final result
 \[
 \begin{split}
 \biggl( \frac{\de \sigma}{\de \Omega'_1} \biggr)_{CM} 	
-	& = \frac{1}{64 \pi^2 s} \frac{\abs{\widehat{p'_1}}_{CM}}{\abs{\vec{p}}} \ \abs{\mathM_{fi}}^2_{CM} \\
+	& = \frac{1}{64 \pi^2 s} \frac{\big\vert{\widehat{p'_1}}\big\vert_{CM}}{\abs{\vec{p}}} \ \abs{\mathM_{fi}}^2_{CM} \\
 	& = \frac{1}{128 \pi^2 s^{3/2}} \frac{1}{\abs{\vec{p}}}
 		\bigl[s^2 + (m_1^{\prime 2} - m_2^{\prime 2})^2 - 2s(m_1^{\prime 2} + m_2^{\prime 2}) \bigr]^{1/2}
 		\abs{\mathM_{fi}}^2_{CM}
@@ -268,48 +267,48 @@ So we obtain the final result
 \]
 We have two important limit cases
 \begin{enumerate}[label=(\Alph*)]
-\item If $m_1 = m'_1, m_2 = m'_2$, i. e. elastic scattering (for example $e^- \mu^{\dagger} \to e^-\mu^{\dagger}$)
+\item If $m_1 = m'_1, m_2 = m'_2$, i. e. elastic scattering (for example $e^- \mu^{+} \to e^-\mu^{+}$)
 	\begin{equation*}
 	\left. \begin{aligned}
-	\abs{\vec{p_1}} = \abs{\vec{p'_1}}, \omega_1 = \omega'_1 \\
-	\abs{\vec{p_2}} = \abs{\vec{p'_2}}, \omega_2 = \omega'_2
+	\abs{\vec{p_1}} = \abs{\vec{p'_1}},\ \omega_1 = \omega'_1 \\
+	\abs{\vec{p_2}} = \abs{\vec{p'_2}},\ \omega_2 = \omega'_2
 	\end{aligned}
-	\right \}
-	\quad \abs{\hat{p'_1}}_{CM} = \abs{\vec{p}}
+	\right \}\quad\rightarrow
+	\quad \big\vert{\hat{p'_1}}\big\vert_{CM} = \abs{\vec{p}}
 	\end{equation*}
 	\[
 	\Biggl( \frac{\de \sigma}{\de \Omega'_1} \Biggr)_{CM} = \ \frac{1}{64 \pi^2} \frac{\abs{\mathM_{fi}}^2}{s}
 	\]
-\item If $m_1 = m_2 \simeq 0, m'_1 = m'_2 = M$ (for example $e^-e^+ \to \mu^- \mu^+$)
+\item If $m_1 = m_2 \simeq 0, m'_1 = m'_2 = M$ (for example $e^-e^+ \to \mu^- \mu^+$, $m_e=1$MeV, $m_\mu=100$MeV)
 	\begin{gather}
-	\abs{\vec{p_1}} = \abs{\vec{p}}, \omega_1 = \frac{\sqrt{s}}{2} \notag \\
-	\abs{\hat{p'_1}} = \frac{\sqrt{s}}{2} \Biggl( 1 - \frac{1}{4M^2}{s} \Biggr)^{1/2} 
+	\abs{\vec{p_1}} = \abs{\vec{p}},\ \omega_1 = \frac{\sqrt{s}}{2} \notag \\
+	\big\vert{\hat{p'_1}}\big\vert = \frac{\sqrt{s}}{2} \Biggl( 1 - \frac{1}{4M^2}{s} \Biggr)^{1/2} 
 	\end{gather}
 $4M^2/s$ processes with $s < 4M^2$ are unphysical
 	\[
 	\Biggl( \frac{\de \sigma}{\de \Omega'_1} \Biggr)_{CM} = \ \frac{1}{64 \pi^2} 
 	\Biggl( 1 - \frac{4M^2}{s} \Biggr)
-	\frac{\abs{\mathM_{fi}}^2}{s}
+	\frac{\big\vert{\mathM_{fi}}\big\vert^2}{s}
 	\]
 \end{enumerate}
 \end{example}
 
-The previous formulas are valid also for particles with spin, if the initial and final spin states are known; in this case the initial state has the form $\ket{i} = \ket{\vec{p_1}, \vec{s_1}; \dots; \vec{p_n}, \vec{s_n}}$, and similarly for the final state.\\
+The previous formulas are valid also for particles with spin, if the initial and final spin states are known; in this case the initial state has the form $\ket{i} = \ket{\vec{p_1}, \vec{s_1}; \dots; \vec{p_n}, \vec{s_n}}$, and similarly for the final state.
 However, experimentally is more common that we do not know the initial spin configuration and we accept in the detector all final spin configurations; in this case, to compare with experiment, we must
 \begin{enumerate}
-\item Considering all (equally present) polarization of initial state, i.e. \textit{average} over the initial spin configuration
-\item Considering all final polarizations, i.e. \textit{sum} over all possible final configurations
+\item consider all (equally present) polarizations of initial state, i.e. \textit{average} over the initial spin configuration
+\item consider all final polarizations, i.e. \textit{sum} over all possible final configurations
 \end{enumerate}
 Defining the \textbf{unpolarized Feynman amplitude $\overline{\abs{\mathM_{fi}}}$} as
 \[
-\overline{\abs{\mathM_{fi}}^2} = \frac{1}{\textup{n initial polarizations}} \
-	=\sum _{\text{initial} \atop \text{spins}} \ \sum _{\text{final} \atop \text{spins}} \ \abs{\mathcal{M}_{fi}}^{2}
+\overline{\abs{\mathM_{fi}}^2} = \frac{1}{\textup{$\text{n}^\circ$ initial polarizations}} \
+	\sum _{\text{initial} \atop \text{spins}} \ \sum _{\text{final} \atop \text{spins}} \ \abs{\mathcal{M}_{fi}}^{2}
 \]
-we just hace to substitute $\abs{\mathM_{fi}}^2 \to \abs{\mathM_{fi}}^2$ in all previous formulas\\
+we just have to substitute $\abs{\mathM_{fi}}^2 \to \overline{\abs{\mathM_{fi}}}^2$ in all previous formulas.
 For example, in $2 \to 2$ scattering
 \[
-\frac{1}{\text{n init pol}} = \frac{1}{(2 s_a + 1)(2 s_b + 1)}
-\qquad \text{where } s_a = \text{spin of particle 1; and } s_b = \text{spin of particle 2}
+\frac{1}{\text{$\text{n}^\circ$ initial polarizations}} = \frac{1}{(2 s_a + 1)(2 s_b + 1)}
 \]
+where $s_a$ and $s_b$ are the spin of the first and the second particle respectively.
 
 \end{document}

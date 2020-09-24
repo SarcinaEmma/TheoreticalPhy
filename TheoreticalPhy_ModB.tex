@@ -27,6 +27,13 @@
 \usepackage{float}
 \usepackage{color}
 \usepackage{amssymb}
+\usepackage{hyperref}
+\hypersetup{
+	linktoc=all,
+	colorlinks=true,
+	linkcolor={blue!70!black},
+	citecolor={green}
+}
 
 %footnote con num romani invece dei numeri (lo trovo più chiaro visto che potrebbero essere scambiati per apici, però vedi tu se tenerlo o no -> figo)
 \renewcommand{\thefootnote}
@@ -42,7 +49,7 @@
 \let\epsilon\varepsilon
 \let\varepsilon\temp
 
-\renewcommand{\vec}{\mathbf}
+\renewcommand{\vec}{\boldsymbol}
 
 \newcommand{\mathL}{\mathcal{L}}
 \newcommand{\mathH}{\mathcal{H}}
@@ -119,19 +126,15 @@ innertopmargin=\topskip,
 \tableofcontents
 
 \subfile{Cap1}
-
-%%The S-matrix and physical observables
 \subfile{Cap2}
-
-%%QED Process at Lowest order
 \subfile{Cap3}
-
 \subfile{Cap4}
 \subfile{Cap5}
 \subfile{Cap5.2}
 \subfile{Cap6}
 \subfile{Cap7}
 \subfile{Cap8}
+\subfile{Cap9}
 
 \nocite{*}
 \printbibliography

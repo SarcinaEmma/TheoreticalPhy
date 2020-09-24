@@ -4,22 +4,28 @@
 
 \chapter{QED processes at lowest order} %Sei stato bravissimo, si chiamava proprio così
 
+\textsf{Halzen chap. 6; Peskin chap. 5; Mandl chap. 8; Schwartz chap. 13}
+
 \section{The QED Lagrangian and its Symmetries}
-\textsf{Mandl, sec 11.1 - Maggiore, sec 7.1}\\
-Quantum electrodynamic (QED) describes the interactions between (or any other charged spin 1/2 particle) and photons. QED is described by the lagrangian
+\textsf{Mandl sec. 11.1; Maggiore sec. 7.1}\\
+
+Quantum electrodynamic (QED) describes the interactions between electrons (or any other charged spin 1/2 particle) and photons. QED is described by the Lagrangian
 \[
-\mathL_{\text{QED}} =\underbrace{\overline{\psi }( i\slashed \partial -m) \psi }_{\mathcal{L}^{( 0)}_{D}} \ -\underbrace{\frac{1}{4} F_{\mu \nu } F^{\mu \nu }}_{\mathcal{L}_{EM}} -\underbrace{qA_{n}\overline{\psi } \gamma ^{\mu } \psi }_{\mathcal{L}_{int}} -\underbrace{\frac{1}{2\xi }\left( \partial _{\mu } A^{\mu }\right)^{2}}_{\mathcal{L}_{GF}}
-%Vengono un po' una merda le graffe sotto quindi vedi tu se vuoi tenerele o fare in un altro modo
+\mathL_{\text{QED}} =\underbrace{\overline{\psi }( i\slashed \partial -m) \psi}_{\mathcal{L}^{( 0)}_{D}} \ \underbrace{-\frac{1}{4} F_{\mu \nu } F^{\mu \nu }}_{\mathcal{L}_{EM}} \underbrace{-qA_{\mu}\overline{\psi } \gamma ^{\mu } \psi }_{\mathcal{L}_{int}}
 \]
 \begin{enumerate}
-\item $\mathL_D^{(0)}$ is the langrangian for the free Dirac field
-\item $\mathL_{EM}$ is the lagrangian for the free EM field. In order to quatize the E-n field we have to add the term $\mathL_{GF}$ (gauge fixing). For other purposes this term can be omitted. Usually the choice $\xi = 1$, called Feynman gauge, is the simplest choice for quantization
-\item $\mathL_{int}$ describes the interaction between Dirac field and EM-field. Notice that the term $\mathL_D = \mathL_D^{(0)} + \mathL_{int}$ can be obtained from $\mathL_D^{(0)}$ with the ``minimal substitution'' $\partial_{\mu} \to \partial_{\mu} + iqA_{\mu} = D_{\mu}$, i.e. using covariant derivative $D_{\mu}$ instead of $\partial_{\mu}$ in the dirac lagrangian.\\
-Notice that $\mathL_D$ exhibits local symmetry, while $\mathL_D^{(0)}$ doesn't
+\item $\mathL_D^{(0)}$ is the Langrangian for the free Dirac field;
+\item $\mathL_{EM}$ is the Lagrangian for the free EM field. In order to quatize the EM field we have to add the gauge fixing term
+\[
+\mathcal{L}_{GF}=-\frac{1}{2\xi }\left( \partial _{\mu } A^{\mu }\right)^{2}
+\]
+For other purposes this term can be omitted. Usually the choice $\xi = 1$, called Feynman gauge, is the simplest choice for quantization;
+\item $\mathL_{int}$ describes the interaction between Dirac field and EM-field. The term $\mathL_D = \mathL_D^{(0)} + \mathL_{int}$ can be obtained from $\mathL_D^{(0)}$ with the ``minimal substitution'' $\partial_{\mu} \to D_{\mu}=\partial_{\mu} + iqA_{\mu}$, i.e. using the covariant derivative $D_{\mu}$ instead of $\partial_{\mu}$ in the Dirac Lagrangian.
+Notice that $\mathL_D$ exhibits local symmetry, while $\mathL_D^{(0)}$ doesn't.
 \end{enumerate}
-Besides Lorentz invariance, the QED exhibits following symmetries:
+Beside Lorentz invariance, the QED exhibits following symmetries:
 \begin{enumerate}[label=$\bullet$]
-\item \textbf{Global U(1) symmetry}
+\item \textbf{Global $U(1)$ symmetry}
 \[
 \begin{cases}
 \psi(x) \to \psi'(x) = e^{i \alpha}\psi(x) \qquad \alpha \in \mathR \\
@@ -29,63 +35,63 @@ A^{\mu}(x) \to A^{\prime \mu}(x) = A^{\mu}(x)
 There is therefore an associated conserved Noether current
 \[
 j^{\mu} = q \overline{\psi} \gamma^{\mu} \psi
-\quad \to \quad
-\partial_{\mu}j^{\mu} = 0 
 \]
-and a U(1) charge which is conserved by the EM interaction
+such that $\partial_{\mu}j^{\mu} = 0 $ and a $U(1)$ charge which is conserved by the EM interaction
 \[
 Q = q \int \de^3 x \ \psi^{\dagger} \psi
 \qquad
 \frac{\de Q}{\de t} = 0
 \]
-\item \textbf{Local U(1) symmetry} (gauge symmetry)
+\item \textbf{Local $U(1)$ symmetry} (gauge symmetry):
 \[
 \begin{cases}
 \psi(x) \to \psi'(x) = e^{iq\alpha(x)} \psi(x) \\
 A^{\mu} \to A^{\prime \mu}(x) = A^{\mu}(x) - iq\partial^{\mu}\alpha(x)
 \end{cases}
 \]
-notice that the global U(1) symmetry is a sequence of the local U(1) symmetry, taking $\alpha(x)$ constant)\\ \\
-The covariant derivative of $\psi$ $D_{\mu}\psi$ behaves as a spinor (remember that $D_{\mu}$ transforms as a vector):
+Notice that the global $U(1)$ symmetry is a consequence of the local $U(1)$ symmetry, taking $\alpha(x)$ constant).
+
+The covariant derivative of $\psi$, $D_{\mu}\psi$, behaves as a spinor under gauge transformations (remember that $D_{\mu}$ transforms as a vector), indeed:
 \[
 \begin{split}
-D_{\mu}\psi \to (D_{\mu}\psi)' = D'_{\mu}\psi'	& = (D_{\mu} - iq\partial_{\mu} \alpha)(e^{iq\alpha(x)} \psi(x)) \\
-	& = (\partial_{\mu} + iqA_{\mu} - iq\partial_{\mu}\alpha)(e^{iq\alpha} \psi) \\
-	& = e^{iq\alpha}(\partial_{\mu} + iqA_{\mu})\psi \\
+D_{\mu}\psi \to (D_{\mu}\psi)' &= D'_{\mu}\psi'	 = (D_{\mu} - iq\partial_{\mu} \alpha)(e^{iq\alpha(x)} \psi(x)) \\
+	& = (\partial_{\mu} + iqA_{\mu} - iq\partial_{\mu}\alpha)(e^{iq\alpha} \psi) 
+	 = e^{iq\alpha}(\partial_{\mu} + iqA_{\mu})\psi \\
 	& = e^{iq\alpha(x)}(D_{\mu}\psi)
 \end{split}
 \]
-This implies that $\mathL_D$ is invariant. Since $\mathL_{EM}$ is invariant, the full lagrangian is invariant
+This implies that $\mathL_D$ is invariant under local $U(1)$ transformations. Since $\mathL_{EM}$ is invariant ($F^{\mu\nu}$ is itself invariant under gauge transformations), the full Lagrangian (without $\mathL_{GF}$) is invariant. 
+
+The term $\mathcal{L}_{GF}$ breaks the gauge symmetry, and is introduced for this reason in the quantization of the fields. In this way only physical states appears in the Fock space.
 \end{enumerate}
 
-\section{Flavors in QED and the SU(3) Flavor Global Symmetry}
+\section{Flavors in QED and the SU(3) flavor global symmetry}
+
 QED describes interactions of the photon field with several kind of leptons, not only electron and positrons. Particles that differs only by their mass are called \textbf{flavours}.
-\skipline
-The next table describes leptons in QED. There are two families of leptons that differs by their charge. We indicate with (-) (minus) particles with negative charge, and with (+) (plus) particles with positive charge (antiparticles)\\
-\skipline
-Flavours in QED
+The next table describes leptons in QED. There are two families of leptons that differs by their charge. We label with ($-$) particles with negative charge, and with ($+$) particles with positive charge (antiparticles).
+
 \[
 \begin{array}{l | cccccc}
 \toprule
-Leptons \footnotemark	& e 		& \mu 	& \tau 	& \nu_e 		& \nu_{\mu} 	& \nu_{\tau} \\
+\text{Leptons} \footnotemark	& e 		& \mu 	& \tau 	& \nu_e 		& \nu_{\mu} 	& \nu_{\tau} \\
 \midrule
 q					& -1		& -1		& -1		& 0			& 0			& 0 \\
-m [MeV]				& 0.5		& 105	& 1777	& \simeq 0		& \simeq 0		& \simeq 0 \\
+m\, [\text{MeV}]				& 0.5		& 105	& 1777	& \simeq 0		& \simeq 0		& \simeq 0 \\
 \bottomrule
 \end{array}
 \]
-\footnotetext{Neutrinos admit anly global U(l) symmetry \\
-Neutrino masses are in the order $m_{\nu} \approx 10^{-6} me \le 1 eV$}
-\skipline
-The dirac lagrangian $\mathL_D$ can be modified in order to consider all possible leptons
+\footnotetext{Neutrinos admit only global $U(1)$ symmetry, and their masses are of the order $m_{\nu} \approx 10^{-6} \,m_e \le 1$eV.}
+
+The Dirac Lagrangian $\mathL_D$ can be modified in order to consider all possible leptons
 \[
 \mathL_D = \sum_{i=1}^n \bar{\psi_i} (i \slashed D - m_i) \psi_i
 	\simeq \sum_{i=1}^{n_l} \bar{\psi_i} (i \slashed D - m_i) \psi_i
 	+ \sum_{j=1}^{n_n} \bar{\psi_i} (i \slashed \partial) \psi_i
 \]
 with $n$: number of leptons, $n_l$: number of electrically charged particles, $n_n$: number of neutrinos.\\
-In the last term the interaction term vanishes because of q=0\\
-If we adopt a matrix notation
+In the last term the interaction term vanishes because of q=0 and the masses of neutrinos are neglected. 
+
+If we adopt a matrix notation for the fields
 \begin{align}
 \Psi_C & =
 \begin{pmatrix}
@@ -106,8 +112,7 @@ If we adopt a matrix notation
 \bar{\Psi}_N & = (\bar{\psi}_{\nu_e}, \bar{\psi}_{\nu_{\mu}}, \bar{\psi}_{\nu_{\tau}})
 \notag 
 \end{align}
-The subscript C stands for ``charged'', and N for ``neutral''\\
-We can define following matrices
+(the subscript C stands for ``charged'', and N for ``neutral'') and we define following matrices
 \[
 M_C =
 \begin{pmatrix}
@@ -120,51 +125,44 @@ Q_C = (-1) \id_{3 \times 3}
 \qquad
 M_N \simeq Q_N = \emptyset_{3 \times 3}
 \]
-and the generalization of the covariant derivative $D_{\mu} = \partial_{\mu} \cdot \id_{3 \times 3} + iA_{\mu}Q_C$ we obtain
+and the generalization of the covariant derivative $D_{\mu} = \partial_{\mu} \cdot \id_{3 \times 3} + iA_{\mu}Q_C$ then we obtain
 \[
 \mathL_D = \underbrace{\bar{\Psi}_C (i \slashed D - M_C)\Psi_C}_{\mathL_C} +
-	\underbrace{\bar{\Psi}_N(i \slashed \partial \id_{3 \times 3})\Psi_N}_{\mathL_N}
+	\underbrace{\bar{\Psi}_N(i \slashed \partial \,\id_{3 \times 3})\Psi_N}_{\mathL_N}
 \]
-The term $\mathL_C$ and $\mathL_N$ are respectively the \textbf{Charged Sector} and the \textbf{Neutral Sector} of $\mathL_D$\\
+The term $\mathL_C$ and $\mathL_N$ are respectively the \textbf{charged sector} and the \textbf{neutral sector} of $\mathL_D$.
 The basis defined by $\Psi_C$ and $\Psi_N$ is called \textbf{physical basis}, since physical particles are identified by their mass.
 
-\subsection{Global Symmetry of Neutral and Charged Sector}
+\subsection{Global symmetry of neutral and charged sector}
 Let's consider a U(3) transformation
 \[
 \Psi(x) \to \Psi'(x) = U\Psi(x)
 \qquad
 U^{\dagger}U = \id_{3 \times 3}
 \]
-Spinors and vector are left invariant\\
-The neutral sector is left invariant under U(3) tfm
+(spinors and vectors are left invariant).
+The neutral sector is left invariant under U(3), indeed
 \[
-\mathL_N \to \mathL'_N = \bar{\Psi'}_N (i \slashed \partial \id_{3 \times 3})\Psi'_N =
-	\bar{\Psi}_N U^{\dagger}(i \slashed \partial \id_{3 \times 3})U \Psi_N = \mathL_N
+\mathL_N \to \mathL'_N = \bar{\Psi'}_N (i \slashed \partial \,\id_{3 \times 3})\Psi'_N =
+	\bar{\Psi}_N U^{\dagger}(i \slashed \partial \,\id_{3 \times 3})U \Psi_N = \mathL_N
 \]
-The charged sector is not invariant because of the mass term
+conversely, the charged sector is not invariant because of the mass term, which in general do not commute with $U$ and $U^\dagger$:
 \[
 \mathL \to \mathL'_C = \bar{\Psi}_C ( i \slashed D - U^{\dagger}M_C U)\Psi_C \ne \mathL_C
-\quad \textup{in general}
 \]
-In order to obtain global symmetries of the flavor QED lagrangian, we search the subgroup of U(3) made by matrices $U-g$ that satisfies
+In order to obtain global symmetries of $\mathL_D$, we search the subgroup of U(3) described by matrices $U_g$ that satisfies
 \begin{equation}
-U^{\dagger}_g M_C U_g = M_c
+U^{\dagger}_g M_C U_g = M_C
 \qquad
 U_g \in U(3)
 \label{eq:U3}
 \end{equation}
-We can prove that $U(3) \overset{isomorphism}{\simeq} U(1) \times SU(3)$, with
-\begin{enumerate}
-\item |det(U(3)| = 1
-\item det(U(1)) = $e^{i\theta}$ \footnote{Indicando con $e^{i\theta}$ il determinante delle matrici $U_g \in U(3)$}
-\item det(SU(3)) = 1 \footnote{SU(3) è l'insieme di livello dato da $(\arg \circ \textup{ det})^{-1}(0)$}
-\end{enumerate}
-Since generators of SU(3) are Gell-Mann matrices $\lambda_a$ (for a = $1, \dots, 8$), generators of U(3) are
+One can prove that $U(3) \underset{\text{iso}}{\simeq} U(1) \times SU(3)$, meaning that their Lie algebras are isomorphic, $\mathfrak u(3) \underset{\text{iso}}{\simeq} \mathfrak u(1) \times \mathfrak{su}(3)$. 
+Since generators of $SU(3)$ are the eight Gell-Mann matrices $\lambda_a$ (for a = $1, \dots, 8$) and the only generator of $U(1)$ is $\id$ then generators of U(3) are of the form
 \[
 \id \times \{ \lambda_1, \dots, \lambda_8 \}
 \]
-we can also prove that equation \ref{eq:U3} is satisfied only by diagonal matrix\\
-Diagonal generators of SU(3) are
+One can also prove that equation \ref{eq:U3} is satisfied only by diagonal matrix, and the only diagonal Gell-Mann matrices are
 \[
 \lambda_0 =
 \begin{pmatrix}
@@ -187,19 +185,20 @@ Diagonal generators of SU(3) are
 0	& 0	& -2
 \end{pmatrix}
 \]
-Up to a phase, matrices $U_g$ are in the form
-\[
-U_g = e^{i \alpha_0 \lambda_0} \ e^{i \alpha_3 \lambda_3} \ e^{i \alpha_8 \lambda_8}
-\]
 For i = 0, 3 ,8 we have $[\lambda_i, M_c] = 0$ and then the equation \ref{eq:U3} is satisfied: if we take $\alpha_i \ll 1$
 \[
 (1 - i \alpha_i \lambda_i)M_C(1 + i \alpha_i \lambda_i) = (M_C - i \alpha_i [\lambda_i, M_C] + o(\alpha_i^2)) \simeq M_C
 \]
-We then obtained that the global group of symmetry is generated by the algebra
+We then obtained that the global group of symmetries is generated by the algebra
 \[
 \mathcal{G} = \{ \lambda_0, \lambda_3, \lambda_8 \} = U(1)^3 \subset U(3)
 \]
-I define the following basic of $\mathcal{G}$:
+and elements of the generated subgroup of symmetries are of the form
+\[
+U_g = e^{i\alpha}e^{i \alpha_0 \lambda_0} \ e^{i \alpha_3 \lambda_3} \ e^{i \alpha_8 \lambda_8}
+\]
+
+I define the following basis of $\mathcal{G}$:
 \[
 \lambda_e =
 \begin{pmatrix}
@@ -222,48 +221,57 @@ I define the following basic of $\mathcal{G}$:
 0	& 0	& 1
 \end{pmatrix}
 \]
-These matrices generates phase tfm for each kind of leptons ($\lambda_e$ generates phase tfm for e, ecc $\dots$)\\
-Conserved quantities of this group are 3, and corresponding to the number of particles of each type (Antiparticles are counted with negative sign)\\
-\begin{example}
-$\mu^- \to e^- \gamma$ is forbidden in QED. 
-This is an example of conserved charges due to unitary symmetry that have nothing to do with electric charge.\\
-Flavours changing in neutral sector are forbidden too
-\end{example}
+These matrices generates phase tfm for each kind of leptons ($\lambda_e$ generates phase transformations for $e$, etc.).
+Conserved quantities of this group are 3, and correspond to the number of particles of each type (antiparticles are counted with negative sign).
+This is an example of conserved charges due to unitary symmetry that have nothing to do with electric charge.
 
-\section{QED Feynman Rules $\to$ fogli stampati (23-26)}
+For instance, the process $\mu^- \to e^- \gamma$ is forbidden in QED, since the number of electrons and muons are not conserved.
+ 
+Flavour changes in neutral sector are forbidden too, since $\mathL_N$ is invariant under such group of global symmetries too.
 
-\section{$e^+ e^- \to f^+ f^-$}\label{sec:electr-to-muon-scatt-QED}
-This diagram is called s-channel
+
+\section{QED Feynman Rules}
+
+\textsf{See Schwartz sec. 13.Intro, 13.1}
+
+\section{Process $e^+ e^- \to f^+ f^-$}\label{sec:electr-to-muon-scatt-QED}
+
+\textsf{Peskin sec. 5.1}\\
+
+We evaluate the cross-section for the process $e^+ e^- \to f^+ f^-$, where $f$ is a generic fermion couples with the photon (e.g. another electron of a muon or a tauon). We take $f\neq e$ in order to simplify the problem.
+
+At the tree level there is only one Feynman diagram
 \begin{equation*}
 \begin{tikzpicture}[layered layout, baseline=(nu)]
   \begin{feynman}[large]
-    \vertex (f1) {\(e^-\)};
+    \vertex (f1) {\(e^-\ \text{\footnotesize$r$}\)};
     \vertex [label={[label distance=0.12cm]180:$\mu$}] at ([shift={(315:2.5)}]f1) (mu);
-    \vertex [below left=of mu] (b1) {\(e^+\)};
+    \vertex [below left=of mu] (b1) {\(e^+\ \text{\footnotesize$s$}\)};
     \vertex [label={[label distance=0.12cm]2:$\nu$}] at ([shift={(0:3.2)}]mu) (nu);
-    \vertex [above right=of nu] (f2) {\(f^-\)};
-    \vertex [below right=of nu] (b2) {\(f^+\)};
+    \vertex [above right=of nu] (f2) {\(\text{\footnotesize$r'$}\ f^-\)};
+    \vertex [below right=of nu] (b2) {\(\text{\footnotesize$s'$}\ f^+\)};
 
     \diagram*{
       (f1) -- [fermion, momentum={[arrow shorten=0.2]\(p\)}] (mu)
       		-- [photon, edge label'={\(k=p'+q'\)}, momentum={[arrow shorten=0.3]\(k=p+q=\sqrt{s}\)}] (nu)
       		-- [fermion, momentum={[arrow shorten=0.2]\(p'\)}] (f2),
       (b1) -- [anti fermion, momentum'={[arrow shorten=0.25]\(q\)}] (mu),
-      (nu) -- [fermion, momentum'={[arrow shorten=0.25]\(q'\)}] (b2),
+      (nu) -- [anti fermion, momentum'={[arrow shorten=0.25]\(q'\)}] (b2),
     };
   \end{feynman}
 \end{tikzpicture}
 \end{equation*}
-With $k=p' + q'$ we impose the 4 momentum conservation\\
-We have
+which is called $s$-channel since the internal line describe a photon with momentum $\sqrt s$. The label $r,s,r',s'$ denote the spin of the spinors.
+
+Taking into account the momentum conservation we have
 \[
 S_{fi} = (2 \pi)^4 \delta^4 (p+q-p'-q')\mathM_{fi}
 \]
-with Feynman amplitude
+with Feynman amplitude\footnote{Notice that the first square braked correspond to the fermionic path on the right, flowing in the direction $f^- \to \nu \to f^+$. The second square bracket instead correspond to the fermionic path on the left, $e^- \to \mu \to e^+$.}
 \[
 \begin{split}
-\mathM_{fi}	& = (-iq)^2 \bigl[ \bar{u}_{r'}(p') \gamma^{\nu} \ v_{s'}(q') \bigr] \footnotemark
-					\bigl[ \bar{v}_s(q) \gamma^{\mu} \ u_r(p) \bigr] \footnotemark
+\mathM_{fi}	& = (-iq)^2 \bigl[ \bar{u}_{r'}(p') \gamma^{\nu} \ v_{s'}(q') \bigr]
+					\bigl[ \bar{v}_s(q) \gamma^{\mu} \ u_r(p) \bigr]
 					D^{F}_{\mu \nu}(k) \\
 			& = (-iq)^2 \frac{-ig_{\mu \nu}}{k^2 + i \epsilon} \ \bigl[ \bar{u}_{r'} (p') \gamma^{\nu} \ v_{s'}(q') \bigr]
 					\bigl[ \bar{v}_s (q) \gamma^{\mu} \ u_r(p) \bigr] \\
@@ -271,29 +279,26 @@ with Feynman amplitude
 					\bigl[ \bar{v}_s(q) \gamma^{\mu} \ u_r(p) \bigr]
 \end{split}
 \]
-\footnotetext{indica il percorso $e^- \to \mu \to e^+$ nel diagramma}
-\footnotetext{indica il percorso $f^- \to \nu \to f^+$ nel diagramma}
-In the second passage $\xi =1$. We can prove that this choice has no importance, \textsf{see Maggiore pg 187}\\ \\
-Using the identity $(\bar{u} \gamma^{\mu} v)^* = \bar{v} \gamma^{\mu} u$ (that can be proved by direct calculation using
-$(\gamma^{\mu})^{\dagger} = \gamma^0 \gamma^{\mu} \gamma^0$) we obtain (we omit polarization indexes)
-\todo{dimmi se ti va bene così}
-\begin{alignat*}{2}
+In the second step we chosen the propagator with parameter $\xi =1$. One can prove that the amplitude do not depend on the choice of $\xi$, {see Maggiore pag 187}.
+
+Using the identity $(\bar{u} \gamma^{\mu} v)^* = \bar{v} \gamma^{\mu} u$ (which can be proved by direct calculation using $(\gamma^{\mu})^{\dagger} = \gamma^0 \gamma^{\mu} \gamma^0$) we obtain (we omit polarization indices)
+\[\begin{aligned}
 \abs{\mathM_{fi}}^2 = \mathM_{fi} \mathM^*_{fi}
-	& = \frac{q^4}{s^2} \bigl( \bar{u}(p')\gamma_{\mu} v(q') \bigr) \times \bigl( \bar{v}(q') \gamma_{\nu} \, u(p') \bigr) 
-		 & \quad	& \longrightarrow \textup{f-current} \\	
-\abs{\mathM_{fi}}^2 = \mathM_{fi} \mathM^*_{fi}
-	& = \frac{q^4}{s^2} \bigl( \bar{v}(q) \gamma^{\mu}u(p) \bigr) \times \bigl(\bar{u}(p)\gamma^{\nu} \, v(q) \bigr)
-		&		& \longrightarrow \textup{e-current}										
-\end{alignat*}
+	& = \frac{q^4}{s^2} \underbrace{\bigl[ \bar{u}(p')\gamma_{\mu} v(q') \bigr]  \bigl[ \bar{v}(q') \gamma_{\nu} \, u(p') \bigr] }_{f\text{ current}}
+	\underbrace{\bigl[ \bar{v}(q) \gamma^{\mu}u(p) \bigr]  \bigl[\bar{u}(p)\gamma^{\nu} \, v(q) \bigr]}_{e\text{ current}}
+\end{aligned}\]
 At this point, we are still free to specify any particular spinors $u_r(p)$, $\bar{v}_{s'}(p')$ and so on, corresponding to any desired spin states of the fermions.
 
 \subsection{Sum Over Fermion Spins. Squared Averaged Feynman Amplitude}
+
+\textsf{Peskin sec. 5.1}\\
+
 The Feynman amplitude simplifies considerably when we throw away the spin information. We want to compute
 \[
-\abs{\overline{\mathM_{fi}}}^2 = \underbrace{\frac{1}{2} \sum_s \ \frac{1}{2} \sum_r}_{\textup{average over} \atop \text{the initial states}} \ 
-	\underbrace{\sum_{s'} \ \sum_{r'}}_{\textup{sum over} \atop \text{final states}} \abs{\mathM(r,s \to r',s')}^2
+\abs{\overline{\mathM_{fi}}}^2 = \underbrace{\frac{1}{2} \sum_s \ \frac{1}{2} \sum_r}_{\textup{average over} \atop \text{initial states}} \ 
+	\underbrace{\sum_{s'} \ \sum_{r'}}_{\textup{sum over} \atop \text{final states}} \abs{\mathM(r,s,r',s')}^2
 \]
-This sum can be performed using completeness relations for dirac spinors
+This sum can be performed using completeness relations for Dirac spinors
 \[
 \sum_r u_r(p) \bar{u}_r(p) = \slashed p + m
 \qquad
@@ -302,24 +307,24 @@ This sum can be performed using completeness relations for dirac spinors
 Writing spinors indexes explicitly 
 \[
 \begin{split}
-\sum_{rs} \text{e-current}	& = \sum_{rs} \bar{v}^s_a(q) (\gamma^{\mu})_{ab} \, u^r_b(p) \, \bar{u}^r_c(p) (\gamma^{\nu})_{cd} \, v_d^s(q) \\
+\sum_{rs} \text{$e$-current}	& = \sum_{rs} \bar{v}^s_a(q) (\gamma^{\mu})_{ab} \, u^r_b(p) \, \bar{u}^r_c(p) (\gamma^{\nu})_{cd} \, v_d^s(q) \\
 					& = (\slashed q - m)_{da} \, \gamma^{\mu}_{ab} \, (\slashed p + m)_{bc} \, \gamma_{cd}^{\nu} \\
 					& = \Tr \bigl[ (\slashed q - m) \gamma^{\mu} (\slashed p + m) \gamma^{\nu} \bigr]
 \end{split}
 \]
 and similarly
 \[
-\sum_{r's'} \text{f-current} = \Tr \bigl[ (\slashed p' + m) \gamma_{\mu} (\slashed q' - m)\gamma_{\nu} \bigr]
+\sum_{r's'} \text{$f$-current} = \Tr \bigl[ (\slashed p' + M) \gamma_{\mu} (\slashed q' - M)\gamma_{\nu} \bigr]
 \]
+where $m$ is the mass of the electron while $M$ is the mass of the fermion $f$.
 So we obtain
 \[
-\overline{\abs{\mathM_{fi}}^2} = \frac{q^4}{4s^2} \Tr \bigl[ (\slashed q - m) \gamma^{\mu} (\slashed p + m) \gamma^{\nu} \bigr]
-	\Tr \bigl[ (\slashed p' + m) \gamma_{\mu} (\slashed q' -m) \gamma_{\nu} \bigr]
+\abs{\overline{\mathM_{fi}}}^2 = \frac{q^4}{4s^2} \Tr \bigl[ (\slashed q - m) \gamma^{\mu} (\slashed p + m) \gamma^{\nu} \bigr]
+	\Tr \bigl[ (\slashed p' + M) \gamma_{\mu} (\slashed q' -M) \gamma_{\nu} \bigr]
 \]
-The spinors u and v have disappeared, leaving us with a much cleaner expression in terms of $\gamma$ matrices. This trick is very genera: any QED amplitude involving external fermions, when squared and summed or averaged over spins, can be converted in this way to traces of products of Dirac matrices
+The spinors $u$ and $v$ have disappeared, leaving us with a much cleaner expression in terms of $\gamma$ matrices. This trick is very general: any QED amplitude involving external fermions, when squared and summed or averaged over spins, can be converted in this way to traces of products of Dirac matrices.
 
-\skipline
-There is a trick to obtain previous formula using only Feynman rules. If we set $\mathM_{fi}=\mathM_e\mathM_f$ (we divide $\mathM_{fi}$ in 2 factors related to e and f), then $\abs{\mathM_{fi}}^2 = \mathM_e^* \mathM_e \, \mathM_f^* \mathM_f$. We have
+There is a trick to obtain previous formula using only Feynman rules. If we set $\mathM_{fi}=\mathM_e\mathM_f$ (we divide $\mathM_{fi}$ in $e$ and $f$ currents), then $\abs{\mathM_{fi}}^2 = \mathM_e^* \mathM_e \, \mathM_f^* \mathM_f$. We have
 
 \begin{equation*}\sum_{rs} \mathM^*_e \, \mathM_e=%
 \begin{tikzpicture}[baseline=(nu)]
@@ -340,12 +345,11 @@ There is a trick to obtain previous formula using only Feynman rules. If we set 
   \end{feynman}
 \end{tikzpicture}
 \end{equation*}
-The closed fermion line contributes in the final amplitude with a factor
+and then the closed fermion line contributes in the final amplitude with a factor
 \[
-\frac{q^2}{2s} \Tr \bigl[ \underbrace{(\slashed p + m)}_{\textup{Fermion}} \gamma^{\nu} \underbrace{(\slashed q - m)}_{\textup{Antifermion}} \gamma^{\mu} \bigr]
+\frac{q^2}{2s} \Tr \bigl[ {(\slashed p + m)} \gamma^{\nu} {(\slashed q - m)} \gamma^{\mu} \bigr]
 \]
-The factor $-q^2/(2s)$ is obtained using full diagram (s is given by photon propagator)
-\todo{Nei tuoi schemi in mezzo alle 4 linee continue ci sono delle sommatorie. Non ho idea di come metterle, sorry}
+Then the complete unpolarized squared Feynman amplitude is given by (summations are omitted)
 \begin{equation*} \abs{\overline{\mathM_{fi}}}^2 =
 \begin{tikzpicture}[baseline=($0.5*(nu1)+0.5*(nu2)$)]
   \begin{feynman}[large]
@@ -367,64 +371,62 @@ The factor $-q^2/(2s)$ is obtained using full diagram (s is given by photon prop
 \end{equation*}
 
 \skipline
-Going back to the expression of $\abs{\mathM_{fi}}^2$ that we obtain, now we need to calculate explicitly $\gamma$ matrices traces
+Going back to the expression of $\abs{\mathM_{fi}}^2$ that we obtained, now we need to calculate explicitly the traces of $\gamma$ matrices
 \[
 \Tr \bigl[ (\slashed p + m) \gamma^{\nu} (\slashed q - m) \gamma^{\mu} \bigr] =
-\Tr \bigl[ \slashed p \ \gamma^{\nu} \slashed q \ \gamma^{\mu} \bigr] - m^2 \Tr [\gamma^{\nu} \ \gamma^{\mu} ] +
-m \bigl( \Tr [\gamma^{\nu} \slashed q \ \gamma^{\mu} ] - \Tr [ \slashed p \ \gamma^{\nu} \gamma^{\mu}] \bigr)
+\Tr \bigl[ \slashed p \, \gamma^{\nu} \slashed q \, \gamma^{\mu} \bigr] - m^2 \Tr [\gamma^{\nu} \, \gamma^{\mu} ] +
+m \bigl( \Tr [\gamma^{\nu} \slashed q \, \gamma^{\mu} ] - \Tr [ \slashed p \, \gamma^{\nu} \gamma^{\mu}] \bigr)
 \]
-Now we prove some properties of $\gamma-$matrices traces (\textsf{other properties in Peskin pg 133-135})
+Now we prove some properties of $\gamma$ matrices traces ({other useful properties can be found in Peskin, page 133-135}):
 \begin{enumerate}[label=(\Roman*)]
 \item 
 	\begin{alignat*}{2}
-	\Tr [\gamma^{\mu}] 	& = \Tr[\gamma^5 \, \gamma^5 \, \gamma^{\mu} ]		&\quad & \to (\gamma^5)^2 = \id \\
-						& = - \Tr [ \gamma^5 \, \gamma^{\mu} \, \gamma^5 ]	&& \to \{ \gamma^5, \gamma^{\mu} \} = 0 \\
-						& = - \Tr [ \gamma^5 \, \gamma^5 \, \gamma^{\mu} ] 	&& \to \textup{cyclicity} \\
+	\Tr [\gamma^{\mu}] 	& = \Tr[\gamma^5 \, \gamma^5 \, \gamma^{\mu} ]		&\quad & \leftarrow (\gamma^5)^2 = \id \\
+						& = - \Tr [ \gamma^5 \, \gamma^{\mu} \, \gamma^5 ]	&& \leftarrow \{ \gamma^5, \gamma^{\mu} \} = 0 \\
+						& = - \Tr [ \gamma^5 \, \gamma^5 \, \gamma^{\mu} ] 	&& \leftarrow \textup{cyclicity of the trace} \\
 						& = -\Tr[\gamma^{\mu}] 							&& \\
-						& \so \Tr [\gamma^{\mu}] = 0						&&						
+						& = 0						&&						
 	\end{alignat*}
+\item
+	\[\begin{aligned}
+		\Tr[\gamma^\mu\gamma^\nu] &= 2g^{\mu\nu}\Tr[\id_{4\times4}] - \Tr[\gamma^\nu\gamma^\mu] \quad&&\leftarrow\{\gamma^\mu,\gamma^\nu\}=2g^{\mu\nu}\\
+		&=8g^{\mu\nu}-\Tr[\gamma^\mu\gamma^\nu]\quad&&\leftarrow \textup{cyclicity of the trace}\\
+		& = 4g^{\mu\nu}
+	\end{aligned}\]
 \item
 	\begin{align*}
 	\Tr [\gamma^{\mu} \, \gamma^{\nu} \, \gamma^{\rho} \, \gamma^{\sigma}]
-	&= \Tr [2g^{\mu\nu} \, \gamma^{\rho}\, \gamma^{\sigma} - \gamma^{\nu}\, \gamma^{\mu}\, \gamma^{\rho}\, \gamma^{\sigma} ] \\
-	& = 2g^{\mu\nu} \Tr[ \gamma^{\rho}\, \gamma^{\sigma}] - \Tr[\gamma^{\nu}2g^{\mu\rho}\gamma^{\sigma}
-		- \gamma^{\nu}\, \gamma^{\rho}\, \gamma^{\mu}\, \gamma^{\sigma}] \\
-	& = 8g^{\mu\nu}g^{\rho\sigma} - 8g^{\mu\rho}g^{\nu\sigma} +
-		\Tr[\gamma^{\nu}\, \gamma^{\rho}\, 2g^{\mu\sigma} - \gamma^{\nu}\, \gamma^{\rho}\, \gamma^{\sigma}\, \gamma^{\mu}] \\
+	&= 2g^{\mu\nu}\Tr [\gamma^{\rho}\, \gamma^{\sigma}] - \Tr[\gamma^{\nu}\, \gamma^{\mu}\, \gamma^{\rho}\, \gamma^{\sigma} ] \\
+	& = 2g^{\mu\nu}\Tr [\gamma^{\rho}\, \gamma^{\sigma}] - 2g^{\mu\rho}\Tr[\gamma^{\nu}\gamma^{\sigma}]
+		 +\Tr[\gamma^{\nu}\, \gamma^{\rho}\, \gamma^{\mu}\, \gamma^{\sigma}] \\
+	&= 2g^{\mu\nu}\Tr [\gamma^{\rho}\, \gamma^{\sigma}] - 2g^{\mu\rho}\Tr[\gamma^{\nu}\gamma^{\sigma}] +2g^{\mu\sigma}\Tr[\gamma^\nu\gamma^\rho]-\Tr[\gamma^{\nu}\, \gamma^{\rho}\, \gamma^{\sigma}\, \gamma^{\mu}]\\
 	& = 8 \bigl( g^{\mu\nu}g^{\rho\sigma} - g^{\mu\rho}g^{\nu\sigma} + g^{\mu\sigma}g^{\nu\rho} \bigr)
 		-\Tr[\gamma^{\mu}\, \gamma^{\nu}\, \gamma^{\rho}\, \gamma^{\sigma}] \\
-	& \so \Tr[\gamma^{\mu}\, \gamma^{\nu}\, \gamma^{\rho}\, \gamma^{\sigma}] =
+	& =
 		4\bigl( g^{\mu\nu}g^{\rho\sigma} - g^{\mu\rho}g^{\nu\sigma} + g^{\mu\sigma}g^{\nu\rho} \bigr)
 	\end{align*}
+\item From previous calculation, using induction, can be easily proved that $\Tr \,[\underbrace{\gamma^{\mu} \dots \gamma^{\sigma}}_{\textup{odd \# of} \atop \gamma \textup{ matrices}}] = 0$.
+
 \end{enumerate}
 
-From previous calculation, using induction, can be easily proved that $\Tr \,[\underbrace{\gamma^{\mu} \dots \gamma^{\sigma}}_{\textup{odd \# of} \atop \gamma \textup{ matrices}}] = 0$\\
 With these relations we obtain
-\begin{enumerate}[label=$\bullet$]
-\item
 	\begin{align*}
 	\Tr[(\slashed p + m) \gamma^{\nu}(\slashed q - m) \gamma^{\sigma}]
 	& = 4(g^{\mu\nu}g^{\rho\sigma} - g^{\mu\rho}g^{\nu\sigma} + g^{\mu\sigma}g^{\nu\rho}) p_{\mu}q_{\rho} - m^2 4g^{\nu\sigma} \\
 	& = 4 (p^{\nu}q^{\sigma} - g^{\nu\sigma}p \cdot q + p^{\sigma}q^{\nu} - g^{\nu\sigma}m^2) \\
-	& = 4 \bigl(p^{\nu}q^{\sigma} + p^{\sigma}q^{\nu} - g^{\nu\sigma}(p \cdot q + m^2) \bigr) \\
-	& \textup{with m = mass of }e^I
+	& = 4 \bigl(p^{\nu}q^{\sigma} + p^{\sigma}q^{\nu} - g^{\nu\sigma}(p \cdot q + m^2) \bigr)
 	\end{align*}
-\item
-	\[
-	\Tr [(\slashed p' + m) \gamma_{\mu} (\slashed q' - m) \gamma_{\nu}]
-		= 4 \bigl( p'_{\mu} \, q'_{\nu} + p'_{\nu}\, q'_{\mu} \, g_{\mu\nu}(p' \cdot q' + M^2) \bigr)
-	\qquad \text{with M = mass of } f^I
-	\]
-\item
+therefore
 	\begin{align*}
-	\overline{\abs{\mathM_{fi}}^2} 
+	\abs{\overline{\mathM_{fi}}}^2 
 	& = \frac{4q^4}{s^2} \, \bigl( p^{\mu}q^{\nu} + p^{\nu}q^{\mu} - g^{\mu\nu}(p \cdot q + m^2) \bigr)
-		\bigl( p'_{\mu}\, q'_{\nu} + p'_{\nu}\, q_{\mu} - g_{\mu\nu} (p' \cdot q' + M^2) \bigr) \\
+		\bigl( p'_{\mu}\, q'_{\nu} + p'_{\nu}\, q'_{\mu} - g_{\mu\nu} (p' \cdot q' + M^2) \bigr) \\
 	& \approx \frac{8q^4}{s^2} \bigl( (p \cdot p')(q \cdot q') + (p \cdot q')(p' \cdot q) + M^2(p \cdot q) \bigr)
 		\qquad \textup{if } m \ll M
 	\end{align*}
-\end{enumerate}
-To obtain a more explicit formula we must specialize to a particular frame of reference and express the vectors $p, q, p', q', k$ in terms of the basis kinematic variables (energies and angles) in that frame. In practice, the choice of frame will be dictated by the experimental conditions.\\
+
+To obtain a more explicit formula we must specialize to a particular frame of reference and express the vectors $p, q, p', q', k$ in terms of the basis kinematic variables (energies and angles) in that frame. In practice, the choice of frame will be dictated by the experimental conditions.
+
 We want to calculate cross section in the center of mass frame.
 
 \begin{figure}[H]
@@ -1326,7 +1328,7 @@ and because of momentum conservation $p_e+p_p=p_e'+p_p'$ we have
 
 \skipline
 
-In order to give a description of this process using QED, we modify the QED lagrangian, so that we introduce also protons in our theory. We consider a low energy process, where the proton can be consider as a fundamental particle, described as a spin $1/2$ fermion. Then we can do the same trick we used for QED flavours. The modified Lagrangian reads:\footnote{\textsf{See Schwartz sec. 5.2}}
+In order to give a description of this process using QED, we modify the QED Lagrangian, so that we introduce also protons in our theory. We consider a low energy process, where the proton can be consider as a fundamental particle, described as a spin $1/2$ fermion. Then we can do the same trick we used for QED flavours. The modified Lagrangian reads:\footnote{\textsf{See Schwartz sec. 5.2}}
 \[\mathcal L=\bar\psi_e(i\slashed\partial-m_e)\psi_e+\bar\psi_p(i\slashed\partial-M_p)\psi_p+\underbrace{q_e\bar\psi_e\slashed A\psi_e+q_p\bar\psi_p\slashed A\psi_p}_{\mathcal L_{\textup{int}}}\]
 
 {\small Notice that $\mathcal L_{\textup{int}}$ in order to obtain a description of Rutherford scattering we need to consider at least 2-nd order processes, i.e. 2 vertex.}
@@ -1423,7 +1425,7 @@ which Maxwell equation reads\footnote{Here we used proprieties of Green function
 i.e. $A_{\textup{ext}}^\mu(x)$ can be interpreted as a classic Maxwell field with external source $J^\nu_p(x)$.
 With this notation we obtain
 \[S_{fi}=-iq_e\int\de^4x\bra{e_{r'}^-(p_e')}\left[\bar\psi_e\slashed A_{\textup{ext}}\psi_e\right]_x\ket{e_{r}^-(p_e)}\]
-We obtained the same result if we would have defined the QED interaction lagrangian as
+We obtained the same result if we would have defined the QED interaction Lagrangian as
 \[\mathcal L_{\textup{int}}=-q_e\bar\psi\gamma^\mu\psi(A_\mu+A^{\textup{ext}}_\mu)\]
 and we considered its expantion at the first order (the field $A_\mu$ vanishes in the matrix element because of the sandwich  with initial and final states). Notice that $A_\mu$ is a quantum field (i.e. an operator) while $A^{\textup{ext}}_\mu$ is a classic field (i.e. a function).
 

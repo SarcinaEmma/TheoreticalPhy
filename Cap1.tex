@@ -5,8 +5,8 @@
 
 \section{Free Fields Theories}
 \subsection{Free Fields}
-Here we recall the expressions of quantum  free fields.\\
-Notice that real (i.e. physical) fields are never free because we have interactions, but using interaction picture we reconduct the problem in a simper one, where fields are described by free fields. This can be able with a proper choice.
+Here we recall the expressions of quantum  free fields.
+Notice that real (i.e. physical) fields are never free because we have interactions, but using interaction picture we reconduct the problem in a simper one, where fields are described by free fields. This can be possible with a proper choice
 \[
 \varphi_I (x) \equiv \varphi_{\textup{free}}(x) \qquad \varphi_I \text{ = field in interacting picture}
 \]
@@ -29,7 +29,7 @@ Fourier expantion:
 \[
 \psi(x) = \frac{1}{(2 \pi)^{2/3}} \int \frac{d^3 k}{\sqrt{2 \omega_k}} \sum_{r=1,2} \bigl( e^{-ikx} u_r (k) c_r(k) + e^{ikx} v_r(k) d^{\dagger}_r(k) \bigr)_{k_0 = \omega_k} 
 \]
-where $u_r(k)/v_r(k)$ are the $\epsilon > 0/\epsilon <0$ spinors with helicity indicated by $r$.\\
+where $u_r(k)$ and $v_r(k)$ are respectively the $\epsilon > 0$ and $\epsilon <0$ spinors with helicity indicated by $r$.
 Spinors are normalized according to
 \[
 \begin{cases}
@@ -64,17 +64,13 @@ In QFT we normalized states in a covariant way, instead of QM normalization $\in
 \braket{1(p)}{1(p')} = (2 \pi)^3 (2 \omega _p)\delta^3(p - p') \label{eqn:norm-trans} 
 \end{gather}
 \end{subequations}
-Where the term $(2 \omega_ p)\delta^3(p - p')$ is covariant under Lorentz transformations.\footnote{We indicated with $o^\dagger$ a generic creation operator. }
-\todo{Dimostrare che è covariante} 
+where the term $(2 \omega_ p)\delta^3(p - p')$ is covariant under Lorentz transformations and $o^\dagger$ denotes a generic creation operator.
 
 \subsection{Contraction of Fields with States}\label{sec:cov-norm-feynm-ruls}
 If we have a state $\ket{e^-_s(p)}$ that describes an electron with momentum p and Dirac index s, then
-\[
-\ket{e^-_s(p)} = (2 \pi)^{2/3} \sqrt{2 \omega _p}\ c^{\dagger}_s (p) \ket{0}
-\]
+\[\ket{e^-_s(p)} = (2 \pi)^{2/3} \sqrt{2 \omega _p}\ c^{\dagger}_s (p) \ket{0}\]
 Given a field $\psi$ that describes a particle annihilation (or antiparticle creation) in the coordinate $x$ we have
-\[
-\begin{split}
+\[\begin{split}
 \bra0\psi(x)\ket{ e^-_s(p)}	& = \bra0  (\psi_+(x) + \psi_-(x)) \ket{ e^-_s(p)} \\
 						& = \frac{(2 \pi)^{3/2}}{(2 \pi)^{3/2}} 
 	\int \frac{\de^3 k}{\sqrt{2\omega_k}} e^{-ikx} \sqrt{2\omega_p} \
@@ -82,17 +78,15 @@ Given a field $\psi$ that describes a particle annihilation (or antiparticle cre
 						& = \int \de^3 k \Bigl( \frac{2 \omega_p}{2 \omega_k} \Bigr)^{1/2} \
 	\sum_r \delta_{rs} \delta^{(3)} (\bar{p} - \bar{k}) u_r(k) \braket00 e^{-ikx} \\
 						& = e^{-ikx}u_s(p) 
-\end{split}
-\]
-where we used $\bra 0c_r(k) c_s^{\dagger}(p)\ket 0 = \bra 0\{ c_r(k), c_s^{\dagger}(p) \} \ket 0= \delta_{rs} \ \delta^3 (\bar{p} - \bar{k})$. \\
+\end{split}\]
+where we used $\bra 0c_r(k) c_s^{\dagger}(p)\ket 0 = \bra 0\{ c_r(k), c_s^{\dagger}(p) \} \ket 0= \delta_{rs} \ \delta^3 (\bar{p} - \bar{k})$. 
 The factor $e^{-ikx}$ is required for the $\delta^{(4)}$ conservation. We see that the relativistic normalization leads to Feyman rules without normalization factors: \\
 \begin{equation*}
 e^{-ipx}u_s(p)=
-\begin{tikzpicture}[baseline=(a.base)]
+\begin{tikzpicture}[baseline=(a)]
   \begin{feynman}[medium]
 	\vertex(a);
    	\vertex [right=2cm of a, dot, label={[above right=3mm of b]\(x\)}](b){\hspace {1.5mm}};
-
 	\diagram*{
 	(a) -- [fermion, momentum={[arrow shorten=0.3]\(p\)}] (b),
 	};
@@ -102,49 +96,42 @@ e^{-ipx}u_s(p)=
 
 \section{$S$-Matrix}
 \subsection{Interaction Picture}
-In the interaction picture, with $H = H_0 + H_{\textup{int}}$, where $H_{\textup{int}}$ is the interaction hamiltonian\\
+In the interaction picture, with $H = H_0 + H_{\textup{int}}$, where $H_{\textup{int}}$ is the interaction Hamiltonian
 \begin{enumerate}
-\item Fields $\varphi_I$ evolves like in the free theory (respect to $H_0$)
-\item State evolves with the following evolution operator 
+\item fields $\varphi_I$ evolves like in the free theory (respect to $H_0$)
+\item states evolve with the following evolution operator 
 	\begin{gather}
 	U_I(t, t_0) \equiv e^{iH_0t} e^{-iH(t-t_0)} e^{-iH_0t_0} \notag \\
 	\ket{\alpha, t} = U_I (t - t_0) \ket{\alpha, t_0}
 	\qquad
 	i \partial_t U_I (t-t_0) = H_I^{\textup{int}}(t) U_I(t, t_0) \notag
 	\end{gather}
-\item Operators in interaction picture are (let $O_H(t)$ be a generic operator in Heisenberg picture and $O_I(t)$ the same operator in Interaction picture)
+\item operators in interaction picture are (let $O_H(t)$ be a generic operator in Heisenberg picture and $O_I(t)$ the same operator in Interaction picture)
 	\[O_I(t) = e^{iH_0t}e^{-iHt} \ O_H(t) e^{iHt} e^{-iH_0t}\]
 	Notice that, in general
-	\[
-	[H_I(t), H^0] \ne 0 \ne [H_I^{\textup{int}}, H^0]
-	\]
+	\[[H_I(t), H_0] \ne 0 \ne [H_I^{\textup{int}}, H_0]\]
 	and if $t \ne t'$ we also have
-	\[
-	[H_I^{\textup{int}}(t), H_I^{\textup{int}}(t')] \ne 0
-	\]
+	\[[H_I^{\textup{int}}(t), H_I^{\textup{int}}(t')] \ne 0\]
 \end{enumerate}
 
 \subsection{$S$-matrix and States Evolution}
+
 The \textbf{$S$-matrix} is a well defined operator defined as
-\[
-S = \lim_{\substack{t_0 \to -\infty \\ t \to +\infty}} U_I(t, t_0)
-\]
-We compute S by perturbation obtaining
-\[
-\begin{split}
-S 	& = T \Biggl( \exp \biggl( -i \int \de^4 x \mathH_I^{\textup{int}}(x) \biggr) \Biggr) \\
+\[S = \lim_{\substack{t_0 \to -\infty \\ t \to +\infty}} U_I(t, t_0)\]
+We compute it by perturbation obtaining
+\[\begin{split}
+S 	& = T \Biggl( \exp \biggl( -i \int \de^4 x \,\mathH_I^{\textup{int}}(x) \biggr) \Biggr) \\
 	& = \sum_{n=0}^{+\infty} \frac{(-i)^n}{n!} \ \int \de^4 x_1 \dots \de^4 x_n \, T\big[\mathH_I^{\textup{int}}(x_1) \dots \mathH_I^{\textup{int}}(x_n)\big]
-\end{split}
-\]
-$S$ matrix has some relevant properties
+\end{split}\]
+$S$-matrix has some relevant properties:
 \begin{enumerate}
-\item{Unitariety (since Hamiltonian is hermitian)}
-\item{Behaves as a scalar under Lorentz transformations, and then is an invariant quantity (notice that in general }$\mathH_I^{\textup{int}}$ is not invariant).\\
-	{\small In the case of $\mathH_I^{\textup{int}}$ invariant (for example if, as in many theories, $\mathH_{\textup{int}} = -\mathL_{\textup{int}}$, for example in QED) is easy to prove that $S$ is invariant, since all n-th derivatives of $\exp( \int \mathH)$ are invariant, and so also $S$ is invariant}
+\item{unitarity (since Hamiltonian is hermitian)}
+\item{behaves as a scalar under Lorentz transformations, and then is an invariant quantity (notice that in general }$\mathH_I^{\textup{int}}$ is not invariant).
+In the case of $\mathH_I^{\textup{int}}$ invariant (for example if, as in many theories, $\mathH_{\textup{int}} = -\mathL_{\textup{int}}$, for example in QED) is easy to prove that $S$ is invariant, since all n-th derivatives of $\exp( \int \mathH)$ are invariant, and so also $S$ is invariant.
 \end{enumerate}
 
 \subsection{$S$-matrix and transition probabilities}
-Assume that there's no interaction for $x, t \to \pm\infty$.\\
+Assume that there's no interaction for $x, t \to \pm\infty$.
 Consider canonically normalized (CN) states $\abs{\psi} = 1$:
 \[
 \ket{\psi_i}_{CN} \equiv \ket{\psi(-\infty)}_{CN}
@@ -160,7 +147,7 @@ This leads to a probabilistic interpretation of S-matrix elements.
 \begin{mdframed}[style=mybox]
 The squared amplitude $\abs*{S_{fi}^{CN}}^2$ is the transition probability of $\ket{\psi_i}_{CN}$ into $\ket{\psi_f}_{CN}$. 
 \end{mdframed}
-Notice that the requirement $\sum_f \abs*{S_{fi}^{CN}} = 1$ is satisfied automatically.
+Notice that the requirement $\sum_f \abs*{S_{fi}^{CN}} = 1$ is satisfied automatically. Moreover the canonical normalization is required in order to interpret such amplitude as a transition amplitude.
 In the case of covariant normalization
 \[
 \braket{1(p)}{1(p')} = (2 \pi)^3 (2 \omega _p)\delta^3 (\vec{p} - \vec{p}')
@@ -176,11 +163,12 @@ S_{fi} = (2 \pi)^4 \delta^4 (p_i - p_f) \mathM_{fi}
 and it can be obtained directly starting from Feynman rules (used with the covariant normalization described in Sec. \ref{sec:cov-norm-feynm-ruls})
 
 \section{Discrete space normalization}
-Usually, in order to make arguments cleaner, or to avoid problems with divergent terms in calculations, we first consider a system in a cubic box with spatial valume $V = L^3$.
-At the end of computations V will be sent to infinity. Sometimes we will do something similar also for time.\\
+
+Usually, in order to make arguments clearer, or to avoid problems with divergent terms in calculations, we first consider a system in a cubic box with spatial volume $V = L^3$.
+At the end of computations V will be sent to infinity. Sometimes we will do something similar also for time.
 For a discrete space we must use a different normalization.
 
-In a box, momentum of a particle is quantized
+In a box, the momentum of a particle is quantized
 \[
 p_i = \biggl( \frac{2 \pi}{L} \biggr) n_i \qquad n_i \in \mathZ
 \]
@@ -195,7 +183,7 @@ We must adopt also the following
 \quad \to \quad
 \biggl( \frac{L}{2 \pi} \biggr)^3 \delta_{\vec{n}\vec{n}'}
 \]
-in this way
+in this way the defining relation for the delta function works also in the discrete version
 \[
 \int \de^3p \, \delta^3 (\vec{p} - \vec{p}') = 1
 \quad \to \quad
@@ -227,10 +215,16 @@ S_{fi}^{CN}	& = \prod_{j=1}^{n_i} \biggl( \frac{1}{2 \omega_j V} \biggr)^{1/2} \
 				\Biggl\{ \prod_{j=1}^{n_i} \biggl( \frac{1}{2 \omega_j V} \biggr)^{1/2}
 					    \prod_{l=1}^{n_f} \biggl( \frac{1}{2 \omega_l V} \biggr)^{1/2}
 				\mathM_{fi} \Biggr\} \\
-			& = (2 \pi)^4 \delta^4 (p_i - p_f) M_{fi}^{CN}
+			& = (2 \pi)^4 \delta^4 (p_i - p_f) \mathM_{fi}^{CN}
 \end{split}
 \]
 In the second passage we use the definition of $\mathM_{fi}$, omitting the quantization of $\delta^4$.
-$M_{fi}^{CN}$ is the \textbf{canonically normalized Feynman amplitude}.
+$\mathM_{fi}^{CN}$ is the \textbf{canonically normalized Feynman amplitude}:
+
+\[S_{fi}=(2\pi)^4\delta^4(p_i-p_f)\mathcal M_{fi} \quad\leftrightarrow\quad S_{fi}^{CN} = (2 \pi)^4 \delta^4 (p_i - p_f) \mathM_{fi}^{CN}\]
+with
+\[\mathM_{fi}^{CN}=\prod_{j=1}^{n_i} \biggl( \frac{1}{2 \omega_j V} \biggr)^{1/2}
+					    \prod_{l=1}^{n_f} \biggl( \frac{1}{2 \omega_l V} \biggr)^{1/2}
+				\mathM_{fi}\]
 
 \end{document}
