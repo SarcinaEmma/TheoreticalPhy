@@ -427,13 +427,13 @@ therefore
 
 To obtain a more explicit formula we must specialize to a particular frame of reference and express the vectors $p, q, p', q', k$ in terms of the basis kinematic variables (energies and angles) in that frame. In practice, the choice of frame will be dictated by the experimental conditions.
 
-We want to calculate cross section in the center of mass frame.
+We want to calculate cross section in the center of mass frame (in the next picture the arrow indicate the direction of the momenta, do not care about particle / antiparticle convention, moreover the angle between $\vec p$ and $\vec {p'}$ is called $\theta$:
 
 \begin{figure}[H]
 \centering
 \input{img/ee-ff_com.tex}
 \end{figure}
-
+%
 In the CM frame we have following kinematics relations
 \[
 \left.
@@ -441,36 +441,37 @@ In the CM frame we have following kinematics relations
 (p + q)	& = (\omega_p + \omega_q, \vec{p} + \vec{q}) = (\omega_p + \omega_q, 0) \\
 s 		& = (p + q)^2 = (\omega_p + \omega_q)^2
 \end{aligned}
-\right \} = (p + q) = (\sqrt{s}, 0)
+\right \}\quad \Rightarrow\quad (p + q) = (\sqrt{s}, 0)
 \]
 and
 \[
-\omega_p = (p + q)^2 = (\omega_p + \omega_q)^2
+\omega_p = \sqrt{\vert\vec p\vert^2+m^2} = \sqrt{\vert\vec q\vert^2+m^2}=\omega_q
+\quad\Rightarrow\quad \omega_{p'} = \omega_{q'} = \frac{\sqrt{s}}{2}
 \]
-Same for final momenta
+Equivalent relations holds also for final momenta, therefore we have
 \begin{gather*}
-(p' + q') = (\sqrt{s}, 0) \\
-\omega_{p'} = \omega_{q'} = \frac{\sqrt{s}}{2}
+(p+q) = (p' + q') = (\sqrt{s}, 0) \\
+\omega_p = \omega_q = \omega_{p'} = \omega_{q'} = \frac{\sqrt{s}}{2} \equiv \omega\\
+\vec p+\vec q = \vec {p'}+\vec{q'}=0
 \end{gather*}
-For product momenta
+For products of momenta we get (notice $\abs{\vec p}=\sqrt{\omega^2-m^2}\overset{m\approx0}{\simeq}\omega$)
 \begin{align*}
 (p \cdot q) 		& = \omega^2 - \vec{p}\vec{q} = \omega^2 \abs{\vec{p}}^2 = 2 \omega^2 - m^2 
-	\overset{m=0}{\simeq} 2\omega^2 \\
+	\overset{m\approx0}{\simeq} 2\omega^2 \\
 (p' \cdot q') 		& = \omega^2 - \vec{p}\vec{q} = \omega^2 \abs{\vec{p}}^2 = 2 \omega^2 - M^2 \notag \\
-(p \cdot p') 		& = \omega^2 - \vec{p}\vec{p'} = \omega^2 - \abs{\vec{p}}\abs{\vec{p'}}\cos \theta 
-	\overset{m = 0}{\simeq} \omega(\omega - \abs{\vec{p'}} \cos \theta)
-	\overset{m = 0}{\simeq} (q \cdot q') \\
-(p \cdot q')		& = \omega^2 + \vec{p}\, \vec{p'} = \omega^2 + \abs{\vec{p}}\abs{\vec{p'}}\cos \theta 
-	\simeq \omega(\omega + \abs{\vec{p'}}\cos \theta) \simeq (q \cdot p') \\
+(p \cdot p') 		& = \omega^2 - \vec{p}\vec{p'} = \omega^2 - \abs{\vec{p}}\abs{\vec{p'}}\cos \theta = (q \cdot q')
+	\overset{m \approx 0}{\simeq} \omega(\omega - \abs{\vec{p'}} \cos \theta) \\
+(p \cdot q')		& = \omega^2 + \vec{p} \vec{p'} = \omega^2 + \abs{\vec{p}}\abs{\vec{p'}}\cos \theta =(q \cdot p')
+	\overset{m \approx 0}{\simeq} \omega(\omega + \abs{\vec{p'}}\cos \theta)  \\
 \abs{\vec{p'}}^2 	& = \omega^2 - M^2 = \omega^2 \biggl( 1 - \frac{M^2}{\omega^2} \biggr)
 	= \frac{s}{4} \biggl( 1 - \frac{4M^2}{s} \biggr) \\
-\abs{\vec{p}}^2 	& = \omega^2 + m^2 \overset{m = 0}{\simeq} \omega^2 = \frac{s}{4}
+\abs{\vec{p}}^2 	& = \omega^2 - m^2 \overset{m \approx 0}{\simeq} \omega^2 = \frac{s}{4}
 \end{align*}
-Now we can rewrite $\overline{\abs{\mathM_{fi}}^2}$ in terms of $\omega$ and $\theta$. If $m=0$ is valid (e.g. $m_e/m_{\mu} = 1/200$)
+Now we can rewrite ${\abs{\overline{\mathM_{fi}}}^2}$ in terms of $\omega$ and $\theta$. If $m\approx0$ is valid (e.g. $m_e/m_{\mu} = 1/200$)
 \begin{align*}
-\overline{\abs{\mathM_{fi}}^2}
-	& \simeq \frac{8q^4}{s^2} \bigl[ (\omega^4 - 2 \omega^3 \abs{p'} \cos \theta + \omega^2 \abs{p'}^2 \cos^2 \theta) 
-		+ (\omega^4 + 2 \omega^3 \abs{p'} \cos \theta + \omega^2 \abs{p'}^2 \cos^2 \theta) + 2M^2\omega^2 \bigr] \\
+\abs{\overline{\mathM_{fi}}}^2
+	& \overset{m \approx 0}{\simeq} \frac{8q^4}{s^2} \bigl[ (\omega^4 - 2 \omega^3 \abs{\vec{p'}} \cos \theta + \omega^2 \abs{\vec{p'}}^2 \cos^2 \theta) 
+		+ (\omega^4 + 2 \omega^3 \abs{\vec{p'}} \cos \theta + \omega^2 \abs{\vec{p'}}^2 \cos^2 \theta) + 2M^2\omega^2 \bigr] \\
 	& = \frac{8q^4}{s^2} \biggl[ \frac{2s}{4} \biggl( \frac{s}{4} + \frac{s}{4} \biggl( 1 - \frac{4M^2}{s} \biggr) \cos^2 \theta \biggr)
 		+ 2M^2 \frac{s}{4} \biggr]	\\
 	& = q^4 \biggl[ \biggl( 1 + \frac{4M^2}{s} \biggr) + \biggl( 1 - \frac{4M^2}{s} \biggr) \cos^2 \theta \biggr] 				 
@@ -478,61 +479,71 @@ Now we can rewrite $\overline{\abs{\mathM_{fi}}^2}$ in terms of $\omega$ and $\t
 Cross section formula in the CM frame reads
 \begin{align}
 \biggl( \frac{\de \bar{\sigma}}{\de \Omega} \biggr)_{CM}
-	& = \frac{1}{64\pi^4} \ \frac{1}{s} \ \frac{\abs{p'}}{\abs{q'}} \ \abs{\overline{\mathM}}^2_{CM} \notag \\
+	& = \frac{1}{64\pi^2} \ \frac{1}{s} \ \frac{\abs{p'}}{\abs{q'}} \ \abs{\overline{\mathM}}^2_{CM} \notag \\
 	& = \frac{q^4}{64 \pi^2} \ \frac{1}{s} \ \biggl( 1 - \frac{4M^2}{s} \biggr)^{1/2} \, 
 		\biggl[ \biggl( 1 + \frac{4M^2}{s} \biggr) + \biggl( 1 - \frac{4M^2}{s} \biggr) \cos^2 \theta \biggr] \notag \\
 	& = \frac{\alpha^2}{4s} \biggl( 1 - \frac{4M^2}{s} \biggr)^{1/2} \,
 		\biggl[ \biggl( 1 + \frac{4M^2}{s} \biggr) + \biggl( 1 - \frac{4M^2}{s} \biggr) \cos^2 \theta \biggr]
-		\quad \textup{with } \alpha = \frac{e^2}{4 \pi} \approx \frac{1}{137}	
+		\quad \textup{with } \alpha \equiv \frac{e^2}{4 \pi} \approx \frac{1}{137}	
 		\label{eq:2}&
 \end{align}
+
 Integrating over $\de \Omega$ we find the total unpolarized cross section
 \begin{equation}
 (\bar{\sigma})_{TOT} = \int \de \Omega \biggl( \frac{\de \bar{\sigma}}{\de \Omega} \biggr)_{CM}
-= \frac{4 \pi \alpha^2}{3s} \biggl( 1 - \frac{4M^2}{s} \biggr)^{1/2} \ \biggl( 1 + \frac{2M^2}{s} \biggr) + \sigma(\alpha^3)
+= \frac{4 \pi \alpha^2}{3s} \biggl( 1 - \frac{4M^2}{s} \biggr)^{1/2} \biggl( 1 + \frac{2M^2}{s} \biggr) + o(\alpha^3)
 \label{eq:3}
 \end{equation}
-\textbf{Notes: } $\bigl( 1 - (4M^2)/s \bigr)$ in the equation \ref{eq:2} impose a physical constraint for the scattering process: $s = 4\omega^2 > 4M^2$.
-Energy of initial particles must be grater than the mass of final particles $\omega > M$ (we changed the case $m \approx 0$)\\
-In equation \ref{eq:3}, \emph{the same term}, shows that for $m \approx M$ the cross section vanish and (see previous formulas) there is almost no dependence on the angle, moreover the term $\sigma(\alpha^3)$ is trabscured since we considering only first order of perturbative expansion.\\ \\
-We used approximation $m \approx 0$ because usually in experiments $\omega \approx 1 GeV$ and $m_{\mu} \approx 200 me \ m_{\mu} = 105 MeV$. For very high experiments, $\omega \approx TeV$, we can omit also f mass, approximating $M \approx 0$. This is called \textbf{ultra relativistic regime} (only energies are taken into account)
+which is frame independent.
+
+Again we see that we have the physical constraint $s=4\omega^2>4M^2$, meaning that the initial energy must be large enough to create the masses of the final particles, $\omega>M$. 
+Moreover we see that for $\omega \approx M$ the cross section vanish and (see eq.~\eqref{eq:2}) there is almost no dependence on the angle.
+
+The term $\sigma(\alpha^3)$ contains all corrections at higher order, which at the present we are neglecting, since we are considering only tree level Feynman diagrams. 
+
+We used approximation $m \approx 0$ because usually in experiments $\omega \approx 1 GeV$ and $m_{\mu}  \simeq 105 MeV \approx 200 m_e$. For very high energy experiments, $\omega \approx TeV$, we can omit also $f$ mass, $M \approx 0$. This is called \textbf{ultra relativistic regime} (only energies are taken into account)
 \begin{equation}\label{eqn:electr-muon-scatt-QED-UR}
 \biggl( \frac{\de \bar{\sigma}}{\de \Omega} \biggr)_{CM}^{UR} =
-	\frac{\alpha^2}{4s} \underbrace{(1 + \cos \theta)}_{\text{scattering amplitude} \atop \text{is higher at small angles}}
+	\frac{\alpha^2}{4s} \underbrace{(1 + \cos \theta)}_{\text{scattering amplitude} \atop \text{is higher for small angles}}
 \qquad
 \bigl( \bar{\sigma} \bigr)^{UR}_{TOT} = \frac{4 \pi \alpha^2}{3s} + o \biggl( \frac{M^2}{s} \biggr)
 \end{equation}
 
 \skipline
-Let's summarize how we obtained these results. The method extends in a straightforward way to the calculation of unpolarized cross section for other QED processes at lowest order. The general procedure is as follows:
+
+Let's summarize how we obtained these results. The method extends in a straightforward way to the calculation of unpolarized cross section for other QED processes at lowest order. The general procedure is the following:
 \begin{enumerate}[label=(\arabic*)]
-\item Draw the diagram(s) for the desired process
-\item Use Feynman rules to write down the amplitude $\mathM_{fi}$
-\item Square the amplitude and average or sum over spins, using completeness relations (for processing involving photons in the final state there is an analogous completeness relation, we will derive it in Compton scattering)
-\item Evaluate traces using $\gamma$-matrices proprieties; collect terms and simplify the answer as much as possible
-\item Specialize to a particular frame of reference, and draw a picture of the kinematic variable in that frame. Express all 4-momentum vectors in terms of suitably chosen set of variables such as E and $\theta$
-\item Plug the resulting expression for $\abs{\overline{\mathM_{fi}}}^2$ into the cross-section formula and integrate over phase space variables that are not measured to obtain a differential cross section in the desired form
+\item draw the diagram(s) for the desired process;
+\item use Feynman rules to write down the amplitude $\mathM_{fi}$;
+\item square the amplitude and average or sum over spins, using completeness relations (for processes involving photons in the final state there is an analogous completeness relation, we will derive it in Compton scattering);
+\item evaluate traces using $\gamma$-matrices proprieties, collect terms and simplify the answer as much as possible;
+\item specialize to a particular frame of reference, and draw a picture of the kinematic variable in that frame; express all 4-momentum vectors in terms of suitably chosen set of variables such as $E$ and $\theta$
+\item plug the resulting expression for $\abs{\overline{\mathM_{fi}}}^2$ into the cross-section formula and integrate over phase space variables that are not measured to obtain a differential cross section in the desired form.
 \end{enumerate}
 
 \begin{exercise}
 Calculate cross sections of following precesses ($f \ne e$) (unpolarized)
 \begin{itemize}[label = $\bullet$]
-\item $e^- \, f^- \to e^- \, f^-$ \quad (t-channel)
-\item $e^- \, f^+ \to e^- \, f^+$ \quad (u-channel) 
+\item $e^- \, f^- \to e^- \, f^-$ \quad ($t$-channel)
+\item $e^- \, f^+ \to e^- \, f^+$ \quad ($u$-channel) 
 \end{itemize}
 \end{exercise}
 
-\subsection{Polarized Scattering Relations between helicity and chiarality.}
-\textsf{Perkin, sec 5.2 - Schwartz, sec 13.3 - Mandl, sec 8.4}
-\textbf{The ultra relativistic limit and helicity amplitudes}\\
-In the previous calculation we obtained the amplitude polarized
+\subsection{Polarized scattering relations between helicity and chiarality - The ultra relativistic limit and helicity amplitudes}
+\textsf{Peskin sec 5.2; Schwartz sec 13.3; Mandl sec 8.4}\\
+
+
+In the previous calculation we obtained the polarized amplitude
 \[
-\mathM_{fi} = \frac{iq^2}{s} \bigl( \bar{u}_{r'} (p') \gamma^{\mu} v_{s'} (q') \bigr) \bigl( \bar{v}_s \gamma_{\mu} u_r(p) \bigr)
+\mathM_{fi} = \frac{iq^2}{s} \bigl[ \bar{u}_{r'} (p') \gamma^{\mu} v_{s'} (q') \bigr] \bigl[ \bar{v}_s (q)\gamma_{\mu} u_r(p) \bigr]
 \]
-Calculation of the polarized cross section allows us to understand better the unpolarized cross section, for example show us where the factor $(1 + \cos^2 \theta)$ comes from.\\
-We must choose a basis of polarization states. The best choice is to quantize each spin along the direction of particle's motion, that is, to use states of definite helicity.\\
-In general, helicity projectors are hard to be used for lower energies, so we work in the ultra relativistic limit. Recall that in the massless limit, the left- and right-handed helicity states of a Dirac particle live in different representations of the Lorentz group. We might expect them to behave independently, and in fact they do.\\
-We would like to use the spin sum identities to write the squared amplitude in term of traces as before, ever though we now want to consider only one set of polarizations at a time. We note that in the ultra-relativistic limit, helicity is related to chiarality, so we can use chirality projectors, that are much simpler. In particular, let $\Lambda_{\pm}$ be energy projectors, $\Pi_{\pm}$ be helicity projectors, and $P_{L, R}$ be chirality projectors, then following relations holds:
+Now we want to perform the computation of the different contributions of $\abs{\overline{\mathM}}^2$ due to the different polarizations that constitutes our physical states. 
+
+We must choose a basis of polarization states. The best choice is to quantize each spin along the direction of particle's motion, that is, to use states of definite helicity.
+
+In general, helicity projectors are hard to be used for lower energies, so we work in the ultra relativistic limit. Recall that in the massless limit, the left- and right-handed helicity states of a Dirac particle live in different representations of the Lorentz group. We might expect them to behave independently, and in fact they do.
+
+We would like to use the spin sum identities to write the squared amplitude in term of traces as before, ever though we now want to consider only one set of polarizations at a time. We note that in the ultra-relativistic limit, helicity is related to chirality, so we can use chirality projectors, that are much simpler. In particular, let $\Lambda_{\pm}$ be energy projectors, $\Pi_{\pm}$ be helicity projectors, $P_{L, R}$ be chirality projectors, and $h$ be the helicity eigenvalue, then following relations holds:
 \[
 \Pi_{\pm}\Lambda_+ = P_{R, L}\Lambda_+
 \qquad
@@ -544,43 +555,47 @@ P_R = \frac{1 + \gamma_5}{2}
 \qquad
 P_L = \frac{1 - \gamma_5}{2}
 \]
-And for spinors in UR limit:
-\begin{align*}
-u_+ 	& = \Pi_+ \, u = u_1 = u_R & &\to \text{right handed spinor}	& & h = \frac{1}{2} \\
-u_- 	& = \Pi_- \, u = u_2 = u_L 	& &\to \text{left handed spinor}		& & h = -\frac{1}{2} \\
-\text{with h = helicity eigenvalue}
-\end{align*}
+
+\begin{comment} %wrong, stated better later
+Then spinors in UR limit with definite helicity are:
+\[\begin{aligned}
+u_+ 	& = \Pi_+ \, u = u_1 = u_R \quad&&\to \quad\text{right handed spinor, } h = \frac{1}{2} \\
+u_- 	& = \Pi_- \, u = u_2 = u_L 	&& \to \quad\text{left handed spinor, }	 h = -\frac{1}{2}
+\end{aligned}\]
 
 \begin{center}
 \input{img/hel_chir_UR_part.tex}
 \end{center}
 
 \begin{align*}
-v_+ 	& = \Pi_+ \, v = v_2 = v_L 	& &\to \text{left handed spinor}		& & h = \frac{1}{2} \\
-v_- 	& = \Pi_- \, v = v_1 = v_R	& &\to \text{right handed spinor}		& & h = -\frac{1}{2} \\
+v_+ 	& = \Pi_+ \, v = v_2 = v_L 	\quad&&\to \quad \text{left handed spinor, }	 h = \frac{1}{2} \\
+v_- 	& = \Pi_- \, v = v_1 = v_R	&& \to \quad \text{right handed spinor, } h = -\frac{1}{2}
 \end{align*}
 
 \begin{center}
 \input{img/hel_chir_UR_antipart.tex}
 \end{center}
+\end{comment}
 
-We notice that for antiparticles the relations between chirality and helicity is inverted. This can be easily interpreted using Dirac's Holes Theory, for example an antiparticle with positive helicity is the hole left by a particle with positive helicity (since both momenta and spin change sign), and so particles and antiparticles with same helicity must have inverse chirality.\\ \\
+We notice that for antiparticles the relations between chirality and helicity is inverted. This can be easily interpreted using Dirac's Holes Theory, for example an antiparticle with positive helicity is the hole left by a particle with positive helicity (since both momenta and spin change sign), and so particles and antiparticles with same helicity must have inverse chirality.
+
 Using chirality projectors properties we can write Dirac currents as
 \[
 \begin{split}
-\bar{v}\gamma^{\mu}u 	& =s \bar{v}(P_L + P_R) \gamma^{\mu} \, (P_L +P_R) u \\
+\bar{v}\gamma^{\mu}u 	& = \bar{v}(P_L + P_R) \gamma^{\mu} \, (P_L +P_R) u \\
 					& = \bar{v} P_L \, \gamma^{\mu} \, P_L \, u + \bar{v} P_R \, \gamma^{\mu} \, P_R \, u
 					+ \bar{v} P_L \, \gamma^{\mu} \, P_R \, u + \bar{v} P_R \, \gamma^{\mu} \, P_L \, u
 \end{split}
 \]
-Using $\gamma$ matrices properties
+Recall the commuting relations between $\gamma$ matrices and chirality projectors
 \[
 P_{R,L} \, \gamma^{\mu} 
+	=\frac{1\pm\gamma^5}2\gamma^\mu
 	= \frac{\gamma^{\mu} \pm \gamma^5 \, \gamma^{\mu}}{2} 
 	= \frac{ \gamma^{\mu} \pm \overbrace{\{ \gamma^5, \gamma^{\mu} \}}^{=0} \mp \gamma^{\mu} \, \gamma^5}{2}
 	= \gamma^{\mu} \, \frac{1 \mp \gamma^5}{2} = \gamma^{\mu} \, P_{L, R}
 \]
-we obtain
+then we can rewrite
 \[
 \begin{split}
 \bar{v}\gamma^{\mu} \, u 
@@ -590,21 +605,21 @@ we obtain
 	= \bar{v} \gamma^{\mu}_R \, u + \bar{v} \gamma^{\mu}_L \, u = J^{\mu}_R + J^{\mu}_L
 \end{split}
 \]
-where we are defined $\gamma^{\mu}_{R, L} = \gamma^{\mu} \, P_{RL}$ and the left- and right-currents:
+where we are defined $\gamma^{\mu}_{R, L} = \gamma^{\mu} \, P_{R,L}$ and the left- and right-currents:
 \[
 J_L^{\mu} = \bar{v} \, \gamma^{\mu}_L \, u
 \qquad
 J_R^{\mu} = \bar{v} \, \gamma_R^{\mu} \, u
 \]
-We define right- and left-handed spinors as follows:
+We defined right- and left-handed spinors as follows:
 \begin{align*}
 u_L 	& = P_L \, u 	\quad	u_R = P_R \, u \\
-v_L 	& = P_L \, v	\quad	v_R = P_R \, u
+v_L 	& = P_L \, v	\quad	v_R = P_R \, v
 \end{align*}
-and them conjugated as (let $\psi$ be a generic spinors)
+and them conjugated as (let $w$ be a generic spinors, either $u$ or $v$)
 \begin{align*}
-\psi_L 	& = P_L \, \psi \quad \to \quad \bar{\psi}_L = \bar{\psi} \, P_R \\
-\psi_R 	& = P_R \, \psi \quad \to \quad \bar{\psi}_R = \bar{\psi} \, P_L
+w_L 	& = P_L \, \psi \quad \to \quad \bar{\psi}_L = \bar{\psi} \, P_R \\
+w_R 	& = P_R \, \psi \quad \to \quad \bar{\psi}_R = \bar{\psi} \, P_L
 \end{align*}
 With this notation I can rewrite left- and right-handed currents as
 \begin{align*}
@@ -613,30 +628,45 @@ With this notation I can rewrite left- and right-handed currents as
 \bar{u} \, \gamma^{\mu} \, v 	& = \bar{u} \, \gamma^{\mu}_R \ v + \bar{u} \, \gamma^{\mu} \, v
 	= \bar{u}_R \, \gamma^{\mu} \, v_R + \bar{u}_L \, \gamma^{\mu} \, v_L
 \end{align*}
-Here is evident that a deric current can be divided in its left handed and right handed components\\ \\
-Going back to the Feynman amplitude
-\begin{align*}
-\mathM_{fi} = \frac{iq^2}{s}	
-	& 		\bigl( \bar{u}(p') \, \gamma^{\mu}_L \, v(q') \bigr) \bigl( \bar{v}(q) \, \gamma_{\mu}^L \, u(p) \bigr) \times \quad \to \mathM_{LL}\\
-	& \times 	\bigl( \bar{u}(p') \, \gamma^{\mu}_L \, v(q') \bigr) \bigl( \bar{v}(q) \, \gamma_{\mu}^R \, u(p) \bigl) \times \quad \to \mathM_{LR}\\
-	& \times 	\bigl( \bar{u}(p') \, \gamma^{\mu}_R \, v(q') \bigr) \bigl( \bar{v}(q) \, \gamma_{\mu}^L \, u(p) \bigr) \times \quad \to \mathM_{RL}\\
-	& \times 	\bigl( \bar{u}(p') \, \gamma^{\mu}_R \, v(q') \bigr) \bigl( \bar{v}(q) \, \gamma_{\mu}^R \, u(p) \bigr)  \quad \to \mathM_{RR}
-\end{align*}
-If I did not used the UK limit, I would have obtained 16 independent terms, instead of 4.\\
-Each factor in the latter, corresponds to a different Feynman diagram with different left- and right-handed, initial and final particles, for example
+Here is evident that a Dirac current can be divided in its left handed and right handed components.
 
-\begin{center}
-\input{img/ee-ff_com_hel.tex}
-\end{center}
-With 
+An important point to highlight is a notational problem: a particle with positive helicity is associated to the spinor with positive helicity and positive energy $u_R$, while an antiparticle with positive helicity is associated to the spinor with positive helicity and negative energy $v_L$. Nevertheless, often particles and antiparticles with positive helicity are denoted with $R$, such as $e^-R/e^+_R$, while particles with negative helicity are denoted with $L$, such as $e^-_L/e^+_L$. While this choice makes no problem with particles, in the case of antiparticles the situation is more trickily: an antiparticle with positive helicity is denoted with $R$, even though it is always left-handed and associated with $v_L$; and an antiparticle with negative helicity is denoted with $L$, even though it is always right-handed and associated to $v_R$. 
+
+Going back to the Feynman amplitude
+\[\begin{aligned}
+\mathM_{fi} = \frac{iq^2}{s}	
+	& \big\{		\bigl[ \bar{u}(p') \, \gamma^{\mu}_L \, v(q') \bigr] \bigl[ \bar{v}(q) \, \gamma_{\mu}^L \, u(p) \bigr] + &&\to \ \mathM_{LL}\\
+	& + 	\bigl[ \bar{u}(p') \, \gamma^{\mu}_L \, v(q') \bigr] \bigl[ \bar{v}(q) \, \gamma_{\mu}^R \, u(p) \bigl] + && \to\  \mathM_{LR}\\
+	& + 	\bigl[ \bar{u}(p') \, \gamma^{\mu}_R \, v(q') \bigr] \bigl[ \bar{v}(q) \, \gamma_{\mu}^L \, u(p) \bigr] + && \to \ \mathM_{RL}\\
+	& + 	\bigl[ \bar{u}(p') \, \gamma^{\mu}_R \, v(q') \bigr] \bigl[ \bar{v}(q) \, \gamma_{\mu}^R \, u(p) \bigr] \big\}  && \to\  \mathM_{RR}
+\end{aligned}\]
+If I didn't used the UR limit, I would have obtained 16 independent terms, instead of 4.
+Each factor in the latter, corresponds to a different Feynman diagram with different left- and right-handed, initial and final particles, for instance
+
+\[\begin{aligned}
+\mathM_{LL} &= \begin{tikzpicture}[baseline=(a)]
+	\begin{feynman}[large]
+		\vertex[blob](a){\(\hspace{0cm}\)};
+		\vertex[above left =2.5cm of a](el){\(e_L^-\)};
+		\vertex[below left=2.5cm of a](er){\(e_R^+\)};
+		\vertex[below right=2.5cm of a](fl){\(f_L^-\)};
+		\vertex[above right=2.5 cm of a](fr){\(f_R^+\)};
+		\diagram*{
+			(el)--[fermion, momentum={[arrow shorten=0.2]\(p\)}](a),
+			(er)--[anti fermion, momentum={[arrow shorten=0.2]\(q\)}](a),
+			(a)--[anti fermion, momentum={[arrow shorten=0.2]\(q'\)}](fr),
+			(a)--[fermion, momentum={[arrow shorten=0.2]\(p'\)}](fl),
+		};
+	\end{feynman}
+\end{tikzpicture}
+= \text{UR} \Biggl[ e^- \biggl(h= -\frac{1}{2} \biggl) + \, e^+ \biggl( h=+\frac{1}{2} \biggr) \to f^- \biggl( h=-\frac{1}{2} \biggl) + \, f^+ \biggl( h=+\frac{1}{2} \biggr) \Biggr]
+\end{aligned}\]
+Having inserted these projection operators, we are now free to sum over the electron and positron spins in the squared amplitude. As a consequence of projector operators, we saw that the amplitude vanishes (in UR limit) unless the electron and positron have opposite helicity, or equivalently, unless their spinors have the same chirality.
+
+Let's calculate the squared Feynman amplitude of $\mathM_{LL}$, summing over spins
 \[
-\mathM_{LL} = UR \Biggl( e^- \biggl( -\frac{1}{2} \biggl) + \, e^+ \biggl( \frac{1}{2} \biggr) \to f^- \biggl( -\frac{1}{2} \biggl) + \, f^+ \biggl( \frac{1}{2} \biggr) \Biggr)
-\]
-Having inserted these projection operators, we are now free to sum over the electron and positron spins in the squared amplitude. As a cosequence of projector operators, we saw that the amplitude vanishes (in UR limit) unless the eletron and positron have opposite helicity, or equivalently, unless their spinors have the same helicity.\\
-Let's calculate squared Feynman amplitude of $\mathM_{LL}$, summing over spins
-\[
-\abs{\mathM_{LL}}^2 = \sum_{\text{spins}} \,
-	\underbrace{\abs{ \bar{u}_r(p') \, \gamma^{\mu}_L \, v_{s'}(q') }^2}_{\textbf{B}}
+\abs{\overline{\mathM_{LL}}}^2 = \sum_{\text{spins}} \,
+	\underbrace{\abs{ \bar{u}_{r'}(p') \, \gamma^{\mu}_L \, v_{s'}(q') }^2}_{\textbf{B}}
 	\underbrace{\abs{ \bar{v}_s(q) \, \gamma^L_{\mu} \, u_r(p) }^2}_{\textbf{A}}
 \]
 with
@@ -651,29 +681,29 @@ with
 			- \frac{1}{2} \Tr \bigl[ \slashed q \, \gamma_{\mu} \, \slashed p \, \gamma_{\nu} \, \gamma_5 \bigr]
 \end{split}
 \]
-\textbf{Recall:}
+and then using
 \begin{gather*}
 \Tr \bigl[ \gamma^{\mu} \, \gamma^{\nu} \, \gamma^{\rho} \, \gamma^{\sigma} \bigr] 
 	= 4 \bigl( g^{\mu\nu} \, g^{\rho\sigma} - g^{\mu\rho} \, g^{\nu\sigma} + g^{\mu\sigma} \, g^{\nu\rho} \bigr) \\
 \Tr \bigl[ \gamma^{\mu} \, \gamma^{\nu} \, \gamma^{\rho} \, \gamma^{\sigma} \, \gamma^5 \bigr] = -4i\epsilon^{\mu\nu\rho\sigma} 
 \end{gather*}
-
+we can rewrite (for \textbf{B} the computation is analogous)
 \begin{align*}
 \textbf{A}	& = 2 \bigl( q_{\mu}p_{\nu} - q \cdot p g_{\mu\nu} + q_{\nu}p_{\mu} - i \epsilon_{\alpha\mu\beta\nu} \, q^{\alpha}p^{\beta} \bigr) \\
 \textbf{B}	& = 2 \bigl( p^{\prime \mu} q^{\prime \nu} - q' \cdot p' g^{\mu\nu} + p^{\prime \nu} q^{\prime \mu} 
 	- i \epsilon^{\rho\mu\sigma\nu} p'_{\rho} q'_{\sigma} \bigr)
 \end{align*}
-And we finally obtain
+We finally obtain
 \begin{align*}
-\abs{\mathM_{LL}}^2 
+\abs{\overline{\mathM_{LL}}}^2 
 	& = \frac{4q^2}{s^2} \bigl[ 2(p \cdot p')(q \cdot q') + 2(p \cdot q')(p' \cdot q) - \epsilon^{\rho\mu\sigma\nu} \, \epsilon_{\alpha\mu\beta\nu} \,
 		q^{\alpha} p^{\beta} p'_{\rho} q'_{\sigma} \bigr] \\
 	& = \frac{8q^2}{s^2} \bigl[ (p \cdot p') (q \cdot q') + (p \cdot q')(p' \cdot q) - (p \cdot p')(q \cdot q') + (p \cdot q')(q \cdot p') \bigr] \\
 	& =  \frac{16q^2}{s^2} (p \cdot q')(p' \cdot q)
 \end{align*}
-In general frame
+In a generic frame
 \[
-u = (p - q')^2 = (q - p')^2 = 2m^2 - 2pq' \simeq -2pq' = -2qp'
+u = (p - q')^2 = (q - p')^2 = 2m^2 - 2(p\cdot q') \overset{m\approx0}{\simeq} -2(p\cdot q') = -2(q\cdot p')
 \]
 and in the center of mass frame
 \[
@@ -681,9 +711,9 @@ and in the center of mass frame
 \]
 so the squared amplitude in the center of mass frame reads
 \[
-\abs{\mathM_{LL}}^2 = \frac{16q^4}{s^2} \omega^4 (1 + \cos \theta)^2 = q^4(1 + \cos \theta)^2 = q^4 \frac{u^2}{s^2}
+\abs{\overline{\mathM_{LL}}}^2 = \frac{16q^4}{s^2} \omega^4 (1 + \cos \theta)^2 = q^4(1 + \cos \theta)^2 = q^4 \frac{u^2}{s^2}
 \]
-Notice that this amplitude vanished for $\theta = \pm \pi$\\
+
 In particular
 \begin{enumerate}
 \item $\abs{\mathM_{LL}}^2$ is max when $\theta = 0$
@@ -692,27 +722,33 @@ In particular
 \input{img/ee-ff_com_hel_theta_zero.tex}
 \end{center}
 
-\item $\abs{\mathM_{LL}}^2$ is zero when $\theta = \pi$
+\item $\abs{\mathM_{LL}}^2$ is zero when $\theta = \pm\pi$
 
 \begin{center}
 \input{img/ee-ff_com_hel_theta_pi.tex}
 \end{center}
-
-Amplitude vanished when helicity states are orthogonal. This  is what we would expect, since for $\theta = \pi$ the total angular momentum of the final state is opposite to that of the initial state 
+ 
 \end{enumerate}
 
+We see that the dependence on $\theta$ of the scattering amplitude is somehow related with the helicities of the initial and final states, for instance the amplitude vanishes when helicity states are orthogonal. This  is what we would expect, since for $\theta = \pi$ the total angular momentum of the final state is opposite to that of the initial state.
+
+Moreover as we pointed out before, the total helicity of the particles must vanish, while the chiralities sum up giving the polarization of the photon which intermediates the interaction. 
+
 \begin{exercise}
-Compute $\abs{\mathM_{RR}}^2, \abs{\mathM_{LR}}^2, \abs{\mathM_{RL}}^2$\\
-Solution:
+Compute $\abs{\overline{\mathM_{RR}}}^2, \abs{\overline{\mathM_{LR}}}^2, \abs{\overline{\mathM_{RL}}}^2$.\\
+
+\textit{Solution}: Rather than redo all the calculations, is sufficient to replace $\gamma^5\to-\gamma^5$ in the projectors and propagate the sign. Then one obtain:
 \[
 \begin{split}
-\abs{\mathM_{RR}}^2 	& = q^4 (1 + \cos \theta)^2 = q^4 \frac{u^2}{s^2} \\
-\abs{\mathM_{LR}}^2	& = \abs{\mathM_{RL}}^2 = q^4(1 - \cos \theta)^2 = q^4 \frac{t^2}{s^2}
+\abs{\overline{\mathM_{RR}}}^2 	& \abs{\overline{\mathM_{LL}}}^2 = q^4 (1 + \cos \theta)^2 = q^4 \frac{u^2}{s^2} \\
+\abs{\overline{\mathM_{LR}}}^2	& = \abs{\overline{\mathM_{RL}}}^2 = q^4(1 - \cos \theta)^2 = q^4 \frac{t^2}{s^2}
 \end{split}
 \]
-Actually $\abs{\mathM_{LL}}^2 = \abs{\mathM_{RR}}^2$ and $\abs{\mathM_{LR}}^2 = \abs{\mathM_{RL}}^2$ are consequences of parity invariance
+
+Notice that $\abs{\overline{\mathM_{LL}}}^2 = \abs{\overline{\mathM_{RR}}}^2$ and $\abs{\overline{\mathM_{LR}}}^2 = \abs{\overline{\mathM_{RL}}}^2$ are consequences of parity invariance.
 \end{exercise}
-Adding up all four contributions, and dividing by 4 to average over the electron and positron states, we recover the unpolarized cross section dirived previously
+
+Adding up all four contributions, and dividing by 4 to average over the electron and positron states, we recover the unpolarized cross section derived previously in the massless limit
 \[
 \begin{split}
 \abs{\mathM}^2 	& = \frac{1}{4} \bigl( \abs{\mathM_{LL}}^2 + \abs{\mathM_{RR}}^2 
@@ -721,8 +757,9 @@ Adding up all four contributions, and dividing by 4 to average over the electron
 \end{split}
 \]
 
-\subsection{Mandelstam variables and crossing symmetries}\label{sec:crossing-symmetries}
+\subsection{Process $e^-f^-\to e^-f^-$}\label{sec:crossing-symmetries}
 \textsf{Peskin, sec 5.4}\\
+
 Let's consider a different but closely related QED process: $e^- \, f^- \to e^- \, f^-$
 \begin{equation*}
 \begin{tikzpicture}[baseline=(i)]
@@ -743,21 +780,21 @@ Let's consider a different but closely related QED process: $e^- \, f^- \to e^- 
   \end{feynman}
 \end{tikzpicture}
 \end{equation*}
-The Feynman amplitude of this process (in Feynmann gauge) reads
+The Feynman amplitude of this process (in Feynman gauge) reads
 \[
 \mathM_{fi} = \frac{iq^2}{t} \bigl( \bar{u}(p') \, \gamma^{\mu} \, u(p) \bigr) \bigl(\bar{u}(q') \, \gamma_{\mu} \, u(q) \bigr)
 \]
-The relation between this process and $e^+e^- \to f^+f^-$ becomes clear when we compute the squared amplitude, average and summed over spins:
+The relation between this process and $e^+e^- \to f^+f^-$ becomes clear when we compute the squared amplitude, average and summed over spins, indeed in the present case:
 \[
 \abs{\overline{\mathM_{fi}}}^2 = \frac{q^4}{4t^2}
 	\Tr \bigl[ (\slashed p +  m) \gamma^{\nu} (\slashed p' + m) \gamma^{\mu} \bigr]
-	\Tr \bigl[ (\slashed q + m) \gamma_{\nu} (\slashed q' + M) \gamma_{\mu} \bigr]
+	\Tr \bigl[ (\slashed q + M) \gamma_{\nu} (\slashed q' + M) \gamma_{\mu} \bigr]
 \]
-Recall that for $e^-e^+ \to f^-f^+$
+while for $e^-e^+ \to f^-f^+$  we had
 \[
-\abs{\overline{\mathM_{fi}}}^2_{e^-e^+} = \frac{q^4}{4s^2}
-	\Tr \bigl[ (\slashed p  + m) \gamma^{\nu} (\slashed q - m) \bigr]
-	\Tr \bigl[ (\slashed q' - m) \gamma_{\nu} (\slashed p' + m) \gamma_{\mu} \bigr] 
+\abs{\overline{\mathM_{fi}}}^2_{e^-e^+\to f^-f^+} = \frac{q^4}{4s^2}
+	\Tr \bigl[ (\slashed p  + m) \gamma^{\nu} (\slashed q - m)\gamma^\mu \bigr]
+	\Tr \bigl[ (\slashed q' - M) \gamma_{\nu} (\slashed p' + M) \gamma_{\mu} \bigr] 
 \]
 Notice that following symmetry relations hold
 \begin{align*}
@@ -770,9 +807,8 @@ q'		& \leftrightarrow -q		&		&		&			&
 \end{align*}
 So instead of evaluating traces from scratch, we can just make the same replacement in our previous result. Setting $m = 0$ we find
 \begin{align*}
-\abs{\overline{\mathM_{fi}}}^2 = 	& \frac{8q^4}{t^2} \bigl( (p \cdot q')(p' \cdot q) + (p \cdot q)(p' \cdot q') - M^2 (p \cdot p') \bigr) \\
-	\underset{\text{UR limit} \atop n=0}{\approx}
-							& 2q^4 \biggl( \frac{t^2 + u^2}{s^2} \biggr)
+\abs{\overline{\mathM_{fi}}}^2 = 	& \frac{8q^4}{t^2} \bigl( (p \cdot q')(p' \cdot q) + (p \cdot q)(p' \cdot q') - M^2 (p \cdot p') \bigr) 
+	\underset{\text{UR limit}}{\approx} 2q^4 \biggl( \frac{t^2 + u^2}{s^2} \biggr)
 \end{align*}
 Where we used following relation for the UR limit
 \[
@@ -788,37 +824,40 @@ In the center of mass frame, in the UR limit, we have
 \biggl( \overline{\frac{\de \sigma}{\de \Omega}} \biggr)_{CM} 
 	= \frac{\alpha^2}{2s} \biggl[ \frac{4 + (1 + \cos \theta)^2}{(1 - \cos \theta)^2} \biggr]
 \end{gather*}
-Where $\theta$ is the angle between $f^-_{\textup{init}}$ and $e^-_{\text{fin}}$\\
-\todo{Diagramma foglio 41}
- 
-\skipline
+Where $\theta$ is the angle between $e^-_{\textup{init}}$ and $f^-_{\text{fin}}$. This is again due to the symmetry between the two processes, since for $e^+e^- \to f^+f^-$ the angle $\theta$ was the angle between $\vec p$ and $\vec{p'}$, which corresponds to the angle between $\vec p$ and $\vec{q'}$ in the present case.
+
+\begin{figure}[H]
+\centering
+\input{img/ef-ef_com.tex}
+\end{figure}
+
 \subsection{Crossing symmetry}
 The trick we made use of here, namely the relation between the two processes $e^+e^- \to f^+f^-$ and $e^-f^- \to e^-f^-$, is our first example of a type of relation known as \textbf{crossing symmetry}:
 \begin{mdframed}[style=mybox]
-The S-matrix for any process involving a particle with momentum p in the initial state is equal to the S-matrix for an otherwise identical process but with an antiparticle of momentum $k = -p$ in the final state
+The $S$-matrix for any process involving a particle with momentum p in the initial state is equal to the $S$-matrix for an otherwise identical process but with an antiparticle of momentum $k = -p$ in the final state
 \[
-\mathM \bigl( \phi(p) + \dots \to \dots \bigr) = \pm \mathM \bigl( \dots \to \dots + \bar{\phi}(k) \bigr)
+\mathM \bigl( \varphi(p) + \cdots \to \cdots \bigr) = \pm \mathM \bigl( \dots \to \dots + \bar{\varphi}(k) \bigr)
 \]
 \end{mdframed}
-Note that there is no value of p for which p and k are both physically allowed, since the particle must have $p^0 > 0$ and the antiparticle $k^0 > 0$.
-So technically, we should say that either amplitude can be obtained from the other by analytic continuation\\
 
-\skipline
-previous relation follows directly from Feynman rules. Relative sign between amplitude is not predicted by Feynman rules, but it can be obtained from commuting/anticommuting proprieties of field. For example, for spinors fields
+Note that there is no value of $p$ for which $p$ and $k$ are both physically allowed, since the particle must have $p^0 > 0$ and the antiparticle $k^0 > 0$.
+So technically, we should say that either amplitude can be obtained from the other by analytic continuation.
+
+Previous relation follows directly from Feynman rules. Relative sign between amplitude is not predicted by Feynman rules, but it can be obtained from commuting/anticommuting proprieties of field. For example, for spinorial fields
 \[
 \begin{cases}
 \textup{odd permutations }\quad \to \quad \textup{minus sign}\\
 \textup{ever permutations }\quad \to \quad \textup{plus sign}
 \end{cases}
 \]
-For squared amplitudes the relative sign is irrelevant but it's important when we have to sum different diagrams contributions\\
-The diagrams that contribute to the two amplitudes fall into a natural one-to-one correspondence, where corresponding diagrams differ inly by changing the incoming $\phi$ into the outgoing $\bar{\phi}$\\
+For squared amplitudes the relative sign is irrelevant but it's important when we have to sum different diagrams contributions.
+
+The diagrams that contribute to the two amplitudes fall into a natural one-to-one correspondence, where corresponding diagrams differs only by changing the incoming $\varphi$ into the outgoing $\bar{\varphi}$\\
 \begin{center}
 \input{img/ee-ff_crossing_symm.tex}
 \end{center}
 
 For example, in the $e^-e^+ \to f^+f^-$ and $e^-f^- \to e^-f^-$ correspondence we have
-\todo{Controlla se sono giusti}
 \begin{equation*}
 \begin{tikzpicture}[baseline=(nu)]
   \begin{feynman}[large]
@@ -826,13 +865,13 @@ For example, in the $e^-e^+ \to f^+f^-$ and $e^-f^- \to e^-f^-$ correspondence w
     \vertex [below right=of f1] (nu);
     \vertex [below left=of nu] (b1) {\(e^+\)};
     \vertex at ([shift={(0:2)}]nu) (mu);
-    \vertex [above right=of mu] (f2) {\(f^-\)};
-    \vertex [below right=of mu] (b2) {\(f^+\)};
+    \vertex [below right=of mu] (f2) {\(f^-\)};
+    \vertex [above right=of mu] (b2) {\(f^+\)};
 
     \diagram*{
-      (f1) -- [fermion, momentum={[arrow shorten=0.25]\(p\)}] (nu) -- [boson] (mu) -- [fermion, momentum={[arrow shorten=0.25]\(p'\)}] (f2),
+      (f1) -- [fermion, momentum={[arrow shorten=0.25]\(p\)}] (nu) -- [boson] (mu) -- [fermion, momentum'={[arrow shorten=0.25]\(p'\)}] (f2),
       (nu) -- [fermion, reversed momentum={[arrow shorten=0.25]\(q\)}] (b1),
-      (b2) -- [fermion, reversed momentum={[arrow shorten=0.25]\(q'\)}] (mu),
+      (b2) -- [fermion, reversed momentum'={[arrow shorten=0.25]\(q'\)}] (mu),
     };
   \end{feynman}
 \end{tikzpicture}
@@ -854,11 +893,13 @@ For example, in the $e^-e^+ \to f^+f^-$ and $e^-f^- \to e^-f^-$ correspondence w
   \end{feynman}
 \end{tikzpicture}
 \end{equation*}
+Comparing the diagram on the right (where we applied the crossing symmetry) with the initial diagram for $e^-f^-\to e^-f^-$ we see that we obtain exactly the symmetry relations listed before. 
 
 
-\section{$e^-\gamma\rightarrow e^-\gamma$ (Compton)}
+\section{Process $e^-\gamma\rightarrow e^-\gamma$ (Compton scattering)}
 \textsf{See Peskin, sec 5.5}\\
-Let's examine a process with external bosons: \emph{Compton scattering}, or $e^-\gamma\rightarrow e^-\gamma$. This process is described by two independent diagrams, since they are topologically different:
+
+Let's examine a different process which involves external bosons: the \emph{Compton scattering}. This process is described by two independent diagrams, topologically different:
 
 \begin{equation*}\mathcal M_A=%
 \begin{tikzpicture}[baseline=(nu)]
@@ -916,10 +957,9 @@ Let's examine a process with external bosons: \emph{Compton scattering}, or $e^-
 \end{tikzpicture}
 \end{equation*}
 
-{\small We wrote the diagram of $\mathcal M_B$ in two topologically equivalent forms: in the first one is clear the topological relation with diagram of $\mathcal M_A$ (this is useful to find the relative sign between diagrams $A$ and $B$: it's clear that diagrams differs for the permutation of two bosons), while in the second one is clear that it describes a $u$-channel.}
+{We wrote the diagram of $\mathcal M_B$ in two topologically equivalent forms: in the first one is clear the topological relation with diagram of $\mathcal M_A$ (this is useful to find the relative sign between diagrams $A$ and $B$: diagrams differs for the permutation of two bosons, hence no relative signs should be introduced), while in the second one is clear that $\mathM_B$ is given by a $u$-channel diagram.}
 
-\skipline
-Amplitudes reads, using Feynman rules
+Amplitudes reads
 
 \begin{align*}
 \mathcal M_A&=\bar u_{r'}(p')(-iq\gamma^\mu)\epsilon_\mu^{\lambda'*}(k')\tilde S_F(p+k)(-iq\gamma^\nu)\epsilon_\nu^\lambda(k)u_r(p)\\
@@ -927,9 +967,10 @@ Amplitudes reads, using Feynman rules
 &\,\\
 \mathcal M_B&=-q^2\epsilon_\mu^{\lambda'*}(k')\epsilon_\nu^\lambda(k)\left[\bar u_{r'}(p')\gamma^\nu\tilde S_F(p-k')\gamma^\mu u_r(p)\right]
 \end{align*}
+Recall that $\tilde S_F$ is a matrix, so elements in the squared bracket  must be written in this order.
 
-{\small (Recall that $\tilde S_F$ is a matrix, so elements in the squared bracket  must be written in this order)}\\
-Because of anticommuting relations for bosons, these amplitudes must be summed up in the total amplitude.
+As we anticipated, because of anticommuting relations for bosons, these amplitudes must be summed up in the total amplitude.
+
 The explicit form of Feynman propagator for the Dirac field reads
 
 \[\tilde S_F(p)=\frac{i(\slashed p+m)}{p^2-m^2+i\epsilon}=\frac i{\slashed p-m+i\epsilon}\]
@@ -940,7 +981,7 @@ so total amplitude is
 We make some simplifications before squaring  this expression. Since $p^2=m^2$ and $k^2=0$:
 \[(p+k)^2-m^2=2p\cdot k\qquad(p-k')^2-m^2=-2p\cdot k'\]
 
-To simplify numerators, I can use Dirac algebra:
+To simplify numerators, I can use some Dirac algebra:
 \begin{align*} 
 (\slashed p+m)\gamma^\nu u(p)&=(p_\mu\gamma^\mu\gamma^\nu+m\gamma^\nu)u(p)=(2g^{\mu\nu}p_\mu-p_\mu\gamma^\nu\gamma^\mu+m\gamma^\nu)u(p)\\
 &=2p^\nu u(p)-\gamma^\nu\underbrace{(\slashed p-m)}_{2m\,\Lambda_-(p)}u(p)=2p^\nu u(p)
@@ -952,20 +993,24 @@ Using these tricks we obtain
 
 \subsection{The Ward Identities and sum over the photon polarizations}
 \textsf{See Mandl, sec 8.3}\\
-The next step in the calculation will be to square this expression for $\mathcal M$ and sum or average over electron and photon polarization states. The sum over electron polarizations can be performed as before, using $\sum u(p)\bar u(p)=\slashed p+m$. Fortunately, there is a similar trick for summing over photons polarization vectors.\\
-Gauge invariance of the theory implies the gauge invariance of the matrix elements, i.e. of the Feynman amplitudes. It is, of course, only the matrix element itself, corresponding to the sum of all possible Feynman graphs in a given order of perturbation theory, which must be gauge invariant. For example, for the Compton scattering, the individual amplitudes $\mathcal A$ and $\mathcal B$ are not gauge invariants, but their sum $\mathcal M$ is.\\
+
+The next step in the calculation will be to square this expression for $\mathcal M$ and sum or average over electron and photon polarization states. The sum over electron polarizations can be performed as before, using $\sum u(p)\bar u(p)=\slashed p+m$. Fortunately, there is a similar trick for summing over photons polarization vectors too.
+
+Gauge invariance of the theory implies the gauge invariance of the matrix elements, i.e. of the Feynman amplitudes. It is, of course, only the matrix element itself, corresponding to the sum of all possible Feynman graphs in a given order of perturbation theory, which must be gauge invariant. For example, for the Compton scattering, the individual amplitudes $\mathM_A$ and $\mathM_B$ are not gauge invariant, but their sum $\mathcal M$ is.
+
 For any process involving external photons, the Feynman amplitude $\mathcal M$ is of the form
 \begin{equation}\label{eqn:Ward-form}
 \mathcal M=\epsilon_\alpha^{\lambda_1}(k_1)\epsilon_\beta^{\lambda_2}(k_2)\dots L^{\alpha\beta\dots}(k_1,k_2,\dots)
 \end{equation}
-with one polarization vector $\epsilon^{\lambda_i}(k_i)$ for each external photon, and the tensor amplitude $L^{\alpha\beta\dots}(k_1,k_2,\dots)$ independent of these polarization vectors.\\
-The polarization vectors are of course gauge dependent. For example, for a free photon described in the Lorentz gauge by the plane wave
+with one polarization vector $\epsilon^{\lambda_i}(k_i)$ for each external photon, and a tensor amplitude $L^{\alpha\beta\dots}(k_1,k_2,\dots)$ independent from these polarization vectors.
+
+The polarization vectors are of course gauge dependent. Take a free photon described in the Lorentz gauge by the plane wave
 \[A^\mu(x)=\textup{const}\,\cdot\epsilon_\lambda^\mu(k)e^{\pm ikx}\]
-the gauge transformation
+then a gauge transformation
 \[A^\mu\rightarrow A'^\mu(x)=A^\mu(x)+\partial^\mu\alpha(x)\qquad\textup{with}\quad \alpha(x)=\tilde\alpha(k)e^{\pm ikx}\]
-implies
+acts on the polarization vector as
 \[\epsilon_\lambda^\mu(k)\rightarrow{\epsilon'}_\lambda^{\mu}(k)=\epsilon_\lambda^\mu(k)\pm ik^\mu\tilde\alpha(k)\]
-Invariance of the amplitude Eq.\eqref{eqn:Ward-form} under this transformation requires
+The gauge invariance of the amplitude Eq.\eqref{eqn:Ward-form} requires
 \[k^\alpha_1L_{\alpha,\beta,\dots}(k_1,k_2,\dots)=k^\beta_1L_{\alpha,\beta,\dots}(k_1,k_2,\dots)=\dots=0\]
 i.e. when any external photon polarization vector is replaced by the corresponding four momentum, the amplitude must vanish. This is the statement of the \emph{Ward Identity}:
 
@@ -978,7 +1023,9 @@ If $\mathcal M(k)=\epsilon_\mu(k)L^\mu(k)$ is the amplitude for some QED process
 Verify explicitly the Ward Identity for the Feynman amplitude of Compton scattering
 \end{exercise}
 
+\noindent
 \textsf{See Peskin, sec 5.5}\\
+
 Returning to our derivation of the polarization sum formula for squared scattering amplitude. Writing in general
 \[\mathcal M=\epsilon_\mu^{(\lambda)}(k)L^\mu(k)\]
 then the sum over polarizations of the photon with momentum $k$ reads
@@ -989,64 +1036,64 @@ In this case the Ward Identity reads
 \[0=k_\mu L^\mu=|k|\left(L^0-L^3\right)\qquad\longrightarrow\qquad L^0=L^3\]
 Recall that in this frame
 \[\epsilon_\mu^{(1)}(k)=(0,1,0,0)\qquad\epsilon_\mu^{(2)}(k)=(0,0,1,0)\]
-
-So we have
-\begin{align*}\sum_{\lambda=1,2}\epsilon_\mu^{(\lambda)}(k)\epsilon_\nu^{(\lambda)*}(k)L^\mu(k)L^{\nu\dagger}(k)&=\abs{L^1}^2+\abs{L^2}^2=\abs{L^1}^2+\abs{L^2}^2+\abs{L^3}^2-\abs{L^0}^2=-g_{\mu\nu}L^\mu L^\nu
+So we get
+\begin{align*}\sum_{\lambda=1,2}\epsilon_\mu^{(\lambda)}(k)\epsilon_\nu^{(\lambda)*}(k)L^\mu(k)L^{\nu\dagger}(k)&=\abs{L^1}^2+\abs{L^2}^2=-\abs{L^0}^2+\abs{L^1}^2+\abs{L^2}^2+\abs{L^3}^2=-g_{\mu\nu}L^\mu L^{\nu\,\dagger}
 \end{align*}
+which holds in any frame due to its covariance.
+
 So we obtained the general rule to simplify photons polarization sum\footnote{Notice that we could prove (see Peskin) that even if we took $\lambda=0,1,2,3$, we could have obtained that the unphysical time-like and longitudinal photons can be consistently omitted from QED calculations, since in any event the squared amplitudes for producing these states cancel to give zero total probability. }
 
 \[
 \boxed{
-	\sum_{\lambda=1,2}\epsilon_\mu^{(\lambda)}(k)\epsilon_\nu^{(\lambda)*}(k)L^\mu(k)L^{\nu\dagger}(k)\quad\longrightarrow\quad-g_{\mu\nu}
+	\sum_{\lambda=1,2}\epsilon_\mu^{(\lambda)}(k)\epsilon_\nu^{(\lambda)*}(k)\quad\longrightarrow\quad-g_{\mu\nu}
 }
 \]
 
-
-
-
-\subsection{The Klein-Nishima formula and the Thomson scattering}
+\subsection{Computation of the unpolarized amplitude}
 \textsf{See Peskin, sec. 5.5}\\
 
 To obtain the unpolarized cross section for Compton scattering, we use the covariant method described in the previous section. Writing
 \[\mathcal M=\epsilon_\mu^{\lambda'*}(k')\epsilon_\nu^\lambda(k)\left(L^{\mu\nu}(k,k')\right)_{r,r'}\]
 with 
-\[\left(L^{\mu\nu}(k,k')\right)_{r,r'}=-iq^2\bar u_{r'}(p')\left[\frac{\gamma^\mu\slashed k\gamma^\nu+2\gamma^\mu p^\nu}{2p\cdot k}+\frac{-\gamma^\nu\slashed k'\gamma^\mu+2\gamma^\nu p^\mu}{-2p\cdot k'}\right]u_r(p)\]
+\[\begin{aligned}
+\left(L^{\mu\nu}(k,k')\right)_{r,r'}&=-iq^2\bar u_{r'}(p')\left[\frac{\gamma^\mu\slashed k\gamma^\nu+2p^\nu\gamma^\mu }{2p\cdot k}+\frac{\gamma^\nu\slashed k'\gamma^\mu-2p^\mu\gamma^\nu }{2p\cdot k'}\right]u_r(p)\\
+\left(L^{\mu\nu}(k,k')\right)_{r,r'}^\dagger&=iq^2\bar u_{r}(p)\left[\frac{\gamma^\nu\slashed k\gamma^\mu+2 p^\nu\gamma^\mu}{2p\cdot k}+\frac{\gamma^\mu\slashed k'\gamma^\nu-2 p^\mu\gamma^\nu}{2p\cdot k'}\right]u_{r'}(p')
+\end{aligned}\]
 we obtain
 \begin{align*}
-|\bar{\mathcal M}|^2&=\frac14\left(\sum_{\lambda'}\epsilon_\mu^{(\lambda')*}(k')\epsilon_\rho^{(\lambda')}(k')\right)\left(\sum_{\lambda}\epsilon_\nu^{(\lambda)*}(k)\epsilon_\sigma^{(\lambda)}(k')\right)\sum_{r,r'}\left(L^{\mu\nu}\right)_{r,r'}\left(L^{\rho\sigma}\right)^\dagger_{r,r'}\\
+|\overline{\mathcal M}|^2&=\frac14\left(\sum_{\lambda'}\epsilon_\mu^{(\lambda')*}(k')\epsilon_\rho^{(\lambda')}(k')\right)\left(\sum_{\lambda}\epsilon_\nu^{(\lambda)*}(k)\epsilon_\sigma^{(\lambda)}(k')\right)\sum_{r,r'}\left(L^{\mu\nu}\right)_{r,r'}\left(L^{\rho\sigma}\right)^\dagger_{r,r'}\\
 &=\frac14g_{\mu\rho}g_{\nu\sigma}\sum_{r,r'}\left(L^{\mu\nu}\right)_{r,r'}\left(L^{\rho\sigma}\right)^\dagger_{r,r'}
 =\frac14\left(L^{\mu\nu}\right)_{r,r'}\left(L_{\mu\nu}\right)^\dagger_{r,r'}\\
-&=\frac{q^4}4\Tr\Bigg[(\slashed p'+m)\left(\frac{\gamma^\mu\slashed k\gamma^\nu+2\gamma^\mu p^\nu}{2p\cdot k}+\frac{\gamma^\nu\slashed k'\gamma^\mu-2\gamma^\nu p^\mu}{2p\cdot k'}\right)\times\\
-&\qquad\qquad\times(\slashed p+m)\left(\frac{\gamma_\nu\slashed k\gamma_\mu+2\gamma_\mu p_\nu}{2p\cdot k}+\frac{\gamma_\mu\slashed k'\gamma_\nu-2\gamma_\nu p_\mu}{2p\cdot k'}\right)\Bigg]\\
+&=\frac{q^4}4\Tr\Bigg[(\slashed p'+m)\left(\frac{\gamma^\mu\slashed k\gamma^\nu+2p^\nu\gamma^\mu }{2p\cdot k}+\frac{\gamma^\nu\slashed k'\gamma^\mu-2p^\mu\gamma^\nu }{2p\cdot k'}\right)\times\\
+&\qquad\qquad\times(\slashed p+m)\left(\frac{\gamma_\nu\slashed k\gamma_\mu+2p_\nu\gamma_\mu }{2p\cdot k}+\frac{\gamma_\mu\slashed k'\gamma_\nu-2p_\mu\gamma_\nu }{2p\cdot k'}\right)\Bigg]\\
 &=\frac{q^4}4\left\{\frac{T_{AA}}{(2p\cdot k)^2}+\frac{T_{BB}}{(2p\cdot k')^2}+\frac{T_{AB}+T_{BA}}{(2p\cdot k)(2p\cdot k')}\right\}
 \end{align*}
 where
 \begin{align*}
-T_{AA}&=\Tr\left[(\slashed p'+m)(\gamma^\mu\slashed k\gamma^\nu+2\gamma^\mu p^\nu)(\slashed p+m)(\gamma_\nu\slashed k\gamma_\mu+2\gamma_\mu p_\nu)\right]\\
-T_{BB}&=\Tr\left[(\slashed p'+m)(\gamma^\nu\slashed k'\gamma^\mu-2\gamma^\nu p^\mu)(\slashed p+m)(\gamma_\mu\slashed k'\gamma_\nu-2\gamma_\nu p_\mu)\right]\\
-T_{AB}&=\Tr\left[(\slashed p'+m)(\gamma^\mu\slashed k\gamma^\nu+2\gamma^\mu p^\nu)(\slashed p+m)(\gamma_\mu\slashed k'\gamma_\nu-2\gamma_\nu p_\mu)\right]\\
-T_{BA}&=\Tr\left[(\slashed p'+m)(\gamma^\nu\slashed k'\gamma^\mu-2\gamma^\nu p^\mu)(\slashed p+m)(\gamma_\nu\slashed k\gamma_\mu+2\gamma_\mu p_\nu)\right]
+T_{AA}&=\Tr\left[(\slashed p'+m)(\gamma^\mu\slashed k\gamma^\nu+2p^\nu\gamma^\mu)(\slashed p+m)(\gamma_\nu\slashed k\gamma_\mu+2p_\nu\gamma_\mu)\right]\\
+T_{BB}&=\Tr\left[(\slashed p'+m)(\gamma^\nu\slashed k'\gamma^\mu-2p^\mu\gamma^\nu)(\slashed p+m)(\gamma_\mu\slashed k'\gamma_\nu-2p_\mu\gamma_\nu)\right]\\
+T_{AB}&=\Tr\left[(\slashed p'+m)(\gamma^\mu\slashed k\gamma^\nu+2p^\nu\gamma^\mu)(\slashed p+m)(\gamma_\mu\slashed k'\gamma_\nu-2p_\mu\gamma_\nu)\right]\\
+T_{BA}&=\Tr\left[(\slashed p'+m)(\gamma^\nu\slashed k'\gamma^\mu-2p^\mu\gamma^\nu)(\slashed p+m)(\gamma_\nu\slashed k\gamma_\mu+2p_\nu\gamma_\mu)\right]
 \end{align*}
+Notice that $T_{BB}=T_{AA}(k\leftrightarrow -k')$ and $T_{BA}=T_{AB}(k\leftrightarrow -k')$, therefore we just have to calculate $T_{AA}$ and $T_{AB}$.
 
-Notice that $T_{BB}=T_{AA}(k\leftrightarrow -k')$ and $T_{BA}=T_{AB}(k\leftrightarrow -k')$, we need therefore only calculate $T_{AA}$ and $T_{AB}$.\\
 Considering $T_{AA}$, there are 16 terms inside the trace, but half contains an odd number of $\gamma$ matrices and therefore vanishes. Other terms are
 \begin{align*}
 \circled 1&=\Tr[\slashed p'\gamma^\mu\slashed k\gamma^\nu\slashed p\gamma_\nu\slashed k\gamma_\mu]\\
-\circled 2&=2\Tr[\slashed p'\gamma^\mu\slashed k\gamma^\nu\slashed p\gamma_\mu p_\nu]
+\circled 2&=2\Tr[\slashed p'\gamma^\mu\slashed k\gamma^\nu\slashed pp_\nu\gamma_\mu ]
 =2\Tr[\slashed p'\gamma^\mu\slashed k\slashed p\slashed p\gamma_\mu]\\
-\circled 3&=2\Tr[\slashed p'\gamma^\mu p^\nu\slashed p\gamma_\nu\slashed k\gamma_\mu]
+\circled 3&=2\Tr[\slashed p'p^\nu\gamma^\mu \slashed p\gamma_\nu\slashed k\gamma_\mu]
 =2\Tr[\slashed p'\gamma^\mu \slashed p\slashed p\slashed k\gamma_\mu]\\
-\circled 4&=4\Tr[\slashed p'\gamma^\mu p^\nu\slashed p\gamma_\mu p_\nu]
+\circled 4&=4\Tr[\slashed p'p^\nu\gamma^\mu \slashed pp_\nu\gamma_\mu ]
 =4p^2\Tr[\slashed p'\gamma^\mu \slashed p\gamma_\mu]\\
 \circled 5&=m^2\Tr[\gamma^\mu\slashed k\gamma^\nu\gamma_\nu\slashed k\gamma_\mu]\\
-\circled 6&=2m^2\Tr[\gamma^\mu\slashed k\gamma^\nu\gamma_\mu p_\nu]
+\circled 6&=2m^2\Tr[\gamma^\mu\slashed k\gamma^\nu p_\nu\gamma_\mu ]
 =2m^2\Tr[\gamma^\mu\slashed k\slashed p\gamma_\mu]\\
-\circled 7&=2m^2\Tr[\gamma^\mu p^\nu\gamma_\nu\slashed k\gamma_\mu]
+\circled 7&=2m^2\Tr[p^\nu\gamma^\mu \gamma_\nu\slashed k\gamma_\mu]
 =2m^2\Tr[\gamma^\mu \slashed p\slashed k\gamma_\mu]\\
-\circled 8&=4m^2\Tr[\gamma^\mu p^\nu\gamma_\mu p_\nu]
+\circled 8&=4m^2\Tr[p^\nu\gamma^\mu p_\nu\gamma_\mu ]
 =4m^2p^2\Tr[\gamma^\mu \gamma_\mu ]\\
 \end{align*}
-
 In order to simplify above formulas we recall the proprieties of contractions of $\gamma$ matrices, i.e. products in the form $\gamma^\mu A\gamma^\mu$ where $A$ is a matrix:
 
 \begin{enumerate}
@@ -1055,16 +1102,16 @@ In order to simplify above formulas we recall the proprieties of contractions of
 \item $\gamma^\mu\slashed p\slashed q\gamma_\mu=4p\cdot q$
 \item $\gamma^\mu\slashed p\slashed q\slashed k\gamma_\mu=-2\slashed k\slashed q\slashed p$
 \end{enumerate}
+%
+Using these proprieties, cyclicity of the trace and anticommuting proprieties of gamma matrices\footnote{$\{\slashed A\slashed B\}=A_\mu B_\nu\{\gamma^\mu\gamma^\nu\}=2A_\mu B_\nu g^{\mu\nu}\id=2(A\cdot B)\,\id\qquad\rightarrow\qquad\slashed A\slashed A=A^2\,\id$
 
-Using these proprieties, cyclicity of the trace and anticommuting proprieties of gamma matrices\footnote{$\slashed A\slashed B=A_\mu B_\nu\gamma^\mu\gamma^\nu=A_\mu B_\nu(2g^{\mu\nu}\id-\gamma^\nu\gamma^\mu)=2(A\cdot B)\,\id-\slashed B\slashed A\qquad\rightarrow\qquad\slashed A\slashed A=A^2\,\id$
-
-$\Tr[\slashed A\slashed B]=2(A\cdot B)\,\Tr[\id]-\Tr[\slashed B\slashed A]=8(A\cdot B)-\Tr[\slashed A\slashed B]\qquad\rightarrow\qquad\Tr[\slashed A\slashed B]=4(A\cdot B)\id$}, we obtain (remember that $p^2=m^2$ and $k^2=0$):
+$\Tr[\slashed A\slashed B]=2(A\cdot B)\,\Tr[\id]-\Tr[\slashed B\slashed A]=8(A\cdot B)-\Tr[\slashed A\slashed B]\qquad\rightarrow\qquad\Tr[\slashed A\slashed B]=4(A\cdot B)$}, we obtain (remember that $p^2=m^2$ and $k^2=0$):
 
 \begin{align*}
 \circled 1&=\Tr[\slashed p'\gamma^\mu\slashed k\gamma^\nu\slashed p\gamma_\nu\slashed k\gamma_\mu]
 =-2\Tr[\slashed p'\gamma^\mu\slashed k\slashed p\slashed k\gamma_\mu]
 =4\Tr[\slashed p'\slashed k\slashed p\slashed k]
-=-4\Tr[\slashed p'\slashed k^2\slashed p]+8(p\cdot k)\Tr[\slashed p'\slashed k]
+=-4\Tr[\slashed p'\slashed k\slashed k\slashed p]+8(p\cdot k)\Tr[\slashed p'\slashed k]
 =32(p\cdot k)(p'\cdot k)\\
 \circled 2&=2\Tr[\slashed p'\gamma^\mu\slashed k\slashed p\slashed p\gamma_\mu]
 =-4\Tr[\slashed p'\slashed p\slashed p\slashed k]
@@ -1080,9 +1127,9 @@ $\Tr[\slashed A\slashed B]=2(A\cdot B)\,\Tr[\id]-\Tr[\slashed B\slashed A]=8(A\c
 =4m^2\Tr[\gamma^\mu\slashed k\slashed k\gamma_\mu]
 =0\\
 \circled 6&=2m^2\Tr[\gamma^\mu\slashed k\slashed p\gamma_\mu]
-=8m^2(k\cdot p)\Tr[ \id]=32m^2(k\cdot p)\\
+=8m^2\Tr[\slashed k\slashed p]=32m^2(k\cdot p)\\
 \circled 7&=2m^2\Tr[\gamma^\mu \slashed p\slashed k\gamma_\mu]
-=8m^2(p\cdot k)\Tr[\id]=32m^2(p\cdot k)\\
+=8m^2\Tr[\slashed p\slashed k]=32m^2(p\cdot k)\\
 \circled 8&=4m^2p^2\Tr[\gamma^\mu \gamma_\mu ]
 =16m^4\Tr[\id]=64m^4\\
 \end{align*}
@@ -1093,12 +1140,13 @@ T_{AA}&=16\left(4m^4-2m^2p\cdot p'+4m^2p\cdot k-2m^2p'\cdot k+2(p\cdot k)(p'\cdo
 &=16\left(2m^4+m^2(s-m^2)-\frac12(s-m^2)(u-m^2)\right)
 \end{align*}
 
-where we introduced Mandelstam variables:
+where we introduced Mandelstam variables
 \begin{align*}
 s&=(p+k)^2=2p\cdot k+m^2=2p'\cdot k'+m^2\\
-t&=(p'-p)^2=-2p\cdot p'+2m^2=-2k\cdot k'\\
+t&=(p'-p)^2=-2p\cdot p'+m^2=-2k\cdot k'\\
 u&=(k'-p)^2=-2k'\cdot p+m^2=-2k\cdot p'+m^2
 \end{align*}
+and we used the momentum conservation $s+t+u=2m^2$.
 
 Sending $k\leftrightarrow-k'$ ($s\leftrightarrow u$) we can immediately write
 \begin{align*}
@@ -1113,26 +1161,22 @@ Compute the elements $T_{AB}$ and $T_{BA}$
 Evaluating the traces in $T_{AB}$ and $T_{BA}$ requires about the same amount of work as we have just done. The answer is 
 \begin{align*}
 T_{AB}=T_{BA}&=-16\left(4m^4+m^2(p\cdot k-p\cdot k')\right)\\
-&=-16\left(2m^4+\frac{m^2}2((s-m^2)-(u-m^2))\right)
+&=-16\left(2m^4+\frac{1}2m^2((s-m^2)-(u-m^2))\right)
 \end{align*}
 
 Putting together the pieces of the unpolarized Feynman amplitude for Compton scattering we obtain
 
 \begin{equation}\label{eqn:Compton-unpolarized-squared}\begin{split}
-|\bar{\mathcal M}|^2&=2q^4\left[\frac{p\cdot k'}{p\cdot k}+\frac{p\cdot k}{p\cdot k'}+2m^2\left(\frac1{p\cdot k}-\frac1{p\cdot k'}\right)+m^4\left(\frac1{p\cdot k}-\frac1{p\cdot k'}\right)^2\right]\\
+|\overline{\mathcal M}|^2&=2q^4\left[\frac{p\cdot k'}{p\cdot k}+\frac{p\cdot k}{p\cdot k'}+2m^2\left(\frac1{p\cdot k}-\frac1{p\cdot k'}\right)+m^4\left(\frac1{p\cdot k}-\frac1{p\cdot k'}\right)^2\right]\\
 &=2q^4\left[-\left(\frac{u-m^2}{s-m^2}+\frac{s-m^2}{u-m^2}\right)+4m^2\left(\frac1{s-m^2}+\frac1{u-m^2}\right)+4m^4\left(\frac1{s-m^2}+\frac1{u-m^2}\right)^2\right]
 \end{split}\end{equation}
 
-To turn this expression into a cross section we must decide a frame of reference and draw a piture of the kinematics. We will analyze two different frames
-\begin{enumerate}
-\item \emph{"Lab" frame}, in which the electron is initially at rest, this frame is useful for low energy incoming photons: $\omega_\gamma\ll m_e$;
-\item \emph{c.o.m. frame}, in which the center of mass is at rest, this frame is useful for high energy incoming photons: $\omega_\gamma\gg m_e$, where we can set $m_e=0$
-\end{enumerate}
+To turn this expression into a cross section we must decide a frame of reference and draw a picture of the kinematics.
 
-\subsection{Lab frame - Low energy photon}
-\textsf{See also Mandl sec. 8.6}
+\subsection{Low energy limit - The Klein-Nishima formula and Thomson scattering}
+\textsf{See also Mandl sec. 8.6}\\
 
-In the low energy case, I can verify if QED prediction agrees with Thomason law for low energies scattering.
+In the low energy case, I can verify if QED prediction agrees with Thomason law for low energies scattering. In this case it is useful to work in the laboratory frame frame, where the electron is initially at rest, since $\omega_\gamma\ll m_e$.
 
 \begin{figure}[H]
 \centering
@@ -1203,9 +1247,9 @@ In the low energy limit $\omega_k\ll m$, from \eqref{eqn:QED-compton-energies-la
 
 We have calculated the full relativistic corrections for the Thomson formula.
 
-\subsection{C.o.M. frame - High energy photon}
+\subsection{High energy limit - Infrared divergences and Sudakov logs}
 \textsf{See Peskin sec. 5.5, and Schwartz sec. 13.5.4}
-To analyze the high-energy behaviour of the Compton scattering cross section, it is easiest to work in the center-of-mass frame.
+To analyze the high-energy behaviour of the Compton scattering cross section, it is easiest to work in the center-of-mass frame, since $\omega_\gamma\gg m_e$ and we can approximate $m_e\approx0$.
 
 \begin{figure}[H]
 \centering

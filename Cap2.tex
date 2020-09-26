@@ -133,12 +133,12 @@ We have 2 important limit cases:
 \begin{enumerate}[label=(\alph*)]
 \item If $m_1 = m_2 = m$ (for example $Z \to e^+ e^-$)
 	\begin{gather}
-	\abs{\hat{q_1}} = \frac{M}{2} \biggl( 1 - \frac{4 m^2}{M^2} \biggr)^{1/2} \notag \\
+	\abs{\hat{\vec{q_1}}} = \frac{M}{2} \biggl( 1 - \frac{4 m^2}{M^2} \biggr)^{1/2} \notag \\
 	\biggl( \frac{\de \Gamma_{RF}}{\de \Omega} \biggr) = \frac{1}{64 \pi^2 M} \biggl( 1 - \frac{4 m^2}{M^2} \biggl)^{1/2} \abs{\mathM_{fi}}^2 \notag
 	\end{gather}
 \item If $m_1 = m$, $m_2 = 0$ (for example $W^{\pm} \to e^{\pm} \stackrel{(-)}{\nu}$)
 	\begin{gather}
-	\abs{\hat{q_1}} = \frac{M}{2} \biggl( 1 - \frac{4 m^2}{M^2} \biggr)^{1/2} \notag \\
+	\abs{\hat{\vec{q_1}}} = \frac{M}{2} \biggl( 1 - \frac{4 m^2}{M^2} \biggr)^{1/2} \notag \\
 	\biggl( \frac{\de \Gamma_{RF}}{\de \Omega} \biggr) = \frac{1}{64 \pi^2 M} \biggl( 1 - \frac{m^2}{M^2} \biggr)^{1/2} \abs{\mathM_{fi}}^2 \notag
 	\end{gather}
 \end{enumerate}
@@ -248,8 +248,8 @@ p_1 + p_2 = (\sqrt{s}, 0) \notag \\
 \end{gather}
 With a procedure identical to the one used for $1 \to 2$ decay ($M \leftrightarrow \sqrt{s}$) we obtain
 \begin{gather}
-\bigl( \de \Phi''_{(2)} \bigr)_{CM} = \frac{1}{16 \pi^2} \frac{\big\vert{\widehat{p'_1}}\big\vert_{CM}}{\sqrt{s}} \ \de \Omega'_1 \notag \\
-\big\vert{\widehat{p'_1}}\big\vert_{CM} = \frac{1}{2 \sqrt{s}} \left[ s^2 + (m^{\prime 2}_1 + m^{\prime 2}_2)^2 - 2s (m^{\prime 2}_1 + m^{\prime 2}_2) \right]^{1/2} \notag
+\bigl( \de \Phi''_{(2)} \bigr)_{CM} = \frac{1}{16 \pi^2} \frac{\big\vert{\hat{\vec{p'_1}}}\big\vert_{CM}}{\sqrt{s}} \ \de \Omega'_1 \notag \\
+\big\vert{\hat{\vec{p'_1}}}\big\vert_{CM} = \frac{1}{2 \sqrt{s}} \left[ s^2 + (m^{\prime 2}_1 + m^{\prime 2}_2)^2 - 2s (m^{\prime 2}_1 + m^{\prime 2}_2) \right]^{1/2} \notag
 \end{gather}
 The covariant flux factor in CM frame reads
 \[
@@ -259,7 +259,7 @@ So we obtain the final result
 \[
 \begin{split}
 \biggl( \frac{\de \sigma}{\de \Omega'_1} \biggr)_{CM} 	
-	& = \frac{1}{64 \pi^2 s} \frac{\big\vert{\widehat{p'_1}}\big\vert_{CM}}{\abs{\vec{p}}} \ \abs{\mathM_{fi}}^2_{CM} \\
+	& = \frac{1}{64 \pi^2 s} \frac{\big\vert{\hat{\vec{p'_1}}}\big\vert_{CM}}{\abs{\vec{p}}} \ \abs{\mathM_{fi}}^2_{CM} \\
 	& = \frac{1}{128 \pi^2 s^{3/2}} \frac{1}{\abs{\vec{p}}}
 		\bigl[s^2 + (m_1^{\prime 2} - m_2^{\prime 2})^2 - 2s(m_1^{\prime 2} + m_2^{\prime 2}) \bigr]^{1/2}
 		\abs{\mathM_{fi}}^2_{CM}
@@ -274,7 +274,7 @@ We have two important limit cases
 	\abs{\vec{p_2}} = \abs{\vec{p'_2}},\ \omega_2 = \omega'_2
 	\end{aligned}
 	\right \}\quad\rightarrow
-	\quad \big\vert{\hat{p'_1}}\big\vert_{CM} = \abs{\vec{p}}
+	\quad \big\vert{\hat{\vec{p'_1}}}\big\vert_{CM} = \abs{\vec{p}}
 	\end{equation*}
 	\[
 	\Biggl( \frac{\de \sigma}{\de \Omega'_1} \Biggr)_{CM} = \ \frac{1}{64 \pi^2} \frac{\abs{\mathM_{fi}}^2}{s}
@@ -282,14 +282,14 @@ We have two important limit cases
 \item If $m_1 = m_2 \simeq 0, m'_1 = m'_2 = M$ (for example $e^-e^+ \to \mu^- \mu^+$, $m_e=1$MeV, $m_\mu=100$MeV)
 	\begin{gather}
 	\abs{\vec{p_1}} = \abs{\vec{p}},\ \omega_1 = \frac{\sqrt{s}}{2} \notag \\
-	\big\vert{\hat{p'_1}}\big\vert = \frac{\sqrt{s}}{2} \Biggl( 1 - \frac{1}{4M^2}{s} \Biggr)^{1/2} 
+	\big\vert{\hat{\vec{p'_1}}}\big\vert = \frac{\sqrt{s}}{2} \Biggl( 1 - \frac{1}{4M^2}{s} \Biggr)^{1/2} 
 	\end{gather}
-$4M^2/s$ processes with $s < 4M^2$ are unphysical
 	\[
 	\Biggl( \frac{\de \sigma}{\de \Omega'_1} \Biggr)_{CM} = \ \frac{1}{64 \pi^2} 
 	\Biggl( 1 - \frac{4M^2}{s} \Biggr)
 	\frac{\big\vert{\mathM_{fi}}\big\vert^2}{s}
 	\]
+	Notice that in this case we obtained that processes with $4M^2>s$ are unphysical.
 \end{enumerate}
 \end{example}
 
