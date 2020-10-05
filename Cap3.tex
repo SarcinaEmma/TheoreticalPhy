@@ -897,7 +897,7 @@ Comparing the diagram on the right (where we applied the crossing symmetry) with
 
 
 \section{Process $e^-\gamma\rightarrow e^-\gamma$ (Compton scattering)}
-\textsf{See Peskin, sec 5.5}\\
+\textsf{See Peskin sec 5.5; Schwartz sec 13.5}\\
 
 Let's examine a different process which involves external bosons: the \emph{Compton scattering}. This process is described by two independent diagrams, topologically different:
 
@@ -1174,7 +1174,7 @@ Putting together the pieces of the unpolarized Feynman amplitude for Compton sca
 To turn this expression into a cross section we must decide a frame of reference and draw a picture of the kinematics.
 
 \subsection{Low energy limit - The Klein-Nishima formula and Thomson scattering}
-\textsf{See also Mandl sec. 8.6}\\
+\textsf{See Peskin sec. 5.5; Schwartz sec. 13.5.3; Mandl sec. 8.6}\\
 
 In the low energy case, I can verify if QED prediction agrees with Thomason law for low energies scattering. In this case it is useful to work in the laboratory frame frame, where the electron is initially at rest, since $\omega_\gamma\ll m_e$.
 
@@ -1183,49 +1183,52 @@ In the low energy case, I can verify if QED prediction agrees with Thomason law 
 \input{img/Compton_lab_frame.tex}
 \end{figure}
 
-We will express the cross section in terms of $\omega$ and $\theta$. We can find $\omega'$, the energy of the final photon, using the following trick:
-\begin{align*}
+We will express the cross section in terms of $\omega_k$ and $\theta$. We can find $\omega_{k'}$, the energy of the final photon, using the following trick:
+\begin{equation}\label{eqn:QED-compton-on-shell}\begin{aligned}
 m^2&=(p')^2=(p+k-k')^2=p^2+2p\cdot(k-k')-2k\cdot k'\\
 &=m^2+2m(\omega_k-\omega_{k'})-2\omega_k\omega_{k'}(1-\cos\theta)
-\end{align*}
-hence, we obtain Compton's formula for the shift in the photon wavelength:
+\end{aligned}\end{equation}
+from which we can obtain Compton's formula for the shift in the photon wavelength:
 \[\Delta\lambda=\left(\frac1{\omega_{k'}}-\frac1{\omega_{k}}\right)=\frac{1-\cos\theta}{m}\]
 For our purposes, however, is more useful to solve for $\omega_{k'}$:
-\begin{equation}\label{eqn:QED-compton-energies-lab}
+\begin{equation}\label{eqn:QED-compton-energies-lab}\displaystyle
 \omega_{k'}=\frac{\omega_k}{1+\frac{\omega_{k}}m(1-\cos\theta)}
 \end{equation}
 
 The unpolarized amplitude in the Lab frame is
 \begin{align*}
-|\bar{\mathcal M}|_{\textup{LAB}}^2&=2q^4\left[\left(\frac{\omega_{k'}}{\omega_k}+\frac{\omega_k}{\omega_{k'}}\right)+2m\left(\frac1{\omega_k}-\frac1{\omega_{k'}}\right)+m^2\left(\frac1{\omega_k}-\frac1{\omega_{k'}}\right)^2\right]\\
+|\overline{\mathcal M}|_{\textup{LAB}}^2&=2q^4\left[\left(\frac{\omega_{k'}}{\omega_k}+\frac{\omega_k}{\omega_{k'}}\right)+2m\left(\frac1{\omega_k}-\frac1{\omega_{k'}}\right)+m^2\left(\frac1{\omega_k}-\frac1{\omega_{k'}}\right)^2\right]\\
 &=2q^4\left[\left(\frac{\omega_{k'}}{\omega_k}+\frac{\omega_k}{\omega_{k'}}\right)-\sin^2\theta\right]
 \end{align*}
 
 The covariant flux factor reads
-\[I_{\textup{LAB}}=[(p\cdot k)^2-m_e^2m_\gamma^2]^{1/2}=|p\cdot k|=m_e\omega_k\]
-The 2-body phase space
+\[I_{\textup{LAB}}=[(p\cdot k)^2-m_e^2m_\gamma^2]^{1/2}=|p\cdot k|=m\omega_k\]
+while the 2-body phase space reads (notice that $\vert{\hat{\vec {k'}}}\vert=\omega_{k'}$)
 \begin{align*}
 \int\de\Phi_{(2)}&=\int \frac{\de^3k'}{(2\pi)^32\omega_{k'}}\frac{\de^3p'}{(2\pi)^32E'}(2\pi)^4\delta^4(k'+p'-k-p)
-=\int\frac{\omega^2_{k'}\de\omega_{k'}\de\Omega}{(2\pi)^2}\frac{1}{4\omega_{k'}E'}\delta(\omega_{k'}+E'-\omega_k-m)\\
-&=\int\frac{\omega^2_{k'}\de\omega_{k'}\de\Omega}{(2\pi)^2}\frac{1}{4\omega_{k'}E'}\frac{\delta(\omega_{k'}-|\vec k'|)}{\left|\frac{\partial(\omega_{k'}+E'-\omega_k-m)}{\partial|k'|}\right|}_{\omega_{k'}=|\vec k'|}
-=\int\de\Omega\frac{|\vec k'|^2}{16\pi^2\omega_{k'}E'}\left|\frac{\partial(\omega_{k'}+E')}{\partial|k'|}\right|^{-1}_{\omega_{k'}=|\vec k'|}
+=\int\frac{|\vec{k'}|^2\de|\vec{k'}|\de\Omega}{(2\pi)^2}\frac{1}{4\omega_{k'}E'}\delta(\omega_{k'}+E'-\omega_k-m)\\
+&=\int\frac{|\vec{k'}|^2\de|\vec{k'}|\de\Omega}{16\pi^2\omega_{k'}E'}\frac{\delta(\omega_{k'}-|{\vec k'}|)}{\displaystyle\left|\frac{\partial(\omega_{k'}+E'-\omega_k-m)}{\partial|\vec{k'}|}\right|}_{\omega_{k'}=|{\vec k'}|}
+=\int\de\Omega\frac{\omega_{k'}}{16\pi^2E'}\left|\frac{\partial(\omega_{k'}+E')}{\partial|\vec{k'}|}\right|^{-1}_{\omega_{k'}=|{\vec k'}|}
 \end{align*}
 where 
 \[E'=\left(m^2+(\vec k-\vec k')^2\right)^{1/2}
 =\left[m^2+\omega_k^2+\omega_{k'}^2-2\omega_{k'}\omega_k\cos\theta\right]^{1/2}\]
-\[\frac{\partial E'}{\partial|k'|}=\frac{\omega_{k'}-\omega_k\cos\theta}{E'}\]
+\[\left|\frac{\partial E'}{\partial|\vec{k'}|}\right|_{\omega_{k'}=|\vec{k'}|}=\frac{\omega_{k'}-\omega_k\cos\theta}{E'}\]
 and
-\todo{Controlla l'ultimo passaggio}
 
-\[\left|\frac{\partial(\omega_{k'}+E')}{\partial|k'|}\right|_{\omega_{k'}=|\vec k'|}
+\[\left|\frac{\partial(\omega_{k'}+E')}{\partial|\vec{k'}|}\right|_{\omega_{k'}=|\hat{\vec k'}|}
 =\left|1+\frac{\omega_{k'}-\omega_k\cos\theta}{E'}\right|
+=\left|\frac{E'+\omega_{k'}-\omega_k\cos\theta}{E'}\right|
+=\left|\frac{m+\omega_k(1-\cos\theta)}{E'}\right|
 =\frac{m\omega_k}{E'\omega_{k'}}
 \]
-So the unpolarized cross section is 
+where in the last step we used eq.~\eqref{eqn:QED-compton-on-shell}.
+
+So the unpolarized cross section is
 \begin{align*}
 \left(\frac{\de\bar\sigma}{\de\Omega}\right)_{\textup{LAB}}&=
-\frac{\overline{|\mathcal M|}_{\textup{LAB}}^2}{4I_{\textup{LAB}}}\frac{\de\Phi_{(2)}}{\de\Omega}
-=\frac1{64\pi^2}\frac{|\vec k'|^2}{I_{\textup{LAB}}\omega_{k'}E'}\left|\frac{\partial(\omega_{k'}+E')}{\partial|k'|}\right|^{-1}\overline{|\mathcal M|}_{\textup{LAB}}^2\\
+\frac{{|\overline{\mathcal M}|}_{\textup{LAB}}^2}{4I_{\textup{LAB}}}\frac{\de\Phi_{(2)}}{\de\Omega}
+=\frac1{64\pi^2}\frac{\omega_{k'}}{I_{\textup{LAB}}E'}\left|\frac{\partial(\omega_{k'}+E')}{\partial|\vec{k'}|}\right|^{-1}_{\omega_{k'}=|{\vec k'}|}{|\overline{\mathcal M}|}_{\textup{LAB}}^2\\
 &=\frac{q^4}{32\pi^2}\frac1{m^2}\left(\frac{\omega_{k'}}{\omega_k}\right)^2\left(\frac{\omega_{k'}}{\omega_k}+\frac{\omega_k}{\omega_{k'}}-\sin^2\theta\right)\\
 &=\frac{\alpha^2}{2}\frac1{m^2}\left(\frac{\omega_{k'}}{\omega_k}\right)^2\left(\frac{\omega_{k'}}{\omega_k}+\frac{\omega_k}{\omega_{k'}}-\sin^2\theta\right)
 \end{align*}
@@ -1248,7 +1251,8 @@ In the low energy limit $\omega_k\ll m$, from \eqref{eqn:QED-compton-energies-la
 We have calculated the full relativistic corrections for the Thomson formula.
 
 \subsection{High energy limit - Infrared divergences and Sudakov logs}
-\textsf{See Peskin sec. 5.5, and Schwartz sec. 13.5.4}
+\textsf{See Peskin sec. 5.5; Schwartz sec. 13.5.4}\\
+
 To analyze the high-energy behaviour of the Compton scattering cross section, it is easiest to work in the center-of-mass frame, since $\omega_\gamma\gg m_e$ and we can approximate $m_e\approx0$.
 
 \begin{figure}[H]
@@ -1258,89 +1262,82 @@ To analyze the high-energy behaviour of the Compton scattering cross section, it
 
 The kinematics of the reaction in the high energy limit ($m\approx0$) looks like
 \begin{align*}
-E&=\sqrt{\vec k^2+m^2}\overset{m=0}{\approx}|\vec k|=\omega_k\\
-E'&=\sqrt{\vec k'^2+m^2}\overset{m=0}{\approx}|\vec k'|=\omega_{k'}
+E&=\sqrt{\vec k^2+m^2}\overset{m\approx0}{\approx}|\vec k|=\omega_k\\
+E'&=\sqrt{\vec k'^2+m^2}\overset{m\approx0}{\approx}|\vec k'|=\omega_{k'}
 \end{align*}
 \begin{align*}
-p\cdot k\,&=E\omega_k+|\vec k|^2=\omega_k(E+\omega_k)\overset{m=0}{\approx}2\omega_k^2\\
-p\cdot p'&=E\,E'-\vec k\vec k'=E\,E'-|\vec k||\vec k'|\cos\theta=E\,E'-\omega_k\omega_{k'}\cos\theta\overset{m=0}{\approx}\omega_k\omega_{k'}(1-\cos\theta)\\
-p\cdot k'&=E\,\omega_{k'}+\vec k\vec k'=E\,\omega_{k'}+|\vec k||\vec k'|\cos\theta=\omega_{k'}(E+\omega_k\cos\theta)\overset{m=0}{\approx}\omega_k\omega_{k'}(1+\cos\theta)
+p\cdot k\,&=E\omega_k+|\vec k|^2=\omega_k(E+\omega_k)\overset{m\approx0}{\approx}2\omega_k^2\\
+p\cdot p'&=E\,E'-\vec k\vec k'=E\,E'-|\vec k||\vec k'|\cos\theta=E\,E'-\omega_k\omega_{k'}\cos\theta\overset{m\approx0}{\approx}\omega_k\omega_{k'}(1-\cos\theta)\\
+p\cdot k'&=E\,\omega_{k'}+\vec k\vec k'=E\,\omega_{k'}+|\vec k||\vec k'|\cos\theta=\omega_{k'}(E+\omega_k\cos\theta)\overset{m\approx0}{\approx}\omega_k\omega_{k'}(1+\cos\theta)
 \end{align*}
 We also have
 \begin{align*}
-s&=(p+k)^2=m^2+2p\cdot k=m^2+2\omega_k(E+\omega_k)\overset{m=0}{\approx}4\omega_k^2 \quad\rightarrow\quad \omega_k\overset{m=0}{\approx}\frac{\sqrt s}{2}\\
-s&=(p'+k')^2=m^2+2p'\cdot k'=m^2+2\omega_{k'}(E'+\omega_k')\overset{m=0}{\approx}4\omega_{k'}^2 \quad\rightarrow\quad \omega_{k'}\overset{m=0}{\approx}\frac{\sqrt s}{2}
+s&=(p+k)^2=m^2+2p\cdot k=m^2+2\omega_k(E+\omega_k)\overset{m\approx0}{\approx}4\omega_k^2 \quad\rightarrow\quad \omega_k\overset{m\approx0}{\approx}\frac{\sqrt s}{2}\\
+s&=(p'+k')^2=m^2+2p'\cdot k'=m^2+2\omega_{k'}(E'+\omega_k')\overset{m\approx0}{\approx}4\omega_{k'}^2 \quad\rightarrow\quad \omega_{k'}\overset{m\approx0}{\approx}\frac{\sqrt s}{2}
 \end{align*}
 
-Plugging these values into Eq.\eqref{eqn:Compton-unpolarized-squared}
-
+Plugging these values into eq.~\eqref{eqn:Compton-unpolarized-squared} for c.o.m. frame with $E\gg m$ we get 
 \begin{align*}
-\overline{|\mathcal M|}^2
-&=2q^4\left[\frac{p\cdot k'}{p\cdot k}+\frac{p\cdot k}{p\cdot k'}+2m^2\left(\frac1{p\cdot k}-\frac1{p\cdot k'}\right)+m^4\left(\frac1{p\cdot k}-\frac1{p\cdot k'}\right)^2\right]
-\end{align*}
-
-for c.o.m. frame with $E\gg m$ we have 
-\begin{align*}
-\overline{|\mathcal M|}_{\textup{CM}}^2
+{|\overline{\mathcal M}|}_{\textup{CM}}^2
 &\approx2q^4\left(\frac{p\cdot k'}{p\cdot k}+\frac{p\cdot k}{p\cdot k'}\right)\approx2q^4\left(\frac{1+\cos\theta}{2}+\frac{2}{1+\cos\theta}\right)
 \end{align*}
-
-we notice that the term $p\cdot k/p\cdot k'$ becomes divergent when the electron is emitted in the backward direction ($\theta\approx\pi$), while other terms are all of $\mathcal O(1)$ or smaller.
+Notice that the term $p\cdot k/p\cdot k'$ becomes divergent when the electron is emitted in the backward direction ($\theta\approx\pi$), while other terms are all of $\mathcal O(1)$ or smaller.
 
 Notice that two initial diagrams $\mathcal M_A$, $s$-channel, and $\mathcal M_B$, $u$-channel, give contributions to the total amplitude proportional to\footnote{You can easily verify this statement looking at the calculation on the beginning of this section.} 
 \[\mathcal M_A\quad\rightarrow\quad\frac1{2p\cdot k}=\frac1{s-m^2}\qquad\quad
 \mathcal M_B\quad\rightarrow\quad\frac1{2p\cdot k'}=\frac1{u-m^2}\]
-Here is clear the relation between the momentum of the channel and the contribution to the total Feynman amplitude. The divergent contribution is due to the square of the $u$-channel diagram, we can see that for $\theta=\pi$ we have $u=(p-k')^2=m^2-2p\cdot k'\approx m^2-2\omega_k^2(1+\cos\theta)\approx m^2$ i.e. the divergent contribution is related to the situation where the initial electron emits a photon with all its kinetic energy and then absorbs all the energy of the initial photon. The amplitude is large at $\theta\approx\pi$ because the denominator of the propagator is then small ($\sim m^2$) compared to $s$. This kind of divergence is called \emph{Infra-Red divergence}.\\
-\todo{This is a Infra-Red divergence, related to Sudakov logs. Add some comment. See Mandl 8.9}
+Here is clear the relation between the momentum of the channel and the contribution to the total Feynman amplitude. The divergent contribution is due to the square of the $u$-channel diagram, we can see that for $\theta=\pi$ we have $u=(p-k')^2=m^2-2p\cdot k'\approx m^2-2\omega_k^2(1+\cos\theta)\approx m^2$ i.e. the divergent contribution is related to the situation where the initial electron emits a photon with all its kinetic energy and then absorbs all the energy of the initial photon. The amplitude is large at $\theta\approx\pi$ because the denominator of the propagator is then small ($\sim m^2$) compared to $s$. This kind of divergence is called \emph{infrared divergence}, since is due to low modes in the propagator of the internal electron.
+
 We can correct the divergent term (unphysical) considering higher terms in the Taylor expantion of $E$ in $m$:
 \begin{align*}
 E&=\sqrt{\vec k^2+m^2}=|\vec k|+\frac{m^2}{2|\vec k|}+o(m^3)\overset{m\approx0}{\approx}\omega_k+\frac{m^2}{2\omega_k}
 \end{align*}
-\[p\cdot k'=\omega_{k'}(E+\omega_k\cos\theta)\overset{m=0}{\approx}\omega_{k'}\left(\omega_k+\frac{m^2}{2\omega_k}+\omega_k\cos\theta\right)
+\[ p\cdot k'=\omega_{k'}(E+\omega_k\cos\theta)\overset{m\approx0}{\approx}\omega_{k'}\left(\omega_k+\frac{m^2}{2\omega_k}+\omega_k\cos\theta\right)
 =\omega_{k}^2\left(1+\cos\theta+\frac{m^2}{2\omega_k^2}\right)\]
 \begin{align*}
-\overline{|\mathcal M|}_{\textup{CM}}^2
+{|\overline{\mathcal M}|}_{\textup{CM}}^2
 &\approx2q^4\left(\frac{p\cdot k'}{p\cdot k}+\frac{p\cdot k}{p\cdot k'}\right)
-\approx2q^4\left(\frac{1+\cos\theta}{2}+\frac{2}{1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)
+\approx2q^4\left(\frac{1+\cos\theta}{2}+\frac{2}{\displaystyle1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)
 \end{align*}
 Now we can compute the cross section in the CM frame (we can use the formula for elastic scattering):
 \begin{align*}
 \left(\frac{\de\bar\sigma}{\de\Omega}\right)_{\textup{CM}}
-=\frac1{64\pi^2}\frac{\overline{|\mathcal M|}^2_{\textup{CM}}}s
-&\approx\frac{q^4}{32\pi^2s}\left(\frac{1+\cos\theta}{2}+\frac{2}{1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)\\
-&\approx\frac{\alpha^2}{2s}\left(\frac{1+\cos\theta}{2}+\frac{2}{1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)
+=\frac1{64\pi^2}\frac{{|\overline{\mathcal M}|}^2_{\textup{CM}}}s
+&\approx\frac{q^4}{32\pi^2s}\left(\frac{1+\cos\theta}{2}+\frac{2}{\displaystyle1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)\\
+&\approx\frac{\alpha^2}{2s}\left(\frac{1+\cos\theta}{2}+\frac{2}{\displaystyle1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)
 \end{align*}
 or
-\[{\left(\frac{\de\bar\sigma}{\de(\cos\theta)}\right)}_{\textup{CM}}
-\approx\frac{\pi\alpha^2}{s}\left(\frac{1+\cos\theta}{2}+\frac{2}{1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)\]
-Recall that the electron mass $m$ can be neglected completely in this formula if it were not necessary to cutoff the singularity for $\theta=0$.\\
-The total Compton scattering cross section reads:
+\[{\left(\frac{\de\bar\sigma}{\de\cos\theta}\right)}_{\textup{CM}}
+\approx\frac{\pi\alpha^2}{s}\left(\frac{1+\cos\theta}{2}+\frac{2}{\displaystyle1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)\]
+Recall that the electron mass $m$ can be neglected completely in this formula if it were not necessary to cutoff the singularity for $\theta=0$.
+
+The total Compton scattering cross section then reads:
 \begin{align*}
 \bar\sigma_{\textup{total}}=\int_{-1}^1\de(\cos\theta){\left(\frac{\de\bar\sigma}{\de(\cos\theta)}\right)}_{\textup{CM}}
 &\approx 
-\frac{\pi\alpha^2}{s}\int_{-1}^1\de(\cos\theta)\left(\frac{1+\cos\theta}{2}+\frac{2}{1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)\\
+\frac{\pi\alpha^2}{s}\int_{-1}^1\de(\cos\theta)\left(\frac{1+\cos\theta}{2}+\frac{2}{\displaystyle1+\cos\theta+\frac{m^2}{2\omega_k^2}}\right)\\
 &=\frac{\pi\alpha^2}{s}+\frac{2\pi\alpha^2}{s}\log\left(\frac s{m^2}\right)
 \end{align*}
 The main dependence $\alpha^2/s$ follows from dimensional analysis. But the singularity associated to backward scattering of photons leads to an enhancement by an extra logarithm of the energy, called \emph{Sudakov logarithm}.
 
-\todo{Inserire diagrammi di Feynman pag 168 Peskin (ruotati appropriatamente)}
-\begin{exercise}[Pair Annihilation into Photons]
-Find the total cross section of the annihilation process $e^+e^-\rightarrow2\gamma$
+\begin{exercise}[Pair annihilation into photons]
+Find the total cross section of the annihilation process $e^+e^-\rightarrow2\gamma$ (\emph{pair annihilation into photons}. \\
+
+\textit{Solution:}\\
+See Peskin, pag. 168-169.
 \end{exercise}
 
 
 \section{Scattering by an external E.M. field and the Rutherford formula}\label{sec:scatt-Rutherf}
 
 \subsection{$e^-p\rightarrow e^-p$  Rutherford scattering}
-\textsf{See Schwartz sec. 13.4}
+\textsf{See Schwartz sec. 13.4; Mandl sec. 8.7}\\
 
 Now let us go back to the problem of scattering of an electron by a Coulomb potential. Recall the classical Rutherford scattering formula, 
-\[\frac{\de\sigma}{\de\Omega}=\frac{m_e^2e^4}{4|\vec p_i|^4\sin^4\frac\theta2}\]
-where $|\vec p_i|=|\vec p_f|$ is the magnitude of the incoming electron momentum, which. is the same as the magnitude of the outgoing electron momentum for elastic scattering. Rutherford calculated this using classical mechanics to describe how an electron would get deflected in a central potential, as from atomic nucleus.
+\[\frac{\de\sigma}{\de\Omega}=\frac{m_e^2e^4}{\displaystyle 4|\vec p_i|^4\sin^4\frac\theta2}\]
+where $|\vec p_i|=|\vec p_f|$ is the magnitude of the incoming electron momentum, which is the same as the magnitude of the outgoing electron momentum for elastic scattering. Rutherford calculated this using classical mechanics to describe how an electron would get deflected in a central potential, as from atomic nucleus.
 
-\skipline
-
-We study the process in the CM frame for the proton.
+We study the process at relativistic level in the CM frame for the proton.
 
 \begin{figure}[H]
 \centering
@@ -1355,7 +1352,7 @@ If we can neglect the electron mass ($m_e\approx0$) we also have
 Then energy conservation reads
 \[\omega_e+M_p=\omega_e'+\omega_p'
 \quad\rightarrow\quad
-\omega_e=\omega_e'+\frac{|\vec{p_{p}}'|^2}{2M_p}+o\left(|\vec{p_{p}}'|^{3}\right)
+\omega_e=\omega_e'+\frac{|\vec{p_{p}}'|^2}{2M}+o\left(|\vec{p_{p}}'|^{3}\right)
 \quad\rightarrow\quad
 \omega_e\approx\omega_e'
 \]
@@ -1370,13 +1367,10 @@ and because of momentum conservation $p_e+p_p=p_e'+p_p'$ we have
 \quad\rightarrow\quad
 \cos\theta\approx 1-\frac12\frac{|\vec p_p'|^2}{|\vec p_e|^2}\]
 
-\skipline
-
 In order to give a description of this process using QED, we modify the QED Lagrangian, so that we introduce also protons in our theory. We consider a low energy process, where the proton can be consider as a fundamental particle, described as a spin $1/2$ fermion. Then we can do the same trick we used for QED flavours. The modified Lagrangian reads:\footnote{\textsf{See Schwartz sec. 5.2}}
 \[\mathcal L=\bar\psi_e(i\slashed\partial-m_e)\psi_e+\bar\psi_p(i\slashed\partial-M_p)\psi_p+\underbrace{q_e\bar\psi_e\slashed A\psi_e+q_p\bar\psi_p\slashed A\psi_p}_{\mathcal L_{\textup{int}}}\]
 
-{\small Notice that $\mathcal L_{\textup{int}}$ in order to obtain a description of Rutherford scattering we need to consider at least 2-nd order processes, i.e. 2 vertex.}
-The two-vertex S matrix element becomes
+In order to describe this process, we need at least two-vertices diagrams. Therefore the lowest order contribution to the process is given by the two-vertices $S$ matrix element
 \begin{align*}
 S_{(2)}&=\frac{(-i)^2}{2!}\int\de^4 x\,\de^4y\,\textup{T}\left\{\textup{N}\left[q_e\bar\psi_e\slashed A\psi_e+q_p\bar\psi_p\slashed A\psi_p\right]_x\textup{N}\left[q_e\bar\psi_e\slashed A\psi_e+q_p\bar\psi_p\slashed A\psi_p\right]_y\right\}\\
 &=\frac12(-iq_e)(-iq_p)\int\de^4 x\,\de^4y\,\textup{T}\left\{\textup{N}\left[\bar\psi_e\slashed A\psi_e\right]_x\textup{N}\left[\bar\psi_p\slashed A\psi_p\right]_y+\textup{N}\left[\bar\psi_e\slashed A\psi_e\right]_y\textup{N}\left[\bar\psi_p\slashed A\psi_p\right]_x\right\}\\
@@ -1409,9 +1403,7 @@ The $e^-p\rightarrow e^-p$  process is similar to the process $e^-f^-\rightarrow
 \end{figure}
 
 Feynman amplitude for this process is (we consider the gauge fixing term for EM field with $\zeta=1$)
-
 \[\mathcal M=i\frac{q_eq_p}{t}\left(\bar u_{r'}(p_e')\gamma^\mu u_r(p_e)\right)_e\left(\bar u_{s'}(p_p')\gamma_\mu u_s(p_p)\right)_p\]
-
 where lower indices means that spinors are related respectively to electron and proton fields. Since proton is at rest  its spinors takes a simple form
 \[u_s(p_e=(M,0))=\sqrt {2M}\begin{pmatrix}\xi_s\\0\end{pmatrix}
 \qquad\quad
